@@ -230,6 +230,9 @@ def build_replay(sources, out, *, allow_ui_fixture=False, screenshots=True):
         raise ValueError("run names must be unique")
     # Inputs are all checked before the output directory is created.
     shutil.copytree(ROOT / "web", out)
+    # The standalone bundle redistributes project-authored HTML/CSS/JS. Retain
+    # their actual root license as bytes, alongside the vendored uPlot license.
+    (out / "LICENSE.txt").write_bytes((ROOT / "LICENSE").read_bytes())
     runs = []
     for run, assets, rows in prepared:
         raw_dir = out / "raw" / run["name"]

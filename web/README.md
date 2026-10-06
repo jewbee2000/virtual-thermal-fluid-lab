@@ -16,6 +16,8 @@ presentation dataset in local `data.js`, so `index.html` also works offline unde
 `file://` without browser CORS exceptions, Python, a server, network or account.
 Hosting the unchanged directory is sufficient for website replay. All bundled
 asset hashes and original file hashes are in `replay-manifest.json`.
+The exporter retains the project root MIT license byte-for-byte as `LICENSE.txt`
+for the authored replay assets; uPlot's separate license is also bundled.
 
 The source page contains no evidence by default. Explicit developer fixtures may
 be exported only with `--allow-ui-fixture`; their summary must declare
@@ -58,6 +60,12 @@ campaign release gate.
   its final retained row. Limits come from the executed controller configuration,
   not an invented UI safety rating. K and m³/s remain raw units; display converts
   to °C and L/min.
+- The thermal conservative bound displays its recorded coverage scope and retained
+  start/end separately from the requested end. A valid terminal hazard is a
+  RETAINED_PREFIX through its fractional terminal root, not a bound over the
+  unfinished requested horizon. UNAVAILABLE, discarded-row or inconsistent
+  coverage metadata suppresses the numeric bound. The object remains unchanged
+  in embedded metrics and full raw downloads; no new acceptance judgment is made.
 
 The page records its own initial script/plot render observation using the browser
 Performance API. Record repeated load observations with the final dataset,

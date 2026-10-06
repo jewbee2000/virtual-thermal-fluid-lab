@@ -14,4 +14,6 @@ Release: https://github.com/leeoniya/uPlot/releases/tag/1.6.32
 | `vendor/uplot/LICENSE` | https://raw.githubusercontent.com/leeoniya/uPlot/1.6.32/LICENSE | `8f989229699b4fe2f1a0432d0e9edc338a8a911e250e2d1b01ecd770a5f5b1bd` |
 
 Project-authored HTML, CSS, JavaScript, SVG and fixture drawings are covered by
-the root project MIT license. There are no imported photos or icon/font assets.
+the root project MIT license. Standalone replay exports retain that exact license
+as `LICENSE.txt` and hash it in `replay-manifest.json`. There are no imported
+photos or icon/font assets.

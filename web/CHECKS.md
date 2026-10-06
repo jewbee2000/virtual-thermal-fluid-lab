@@ -33,3 +33,27 @@ desktop/mobile/keyboard behavior, measure repeated released-dataset load time,
 and derive final screenshots/figures from released data. The fixture is planned
 NOT_FABRICATED; board NOT_EXECUTED; physical validation NOT_STARTED. OpenSCAD source
 is supplied but no CAD-tool render or physical fit test was executed.
+
+Coverage/license follow-up, 2026-10-06: the conservative thermal bound now retains
+and displays `peak_bound_coverage` scope, actual retained start/end (including
+fractional terminal roots), requested end and discarded-row count. UNAVAILABLE or
+inconsistent coverage suppresses the numeric bound. The exporter now copies the
+project MIT license unchanged as `LICENSE.txt` and hashes it in the replay manifest.
+
+Actual checks: focused12 export/JS-helper tests passed0.513 s before the license
+repair and0.615 s afterward; JS syntax checks passed. The full107-test suite
+passed17.268 s without skips using the same actual MSVC host binary, and all seven
+tank expectations passed; those broad checks preceded the narrow license-copy
+repair. The later focused test checks both copied license bytes and manifest hash.
+Project license SHA256:
+`faf01a2585858a00fc23a8489041ca74c0f3fe45d8cbd81a4a50fb8f3c757cfb`.
+
+Prior to the coordinator's instruction to reserve further browser QA for CUA,
+an additional native Edge154.0.4258.53 smoke used three explicitly labeled
+UI_FIXTURE NOT_VERIFICATION datasets. It displayed RETAINED_PREFIX through
+1.23456789 s versus requested1200 s, FULL_RETAINED_HORIZON and UNAVAILABLE with
+the numeric bound suppressed. No JavaScript errors or mobile document overflow
+were observed. These are interface fixtures, not thermal campaign evidence.
+No browser automation was performed after that instruction or for the final
+license link. Logs are `artifacts/M6-checks/coverage-*.txt/json/cjs`; the synthetic
+export is `artifacts/M6-coverage-ui-fixture/` and must not supply release figures.

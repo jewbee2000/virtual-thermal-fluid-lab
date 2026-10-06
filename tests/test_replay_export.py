@@ -83,6 +83,9 @@ class ReplayExportTests(unittest.TestCase):
         self.assertEqual("UI_FIXTURE NOT_VERIFICATION",run["evidence_level"])
         manifest=json.loads((out/"replay-manifest.json").read_text())
         self.assertEqual(hashlib.sha256((out/"data.js").read_bytes()).hexdigest(),manifest["artifacts"]["data.js"])
+        license_bytes=(ROOT/"LICENSE").read_bytes()
+        self.assertEqual(license_bytes,(out/"LICENSE.txt").read_bytes())
+        self.assertEqual(hashlib.sha256(license_bytes).hexdigest(),manifest["artifacts"]["LICENSE.txt"])
 
     def test_fixture_requires_explicit_development_opt_in(self):
         with self.assertRaisesRegex(ValueError,"UI_FIXTURE"):
@@ -145,6 +148,20 @@ class ReplayExportTests(unittest.TestCase):
         self.assertEqual(.26,rows[-1]["level_m"])
         self.assertTrue(rows[-1]["sensor_valid"])
 
+    def test_peak_bound_coverage_metadata_retained_without_horizon_extension(self):
+        source=self.fixture()
+        summary=json.loads((source/"summary.json").read_text())
+        coverage=dict(start_time_us=0,end_time_us=1_234_567.89,requested_end_time_us=1_200_000_000,
+                      retained_samples=4,discarded_rows=0,scope="RETAINED_PREFIX")
+        summary["metrics"]={"global_peak_upper_bound_k":300.05,"peak_bound_coverage":coverage}
+        raw=json.dumps(summary,indent=2).encode()
+        (source/"summary.json").write_bytes(raw);self.rehash(source)
+        out=self.base/"prefix-export"
+        replay.build_replay([source],out,allow_ui_fixture=True,screenshots=False)
+        payload=json.loads((out/"data.js").read_text()[len("window.FLUIDLAB_REPLAY="):-2])
+        self.assertEqual(coverage,payload["runs"][0]["summary"]["metrics"]["peak_bound_coverage"])
+        self.assertEqual(raw,(out/"raw/ui_fixture/summary.json").read_bytes())
+
     @unittest.skipUnless(shutil.which("node"),"Node needed for browser-independent replay helper checks")
     def test_observation_gap_equality_and_duplicate_time_cursor_oracles(self):
         # Literal oracle: equality300000us fresh,300001us stale; invalid/missing
@@ -161,6 +178,32 @@ assert.equal(m.indexAt([{time_s:0},{time_s:1},{time_s:1},{time_s:2}],0.9),0);
 assert.equal(m.tankObservedValue({sensor_valid:true,measurement_age_s:0.3,measured_level_m:0.5},0.3),0.5);
 assert.equal(m.tankObservedValue({sensor_valid:true,measurement_age_s:0.300001,measured_level_m:0.5},0.3),null);
 console.log("Independent gap/time literals passed");
+'''
+        result=subprocess.run([shutil.which("node"),"-e",script,str(ROOT/"web/replay-model.js")],capture_output=True,text=True,timeout=15)
+        self.assertEqual(0,result.returncode,result.stdout+result.stderr)
+
+    @unittest.skipUnless(shutil.which("node"),"Node needed for browser-independent coverage display checks")
+    def test_peak_bound_scope_fractional_prefix_and_unavailable_display_oracles(self):
+        script=r'''
+const assert=require("node:assert/strict");
+const m=require(process.argv[1]);
+const coverage={start_time_us:0,end_time_us:1234567.89,requested_end_time_us:1200000000,
+ retained_samples:4,discarded_rows:0,scope:"RETAINED_PREFIX"};
+const metrics={global_peak_upper_bound_k:300.05,peak_bound_coverage:coverage};
+const prefix=m.peakBoundDisplay(metrics);
+assert.equal(prefix.value_k,300.05);assert.equal(prefix.scope,"RETAINED_PREFIX");
+assert.match(prefix.detail,/retained 0–1\.23456789 s; requested end 1200 s/);
+const full=m.peakBoundDisplay({...metrics,peak_bound_coverage:{...coverage,end_time_us:1200000000,scope:"FULL_RETAINED_HORIZON"}});
+assert.equal(full.scope,"FULL_RETAINED_HORIZON");assert.equal(full.value_k,300.05);
+for(const patch of [{scope:"UNAVAILABLE"},{discarded_rows:1},{end_time_us:NaN},
+ {start_time_us:2000000},{scope:"FULL_RETAINED_HORIZON"},{retained_samples:0}]) {
+ const unavailable=m.peakBoundDisplay({...metrics,peak_bound_coverage:{...coverage,...patch}});
+ assert.equal(unavailable.value_k,null);assert.equal(unavailable.scope,"UNAVAILABLE");
+ assert.match(unavailable.detail,/excludes numerical integration error/);
+}
+assert.equal(m.peakBoundDisplay({...metrics,global_peak_upper_bound_k:null}).value_k,null);
+assert.equal(m.peakBoundDisplay({global_peak_upper_bound_k:300.05}).scope,"UNAVAILABLE");
+console.log("Independent scope/window/discarded-row literals passed");
 '''
         result=subprocess.run([shutil.which("node"),"-e",script,str(ROOT/"web/replay-model.js")],capture_output=True,text=True,timeout=15)
         self.assertEqual(0,result.returncode,result.stdout+result.stderr)

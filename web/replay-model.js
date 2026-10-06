@@ -31,7 +31,29 @@
     return row && row.sensor_valid === true && finite(row.measurement_age_s) &&
       row.measurement_age_s <= staleSeconds && finite(row.measured_level_m) ? row.measured_level_m : null;
   }
-  const api = {finite, unpack, indexAt, quality, observedValue, tankObservedValue};
+  function peakBoundDisplay(metrics) {
+    const coverage = metrics?.peak_bound_coverage;
+    const fields = ["start_time_us", "end_time_us", "requested_end_time_us", "retained_samples", "discarded_rows", "scope"];
+    const closed = coverage && typeof coverage === "object" && !Array.isArray(coverage) &&
+      Object.keys(coverage).length === fields.length && fields.every(field => Object.hasOwn(coverage, field));
+    const windowValid = closed && finite(coverage.start_time_us) && finite(coverage.end_time_us) &&
+      finite(coverage.requested_end_time_us) && coverage.start_time_us >= 0 &&
+      coverage.end_time_us >= coverage.start_time_us && coverage.requested_end_time_us >= coverage.end_time_us;
+    const countsValid = closed && Number.isInteger(coverage.retained_samples) && coverage.retained_samples > 0 &&
+      Number.isInteger(coverage.discarded_rows) && coverage.discarded_rows >= 0;
+    const full = windowValid && coverage.scope === "FULL_RETAINED_HORIZON" &&
+      coverage.start_time_us === 0 && coverage.end_time_us === coverage.requested_end_time_us;
+    const prefix = windowValid && coverage.scope === "RETAINED_PREFIX" &&
+      (coverage.start_time_us > 0 || coverage.end_time_us < coverage.requested_end_time_us);
+    const available = countsValid && coverage.discarded_rows === 0 && (full || prefix) && finite(metrics.global_peak_upper_bound_k);
+    const scope = available ? coverage.scope : "UNAVAILABLE";
+    const seconds = value => (value / 1e6).toFixed(9).replace(/(\.\d*?[1-9])0+$|\.0+$/, "$1");
+    const windowLabel = windowValid ? `retained ${seconds(coverage.start_time_us)}–${seconds(coverage.end_time_us)} s; requested end ${seconds(coverage.requested_end_time_us)} s` : "no verified coverage window";
+    const countsLabel = countsValid ? `; ${coverage.retained_samples} rows, ${coverage.discarded_rows} discarded` : "";
+    return {value_k: available ? metrics.global_peak_upper_bound_k : null, scope,
+      detail: `${scope} · ${windowLabel}${countsLabel} · excludes numerical integration error`};
+  }
+  const api = {finite, unpack, indexAt, quality, observedValue, tankObservedValue, peakBoundDisplay};
   if (typeof module !== "undefined" && module.exports) module.exports = api;
   else scope.ReplayModel = api;
 })(typeof window !== "undefined" ? window : globalThis);

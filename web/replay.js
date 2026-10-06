@@ -118,14 +118,14 @@
     const expectation=evaluation.expectation_pass ?? s.all_checks_pass;
     const containment=evaluation.containment_status ?? s.containment ?? "UNAVAILABLE";
     const peak=metrics.global_sampled_peak_k;
-    const bound=metrics.global_peak_upper_bound_k;
+    const boundDisplay=M.peakBoundDisplay(metrics);
     const trip=metrics.first_trip_time_s ?? (M.finite(metrics.first_trip_time_us) ? metrics.first_trip_time_us/1e6 : s.trip_time_s);
     $("metrics").replaceChildren(
       metric("Scenario expectation",expectation===true ? "PASS" : expectation===false ? "FAIL" : "UNASSESSABLE"),
       metric("Containment", typeof containment === "string" ? containment : JSON.stringify(containment)),
       metric("Completion", evaluation.completion_status ?? ((s.completed_horizon ?? s.complete_horizon)===true ? "COMPLETE" : (s.completed_horizon ?? s.complete_horizon)===false ? "PARTIAL" : s.completion_status ?? "UNAVAILABLE")),
       metric(current.topology==="thermal_loop" ? "Global sampled peak" : "Sampled level peak",current.topology==="thermal_loop" ? fmt(celsius(peak),2)+" °C" : fmt(s.peak_level_m,4)+" m", "Sample maximum only"),
-      metric("Conservative peak bound",current.topology==="thermal_loop" ? fmt(celsius(bound),2)+" °C" : fmt(s.continuous_peak_bound_m,4)+" m", "Sample-gap bound; excludes numerical integration error"),
+      metric("Conservative peak bound",current.topology==="thermal_loop" ? fmt(celsius(boundDisplay.value_k),2)+" °C" : fmt(s.continuous_peak_bound_m,4)+" m", current.topology==="thermal_loop" ? boundDisplay.detail : "Sample-gap bound; excludes numerical integration error"),
       metric("First trip",fmt(trip,3)+" s", metrics.first_trip_reason || s.trip_reason || "No recorded trip"));
     const scope=s.execution?.configuration_scope;
     $("outcome-explanation").textContent=(current.evidence_level.startsWith("UI_FIXTURE") ? "UI_FIXTURE — NOT_VERIFICATION. " : "") + (scope === "VARIANT" ? "VARIANT CONFIGURATION: this run cannot close the frozen-default release gate. " : scope === "FROZEN_DEFAULT" ? "Frozen default configuration. " : "") + "A passing expected hazard can still have FAILED containment. A stop request does not establish that a faulty actuator stopped. Physical validation remains NOT_STARTED.";
