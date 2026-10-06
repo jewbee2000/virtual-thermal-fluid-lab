@@ -17,7 +17,11 @@ if(NOT PICO_SDK_VERSION_STRING VERSION_EQUAL "2.3.1")
 endif()
 set(fl_usbd_source "${PICO_SDK_PATH}/lib/tinyusb/src/device/usbd.c")
 file(SHA256 "${fl_usbd_source}" fl_usbd_sha256)
-if(NOT fl_usbd_sha256 STREQUAL "d198d57e626db62c2ac42fe9c26c815403984d92cedecd5414a9b38d3836a95d")
+# The same pinned immutable Git blob has these two reviewed raw representations:
+# LF on Linux and CRLF in the provisioned Windows checkout. Enumerate both;
+# do not normalize or accept any other modified source representation.
+if(NOT fl_usbd_sha256 STREQUAL "f15a6da11eca127b792bd04d3270e6ea3901b0a29c24f462d5687d63da1df6cb"
+   AND NOT fl_usbd_sha256 STREQUAL "d198d57e626db62c2ac42fe9c26c815403984d92cedecd5414a9b38d3836a95d")
   message(FATAL_ERROR "TinyUSB usbd.c hash changed; review the bounded task wrapper")
 endif()
 file(READ "${fl_usbd_source}" fl_usbd_text)
