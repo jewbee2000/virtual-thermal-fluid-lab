@@ -1,0 +1,29 @@
+{
+  "name": "nominal",
+  "checks": {
+    "R02_volume_balance": true,
+    "R01_tracking": true,
+    "R03_no_trip": true,
+    "R04_no_boundary": true,
+    "R10_latched_command_stop": true
+  },
+  "all_checks_pass": true,
+  "trip_reason": null,
+  "trip_time_s": null,
+  "boundary": null,
+  "peak_level_m": 0.5563729775113371,
+  "final_level_m": 0.4986868009156543,
+  "max_volume_residual_m3": 1.214306433183765e-16,
+  "result_meaning": "scenario expectations only; NOT physical safety validation",
+  "physical_validation": "NOT_STARTED",
+  "parameters": {
+    "area_m2": 0.05,
+    "tank_height_m": 1.0,
+    "outlet_area_m2": 0.0001,
+    "discharge_coefficient": 0.62,
+    "gravity_m_s2": 9.80665,
+    "pump_max_m3_s": 0.0004,
+    "pump_tau_s": 1.0,
+    "valve_tau_s": 0.5
+  }
+}

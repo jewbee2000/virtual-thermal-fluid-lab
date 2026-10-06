@@ -1,0 +1,25 @@
+test_anti_windup_and_recovery (test_science.ControlTests.test_anti_windup_and_recovery) ... ok
+test_high_switch_overrides_plausible_wrong_level (test_science.ControlTests.test_high_switch_overrides_plausible_wrong_level) ... ok
+test_invalid_samples (test_science.ControlTests.test_invalid_samples) ... ok
+test_stale_latch (test_science.ControlTests.test_stale_latch) ... ok
+test_drain_scaling (test_science.PhysicsTests.test_drain_scaling) ... ok
+test_gravity_drain_analytic (test_science.PhysicsTests.test_gravity_drain_analytic) ... ok
+test_independent_solver_agreement (test_science.PhysicsTests.test_independent_solver_agreement) ... ok
+test_linear_fill (test_science.PhysicsTests.test_linear_fill) ... ok
+test_parameter_validation (test_science.PhysicsTests.test_parameter_validation) ... ok
+test_pump_lag_and_integrated_volume (test_science.PhysicsTests.test_pump_lag_and_integrated_volume) ... ok
+test_terminal_empty_matches_analytic_time (test_science.PhysicsTests.test_terminal_empty_matches_analytic_time) ... ok
+test_terminal_full_not_clipped (test_science.PhysicsTests.test_terminal_full_not_clipped) ... ok
+test_volume_conservation (test_science.PhysicsTests.test_volume_conservation) ... ok
+test_biased_sensor_trip_and_coast (test_science.ScenarioTests.test_biased_sensor_trip_and_coast) ... ok
+test_blockage (test_science.ScenarioTests.test_blockage) ... ok
+test_control_tick_refinement (test_science.ScenarioTests.test_control_tick_refinement) ... ok
+test_deterministic_noise_replay (test_science.ScenarioTests.test_deterministic_noise_replay) ... ok
+test_dropout (test_science.ScenarioTests.test_dropout) ... ok
+test_nominal (test_science.ScenarioTests.test_nominal) ... ok
+test_stuck_pump_exposes_uncontained_hazard (test_science.ScenarioTests.test_stuck_pump_exposes_uncontained_hazard) ... ok
+
+----------------------------------------------------------------------
+Ran 20 tests in 4.509s
+
+OK

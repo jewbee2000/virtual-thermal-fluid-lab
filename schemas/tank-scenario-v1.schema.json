@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Tank scenario version 1",
+  "type": "object", "additionalProperties": false,
+  "required": ["name", "duration_s", "dt_s"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "name": {"type": "string", "pattern": "^[A-Za-z0-9_-]{1,80}$"},
+    "duration_s": {"type": "number", "exclusiveMinimum": 0, "maximum": 86400},
+    "dt_s": {"type": "number", "minimum": 0.000001, "maximum": 1},
+    "initial_level_m": {"type": "number", "exclusiveMinimum": 0},
+    "target_level_m": {"type": "number", "exclusiveMinimum": 0},
+    "fault": {"enum": ["none", "blocked_outlet", "pump_failed_off", "sensor_dropout", "sensor_bias_ramp", "sensor_stuck", "pump_stuck_on"]},
+    "fault_at_s": {"type": "number", "minimum": 0},
+    "expected": {"enum": ["nominal", "stale_trip", "high_trip", "contained", "observe_hazard", "characterize"]},
+    "seed": {"type": "integer", "minimum": 0, "maximum": 4294967295},
+    "sensor_noise_std_m": {"type": "number", "minimum": 0},
+    "bias_rate_m_s": {"type": "number"},
+    "controller": {
+      "type": "object", "additionalProperties": false,
+      "properties": {
+        "version": {"const": 1},
+        "kp_per_m": {"type": "number", "minimum": 0},
+        "ki_per_m_s": {"type": "number", "minimum": 0},
+        "bias": {"type": "number", "minimum": 0, "maximum": 1},
+        "drain_command": {"type": "number", "minimum": 0, "maximum": 1},
+        "high_switch_m": {"type": "number", "exclusiveMinimum": 0},
+        "stale_after_s": {"type": "number", "exclusiveMinimum": 0},
+        "sensor_min_m": {"type": "number", "minimum": 0},
+        "sensor_max_m": {"type": "number", "exclusiveMinimum": 0}
+      }
+    }
+  },
+  "$comment": "Runtime also checks finite nonboolean values, topology limits, microsecond/tick alignment, bounded tick count, active fault within horizon, compatible outcome/fault."
+}

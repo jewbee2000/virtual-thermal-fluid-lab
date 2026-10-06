@@ -1,0 +1,3 @@
+Continue Virtual Fluid Lab from its current Git diff and docs/tasks.json. Work on the next ready ticket whose dependencies are closed; do not redo finished work. Read its contract and restate acceptance before implementation. Use the coordinator workflow and role prompts, with one source writer and up to three active children. Preserve all failed-run evidence and disclose what remains untested.
+
+For numerical refinement, vary solver tolerances at fixed controller tick, then vary controller tick separately. For physical validation, require actual measured holdout traces. If the next ticket needs missing hardware data, mark it blocked and continue an independent ready software ticket; do not invent synthetic replacements for measured validation.

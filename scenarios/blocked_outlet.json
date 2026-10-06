@@ -1,0 +1,12 @@
+{
+  "name": "blocked_outlet",
+  "duration_s": 240.0,
+  "dt_s": 0.1,
+  "initial_level_m": 0.25,
+  "target_level_m": 0.5,
+  "fault": "blocked_outlet",
+  "fault_at_s": 60.0,
+  "expected": "contained",
+  "seed": 42,
+  "sensor_noise_std_m": 0.0
+}

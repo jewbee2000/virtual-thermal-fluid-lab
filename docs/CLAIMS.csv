@@ -1,0 +1,9 @@
+claim_id,claim,basis,evidence,status,limitation
+C01,Volume conservation,derivation + analytic benchmarks,tests/test_science.py,VERIFIED_EDUCATIONAL_DOMAIN,Augmented conservation residual alone is not an independent physical oracle
+C02,Nominal tracking,chosen acceptance criteria,examples/verification-results.txt,SOFTWARE_CHECKED,Assumed parameters; not measured hardware
+C03,Bias fault high-switch containment,modeled scenario,examples/suite.json,SOFTWARE_CHECKED,Independent software channel does not establish hardware independence
+C04,Stop command guarantees containment,counterexample,examples/suite.json,REFUTED_IN_STUCK_PUMP_SCENARIO,Commanded and applied actuator states differ
+C05,Physical predictive accuracy,requires measured holdout data,docs/VERIFICATION.md,NOT_STARTED,No physical dataset
+C06,Hard real-time HIL,requires physical DUT/I-O timing evidence,docs/RESEARCH_AND_PLAN.md S17,NOT_IMPLEMENTED,Virtual time SIL only
+C07,Custom agent config schema,official docs checked 2026-10-05,docs/RESEARCH_AND_PLAN.md S12,DOCUMENTATION_CHECKED,TOML syntax checked; actual local Codex runtime not available in authoring environment
+C08,Endurance uses this software stack,no employer evidence,docs/RESEARCH_AND_PLAN.md S16,UNKNOWN,Do not assert employer tools

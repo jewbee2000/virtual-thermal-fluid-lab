@@ -1,0 +1,111 @@
+{
+  "owner": "coordinator",
+  "baseline": "runnable; physical validation NOT_STARTED",
+  "tasks": [
+    {
+      "id": "T01",
+      "title": "Review model and freeze interface contract",
+      "dependencies": [],
+      "owned_paths": [
+        "docs/MODEL.md",
+        "docs/CLAIMS.csv"
+      ],
+      "acceptance": "Confirm units, assumptions, sensor observability and baseline scenario expectations; record open questions. Do not add physics yet.",
+      "status": "ready"
+    },
+    {
+      "id": "T02",
+      "title": "Numerical refinement report",
+      "dependencies": [
+        "T01"
+      ],
+      "owned_paths": [
+        "tests/",
+        "scripts/"
+      ],
+      "acceptance": "Separate solver-tolerance and controller-tick refinement; predeclare per-state and event-time metrics; preserve failing traces.",
+      "status": "pending"
+    },
+    {
+      "id": "T03",
+      "title": "Generic adapter and strict scenarios",
+      "dependencies": [
+        "T01"
+      ],
+      "owned_paths": [
+        "src/fluidlab/",
+        "tests/"
+      ],
+      "acceptance": "Add explicit Protocols, schema versions, unknown-field rejection, finite/range checks, configurable sensor limits, integer-tick scheduling and a second simple plant.",
+      "status": "pending"
+    },
+    {
+      "id": "T04",
+      "title": "Independent evaluators and traceable reports",
+      "dependencies": [
+        "T02",
+        "T03"
+      ],
+      "owned_paths": [
+        "src/fluidlab/",
+        "docs/"
+      ],
+      "acceptance": "Separate scoring from runner, add tracking/detection/containment metrics, unassessable status and requirement-to-evidence matrix.",
+      "status": "pending"
+    },
+    {
+      "id": "T05",
+      "title": "Fault combinations and uncertainty screening",
+      "dependencies": [
+        "T04"
+      ],
+      "owned_paths": [
+        "scenarios/",
+        "scripts/",
+        "tests/"
+      ],
+      "acceptance": "Add delays, lost commands and targeted combined faults; no controller truth leakage; document hypothetical parameter ranges and missed-detection cases.",
+      "status": "pending"
+    },
+    {
+      "id": "T06",
+      "title": "Calibration/holdout experiment",
+      "dependencies": [
+        "T05"
+      ],
+      "owned_paths": [
+        "docs/",
+        "data/"
+      ],
+      "acceptance": "Optional: collect actual low-energy rig data, calibrate on whole runs, reserve different runs, assess residuals and measurement uncertainty. Remain pending if data unavailable.",
+      "status": "pending"
+    },
+    {
+      "id": "T07",
+      "title": "Pressure operating-point or thermal extension",
+      "dependencies": [
+        "T05"
+      ],
+      "owned_paths": [
+        "src/fluidlab/",
+        "tests/",
+        "docs/"
+      ],
+      "acceptance": "Select one extension based on test question; derive conservation laws, document property/curve pedigree and add analytic benchmarks before control.",
+      "status": "pending"
+    },
+    {
+      "id": "T08",
+      "title": "Portfolio demonstration",
+      "dependencies": [
+        "T05"
+      ],
+      "owned_paths": [
+        "docs/",
+        "examples/"
+      ],
+      "acceptance": "Fresh-checkout reproduction, five-minute demo and accurate credibility statement; include one known limitation and uncontained fault.",
+      "status": "pending"
+    }
+  ]
+}

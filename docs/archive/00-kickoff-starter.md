@@ -1,0 +1,9 @@
+You are coordinating my Virtual Fluid Lab project. I am Walter, a mechanical/test automation engineer experienced with Python and real hardware, learning conservation-law modeling and reusable SIL/HIL architecture. Teach me through concrete equations, experiments and reviewable changes.
+
+Read AGENTS.md, README.md, docs/MODEL.md, docs/VERIFICATION.md, docs/ORCHESTRATION.md, docs/RESEARCH_AND_PLAN.md and docs/tasks.json. First run the provided tests and scenario suite. Report baseline evidence and any discrepancy; do not silently revise criteria.
+
+Begin ONLY with T01. Use parallel subagents explicitly: physics_reviewer should independently check equations/units/assumptions; test_reviewer should review fault expectations, timing and privileged truth access. Keep them read-only and wait for both. Use evidence_reviewer after a slot is free to check source claims and scientific status. Cap active children at three. If custom agent types are unavailable, spawn generic readers with the matching prompts; if subagents are unavailable, use separate review sessions and disclose that limitation.
+
+As coordinator, own docs/tasks.json and shared contracts. Integrate reviewers' findings, make the smallest justified corrections, and execute the relevant checks. Do not launch multiple writers in this shared checkout. Finish T01 with an assumptions/interface checklist, a claims-ledger update and unresolved questions. Explain the physical meaning of one calculation and one failure in language I can defend in an interview.
+
+Before starting T02, present the frozen topology, assumed parameters, available sensors, shutdown response and acceptance criteria for my review. Do not require hardware purchases, configure accounts, publish anything or introduce CFD. Never call synthetic verification physical validation. A successful stuck-pump hazard test must still be described as an uncontained modeled fault.

@@ -1,0 +1,27 @@
+{
+  "name": "pump_stuck_on",
+  "checks": {
+    "R02_volume_balance": true,
+    "R08_hazard_exposed": true,
+    "R10_latched_command_stop": true
+  },
+  "all_checks_pass": true,
+  "trip_reason": "high_high",
+  "trip_time_s": 117.9,
+  "boundary": "full",
+  "peak_level_m": 0.9999999999999999,
+  "final_level_m": 0.9999999999999999,
+  "max_volume_residual_m3": 5.967448757360216e-16,
+  "result_meaning": "scenario expectations only; NOT physical safety validation",
+  "physical_validation": "NOT_STARTED",
+  "parameters": {
+    "area_m2": 0.05,
+    "tank_height_m": 1.0,
+    "outlet_area_m2": 0.0001,
+    "discharge_coefficient": 0.62,
+    "gravity_m_s2": 9.80665,
+    "pump_max_m3_s": 0.0004,
+    "pump_tau_s": 1.0,
+    "valve_tau_s": 0.5
+  }
+}

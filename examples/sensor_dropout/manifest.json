@@ -1,0 +1,33 @@
+{
+  "scenario": {
+    "name": "sensor_dropout",
+    "duration_s": 240.0,
+    "dt_s": 0.1,
+    "initial_level_m": 0.25,
+    "target_level_m": 0.5,
+    "fault": "sensor_dropout",
+    "fault_at_s": 60.0,
+    "expected": "stale_trip",
+    "seed": 42,
+    "sensor_noise_std_m": 0.0
+  },
+  "scenario_sha256": "0a50b5bf7b9f2c3dfc4b4079dfdc198087da0de7ab27a2cc977e0d8466e8d0c8",
+  "source_sha256": "ff8a0ea15a2ecb0187025aced8638fea6e8e0c67500b985bdde4902300db81e7",
+  "git_revision": "unversioned",
+  "git_dirty": true,
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "scipy": "1.17.0",
+  "solver": "RK45",
+  "rtol": 1e-07,
+  "atol": [
+    1e-09,
+    1e-11,
+    1e-09,
+    1e-11,
+    1e-11
+  ],
+  "solver_max_step_s": 0.05,
+  "clock": "virtual; zero-order-held inputs",
+  "validation_status": "NOT_STARTED"
+}

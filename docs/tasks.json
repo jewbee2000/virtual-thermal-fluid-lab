@@ -1,0 +1,227 @@
+{
+  "contract_version": 1,
+  "owner": "coordinator",
+  "authority": "current user request + docs/Codex_Implementation_Plan.md + docs/REQUIREMENTS.md",
+  "project": "Virtual Thermal Fluid Lab",
+  "repo": "jewbee2000/virtual-thermal-fluid-lab",
+  "baseline": "Native Windows: 20 tests and seven expectations reproduced 2026-10-06",
+  "physical_validation": "NOT_STARTED",
+  "board_execution": "NOT_EXECUTED",
+  "license": "MIT; Walter confirmed starter authorship",
+  "target": "RP2040/Pico; Walter has access to Pico and Arduino",
+  "tasks": [
+    {
+      "id": "M0",
+      "title": "Baseline and repository",
+      "dependencies": [],
+      "owned_paths": [
+        "AGENTS.md",
+        "README.md",
+        "docs/",
+        "evidence/M0/"
+      ],
+      "acceptance": "ENV-01 GOV-01 BASE-01 RELEASE-01; details in docs/REQUIREMENTS.md and revised plan",
+      "status": "in_progress",
+      "commit": null,
+      "commands": [
+        {
+          "command": "uv sync --locked",
+          "exit_code": 0
+        },
+        {
+          "command": "uv run python -m unittest discover -s tests -v",
+          "exit_code": 0,
+          "outcome": "20 tests passed in 8.073s"
+        },
+        {
+          "command": "uv run python scripts/run_suite.py",
+          "exit_code": 0,
+          "outcome": "7 expectations passed; pump_stuck_on high_high/full remains uncontained"
+        }
+      ],
+      "artifacts": [
+        "evidence/M0/unit-tests.txt",
+        "evidence/M0/suite.json",
+        "evidence/M0/scenario-console.txt",
+        "artifacts/M0-starter/"
+      ],
+      "unresolved_limitations": [
+        "Private GitHub creation pending CLI browser sign-in; local initial commit pending reconciled docs."
+      ]
+    },
+    {
+      "id": "M1",
+      "title": "Contracts and provenance",
+      "dependencies": [
+        "M0"
+      ],
+      "owned_paths": [
+        "schemas/",
+        "src/fluidlab/",
+        "tests/",
+        "scripts/",
+        ".github/"
+      ],
+      "acceptance": "INPUT-01 TIME-01 PROV-01 DOMAIN-01 EVAL-01 TANK-01 PEAK-01 CTRL-01; details in docs/REQUIREMENTS.md and revised plan",
+      "status": "in_progress",
+      "commit": null,
+      "commands": [],
+      "artifacts": [],
+      "unresolved_limitations": [
+        "Sole implementation writer m1_writer owns src/tests/scripts; coordinator owns schemas/docs/CI.",
+        "Inherited tank reports are historical; corrected evidence not yet generated."
+      ]
+    },
+    {
+      "id": "M2",
+      "title": "Thermal plant",
+      "dependencies": [
+        "M1"
+      ],
+      "owned_paths": [
+        "src/fluidlab/thermal.py",
+        "tests/",
+        "docs/"
+      ],
+      "acceptance": "MODEL-01 PHYS-01 NUM-01 DOMAIN-01; details in docs/REQUIREMENTS.md and revised plan",
+      "status": "pending",
+      "commit": null,
+      "commands": [],
+      "artifacts": [],
+      "unresolved_limitations": []
+    },
+    {
+      "id": "M3",
+      "title": "Shared C controller",
+      "dependencies": [
+        "M1"
+      ],
+      "owned_paths": [
+        "firmware/core/",
+        "firmware/host/",
+        "src/fluidlab/",
+        "tests/"
+      ],
+      "acceptance": "CORE-01 CTRL-01 WIRE-01 LINK-01 BUILD-01; details in docs/REQUIREMENTS.md and revised plan",
+      "status": "pending",
+      "commit": null,
+      "commands": [],
+      "artifacts": [],
+      "unresolved_limitations": []
+    },
+    {
+      "id": "M4",
+      "title": "MCU target and protocol",
+      "dependencies": [
+        "M3"
+      ],
+      "owned_paths": [
+        "firmware/pico/",
+        "firmware/core/",
+        "schemas/",
+        "docs/hardware/"
+      ],
+      "acceptance": "MCU-01 WIRE-01 LINK-01 BUILD-01; details in docs/REQUIREMENTS.md and revised plan",
+      "status": "pending",
+      "commit": null,
+      "commands": [],
+      "artifacts": [],
+      "unresolved_limitations": []
+    },
+    {
+      "id": "M5",
+      "title": "Integrated fault campaign",
+      "dependencies": [
+        "M2",
+        "M3",
+        "M4"
+      ],
+      "owned_paths": [
+        "scenarios/",
+        "scripts/",
+        "tests/",
+        "evidence/"
+      ],
+      "acceptance": "CAMP-01 NUM-01 PEAK-01 PERF-01 EVAL-01 PROV-01; details in docs/REQUIREMENTS.md and revised plan",
+      "status": "pending",
+      "commit": null,
+      "commands": [],
+      "artifacts": [],
+      "unresolved_limitations": []
+    },
+    {
+      "id": "M6",
+      "title": "Replay and hardware packet",
+      "dependencies": [
+        "M1",
+        "M5"
+      ],
+      "owned_paths": [
+        "web/",
+        "scripts/",
+        "docs/hardware/"
+      ],
+      "acceptance": "WEB-01 HW-01; details in docs/REQUIREMENTS.md and revised plan",
+      "status": "pending",
+      "commit": null,
+      "commands": [],
+      "artifacts": [],
+      "unresolved_limitations": []
+    },
+    {
+      "id": "M7",
+      "title": "Release and case study",
+      "dependencies": [
+        "M4",
+        "M5",
+        "M6"
+      ],
+      "owned_paths": [
+        "README.md",
+        "evidence/",
+        "docs/",
+        "separate website checkout"
+      ],
+      "acceptance": "BUILD-01 RELEASE-01 SITE-01 CLAIM-01; details in docs/REQUIREMENTS.md and revised plan",
+      "status": "pending",
+      "commit": null,
+      "commands": [],
+      "artifacts": [],
+      "unresolved_limitations": []
+    },
+    {
+      "id": "H1",
+      "title": "Board and fixture evidence",
+      "dependencies": [
+        "M4"
+      ],
+      "owned_paths": [
+        "docs/hardware/",
+        "evidence/hardware/"
+      ],
+      "acceptance": "HW-01 MCU-01 actual board capture; separate from software release; details in docs/REQUIREMENTS.md and revised plan",
+      "status": "pending_equipment",
+      "commit": null,
+      "commands": [],
+      "artifacts": [],
+      "unresolved_limitations": []
+    },
+    {
+      "id": "H2",
+      "title": "Water calibration",
+      "dependencies": [
+        "H1"
+      ],
+      "owned_paths": [
+        "data/",
+        "docs/hardware/"
+      ],
+      "acceptance": "Independent whole-run holdout; physical validation only with actual data; details in docs/REQUIREMENTS.md and revised plan",
+      "status": "optional",
+      "commit": null,
+      "commands": [],
+      "artifacts": [],
+      "unresolved_limitations": []
+    }
+  ]
+}

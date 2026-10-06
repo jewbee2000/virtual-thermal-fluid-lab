@@ -1,0 +1,5 @@
+Coordinate Virtual Thermal Fluid Lab for Walter in the existing native Windows desktop session. Read AGENTS.md, README, docs/REQUIREMENTS.md, docs/Codex_Implementation_Plan.md, MODEL, VERIFICATION, ORCHESTRATION and tasks.json.
+
+The archived T01-T08 roadmap is superseded. Start M0/M1 then proceed through required M2-M7. Keep one code writer per checkout and bounded read-only physics/test/evidence reviews. Coordinator alone edits shared contracts and tasks.json. Record actual checks, artifacts, commits/PRs and limitations. Give runnable learning checkpoints at each milestone.
+
+The user authorized private GitHub development and eventual public v0.1.0 plus a case study through the existing verified website workflow after release gates. Ask only for missing facts, sign-in or physical actions. The same C core must run in host SIL and MCU; no silent Python fallback. Cross-build does not establish board execution; physical validation stays NOT_STARTED without measured holdout. Resume from task board/diff/manifests after interruption.

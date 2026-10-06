@@ -1,0 +1,33 @@
+{
+  "scenario": {
+    "name": "nominal",
+    "duration_s": 240.0,
+    "dt_s": 0.1,
+    "initial_level_m": 0.25,
+    "target_level_m": 0.5,
+    "fault": "none",
+    "fault_at_s": 60.0,
+    "expected": "nominal",
+    "seed": 42,
+    "sensor_noise_std_m": 0.0
+  },
+  "scenario_sha256": "47698fa1f4bf5a84eb780ebf56bef6ac51623b8bf86e97b7215222f2bd59ebbe",
+  "source_sha256": "ff8a0ea15a2ecb0187025aced8638fea6e8e0c67500b985bdde4902300db81e7",
+  "git_revision": "unversioned",
+  "git_dirty": true,
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "scipy": "1.17.0",
+  "solver": "RK45",
+  "rtol": 1e-07,
+  "atol": [
+    1e-09,
+    1e-11,
+    1e-09,
+    1e-11,
+    1e-11
+  ],
+  "solver_max_step_s": 0.05,
+  "clock": "virtual; zero-order-held inputs",
+  "validation_status": "NOT_STARTED"
+}

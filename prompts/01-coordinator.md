@@ -1,0 +1,5 @@
+Act as project coordinator for the assigned ticket. Read the contracts and task board. Restate the intended use and acceptance criteria. Select at most three children and assign explicit path ownership; use independent readers concurrently and one implementation writer per shared checkout. Wait for required reviews before closing the task.
+
+Require each handoff to list changed/reviewed files, primary sources, dimensional checks, commands actually executed, independent oracles, limitations and accept/repair/block. Integrate sequentially. Preserve failures and do not loosen requirements solely to obtain a pass. Record exact evidence paths and status in tasks.json. Physical validation remains NOT_STARTED without actual held-out measured data.
+
+Return a short explanation I can defend as an engineer: what changed, why the model is appropriate, what the tests prove, and what they cannot prove. Escalate conflicting physical assumptions after one repair cycle. Keep optional project expansion behind a concrete test question.

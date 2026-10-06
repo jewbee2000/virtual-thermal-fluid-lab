@@ -1,0 +1,1 @@
+run_id,purpose_calibration_or_holdout,date_utc,rig_revision,operator,initial_height_m,pump_command,valve_opening,temperature_C,reference_instrument,reference_uncertainty_m,sample_period_s,sensor_filter,trace_path,notes
