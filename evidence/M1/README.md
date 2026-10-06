@@ -35,6 +35,6 @@ expectation while containmentFAILED. Sampling gaps add a conservative Qmax/A
 level-rise bound; numerical error remains separately limited by solver checks.
 
 M1 changes do not establish thermal model, C/MCU execution, hardware or physical
-validation. Physical validation NOT_STARTED. Revised Windows/Linux CI evidence
-must be attached before milestone closure. Source/parameter/schema changes
+validation. Physical validation NOT_STARTED. Revised Windows/Linux CI both passed for b105ae9:run37431609613;
+retained windows-linux-ci.json. PR2 merged at175d000; M1 closed. Source/parameter/schema changes
 invalidate relevant earlier artifacts; inherited examples remain historical.

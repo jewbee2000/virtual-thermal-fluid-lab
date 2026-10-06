@@ -79,8 +79,8 @@
         ".github/"
       ],
       "acceptance": "INPUT-01 TIME-01 PROV-01 DOMAIN-01 EVAL-01 TANK-01 PEAK-01 CTRL-01; details in docs/REQUIREMENTS.md and revised plan",
-      "status": "awaiting_ci",
-      "commit": null,
+      "status": "complete",
+      "commit": "b105ae96bfbd267aea476fc3939a5e33c6aa3301",
       "commands": [
         {
           "command": "uv run python -m unittest discover -s tests -v",
@@ -106,6 +106,16 @@
           "command": "..\\.venv\\Scripts\\python.exe -B -m unittest (five named domain/provenance/solver tests)",
           "exit_code": 0,
           "outcome": "5 passed0.592s"
+        },
+        {
+          "command": "gh run view37431609613; gh pr view2 (head/status checks)",
+          "exit_code": 0,
+          "outcome": "Windows2025 and Ubuntu24.04 unit+scenario jobs succeeded for b105ae9; pull-request run37431677367 also succeeded"
+        },
+        {
+          "command": "GitHub connector merge_pull_request expected_head_sha b105ae96bfbd267aea476fc3939a5e33c6aa3301; git pull --ff-only",
+          "exit_code": 0,
+          "outcome": "PR2 merged at175d000; local main fast-forwarded"
         }
       ],
       "artifacts": [
@@ -114,11 +124,12 @@
         "artifacts/M1-work/final-nominal/"
       ],
       "unresolved_limitations": [
-        "Windows/Linux revised CI not yet executed.",
         "Python tank controller baseline; thermal/C/MCU/replay still unimplemented.",
         "Continuous level bound excludes numerical error; physical validation NOT_STARTED."
       ],
-      "issue": "https://github.com/jewbee2000/virtual-thermal-fluid-lab/issues/1"
+      "issue": "https://github.com/jewbee2000/virtual-thermal-fluid-lab/issues/1",
+      "merge_commit": "175d000f7d5e905ed633d809d7f7600c78cfc5f5",
+      "pr": "https://github.com/jewbee2000/virtual-thermal-fluid-lab/pull/2"
     },
     {
       "id": "M2",
@@ -132,11 +143,13 @@
         "docs/"
       ],
       "acceptance": "MODEL-01 PHYS-01 NUM-01 DOMAIN-01; details in docs/REQUIREMENTS.md and revised plan",
-      "status": "pending",
+      "status": "ready",
       "commit": null,
       "commands": [],
       "artifacts": [],
-      "unresolved_limitations": []
+      "unresolved_limitations": [
+        "Thermal contract and independent oracle reviewed before coding:docs/THERMAL_MODEL.md."
+      ]
     },
     {
       "id": "M3",
@@ -151,11 +164,13 @@
         "tests/"
       ],
       "acceptance": "CORE-01 CTRL-01 WIRE-01 LINK-01 BUILD-01; details in docs/REQUIREMENTS.md and revised plan",
-      "status": "pending",
+      "status": "ready",
       "commit": null,
       "commands": [],
       "artifacts": [],
-      "unresolved_limitations": []
+      "unresolved_limitations": [
+        "Wire/core defaults frozen before coding:schemas/protocol.md; flow150000uL/s equals1.5e-4m3/s."
+      ]
     },
     {
       "id": "M4",
