@@ -1,0 +1,22 @@
+test_artifact_traversal_and_drive_escape_rejected (test_replay_export.ReplayExportTests.test_artifact_traversal_and_drive_escape_rejected) ... ok
+test_corrupt_artifact_rejected_before_output_creation (test_replay_export.ReplayExportTests.test_corrupt_artifact_rejected_before_output_creation) ... ok
+test_decreasing_time_and_duplicate_sample_id_rejected (test_replay_export.ReplayExportTests.test_decreasing_time_and_duplicate_sample_id_rejected) ... ok
+test_explicit_tank_mapping_retains_missing_lease (test_replay_export.ReplayExportTests.test_explicit_tank_mapping_retains_missing_lease) ... ok
+test_fixture_requires_explicit_development_opt_in (test_replay_export.ReplayExportTests.test_fixture_requires_explicit_development_opt_in) ... ok
+test_gzip_packaging_is_deterministic_across_exports (test_replay_export.ReplayExportTests.test_gzip_packaging_is_deterministic_across_exports) ... ok
+test_gzip_round_trip_full_asset_identity_hashes_labels_and_no_omission (test_replay_export.ReplayExportTests.test_gzip_round_trip_full_asset_identity_hashes_labels_and_no_omission) ... ok
+test_missing_manifest_asset_rejected (test_replay_export.ReplayExportTests.test_missing_manifest_asset_rejected) ... ok
+test_numeric_nonfinite_and_unknown_topology_rejected (test_replay_export.ReplayExportTests.test_numeric_nonfinite_and_unknown_topology_rejected) ... ok
+test_observation_gap_equality_and_duplicate_time_cursor_oracles (test_replay_export.ReplayExportTests.test_observation_gap_equality_and_duplicate_time_cursor_oracles) ... ok
+test_output_cannot_replace_or_nest_evidence (test_replay_export.ReplayExportTests.test_output_cannot_replace_or_nest_evidence) ... ok
+test_overflowed_json_number_rejected_before_output (test_replay_export.ReplayExportTests.test_overflowed_json_number_rejected_before_output) ... ok
+test_packaging_collision_rejected_without_omitting_original_asset (test_replay_export.ReplayExportTests.test_packaging_collision_rejected_without_omitting_original_asset) ... ok
+test_peak_bound_coverage_metadata_retained_without_horizon_extension (test_replay_export.ReplayExportTests.test_peak_bound_coverage_metadata_retained_without_horizon_extension) ... ok
+test_peak_bound_scope_fractional_prefix_and_unavailable_display_oracles (test_replay_export.ReplayExportTests.test_peak_bound_scope_fractional_prefix_and_unavailable_display_oracles) ... ok
+test_preserves_raw_bytes_duplicate_times_fractional_root_and_failure (test_replay_export.ReplayExportTests.test_preserves_raw_bytes_duplicate_times_fractional_root_and_failure) ... ok
+test_run_names_cannot_alias_on_windows (test_replay_export.ReplayExportTests.test_run_names_cannot_alias_on_windows) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 0.917s
+
+OK
