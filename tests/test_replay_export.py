@@ -95,6 +95,16 @@ class ReplayExportTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,"UI_FIXTURE"):
             replay.read_run(self.fixture())
 
+    def test_overflowed_json_number_rejected_before_output(self):
+        source = self.fixture()
+        (source/"summary.json").write_bytes((source/"summary.json").read_bytes().replace(
+            b'"metrics": {}', b'"metrics": {"peak": 1e309}'))
+        self.rehash(source)
+        out = self.base/"overflowed"
+        with self.assertRaisesRegex(ValueError,"nonfinite JSON number"):
+            replay.build_replay([source], out, allow_ui_fixture=True, screenshots=False)
+        self.assertFalse(out.exists())
+
     def test_corrupt_artifact_rejected_before_output_creation(self):
         source=self.fixture()
         (source/"telemetry.csv").write_bytes((source/"telemetry.csv").read_bytes()+b"corrupt")
@@ -155,12 +165,26 @@ class ReplayExportTests(unittest.TestCase):
         self.assertEqual(first_files,second_files)
 
     def test_packaging_collision_rejected_without_omitting_original_asset(self):
-        source=self.fixture()
-        (source/"summary.json.gz").write_bytes(b"pre-existing distinct source artifact")
-        self.rehash(source)
-        out=self.base/"collision"
-        with self.assertRaisesRegex(ValueError,"packaging paths collide"):
-            replay.build_replay([source],out,allow_ui_fixture=True,screenshots=False,compress_raw=True)
+        for index, filename in enumerate(("summary.json.gz", "Summary.json.gz")):
+            with self.subTest(filename=filename):
+                source=self.fixture(name=f"collision_{index}")
+                (source/filename).write_bytes(b"pre-existing distinct source artifact")
+                self.rehash(source)
+                out=self.base/f"collision_out_{index}"
+                with self.assertRaisesRegex(ValueError,"packaging paths collide"):
+                    replay.build_replay([source],out,allow_ui_fixture=True,screenshots=False,compress_raw=True)
+                self.assertFalse(out.exists())
+
+    def test_run_names_cannot_alias_on_windows(self):
+        first=self.fixture(name="case_a")
+        second=self.fixture(name="case_b")
+        summary=json.loads((second/"summary.json").read_text())
+        summary["name"]="CASE_A"
+        (second/"summary.json").write_text(json.dumps(summary))
+        self.rehash(second)
+        out=self.base/"aliased_runs"
+        with self.assertRaisesRegex(ValueError,"run names must be unique"):
+            replay.build_replay([first,second],out,allow_ui_fixture=True,screenshots=False)
         self.assertFalse(out.exists())
 
     def test_missing_manifest_asset_rejected(self):

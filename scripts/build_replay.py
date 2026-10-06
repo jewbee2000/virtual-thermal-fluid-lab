@@ -57,7 +57,13 @@ def _unique_object(pairs):
 
 
 def _read_json(raw):
+    def finite_float(value):
+        numeric = float(value)
+        if not math.isfinite(numeric):
+            raise ValueError(f"nonfinite JSON number: {value}")
+        return numeric
     return json.loads(raw.decode("utf-8"), object_pairs_hook=_unique_object,
+                      parse_float=finite_float,
                       parse_constant=lambda v: (_ for _ in ()).throw(ValueError(f"nonfinite JSON: {v}")))
 
 
@@ -241,13 +247,13 @@ def build_replay(sources, out, *, allow_ui_fixture=False, screenshots=True, comp
         raise ValueError("output must be separate from input evidence")
     prepared = [read_run(source, allow_ui_fixture=allow_ui_fixture) for source in sources]
     names = [run[0]["name"] for run in prepared]
-    if len(set(names)) != len(names):
+    if len({name.casefold() for name in names}) != len(names):
         raise ValueError("run names must be unique")
     for _, assets, _ in prepared:
         packaged_names = [str(PurePosixPath(name + ".gz" if compress_raw and
                           (name == "summary.json" or PurePosixPath(name).parts[0] == "wire") else name))
                           for name in assets]
-        if len(set(packaged_names)) != len(packaged_names):
+        if len({name.casefold() for name in packaged_names}) != len(packaged_names):
             raise ValueError("download packaging paths collide; no source artifact may be omitted")
     # Inputs are all checked before the output directory is created.
     shutil.copytree(ROOT / "web", out)

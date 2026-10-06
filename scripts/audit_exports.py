@@ -28,7 +28,29 @@ def read_json(path):
         return result
     def invalid(value):
         raise ValueError(f"nonfinite JSON token: {value}")
-    return json.loads(path.read_text(encoding="utf-8"), object_pairs_hook=unique, parse_constant=invalid)
+    def finite_float(value):
+        numeric = float(value)
+        if not math.isfinite(numeric):
+            raise ValueError(f"nonfinite JSON number: {value}")
+        return numeric
+    return json.loads(path.read_text(encoding="utf-8"), object_pairs_hook=unique,
+                      parse_constant=invalid, parse_float=finite_float)
+
+
+def require_artifacts(base, artifacts):
+    """A manifest cannot omit the executed configs, trace or wire captures."""
+    required = {"telemetry.csv", "summary.json", "scenario.json", "model.json",
+                "controller.json", "solver.json"}
+    wire_files = {p.relative_to(base).as_posix() for p in (base / "wire").rglob("*") if p.is_file()}
+    sessions = {str(PurePosixPath(name).parent) for name in wire_files}
+    if not sessions:
+        raise ValueError("missing retained wire captures")
+    for session in sessions:
+        required.update(f"{session}/{name}" for name in ("stdin.bin", "stdout.bin", "stderr.bin", "events.jsonl"))
+    required.update(wire_files)
+    missing = required - artifacts.keys()
+    if missing:
+        raise ValueError(f"manifest omits required artifact hashes: {sorted(missing)}")
 
 
 def allowed_types(definition):
@@ -93,9 +115,11 @@ def main():
             validators["thermal-summary-v1.schema.json"].validate(summary)
             validators["thermal-manifest-v1.schema.json"].validate(manifest)
             base = path.parent.resolve()
+            require_artifacts(base, manifest["artifacts"])
             for name, digest in manifest["artifacts"].items():
                 relative = PurePosixPath(name)
-                if relative.is_absolute() or ".." in relative.parts or "\\" in name:
+                if (relative.is_absolute() or not relative.parts or ".." in relative.parts
+                        or "\\" in name or any(":" in part for part in relative.parts)):
                     raise ValueError(f"unsafe artifact path: {name}")
                 target = base.joinpath(*relative.parts).resolve()
                 if not target.is_relative_to(base) or hashlib.sha256(target.read_bytes()).hexdigest() != digest:
