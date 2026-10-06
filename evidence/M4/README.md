@@ -53,3 +53,16 @@ USB/watchdog source paths and native stubs do not establish measured hardware
 latency, overruns or watchdog resets. H1 capture instructions are runnable when a
 human supplies the board. M4 CI and final runtime-license packaging audit remain
 pending until their actual records are added.
+
+The first PR CI run37439468227 passed Windows/Linux full verification, native
+device tests and ASan/UBSan, then rejected TinyUSB usbd.c at Linux configure.
+The pinned immutable Git blob uses LF, SHA256
+f15a6da11eca127b792bd04d3270e6ea3901b0a29c24f462d5687d63da1df6cb;
+Windows checkout uses CRLF, SHA256
+d198d57e626db62c2ac42fe9c26c815403984d92cedecd5414a9b38d3836a95d.
+An actual byte comparison proved CRLF-to-LF yields the exact pinned Git blob.
+The narrow repair enumerates only those two known representations and still
+rejects every other hash. Source revision, receive-site count, queue budget and
+warning checks are unchanged. The original CI failure and actual successful
+native configure are retained; repaired Linux cross-build must run before M4
+is marked complete. This revises a platform-byte pin, not a behavior threshold.

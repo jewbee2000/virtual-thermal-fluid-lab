@@ -1,0 +1,10 @@
+PICO_SDK_PATH is C:/Users/Walt/Documents/Codex/fluid-lab-import/virtual-fluid-lab/artifacts/tools/pico-sdk-2.3.1
+Target board (PICO_BOARD) is 'pico'.
+Using board configuration from C:/Users/Walt/Documents/Codex/fluid-lab-import/virtual-fluid-lab/artifacts/tools/pico-sdk-2.3.1/src/boards/include/boards/pico.h
+Pico Platform (PICO_PLATFORM) is 'rp2040'.
+Build type is Release
+TinyUSB available at C:/Users/Walt/Documents/Codex/fluid-lab-import/virtual-fluid-lab/artifacts/tools/pico-sdk-2.3.1/lib/tinyusb/hw/bsp/rp2040; enabling build support for USB.
+C library type is newlib
+-- Configuring done (0.6s)
+-- Generating done (0.3s)
+-- Build files have been written to: C:/Users/Walt/.codex/worktrees/thermal-lab-c-core/virtual-fluid-lab/artifacts/pico-build

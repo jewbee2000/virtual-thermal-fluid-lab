@@ -1,0 +1,123 @@
+pico-cross-build	Build UF2 converter and both Pico firmware modes	﻿2026-10-06T08:57:26.0767838Z ##[group]Run cmake -S artifacts/tools/picotool -B artifacts/picotool-build -DPICO_SDK_PATH="$PWD/artifacts/tools/pico-sdk" -DPICOTOOL_NO_LIBUSB=1 -DCMAKE_BUILD_TYPE=Release
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:26.0769481Z ^[[36;1mcmake -S artifacts/tools/picotool -B artifacts/picotool-build -DPICO_SDK_PATH="$PWD/artifacts/tools/pico-sdk" -DPICOTOOL_NO_LIBUSB=1 -DCMAKE_BUILD_TYPE=Release^[[0m
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:26.0770253Z ^[[36;1mcmake --build artifacts/picotool-build --parallel 4^[[0m
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:26.0771504Z ^[[36;1mcmake -S firmware/pico -B artifacts/pico-build -DPICO_SDK_PATH="$PWD/artifacts/tools/pico-sdk" -DPICO_TOOLCHAIN_PATH="$PWD/artifacts/tools/arm-gnu-toolchain-15.2.rel1-x86_64-arm-none-eabi" -DPython3_EXECUTABLE="$PWD/.venv/bin/python" -DPICO_BOARD=pico -DPICO_NO_PICOTOOL=ON -DCMAKE_BUILD_TYPE=Release^[[0m
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:26.0772758Z ^[[36;1mcmake --build artifacts/pico-build --parallel 4^[[0m
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:26.0773440Z ^[[36;1martifacts/tools/arm-gnu-toolchain-15.2.rel1-x86_64-arm-none-eabi/bin/arm-none-eabi-gcc --version > artifacts/pico-build/compiler.txt^[[0m
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:26.0774260Z ^[[36;1mfor target in fluid_controller_pico_link fluid_controller_pico_peripheral; do^[[0m
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:26.0775025Z ^[[36;1m  artifacts/picotool-build/picotool uf2 convert "artifacts/pico-build/$target.elf" "artifacts/pico-build/$target.uf2" --family rp2040^[[0m
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:26.0776084Z ^[[36;1m  artifacts/tools/arm-gnu-toolchain-15.2.rel1-x86_64-arm-none-eabi/bin/arm-none-eabi-size "artifacts/pico-build/$target.elf" > "artifacts/pico-build/$target.size.txt"^[[0m
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:26.0776803Z ^[[36;1mdone^[[0m
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:26.0777429Z ^[[36;1msha256sum artifacts/pico-build/*.elf artifacts/pico-build/*.bin artifacts/pico-build/*.uf2 artifacts/pico-build/*.elf.map > artifacts/pico-build/artifact-sha256.txt^[[0m
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:26.0842218Z shell: /usr/bin/bash -e {0}
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:26.0842473Z env:
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:26.0842756Z   UV_PYTHON_INSTALL_DIR: /home/runner/work/_temp/uv-python-dir
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:26.0843157Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:26.0843462Z ##[endgroup]
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:26.2027254Z -- The C compiler identification is GNU 13.3.0
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:26.4043224Z -- The CXX compiler identification is GNU 13.3.0
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:26.4131765Z -- Detecting C compiler ABI info
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:26.4743817Z -- Detecting C compiler ABI info - done
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:26.4924728Z -- Check for working C compiler: /usr/bin/cc - skipped
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:26.4930323Z -- Detecting C compile features
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:26.4936135Z -- Detecting C compile features - done
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:26.5098294Z -- Detecting CXX compiler ABI info
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:26.5716036Z -- Detecting CXX compiler ABI info - done
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:26.5903124Z -- Check for working CXX compiler: /usr/bin/c++ - skipped
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:26.5909171Z -- Detecting CXX compile features
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:26.5916734Z -- Detecting CXX compile features - done
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:26.6161691Z -- Using the single-header code from /home/runner/work/virtual-thermal-fluid-lab/virtual-thermal-fluid-lab/artifacts/tools/picotool/lib/nlohmann_json/single_include/
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:26.6340178Z lib/mbedtls submodule needs to be initialized for bintool hashing/signing
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:26.6378001Z mbedtls not found - no signing/hashing support will be built
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:26.6379333Z PICOTOOL_NO_LIBUSB is set - no USB support will be built
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:26.6405563Z -- Configuring done (0.5s)
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:26.6721249Z -- Generating done (0.0s)
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:26.6727335Z -- Build files have been written to: /home/runner/work/virtual-thermal-fluid-lab/virtual-thermal-fluid-lab/artifacts/picotool-build
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:26.6990213Z [  3%] Creating directories for 'enc_bootloader'
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:26.7042471Z [  6%] Building CXX object errors/CMakeFiles/errors.dir/errors.cpp.o
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:26.7100265Z [ 10%] Configuring rp2350_a2_rom_end.h
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:26.7126909Z [ 13%] Configuring rp2350_a3_rom_end.h
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:26.7161682Z [ 17%] No download step for 'enc_bootloader'
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:26.7257613Z [ 20%] Configuring rp2350_a4_rom_end.h
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:26.7309208Z [ 24%] No update step for 'enc_bootloader'
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:26.7367650Z [ 24%] Built target unreadable_rom_data
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:26.7370245Z [ 27%] No patch step for 'enc_bootloader'
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:26.7428019Z [ 31%] Performing configure step for 'enc_bootloader'
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:26.8109314Z -- The C compiler identification is GNU 13.3.0
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:26.9029411Z -- The CXX compiler identification is GNU 13.3.0
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:26.9130026Z -- The ASM compiler identification is GNU
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:26.9151544Z -- Found assembler: /usr/bin/cc
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:26.9205072Z -- Detecting C compiler ABI info
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:26.9759414Z -- Detecting C compiler ABI info - done
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:27.0042300Z -- Check for working C compiler: /usr/bin/cc - skipped
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:27.0059110Z -- Detecting C compile features
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:27.0079385Z -- Detecting C compile features - done
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:27.0253869Z -- Detecting CXX compiler ABI info
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:27.1204208Z -- Detecting CXX compiler ABI info - done
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:27.1442654Z -- Check for working CXX compiler: /usr/bin/c++ - skipped
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:27.1448810Z -- Detecting CXX compile features
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:27.1456371Z -- Detecting CXX compile features - done
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:27.1542753Z Using precompiled enc_bootloader.elf
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:27.1559318Z -- Configuring done (0.4s)
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:27.1570309Z -- Generating done (0.0s)
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:27.1575389Z -- Build files have been written to: /home/runner/work/virtual-thermal-fluid-lab/virtual-thermal-fluid-lab/artifacts/picotool-build/enc_bootloader
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:27.1673568Z [ 34%] Performing build step for 'enc_bootloader'
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:27.1839338Z [ 37%] No install step for 'enc_bootloader'
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:27.1890754Z [ 41%] Completed 'enc_bootloader'
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:27.1972075Z [ 41%] Built target enc_bootloader
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:27.2080368Z [ 44%] Configuring enc_bootloader_elf.h
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:27.2718937Z [ 48%] Linking CXX static library liberrors.a
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:27.2837278Z [ 48%] Built target embedded_data_no_libusb
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:27.9504761Z [ 48%] Built target errors
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:27.9575928Z [ 51%] Building CXX object model/CMakeFiles/model.dir/model.cpp.o
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:28.5436950Z [ 55%] Linking CXX static library libmodel.a
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:28.6225757Z [ 55%] Built target model
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:28.6300593Z [ 58%] Building CXX object elf/CMakeFiles/elf.dir/elf_file.cpp.o
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:29.9406429Z [ 62%] Linking CXX static library libelf.a
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:30.0210402Z [ 62%] Built target elf
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:30.0303410Z [ 65%] Building CXX object bintool/CMakeFiles/bintool.dir/bintool.cpp.o
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:30.0329164Z [ 68%] Building CXX object elf2uf2/CMakeFiles/elf2uf2.dir/elf2uf2.cpp.o
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:31.6520093Z [ 72%] Linking CXX static library libelf2uf2.a
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:31.7692457Z [ 72%] Built target elf2uf2
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:33.8817083Z [ 75%] Linking CXX static library libbintool.a
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:33.9641625Z [ 75%] Built target bintool
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:33.9723928Z [ 79%] Building CXX object CMakeFiles/picotool.dir/data_locs.cpp.o
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:33.9748018Z [ 82%] Building CXX object CMakeFiles/picotool.dir/no_otp.cpp.o
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:33.9760908Z [ 86%] Building CXX object CMakeFiles/picotool.dir/get_enc_bootloader.cpp.o
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:33.9791095Z [ 89%] Building CXX object CMakeFiles/picotool.dir/main.cpp.o
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:34.4791263Z [ 93%] Building C object CMakeFiles/picotool.dir/lib/whereami/whereami.c.o
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:34.6999458Z [ 96%] Building CXX object CMakeFiles/picotool.dir/lib/whereami/whereami++.cpp.o
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:50.6384584Z [100%] Linking CXX executable picotool
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:50.7075627Z [100%] Built target picotool
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:50.7165399Z PICO_SDK_PATH is /home/runner/work/virtual-thermal-fluid-lab/virtual-thermal-fluid-lab/artifacts/tools/pico-sdk
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:50.7169834Z Target board (PICO_BOARD) is 'pico'.
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:50.7173879Z Using board configuration from /home/runner/work/virtual-thermal-fluid-lab/virtual-thermal-fluid-lab/artifacts/tools/pico-sdk/src/boards/include/boards/pico.h
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:50.7201729Z Defaulting platform (PICO_PLATFORM) to 'rp2040' based on PICO_BOARD setting.
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:50.7206468Z Detected GCC so defaulting PICO_COMPILER to `pico_arm_cortex_m0plus_gcc`
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:50.7207597Z Configuring toolchain based on PICO_COMPILER 'pico_arm_cortex_m0plus_gcc'
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:50.7243194Z Defaulting PICO_GCC_TRIPLE to 'arm-none-eabi'
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:50.7788003Z -- The C compiler identification is GNU 15.2.1
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:50.8506199Z -- The CXX compiler identification is GNU 15.2.1
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:50.8614853Z -- The ASM compiler identification is GNU
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:50.8635725Z -- Found assembler: /home/runner/work/virtual-thermal-fluid-lab/virtual-thermal-fluid-lab/artifacts/tools/arm-gnu-toolchain-15.2.rel1-x86_64-arm-none-eabi/bin/arm-none-eabi-gcc
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:50.8687200Z -- Detecting C compiler ABI info
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:50.9087917Z -- Detecting C compiler ABI info - done
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:50.9245460Z -- Check for working C compiler: /home/runner/work/virtual-thermal-fluid-lab/virtual-thermal-fluid-lab/artifacts/tools/arm-gnu-toolchain-15.2.rel1-x86_64-arm-none-eabi/bin/arm-none-eabi-gcc - skipped
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:50.9249969Z -- Detecting C compile features
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:50.9256035Z -- Detecting C compile features - done
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:50.9303213Z -- Detecting CXX compiler ABI info
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:50.9712948Z -- Detecting CXX compiler ABI info - done
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:50.9888440Z -- Check for working CXX compiler: /home/runner/work/virtual-thermal-fluid-lab/virtual-thermal-fluid-lab/artifacts/tools/arm-gnu-toolchain-15.2.rel1-x86_64-arm-none-eabi/bin/arm-none-eabi-g++ - skipped
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:50.9893028Z -- Detecting CXX compile features
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:50.9901449Z -- Detecting CXX compile features - done
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:50.9936668Z Build type is Release
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:51.0699183Z -- Found Python3: /home/runner/work/virtual-thermal-fluid-lab/virtual-thermal-fluid-lab/.venv/bin/python (found version "3.12.14") found components: Interpreter
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:51.1559396Z -- Detected native TLS (__aeabi_read_tp)
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:51.1596149Z TinyUSB available at /home/runner/work/virtual-thermal-fluid-lab/virtual-thermal-fluid-lab/artifacts/tools/pico-sdk/lib/tinyusb/hw/bsp/rp2040; enabling build support for USB.
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:51.2133661Z C library type is newlib
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:51.2569466Z CMake Error at CMakeLists.txt:21 (message):
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:51.2570493Z   TinyUSB usbd.c hash changed; review the bounded task wrapper
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:51.2571210Z 
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:51.2571440Z 
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:51.2603187Z -- Configuring incomplete, errors occurred!
+pico-cross-build	Build UF2 converter and both Pico firmware modes	2026-10-06T08:57:51.2738177Z ##[error]Process completed with exit code 1.
