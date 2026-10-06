@@ -29,6 +29,18 @@ At imposed9 L/min and5 kW the assumed equilibrium is20 C cooled liquid,
 27.974 C hot liquid and44.641 C wall. The1200 s benchmark approaches it within
 0.000109133 K; a240 s cold start remains transient. C integration follows M3.
 
+M3's native C host now runs the preserved tank campaign with the same portable
+controller core intended for Pico. Build with `./scripts/build_host.ps1` when
+CMake is on PATH (or supply its `-CMake` path), then run:
+
+```powershell
+uv run python scripts/verify_host.py --exe artifacts/host-build/Release/fluid_controller_host.exe --out artifacts/c-checkpoint
+```
+
+Native combined checks passed95 unit tests, CTest and both seven-case tank suites.
+The C dropout trips at60.3 s; the stuck pump still overflows after shutdown.
+See `evidence/M3`. MCU clock/HAL additions and thermal C integration follow M4/M5.
+
 **Credibility:** equations and numerical implementation can be verified; physical validation is NOT_STARTED. Parameters and acceptance thresholds are educational design choices. This is software-in-the-loop (SIL), not hardware-in-the-loop (HIL), a subsea geothermal model, or a certified safety system.
 
 | File | Purpose |

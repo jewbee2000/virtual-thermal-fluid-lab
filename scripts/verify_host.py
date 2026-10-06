@@ -19,6 +19,14 @@ from fluidlab.runner import load_scenario, run
 def benchmark(executable, scenario, out):
     cfg, p, solver = load_scenario(scenario), Parameters(), SolverConfig()
     out.mkdir(parents=True, exist_ok=True)
+    # Capture identity before execution; this run uses the C binary, while the
+    # separately compared Python benchmark remains explicitly named below.
+    provenance=execution_provenance()
+    provenance.update(controller_implementation="portable_c11_host",
+                      controller_sha256=file_sha256(executable),
+                      controller_execution="HOST_SIL", firmware_execution="NOT_EXECUTED")
+    root=Path(__file__).resolve().parents[1]
+    sources={path.relative_to(root).as_posix():file_sha256(path) for path in sorted((root/"firmware/core").glob("*"))}
     config = Configuration.tank(cfg.controller, target_level_m=cfg.target_level_m, tick_us=cfg.dt_us)
     plant = Plant(p, h0_m=cfg.initial_level_m, valve0=cfg.controller.drain_command)
     rng = np.random.default_rng(cfg.seed)
@@ -100,9 +108,6 @@ def benchmark(executable, scenario, out):
             writer=csv.DictWriter(stream,fieldnames=rows[0].keys(),lineterminator="\n")
             writer.writeheader();writer.writerows(rows)
     (out/"summary.json").write_text(json.dumps(result,indent=2,allow_nan=False)+"\n",encoding="utf-8",newline="\n")
-    provenance=execution_provenance()
-    root=Path(__file__).resolve().parents[1]
-    sources={path.relative_to(root).as_posix():file_sha256(path) for path in sorted((root/"firmware/core").glob("*"))}
     manifest=dict(version=1,scenario=asdict(cfg),parameters=asdict(p),parameter_pedigree="assumed",
                   solver=solver.executed(cfg.dt_s),controller_configuration=asdict(config),
                   controller_configuration_sha256=config.sha256,controller_binary_sha256=file_sha256(executable),

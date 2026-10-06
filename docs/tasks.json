@@ -143,8 +143,8 @@
         "scripts/verify_thermal.py"
       ],
       "acceptance": "MODEL-01 PHYS-01 NUM-01 DOMAIN-01; details in docs/REQUIREMENTS.md and revised plan",
-      "status": "in_progress",
-      "commit": null,
+      "status": "complete",
+      "commit": "77c09cac0bb89444eda8ac72414bfe4a0bc6fa4d",
       "commands": [
         {
           "command": "uv run python -m unittest discover -s tests -v",
@@ -165,20 +165,33 @@
           "command": "Read-only physics review and .venv Python96-corner bound probe",
           "outcome": "Accepted with pressure roundoff and report/unit-test event-time caveats",
           "exit_code": 0
+        },
+        {
+          "command": "gh run view37434311790; merge PR5 expected77c09ca; git pull --ff-only",
+          "exit_code": 0,
+          "outcome": "Windows2025 and Ubuntu24.04 jobs succeeded; M2 merged at9a5419e"
+        },
+        {
+          "command": "Python SHA256 verification of all13 retained M2 manifest artifacts",
+          "exit_code": 0,
+          "outcome": "Every retained CSV/JSON/PNG digest matched after merge checkout"
         }
       ],
       "artifacts": [
         "evidence/M2/",
-        "evidence/reviews/M2-physics-review.md"
+        "evidence/reviews/M2-physics-review.md",
+        "evidence/M2/windows-linux-ci.json"
       ],
       "unresolved_limitations": [
-        "Windows/Linux CI and merge pending.",
         "Assumed reduced model; physical validation NOT_STARTED and board execution NOT_EXECUTED.",
         "240s cold start is transient; equilibrium gate uses1200s imposed-flow benchmark.",
-        "Benchmark timing was observed concurrently; isolated performance gate belongs to M5."
+        "Benchmark timing was observed concurrently; isolated performance gate belongs to M5.",
+        "Tiny subtractive pressure roundoff is retained; analytic event-time assertion is in the required unit suite."
       ],
       "issue": "https://github.com/jewbee2000/virtual-thermal-fluid-lab/issues/3",
-      "writer": "m1_writer (continued bounded M2 ticket)"
+      "writer": "m1_writer (continued bounded M2 ticket)",
+      "merge_commit": "9a5419e5e7a7a290caae67b74f226627c1f6e4ea",
+      "pr": "https://github.com/jewbee2000/virtual-thermal-fluid-lab/pull/5"
     },
     {
       "id": "M3",
@@ -195,13 +208,53 @@
       "acceptance": "CORE-01 CTRL-01 WIRE-01 LINK-01 BUILD-01; details in docs/REQUIREMENTS.md and revised plan",
       "status": "in_progress",
       "commit": null,
-      "commands": [],
-      "artifacts": [],
+      "commands": [
+        {
+          "outcome": "Native MSVC19.44 C11 /W4 /WX; CTest portable core/codec303846 assertions passed",
+          "command": "./scripts/build_host.ps1 -CMake artifacts/tools/cmake/cmake-4.4.4-windows-x86_64/bin/cmake.exe",
+          "exit_code": 0
+        },
+        {
+          "outcome": "95 combined tests passed19.509s, including real host integration",
+          "command": "uv run python -m unittest discover -s tests -v",
+          "exit_code": 0
+        },
+        {
+          "outcome": "All seven preserved Python tank expectations passed",
+          "command": "uv run python scripts/run_suite.py --out artifacts/M3-integrated-baseline",
+          "exit_code": 0
+        },
+        {
+          "outcome": "CLI rejected incorrect flag; retained initial-cli-error.txt; no scenario executed by that command",
+          "command": "uv run python scripts/verify_host.py --executable ...",
+          "exit_code": 2
+        },
+        {
+          "outcome": "Seven C tank expectations passed after startup/C identity metadata fix; stuck pump containmentFAILED",
+          "command": "uv run python scripts/verify_host.py --exe artifacts/host-build/Release/fluid_controller_host.exe --out artifacts/M3-final-identity",
+          "exit_code": 0
+        },
+        {
+          "outcome": "Accepted;6 passed1.310s, independent PI outputs and stale ages verified",
+          "command": "Read-only review: six targeted tests plus actual-host H/restart/delayed-observation probe",
+          "exit_code": 0
+        }
+      ],
+      "artifacts": [
+        "evidence/M3/",
+        "evidence/reviews/M3-test-review.md",
+        "artifacts/M3-final-identity/"
+      ],
       "unresolved_limitations": [
-        "Wire/core defaults frozen before coding:schemas/protocol.md; flow150000uL/s equals1.5e-4m3/s."
+        "Windows/Linux CI and Linux sanitizers pending.",
+        "MCU/HAL and thermal integrated containment are M4/M5.",
+        "Arbitrary user Python callback execution is outside child-I/O deadlines; no Python fallback.",
+        "Canonical source coverage expansion to firmware/build inputs is frozen for M5; M3 separately records actual binary/core hashes."
       ],
       "issue": "https://github.com/jewbee2000/virtual-thermal-fluid-lab/issues/4",
-      "writer": "c_core_writer in isolated managed worktree thermal-lab-c-core"
+      "writer": "c_core_writer in isolated managed worktree thermal-lab-c-core",
+      "implementation_commit": "76ad3295d84f68773ecb6d85181a3f25cb4e99fd",
+      "integrated_source_commit": "57bf3c1afea1943987d5c92f91c4652bcae27773"
     },
     {
       "id": "M4",
@@ -216,11 +269,15 @@
         "docs/hardware/"
       ],
       "acceptance": "MCU-01 WIRE-01 LINK-01 BUILD-01; details in docs/REQUIREMENTS.md and revised plan",
-      "status": "pending",
+      "status": "in_progress",
       "commit": null,
       "commands": [],
       "artifacts": [],
-      "unresolved_limitations": []
+      "unresolved_limitations": [
+        "Target build/peripheral execution not yet checked; board NOT_EXECUTED.",
+        "Host V clock remains fixed; device D wrapper uses same internal policy with real elapsed time; U/X/N extension is specified in docs/MCU_CONTRACT.md."
+      ],
+      "writer": "c_core_writer in isolated managed worktree; M4 device contract frozen before changes"
     },
     {
       "id": "M5",

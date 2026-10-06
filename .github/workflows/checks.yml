@@ -16,11 +16,38 @@ jobs:
           version: "0.12.19"
       - run: uv python install 3.12
       - run: uv sync --locked
+      - name: Native Windows C host and CTest
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: ./scripts/build_host.ps1
+      - name: Native Linux C host and CTest
+        if: runner.os == 'Linux'
+        run: |
+          cmake -S . -B artifacts/host-build -DCMAKE_BUILD_TYPE=Release
+          cmake --build artifacts/host-build
+          ctest --test-dir artifacts/host-build --output-on-failure
       - run: uv run python -m unittest discover -s tests -v
       - run: uv run python scripts/run_suite.py
       - run: uv run python scripts/verify_thermal.py --out artifacts/thermal-verification
+      - name: C-controller tank regression (Windows)
+        if: runner.os == 'Windows'
+        run: uv run python scripts/verify_host.py --exe artifacts/host-build/Release/fluid_controller_host.exe --out artifacts/c-tank
+      - name: C-controller tank regression (Linux)
+        if: runner.os == 'Linux'
+        run: uv run python scripts/verify_host.py --exe artifacts/host-build/fluid_controller_host --out artifacts/c-tank
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
         if: always()
         with:
           name: simulation-evidence-${{ matrix.os }}
           path: artifacts/
+  sanitizers:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - run: |
+          cmake -S . -B artifacts/sanitize -DCMAKE_BUILD_TYPE=Debug -DFL_SANITIZE=ON
+          cmake --build artifacts/sanitize
+          ctest --test-dir artifacts/sanitize --output-on-failure
+        env:
+          ASAN_OPTIONS: detect_leaks=1:halt_on_error=1
+          UBSAN_OPTIONS: halt_on_error=1:print_stacktrace=1

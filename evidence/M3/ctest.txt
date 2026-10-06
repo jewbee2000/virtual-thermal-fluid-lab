@@ -1,0 +1,19 @@
+Start testing: Oct 06 01:15 Pacific Daylight Time
+----------------------------------------------------------
+1/1 Testing: portable_core_codec
+1/1 Test: portable_core_codec
+Command: "C:/Users/Walt/Documents/Codex/fluid-lab-import/virtual-fluid-lab/artifacts/host-build/Release/fl_core_tests.exe"
+Directory: C:/Users/Walt/Documents/Codex/fluid-lab-import/virtual-fluid-lab/artifacts/host-build
+"portable_core_codec" start time: Oct 06 01:15 Pacific Daylight Time
+Output:
+----------------------------------------------------------
+303846 independent core/codec checks passed
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"portable_core_codec" end time: Oct 06 01:15 Pacific Daylight Time
+"portable_core_codec" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 06 01:15 Pacific Daylight Time

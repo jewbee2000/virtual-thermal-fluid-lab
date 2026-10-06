@@ -1,0 +1,33 @@
+-- Selecting Windows SDK version 10.0.26100.0 to target Windows 10.0.26300.
+-- The C compiler identification is MSVC 19.44.35229.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/cl.exe - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Configuring done (2.0s)
+-- Generating done (0.1s)
+-- Build files have been written to: C:/Users/Walt/Documents/Codex/fluid-lab-import/virtual-fluid-lab/artifacts/host-build
+MSBuild version 17.14.60+43b635718 for .NET Framework
+
+  1>Checking Build System
+  Building Custom Rule C:/Users/Walt/Documents/Codex/fluid-lab-import/virtual-fluid-lab/CMakeLists.txt
+  fl_core.c
+  fl_protocol.c
+  Generating Code...
+  fl_core.vcxproj -> C:\Users\Walt\Documents\Codex\fluid-lab-import\virtual-fluid-lab\artifacts\host-build\Release\fl_core.lib
+  Building Custom Rule C:/Users/Walt/Documents/Codex/fluid-lab-import/virtual-fluid-lab/CMakeLists.txt
+  test_core.c
+  fl_core_tests.vcxproj -> C:\Users\Walt\Documents\Codex\fluid-lab-import\virtual-fluid-lab\artifacts\host-build\Release\fl_core_tests.exe
+  Building Custom Rule C:/Users/Walt/Documents/Codex/fluid-lab-import/virtual-fluid-lab/CMakeLists.txt
+  main.c
+  fluid_controller_host.vcxproj -> C:\Users\Walt\Documents\Codex\fluid-lab-import\virtual-fluid-lab\artifacts\host-build\Release\fluid_controller_host.exe
+  Building Custom Rule C:/Users/Walt/Documents/Codex/fluid-lab-import/virtual-fluid-lab/CMakeLists.txt
+Test project C:/Users/Walt/Documents/Codex/fluid-lab-import/virtual-fluid-lab/artifacts/host-build
+    Start 1: portable_core_codec
+1/1 Test #1: portable_core_codec ..............   Passed    0.03 sec
+
+100% tests passed out of 1
+
+Total Test time (real) =   0.06 sec
+C:\Users\Walt\Documents\Codex\fluid-lab-import\virtual-fluid-lab\artifacts\host-build\Release\fluid_controller_host.exe
