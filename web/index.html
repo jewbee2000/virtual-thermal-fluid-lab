@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Inspect retained thermal and fluid software-in-the-loop evidence, observations, controller commands and uncontained faults.">
+  <title>Virtual Thermal Fluid Lab · evidence replay</title>
+  <link rel="stylesheet" href="vendor/uplot/uPlot.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script>window.replayLoadStarted = performance.now();</script>
+  <script defer src="vendor/uplot/uPlot.iife.min.js"></script>
+  <script defer src="data.js"></script>
+  <script defer src="replay-model.js"></script>
+  <script defer src="replay.js"></script>
+</head>
+<body>
+<a class="skip" href="#controls">Skip to replay controls</a>
+<header class="masthead">
+  <div><p class="eyebrow">Walter Teitelbaum / engineering notebook</p><h1>Virtual Thermal Fluid Lab</h1><p class="lede">Follow the heat. Inspect what the controller knew, requested and achieved.</p></div>
+  <div class="evidence-note"><strong>Retained SIL evidence</strong><span id="implementation">Executed controller in raw manifest</span><span>Assumed model parameters</span><span>Physical validation: NOT_STARTED</span><span>Board execution: NOT_EXECUTED</span></div>
+</header>
+<main>
+  <p id="load-message" role="status">Loading local evidence…</p>
+  <section class="controls card" id="controls" aria-label="Replay controls">
+    <div class="selectors"><label>Inspect scenario<select id="scenario"></select></label><label>Compare on absolute time<select id="compare"><option value="">No comparison</option></select></label></div>
+    <div class="transport"><button id="play" type="button" aria-label="Play replay">▶ Play</button><button id="previous" type="button" aria-label="Previous retained sample">‹ Sample</button><button id="next" type="button" aria-label="Next retained sample">Sample ›</button><label class="speed">Speed<select id="speed"><option value="1">1×</option><option value="10" selected>10×</option><option value="50">50×</option></select></label><output id="clock" for="scrub">0.000 s</output></div>
+    <label class="scrub-label" for="scrub">Absolute simulation time <span>Arrow keys: ±1 s · Home/End: run limits · Space: play/pause when slider focused</span></label>
+    <input id="scrub" type="range" min="0" max="1" step="0.001" value="0" aria-label="Absolute simulation time in seconds">
+    <div class="toggles"><label><input id="truth" type="checkbox" checked> Plant truth (synthetic)</label><label><input id="observed" type="checkbox" checked> Observed I/O (dashed, held)</label><label><input id="limits" type="checkbox" checked> Targets / configured limits (dotted)</label></div>
+    <p class="caption">All views share this cursor. Comparisons retain their original time origins and fault times. Sample buttons expose duplicate before/after event rows.</p>
+  </section>
+  <section class="card topology" aria-labelledby="topology-title"><div class="section-head"><h2 id="topology-title">The loop at this instant</h2><span id="live-state" class="badge">Unavailable</span></div>
+    <div id="thermal-diagram">
+      <svg viewBox="0 0 940 225" role="img" aria-labelledby="loop-title loop-desc"><title id="loop-title">Closed thermal circulation loop</title><desc id="loop-desc">Pump sends cooled liquid through a hot wall and hot inventory, then through the valve and heat sink to the cooled inventory. Heat enters the wall and leaves at the sink.</desc>
+        <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#476572"/></marker></defs>
+        <path d="M165 128H315 M445 128H574 M654 128H787 M787 175V202H105V175" class="pipe" marker-end="url(#arrow)"/>
+        <rect x="28" y="68" width="175" height="110" rx="12" class="cold-block"/><text x="115" y="92" class="svg-label">COOLED LIQUID</text><text x="115" y="125" id="svg-cold" class="svg-value">— °C</text><text x="115" y="154" class="svg-small">3 kg assumed inventory</text>
+        <circle cx="260" cy="128" r="29" class="pump-block"/><path d="M250 113L276 128L250 143Z" fill="#476572"/><text x="260" y="63" class="svg-label">PUMP</text><text x="260" y="185" id="svg-pump" class="svg-small">— actual speed</text>
+        <rect x="310" y="61" width="172" height="118" rx="12" class="wall-block"/><rect x="324" y="96" width="144" height="67" rx="8" class="hot-block"/><text x="396" y="82" id="svg-wall" class="svg-label">WALL — °C</text><text x="396" y="117" class="svg-label">HOT LIQUID</text><text x="396" y="145" id="svg-hot" class="svg-value">— °C</text>
+        <path d="M396 17V49" class="heat-arrow" marker-end="url(#arrow)"/><text x="500" y="28" id="svg-heat" class="svg-small">— W applied</text>
+        <path d="M574 111L604 145L634 111V145L604 111L574 145Z" class="valve-block"/><text x="604" y="84" class="svg-label">VALVE</text><text x="604" y="175" id="svg-valve" class="svg-small">— actual opening</text>
+        <rect x="731" y="68" width="178" height="110" rx="12" class="sink-block"/><path d="M748 112H892M748 124H892M748 136H892" stroke="#68849d"/><text x="820" y="92" class="svg-label">HEAT SINK</text><text x="820" y="158" class="svg-small">External cooling boundary</text>
+        <text x="458" y="222" id="svg-flow" class="svg-small">— L/min circulating flow</text>
+      </svg>
+    </div>
+    <div id="tank-diagram" hidden><svg viewBox="0 0 760 180" role="img" aria-label="Atmospheric tank: external supply through metering pump into open tank, gravity valve drains to an external reservoir"><path d="M25 85H235M375 140H705" class="pipe" marker-end="url(#arrow)"/><text x="75" y="50" class="svg-label">EXTERNAL SUPPLY</text><circle cx="175" cy="85" r="27" class="pump-block"/><path d="M245 25V145H375V25" fill="#e2eef5" stroke="#476572" stroke-width="3"/><text x="310" y="63" class="svg-label">OPEN TANK</text><text x="310" y="100" id="svg-level" class="svg-value">— m</text><text x="510" y="108" class="svg-label">GRAVITY DRAIN / VALVE</text><text x="650" y="166" class="svg-small">External reservoir</text></svg></div>
+    <p id="instant" class="caption"></p><p class="caption mobile-hint">Scroll the diagram horizontally to follow the whole loop.</p>
+  </section>
+  <section class="card" aria-labelledby="metrics-title"><div class="section-head"><h2 id="metrics-title">Run outcome</h2><span class="caption">Evaluator result, unchanged</span></div><div id="metrics" class="metrics"></div><p id="outcome-explanation" class="caption"></p></section>
+  <section class="card" aria-labelledby="events-title"><div class="section-head"><h2 id="events-title">Events and state changes</h2><span class="caption">Select an event to inspect its time</span></div><div id="events" class="events"></div></section>
+  <section aria-label="Aligned time series"><div class="section-head"><h2>Evidence tracks</h2><span class="caption">No inserted samples · raw rows preserved · commands held</span></div><div id="charts" class="charts"></div></section>
+  <section class="card" aria-labelledby="quality-title"><div class="section-head"><h2 id="quality-title">What the controller observed</h2><span id="sample-label" class="caption"></span></div><p class="caption">Quality and freshness are separate. A fresh plausible bias or frozen value can remain valid. Source time, receipt time and last-good source time are retained; old arrival cannot create a fresh acquisition. Invalid / missing / stale observations break chart lines.</p><div class="table-wrap"><table><thead><tr><th>Channel</th><th>Observed value</th><th>Quality / freshness</th><th>Source s</th><th>Receipt s</th><th>Last good s</th><th>Age s</th></tr></thead><tbody id="quality"></tbody></table></div></section>
+  <section class="card" aria-labelledby="rules-title"><div class="section-head"><h2 id="rules-title">Acceptance criteria</h2><span class="caption">PASS ≠ physical validation</span></div><div id="rules" class="rules"></div></section>
+  <section class="card" aria-labelledby="provenance-title"><h2 id="provenance-title">Inspect the evidence</h2><p>Original files retain their bytes and SHA256 hashes. The replay changes display units only: K → °C and m³/s → L/min. Controller, virtual and hardware clocks keep their recorded identities.</p><div id="downloads" class="downloads"></div><details><summary>Executed configuration and provenance</summary><pre id="provenance"></pre></details><details><summary>All recorded metrics</summary><pre id="all-metrics"></pre></details><details><summary>Static figure fallback</summary><div id="fallback"></div></details><p id="load-time" class="caption"></p></section>
+  <noscript><section class="card"><h2>JavaScript is disabled</h2><p>Open the <a href="replay-manifest.json">replay manifest</a> and the exported <a href="fallback/">static figures</a>. Raw evidence is in the raw directory beside this page.</p></section></noscript>
+</main>
+<footer><p>Educational test bench · same portable C control core for host SIL and Pico target · cross-building does not establish board execution.</p><p>Offline chart library: uPlot 1.6.32, Leon Sorokin, MIT · <a href="vendor/uplot/LICENSE">license</a> · <a href="THIRD_PARTY.md">asset inventory</a></p></footer>
+</body>
+</html>
