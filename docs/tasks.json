@@ -145,10 +145,37 @@
       "acceptance": "MODEL-01 PHYS-01 NUM-01 DOMAIN-01; details in docs/REQUIREMENTS.md and revised plan",
       "status": "in_progress",
       "commit": null,
-      "commands": [],
-      "artifacts": [],
+      "commands": [
+        {
+          "command": "uv run python -m unittest discover -s tests -v",
+          "outcome": "78 tests passed in 20.507 s, including original tank20 and thermal23",
+          "exit_code": 0
+        },
+        {
+          "command": "uv run python scripts/run_suite.py --out artifacts/M2-work/tank-suite",
+          "outcome": "Seven preserved tank expectations passed; stuck pump remains uncontained",
+          "exit_code": 0
+        },
+        {
+          "command": "uv run python scripts/verify_thermal.py --out artifacts/M2",
+          "outcome": "10 benchmark checks passed;11 raw CSVs;1200s equilibrium error0.000109133 K",
+          "exit_code": 0
+        },
+        {
+          "command": "Read-only physics review and .venv Python96-corner bound probe",
+          "outcome": "Accepted with pressure roundoff and report/unit-test event-time caveats",
+          "exit_code": 0
+        }
+      ],
+      "artifacts": [
+        "evidence/M2/",
+        "evidence/reviews/M2-physics-review.md"
+      ],
       "unresolved_limitations": [
-        "Implementation/thermal benchmark not yet executed; frozen derivation accepted before coding."
+        "Windows/Linux CI and merge pending.",
+        "Assumed reduced model; physical validation NOT_STARTED and board execution NOT_EXECUTED.",
+        "240s cold start is transient; equilibrium gate uses1200s imposed-flow benchmark.",
+        "Benchmark timing was observed concurrently; isolated performance gate belongs to M5."
       ],
       "issue": "https://github.com/jewbee2000/virtual-thermal-fluid-lab/issues/3",
       "writer": "m1_writer (continued bounded M2 ticket)"

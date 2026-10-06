@@ -20,6 +20,15 @@ status in `docs/tasks.json`. Inputs are strict, executed solver settings and por
 source hashes are retained, terminal snapshots expose sensor age, and incomplete
 evidence cannot pass. The tank remains the Python benchmark until M3 adds C control.
 
+M2 now implements the assumed thermal loop and stable pump/system intersection.
+Run `uv run python scripts/verify_thermal.py --out artifacts/thermal-checkpoint`
+for analytic heating/cooling, an independent matrix solution, persistent boundary
+checks and solver refinement. Native Windows checks passed78 tests, the seven
+tank scenarios and ten thermal benchmarks; retained evidence is in `evidence/M2`.
+At imposed9 L/min and5 kW the assumed equilibrium is20 C cooled liquid,
+27.974 C hot liquid and44.641 C wall. The1200 s benchmark approaches it within
+0.000109133 K; a240 s cold start remains transient. C integration follows M3.
+
 **Credibility:** equations and numerical implementation can be verified; physical validation is NOT_STARTED. Parameters and acceptance thresholds are educational design choices. This is software-in-the-loop (SIL), not hardware-in-the-loop (HIL), a subsea geothermal model, or a certified safety system.
 
 | File | Purpose |

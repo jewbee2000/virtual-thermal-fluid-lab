@@ -1,0 +1,28 @@
+test_explicit_held_resistance_override_updates_observable_flow (test_thermal.HydraulicTests.test_explicit_held_resistance_override_updates_observable_flow) ... ok
+test_imposed_flow_benchmark_does_not_claim_hydraulic_pressure (test_thermal.HydraulicTests.test_imposed_flow_benchmark_does_not_claim_hydraulic_pressure) ... ok
+test_independent_pressure_substitution_forward_and_restricted (test_thermal.HydraulicTests.test_independent_pressure_substitution_forward_and_restricted) ... ok
+test_tiny_opening_is_finite_and_stable (test_thermal.HydraulicTests.test_tiny_opening_is_finite_and_stable) ... ok
+test_zero_speed_and_closed_branch_have_no_leak (test_thermal.HydraulicTests.test_zero_speed_and_closed_branch_have_no_leak) ... ok
+test_corrupt_accepted_temperature_or_actuator_state_is_not_clamped (test_thermal.ThermalContractTests.test_corrupt_accepted_temperature_or_actuator_state_is_not_clamped) ... ok
+test_initial_temperature_and_actuator_guards (test_thermal.ThermalContractTests.test_initial_temperature_and_actuator_guards) ... ok
+test_inputs_and_solver_are_immutable_and_strict (test_thermal.ThermalContractTests.test_inputs_and_solver_are_immutable_and_strict) ... ok
+test_parameter_and_solver_field_sets_match_versioned_contract (test_thermal.ThermalContractTests.test_parameter_and_solver_field_sets_match_versioned_contract) ... ok
+test_parameters_allow_zero_analytic_conductances_and_reject_bad_values (test_thermal.ThermalContractTests.test_parameters_allow_zero_analytic_conductances_and_reject_bad_values) ... ok
+test_partial_failure_preserves_last_state_diagnostics_and_latch (test_thermal.ThermalContractTests.test_partial_failure_preserves_last_state_diagnostics_and_latch) ... ok
+test_reported_lower_root_has_raw_residual_and_persistent_stop (test_thermal.ThermalContractTests.test_reported_lower_root_has_raw_residual_and_persistent_stop) ... ok
+test_solver_exception_retains_prior_state (test_thermal.ThermalContractTests.test_solver_exception_retains_prior_state) ... ok
+test_augmented_energy_residual_is_consistency_only (test_thermal.ThermalPhysicsTests.test_augmented_energy_residual_is_consistency_only) ... ok
+test_closed_internal_mixing_conserves_independent_weighted_energy (test_thermal.ThermalPhysicsTests.test_closed_internal_mixing_conserves_independent_weighted_energy) ... ok
+test_independent_matrix_exponential_and_1200_second_equilibrium (test_thermal.ThermalPhysicsTests.test_independent_matrix_exponential_and_1200_second_equilibrium) ... ok
+test_isolated_constant_heating_matches_linear_solution (test_thermal.ThermalPhysicsTests.test_isolated_constant_heating_matches_linear_solution) ... ok
+test_isolated_sink_cooling_matches_exponential_solution (test_thermal.ThermalPhysicsTests.test_isolated_sink_cooling_matches_exponential_solution) ... ok
+test_legal_stationary_actuator_endpoints_never_terminate (test_thermal.ThermalPhysicsTests.test_legal_stationary_actuator_endpoints_never_terminate) ... ok
+test_lower_maximum_principle_finite_horizon_cooling (test_thermal.ThermalPhysicsTests.test_lower_maximum_principle_finite_horizon_cooling) ... ok
+test_no_flow_internal_wall_exchange_cancels (test_thermal.ThermalPhysicsTests.test_no_flow_internal_wall_exchange_cancels) ... ok
+test_upper_event_matches_analytic_time_and_remains_stopped (test_thermal.ThermalPhysicsTests.test_upper_event_matches_analytic_time_and_remains_stopped) ... ok
+test_zero_flow_with_heat_has_no_flowing_steady_state (test_thermal.ThermalPhysicsTests.test_zero_flow_with_heat_has_no_flowing_steady_state) ... ok
+
+----------------------------------------------------------------------
+Ran 23 tests in 5.678s
+
+OK

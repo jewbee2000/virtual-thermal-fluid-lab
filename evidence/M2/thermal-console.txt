@@ -1,0 +1,135 @@
+{
+  "all_checks_pass": true,
+  "checks": {
+    "hydraulic_pressure_substitution": {
+      "status": "PASS",
+      "actual": 5.093170329928398e-16,
+      "threshold": 1e-08,
+      "comparison": "<"
+    },
+    "constant_heating_max_sampled_error_k": {
+      "status": "PASS",
+      "actual": 4.32578417530749e-11,
+      "threshold": 1e-05,
+      "comparison": "<"
+    },
+    "exponential_cooling_max_sampled_error_k": {
+      "status": "PASS",
+      "actual": 3.979039320256561e-13,
+      "threshold": 1e-05,
+      "comparison": "<"
+    },
+    "matrix_exponential_max_sampled_error_k": {
+      "status": "PASS",
+      "actual": 9.094947017729282e-13,
+      "threshold": 1e-05,
+      "comparison": "<"
+    },
+    "1200s_equilibrium_error_k": {
+      "status": "PASS",
+      "actual": 0.00010913299064441162,
+      "threshold": 0.01,
+      "comparison": "<"
+    },
+    "internal_mixing_weighted_energy_error_j": {
+      "status": "PASS",
+      "actual": 9.313225746154785e-09,
+      "threshold": 0.001,
+      "comparison": "<"
+    },
+    "no_flow_wall_hot_energy_error_j": {
+      "status": "PASS",
+      "actual": 1.30385160446167e-08,
+      "threshold": 0.001,
+      "comparison": "<"
+    },
+    "no_flow_heating_wall_hot_energy_error_j": {
+      "status": "PASS",
+      "actual": 6.05359673500061e-09,
+      "threshold": 0.001,
+      "comparison": "<"
+    },
+    "upper_boundary_stopped": {
+      "status": "PASS",
+      "meaning": "terminal boundary; raw root retained; no continuing run"
+    },
+    "tightest_solver_normalized_maximum": {
+      "status": "PASS",
+      "actual": 0.00012342737942816484,
+      "threshold": 1,
+      "comparison": "<="
+    }
+  },
+  "solver_refinement": [
+    {
+      "rtol": 1e-05,
+      "status": "ASSESSED",
+      "maximum_error_per_state": [
+        1.6484591469634324e-12,
+        1.5347723092418164e-12,
+        1.1937117960769683e-12,
+        1.144884187453954e-11,
+        0.0,
+        1.7113052308559418e-08,
+        4.4819898903369904e-08
+      ],
+      "normalized_error_per_state": [
+        1.6484591469634324e-08,
+        1.5347723092418164e-08,
+        1.1937117960769683e-08,
+        0.00011448841874539539,
+        0.0,
+        1.7113052308559418e-06,
+        4.48198989033699e-06
+      ],
+      "normalized_maximum": 0.00011448841874539539
+    },
+    {
+      "rtol": 1e-07,
+      "status": "ASSESSED",
+      "maximum_error_per_state": [
+        1.2505552149377763e-12,
+        1.0231815394945443e-12,
+        1.0800249583553523e-12,
+        1.0339007427973002e-11,
+        0.0,
+        1.0011717677116394e-08,
+        3.306195139884949e-08
+      ],
+      "normalized_error_per_state": [
+        1.2505552149377763e-08,
+        1.0231815394945443e-08,
+        1.0800249583553523e-08,
+        0.00010339007427973002,
+        0.0,
+        1.0011717677116394e-06,
+        3.3061951398849487e-06
+      ],
+      "normalized_maximum": 0.00010339007427973002
+    },
+    {
+      "rtol": 1e-09,
+      "status": "ASSESSED",
+      "maximum_error_per_state": [
+        1.3073986337985843e-12,
+        1.1368683772161603e-12,
+        1.3642420526593924e-12,
+        1.2342737942816484e-11,
+        0.0,
+        6.28642737865448e-09,
+        1.3620592653751373e-08
+      ],
+      "normalized_error_per_state": [
+        1.3073986337985843e-08,
+        1.1368683772161603e-08,
+        1.3642420526593924e-08,
+        0.00012342737942816484,
+        0.0,
+        6.28642737865448e-07,
+        1.3620592653751373e-06
+      ],
+      "normalized_maximum": 0.00012342737942816484
+    }
+  ],
+  "host_wall_elapsed_s": 13.225773000000117
+}
