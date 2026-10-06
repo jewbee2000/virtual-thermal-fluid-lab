@@ -14,7 +14,7 @@
   <text x="61" y="255" class="note">Cw = 10 kJ/K</text>
   <path d="M120 105V145" class="heat"/><text x="141" y="125" class="value">5,000 W</text>
   <path d="M205 222H265" class="heat"/>
-  <text x="203" y="191" class="note">UA = 300 W/K</text>
+  <text x="40" y="330" class="note">Wall → liquid: UA = 300 W/K</text>
   <rect x="272" y="150" width="185" height="150" fill="#fdebdc" class="box"/>
   <text x="292" y="188" class="label">Hot liquid</text><text x="292" y="222" class="value">26.455 °C</text>
   <text x="292" y="255" class="note">2 kg • well mixed</text>
@@ -31,8 +31,8 @@
   <circle cx="566" cy="374" r="36" fill="#e1edf3" stroke="#356c93" stroke-width="3"/>
   <path d="M584 361L549 374L584 387Z" fill="#356c93"/>
   <path d="M526 374H365V305" class="pipe"/>
-  <text x="627" y="366" class="note">Actual pump speed = 0.527500</text>
-  <text x="627" y="394" class="note">Pressure rise = 18.82557 kPa</text>
+  <text x="627" y="410" class="note">Actual pump speed = 0.527500</text>
+  <text x="627" y="435" class="note">Pressure rise = 18.82557 kPa</text>
   <text x="32" y="453" class="note">Source: nominal_heat_step/telemetry.csv, final row; clean source cc5a6fe / fa2a7a40</text>
   <text x="32" y="480" class="note">This cold-start state is transient. The independent 1,200 s benchmark tests equilibrium.</text>
 </svg>
