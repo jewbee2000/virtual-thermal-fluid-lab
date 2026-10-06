@@ -1,0 +1,972 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Integrated thermal telemetry row v1",
+  "$comment": "Frozen before M5 outcomes. Runtime adds finite-number, duplicate-key, ordering, span, tick and cross-field validation. This schema describes normalized exports.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "run_name": {
+      "type": "string"
+    },
+    "topology": {
+      "const": "thermal_loop"
+    },
+    "sample_id": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 18446744073709551615
+    },
+    "record_type": {
+      "enum": [
+        "controller_tick",
+        "event_boundary",
+        "command_expiry",
+        "command_arrival",
+        "terminal_boundary",
+        "solver_failure"
+      ]
+    },
+    "time_us": {
+      "type": "number",
+      "minimum": 0
+    },
+    "time_s": {
+      "type": "number",
+      "minimum": 0
+    },
+    "epoch": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 4294967295
+    },
+    "session_origin_us": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 18446744073709551615
+    },
+    "wire_time_us": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 18446744073709551615
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "controller_tick_id": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 18446744073709551615
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "reply_time_us": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 18446744073709551615
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "controller_state": {
+      "anyOf": [
+        {
+          "enum": [
+            "DISARMED",
+            "RUNNING",
+            "TRIPPED"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "trip_reason": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "operation": {
+      "anyOf": [
+        {
+          "type": [
+            "string",
+            "integer"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "operation_result": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "valid_mask": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 63
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "stale_mask": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 63
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "max_age_us": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 18446744073709551615
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "observation_cache_source": {
+      "const": "reconstructed_from_retained_wire"
+    },
+    "cache_matches_reply": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "event_ids": {
+      "type": "string"
+    },
+    "event_phase": {
+      "enum": [
+        null,
+        "before",
+        "after"
+      ]
+    },
+    "wall_temperature_k": {
+      "type": "number"
+    },
+    "hot_temperature_k": {
+      "type": "number"
+    },
+    "cold_temperature_k": {
+      "type": "number"
+    },
+    "pump_speed": {
+      "type": "number"
+    },
+    "valve_opening": {
+      "type": "number"
+    },
+    "heat_in_j": {
+      "type": "number"
+    },
+    "heat_rejected_j": {
+      "type": "number"
+    },
+    "flow_m3_s": {
+      "type": "number"
+    },
+    "pump_pressure_pa": {
+      "type": "number"
+    },
+    "energy_residual_j": {
+      "type": "number"
+    },
+    "observed_flow_m3_s": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "observed_hot_temperature_k": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "observed_cold_temperature_k": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "observed_wall_temperature_k": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "observed_separate_trip": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "flow_value_i": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "flow_quality": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "flow_sequence": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "flow_source_time_us": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 18446744073709551615
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "flow_receipt_time_us": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 18446744073709551615
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "flow_last_good_source_time_us": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 18446744073709551615
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "flow_age_us": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 18446744073709551615
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "hot_value_i": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "hot_quality": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "hot_sequence": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "hot_source_time_us": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 18446744073709551615
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "hot_receipt_time_us": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 18446744073709551615
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "hot_last_good_source_time_us": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 18446744073709551615
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "hot_age_us": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 18446744073709551615
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "cold_value_i": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "cold_quality": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "cold_sequence": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "cold_source_time_us": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 18446744073709551615
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "cold_receipt_time_us": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 18446744073709551615
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "cold_last_good_source_time_us": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 18446744073709551615
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "cold_age_us": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 18446744073709551615
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "wall_value_i": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "wall_quality": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "wall_sequence": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "wall_source_time_us": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 18446744073709551615
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "wall_receipt_time_us": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 18446744073709551615
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "wall_last_good_source_time_us": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 18446744073709551615
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "wall_age_us": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 18446744073709551615
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "separate_value_i": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "separate_quality": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "separate_sequence": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "separate_source_time_us": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 18446744073709551615
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "separate_receipt_time_us": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 18446744073709551615
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "separate_last_good_source_time_us": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 18446744073709551615
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "separate_age_us": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 18446744073709551615
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "requested_heat_command": {
+      "anyOf": [
+        {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "requested_pump_command": {
+      "anyOf": [
+        {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "requested_valve_command": {
+      "anyOf": [
+        {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "lease_heat_command": {
+      "anyOf": [
+        {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "lease_pump_command": {
+      "anyOf": [
+        {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "lease_valve_command": {
+      "anyOf": [
+        {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "fault_heat_command": {
+      "anyOf": [
+        {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "fault_pump_command": {
+      "anyOf": [
+        {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "fault_valve_command": {
+      "anyOf": [
+        {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "command_sequence": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "command_expires_us": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 18446744073709551615
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "command_expired": {
+      "type": "boolean"
+    },
+    "heat_demand_command": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "applied_heat_w": {
+      "type": "number",
+      "minimum": 0
+    },
+    "terminal_boundary": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "solver_diagnostic_id": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 18446744073709551615
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "effective_hot_conductance_w_k": {
+      "type": "number",
+      "minimum": 0
+    },
+    "effective_sink_conductance_w_k": {
+      "type": "number",
+      "minimum": 0
+    },
+    "effective_pipe_resistance_pa_s2_m6": {
+      "type": "number",
+      "minimum": 0
+    },
+    "effective_valve_resistance_pa_s2_m6": {
+      "type": "number",
+      "minimum": 0
+    }
+  },
+  "required": [
+    "schema_version",
+    "run_name",
+    "topology",
+    "sample_id",
+    "record_type",
+    "time_us",
+    "time_s",
+    "epoch",
+    "session_origin_us",
+    "wire_time_us",
+    "controller_tick_id",
+    "reply_time_us",
+    "controller_state",
+    "trip_reason",
+    "operation",
+    "operation_result",
+    "valid_mask",
+    "stale_mask",
+    "max_age_us",
+    "observation_cache_source",
+    "cache_matches_reply",
+    "event_ids",
+    "event_phase",
+    "wall_temperature_k",
+    "hot_temperature_k",
+    "cold_temperature_k",
+    "pump_speed",
+    "valve_opening",
+    "heat_in_j",
+    "heat_rejected_j",
+    "flow_m3_s",
+    "pump_pressure_pa",
+    "energy_residual_j",
+    "observed_flow_m3_s",
+    "observed_hot_temperature_k",
+    "observed_cold_temperature_k",
+    "observed_wall_temperature_k",
+    "observed_separate_trip",
+    "flow_value_i",
+    "flow_quality",
+    "flow_sequence",
+    "flow_source_time_us",
+    "flow_receipt_time_us",
+    "flow_last_good_source_time_us",
+    "flow_age_us",
+    "hot_value_i",
+    "hot_quality",
+    "hot_sequence",
+    "hot_source_time_us",
+    "hot_receipt_time_us",
+    "hot_last_good_source_time_us",
+    "hot_age_us",
+    "cold_value_i",
+    "cold_quality",
+    "cold_sequence",
+    "cold_source_time_us",
+    "cold_receipt_time_us",
+    "cold_last_good_source_time_us",
+    "cold_age_us",
+    "wall_value_i",
+    "wall_quality",
+    "wall_sequence",
+    "wall_source_time_us",
+    "wall_receipt_time_us",
+    "wall_last_good_source_time_us",
+    "wall_age_us",
+    "separate_value_i",
+    "separate_quality",
+    "separate_sequence",
+    "separate_source_time_us",
+    "separate_receipt_time_us",
+    "separate_last_good_source_time_us",
+    "separate_age_us",
+    "requested_heat_command",
+    "requested_pump_command",
+    "requested_valve_command",
+    "lease_heat_command",
+    "lease_pump_command",
+    "lease_valve_command",
+    "fault_heat_command",
+    "fault_pump_command",
+    "fault_valve_command",
+    "command_sequence",
+    "command_expires_us",
+    "command_expired",
+    "heat_demand_command",
+    "applied_heat_w",
+    "terminal_boundary",
+    "solver_diagnostic_id",
+    "effective_hot_conductance_w_k",
+    "effective_sink_conductance_w_k",
+    "effective_pipe_resistance_pa_s2_m6",
+    "effective_valve_resistance_pa_s2_m6"
+  ]
+}

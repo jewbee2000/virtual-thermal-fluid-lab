@@ -61,4 +61,6 @@ C:/mingw64/bin/gcc.exe -std=c11 -Wall -Wextra -Wpedantic -Werror -Ifirmware/core
 ./artifacts/M3-gcc-core-tests.exe
 ```
 
-The repaired CI result will be recorded separately after it actually completes.
+Repaired PR run37437468947 at7c4f770 actually passed Windows2025 and Ubuntu24.04
+full verification and Linux ASan/UBSan. Job/step records are in windows-linux-ci.json.
+PR6 merged to main at a44ee79de1c2e3d6db23670ddc005109d9a7d32e.

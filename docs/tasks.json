@@ -206,8 +206,8 @@
         "tests/"
       ],
       "acceptance": "CORE-01 CTRL-01 WIRE-01 LINK-01 BUILD-01; details in docs/REQUIREMENTS.md and revised plan",
-      "status": "in_progress",
-      "commit": null,
+      "status": "complete",
+      "commit": "7c4f7705cc32dba8235ac278efdd626e0dcf3c3d",
       "commands": [
         {
           "outcome": "Native MSVC19.44 C11 /W4 /WX; CTest portable core/codec303846 assertions passed",
@@ -238,15 +238,25 @@
           "outcome": "Accepted;6 passed1.310s, independent PI outputs and stale ages verified",
           "command": "Read-only review: six targeted tests plus actual-host H/restart/delayed-observation probe",
           "exit_code": 0
+        },
+        {
+          "command": "Native GCC14.2 strict C11 compile and independent core/codec executable",
+          "exit_code": 0,
+          "outcome": "303846 checks passed after unsigned CRC repair"
+        },
+        {
+          "command": "GitHub Actions run37437468947 at7c4f770",
+          "exit_code": 0,
+          "outcome": "Windows2025 and Ubuntu24.04 full verification plus Linux ASan/UBSan passed; first failed run37436321899 retained"
         }
       ],
       "artifacts": [
         "evidence/M3/",
         "evidence/reviews/M3-test-review.md",
-        "artifacts/M3-final-identity/"
+        "artifacts/M3-final-identity/",
+        "evidence/M3/windows-linux-ci.json"
       ],
       "unresolved_limitations": [
-        "Windows/Linux CI and Linux sanitizers pending.",
         "MCU/HAL and thermal integrated containment are M4/M5.",
         "Arbitrary user Python callback execution is outside child-I/O deadlines; no Python fallback.",
         "Canonical source coverage expansion to firmware/build inputs is frozen for M5; M3 separately records actual binary/core hashes."
@@ -254,7 +264,9 @@
       "issue": "https://github.com/jewbee2000/virtual-thermal-fluid-lab/issues/4",
       "writer": "c_core_writer in isolated managed worktree thermal-lab-c-core",
       "implementation_commit": "76ad3295d84f68773ecb6d85181a3f25cb4e99fd",
-      "integrated_source_commit": "57bf3c1afea1943987d5c92f91c4652bcae27773"
+      "integrated_source_commit": "57bf3c1afea1943987d5c92f91c4652bcae27773",
+      "merge_commit": "a44ee79de1c2e3d6db23670ddc005109d9a7d32e",
+      "pull_request": "https://github.com/jewbee2000/virtual-thermal-fluid-lab/pull/6"
     },
     {
       "id": "M4",
@@ -277,7 +289,8 @@
         "Target build/peripheral execution not yet checked; board NOT_EXECUTED.",
         "Host V clock remains fixed; device D wrapper uses same internal policy with real elapsed time; U/X/N extension is specified in docs/MCU_CONTRACT.md."
       ],
-      "writer": "c_core_writer in isolated managed worktree; M4 device contract frozen before changes"
+      "writer": "c_core_writer in isolated managed worktree; M4 device contract frozen before changes",
+      "issue": "https://github.com/jewbee2000/virtual-thermal-fluid-lab/issues/7"
     },
     {
       "id": "M5",
@@ -294,11 +307,15 @@
         "evidence/"
       ],
       "acceptance": "CAMP-01 NUM-01 PEAK-01 PERF-01 EVAL-01 PROV-01; details in docs/REQUIREMENTS.md and revised plan",
-      "status": "pending",
+      "status": "in_progress",
       "commit": null,
       "commands": [],
       "artifacts": [],
-      "unresolved_limitations": []
+      "unresolved_limitations": [
+        "Final integrated campaign/refinement/performance gates await M4 merge; no outcomes claimed yet."
+      ],
+      "issue": "https://github.com/jewbee2000/virtual-thermal-fluid-lab/issues/8",
+      "writer": "m1_writer in root checkout; approved closed contracts before integrated outcomes"
     },
     {
       "id": "M6",
@@ -313,11 +330,15 @@
         "docs/hardware/"
       ],
       "acceptance": "WEB-01 HW-01; details in docs/REQUIREMENTS.md and revised plan",
-      "status": "pending",
+      "status": "in_progress",
       "commit": null,
       "commands": [],
       "artifacts": [],
-      "unresolved_limitations": []
+      "unresolved_limitations": [
+        "UI scaffolding proceeds against frozen data contract; final actual-C exports/browser QA await M5.",
+        "Hardware packet is planned; fixture NOT_FABRICATED, board NOT_EXECUTED."
+      ],
+      "writer": "replay_writer in isolated thermal-lab-replay checkout"
     },
     {
       "id": "M7",

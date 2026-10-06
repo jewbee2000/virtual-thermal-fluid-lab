@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Normalized C thermal controller v1",
+  "$comment": "Frozen before M5 outcomes. Runtime adds finite-number, duplicate-key, ordering, span, tick and cross-field validation. This schema describes normalized exports.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "profile": {
+      "const": 2
+    },
+    "version": {
+      "const": 1
+    },
+    "config_id": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295
+    },
+    "tick_us": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 1000000
+    },
+    "stale_us": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 10000000
+    },
+    "lease_us": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 10000000
+    },
+    "kp_scaled": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 1000000000000
+    },
+    "ki_scaled": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 1000000000000
+    },
+    "ff_ppm": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "normal_valve_ppm": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "target_i": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 2147483647
+    },
+    "min_control_i": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 2147483647
+    },
+    "max_control_i": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 2147483647
+    },
+    "min_temp_mK": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "max_temp_mK": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "hot_trip_mK": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 1000000
+    },
+    "wall_trip_mK": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 1000000
+    }
+  },
+  "required": [
+    "profile",
+    "version",
+    "config_id",
+    "tick_us",
+    "stale_us",
+    "lease_us",
+    "kp_scaled",
+    "ki_scaled",
+    "ff_ppm",
+    "normal_valve_ppm",
+    "target_i",
+    "min_control_i",
+    "max_control_i",
+    "min_temp_mK",
+    "max_temp_mK",
+    "hot_trip_mK",
+    "wall_trip_mK"
+  ]
+}

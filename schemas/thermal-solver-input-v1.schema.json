@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Normalized thermal solver input v1",
+  "$comment": "Frozen before M5 outcomes. Runtime adds finite-number, duplicate-key, ordering, span, tick and cross-field validation. This schema describes normalized exports.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "version": {
+      "const": 1
+    },
+    "method": {
+      "enum": [
+        "RK45",
+        "DOP853",
+        "Radau"
+      ]
+    },
+    "rtol": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "atol": {
+      "type": "array",
+      "minItems": 7,
+      "maxItems": 7,
+      "items": {
+        "type": "number",
+        "exclusiveMinimum": 0
+      }
+    },
+    "max_step_s": {
+      "type": "number",
+      "exclusiveMinimum": 0,
+      "maximum": 0.05
+    }
+  },
+  "required": [
+    "version",
+    "method",
+    "rtol",
+    "atol",
+    "max_step_s"
+  ]
+}

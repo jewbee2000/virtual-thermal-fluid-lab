@@ -67,7 +67,16 @@ capacity and whole-frame drops; prioritize B/Q/R/N ahead of optional required-
 channel X diagnostics. Count dropped output. No unbounded ISR parsing or USB wait.
 
 ADC readiness uses a100 us deadline plus a finite iteration guard; timeout is
-invalid quality. Watchdog1500 ms is fed only after scheduled acquisition/control
+invalid quality. ADC_CS_ERR also yields invalid quality. Read-only HAL review
+found that TinyUSB's queue can be replenished while tud_task drains it. A narrow
+build-local wrapper of the pinned vendor source therefore permits at most8 queue
+receives per pass at timeout0. The SDK checkout is unchanged; source pin/hash and
+wrapper transformation are checked and the wrapper hash retained. Sustained-queue
+and ADC-error native stub checks verify these software paths, without claiming
+measured device timing. Project warnings remain errors; SDK source uses its
+supported compiler defaults.
+
+Watchdog1500 ms is fed only after scheduled acquisition/control
 work completes. Device64-bit SDK monotonic clock avoids a32-bit software wrap;
 reboot resets its time origin. Record boot/reset evidence during H1 before any
 claim about measured watchdog timing or executed peripherals.
