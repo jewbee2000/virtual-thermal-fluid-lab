@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "changed_assets_from_previous_browser_dataset": [
+    "README.md"
+  ],
+  "scientific_rows_and_browser_boot_assets_identical": true,
+  "packaging_commit": "63430f485777872ba089ec85a689e5cc45a73f92",
+  "replay_manifest_sha256": "579c4f3b3fb2407d47cd3919f66ddc6e1061b34ad4f01ac5154eb0a1f0737aa4",
+  "site_source_verified_files": 237,
+  "method": "all destination paths and bytes match final bundle; prior bundle differs only in README and enclosing manifest"
+}

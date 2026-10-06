@@ -1,0 +1,168 @@
+{
+  "checked_at_utc": "2026-10-06T11:38:31.442887+00:00",
+  "status": "COMPLETE",
+  "milestones": "M0-M7 complete; H1/H2 separately unexecuted",
+  "record_base_commit": "005dbf30e9e2b91d29f213766bbf95d4d524f509",
+  "tagged_source_commit": "dd8b9814859691c7f71019bb2bca4e4d0baef284",
+  "runtime_source_file_count": 63,
+  "runtime_source_sha256": {
+    "v0.1.0": "fa2a7a40d64fc2dad4022ed6f4642dfd7249912d36882f28a845d164e83babc9",
+    "HEAD": "fa2a7a40d64fc2dad4022ed6f4642dfd7249912d36882f28a845d164e83babc9",
+    "WORKING_BYTES": "fa2a7a40d64fc2dad4022ed6f4642dfd7249912d36882f28a845d164e83babc9"
+  },
+  "software_ci_url": "https://github.com/jewbee2000/virtual-thermal-fluid-lab/actions/runs/37452839832",
+  "release_url": "https://github.com/jewbee2000/virtual-thermal-fluid-lab/releases/tag/v0.1.0",
+  "site_source_commit": "be9e3b25beee8d34147cf2eea3dea39461c1f8f7",
+  "site_merge_commit": "3fe8de66f153bf8bfd25325947343f05612509d1",
+  "site_pr": "https://github.com/jewbee2000/walts_jekyll_site/pull/1",
+  "pages_run_url": "https://github.com/jewbee2000/walts_jekyll_site/actions/runs/37456973286",
+  "pages_deployment_id": 6882784535,
+  "independent_publication_review": "Read-only release_discovery ACCEPT: public visibility,19 asset digests/sizes, annotated tag and prepublication CI chronology verified via GitHub APIs; payloads not downloaded again",
+  "board_execution": "NOT_EXECUTED",
+  "fixture": "NOT_FABRICATED",
+  "physical_validation": "NOT_STARTED",
+  "independent_human_mastery": "NOT_ESTABLISHED",
+  "chronology": "Post-publication documentation only; original tagged source and four release ZIPs preserved",
+  "receipts": [
+    {
+      "path": "audit_live_site.py",
+      "bytes": 2369,
+      "sha256": "71d5a9d9be9840a0a4abc4bf092f7e0cee97135a1c69f07f4d4216edc73654d3"
+    },
+    {
+      "path": "case-study-live.jpg",
+      "bytes": 84028,
+      "sha256": "fbf6a34edec6d754024a054c1f9a93add0589bdaa1f16171b19de4ca1d7e2c51"
+    },
+    {
+      "path": "final-ci-gate.json",
+      "bytes": 18565,
+      "sha256": "5e563fa11db5b73e542cfa94c52459e6ffd97db56b9d2a5f8e6f1bc23fbc68e4"
+    },
+    {
+      "path": "final-source-independent-audit.json",
+      "bytes": 42768,
+      "sha256": "75d3498cbf1636a710152305119c29da7364d7e798ceb94d5ff4d5b5fae9973c"
+    },
+    {
+      "path": "immutable-source-preflight-audit.json",
+      "bytes": 25826,
+      "sha256": "d5458b52456a01e802fdbb31768be9b32c497b248d18512bc1bc03190821c377"
+    },
+    {
+      "path": "M7-final-replay-audit.json",
+      "bytes": 925,
+      "sha256": "09db0053cb272498eb8200a3feb59d55475e1077ed23eb236fea80d953df5c40"
+    },
+    {
+      "path": "M7-lab-pr.json",
+      "bytes": 259,
+      "sha256": "e99096023ab45fda2d31642865078c10116fbe25af4eb360827805640f017403"
+    },
+    {
+      "path": "M7-live-browser-download-audit.json",
+      "bytes": 935,
+      "sha256": "f93ffdd3d92258b4f271b760ce3dc4f3c72a8c3065b98388f80801596bf4c9ca"
+    },
+    {
+      "path": "M7-live-browser-qa.json",
+      "bytes": 2246,
+      "sha256": "b2ad70a117bb658fb0ad0ebeedc3efa161f72c91f4c3c4786183f0585fdf6459"
+    },
+    {
+      "path": "M7-live-site-byte-audit.json",
+      "bytes": 140295,
+      "sha256": "0c988e53d638b56d4edde02b3402dab0c6226505fd4b75dc14cc025701589a1d"
+    },
+    {
+      "path": "M7-pages-config.json",
+      "bytes": 508,
+      "sha256": "15846aa080c7ecb9aca999ab628dd6d2c3dd1e7d8fdcec196e64538dfab68f58"
+    },
+    {
+      "path": "M7-pages-deployment-statuses.json",
+      "bytes": 6871,
+      "sha256": "4c3ef56624b655c09c908f44598a71d09d685d035e0ecba6a448cd15ded3bce3"
+    },
+    {
+      "path": "M7-pages-deployment.json",
+      "bytes": 3050,
+      "sha256": "478eec44f7139bf81800db26966062d24fb2a29ed505aa1f47e75a0d3cbbd5f9"
+    },
+    {
+      "path": "M7-pages-run.json",
+      "bytes": 4603,
+      "sha256": "10631f6279dd64666c47fde1bca9ee2d2d3429b0f9ab839dd38485c09c46c111"
+    },
+    {
+      "path": "M7-public-repository.json",
+      "bytes": 144,
+      "sha256": "df35a84886398ebed961798a9a2c74ecdf18a248293fb1d1424a0a47fe29f271"
+    },
+    {
+      "path": "M7-public-tag-object.json",
+      "bytes": 766,
+      "sha256": "c35b506d5a7e51c74fdfa41eac97528a446c5a7619c7aa9b03edadec943b9c35"
+    },
+    {
+      "path": "M7-public-tag-ref.json",
+      "bytes": 369,
+      "sha256": "15aab3d9ce9d57bb8f2bb16abd98d7ff59d6d1adb068f3ec9585df8bea2e9170"
+    },
+    {
+      "path": "M7-published-asset-audit.json",
+      "bytes": 6341,
+      "sha256": "1223d0721e72d39d2a5ae7bae666b5045c4cca279415b75f3958f222c8165dd1"
+    },
+    {
+      "path": "M7-published-release.json",
+      "bytes": 5649,
+      "sha256": "2e28d9cd85d6356b018e6755ceff178299b21d324e4813aaff6223457a093d17"
+    },
+    {
+      "path": "M7-site-file-audit.json",
+      "bytes": 718,
+      "sha256": "15fdcaa27b58076cd5e86667a86f1c5f4816d1deabe5b740d6944e71e144bd61"
+    },
+    {
+      "path": "M7-site-git-index-audit.json",
+      "bytes": 2879,
+      "sha256": "edb819f410b27b0372d62433dd90cea5bf830094d2c123c998209313e2974e9a"
+    },
+    {
+      "path": "M7-site-pr.json",
+      "bytes": 249,
+      "sha256": "e0b1681a23717251777a241bfb52742c73efcf1d8b93a4dfb64acf093b4726b8"
+    },
+    {
+      "path": "M7-site-staging-audit.json",
+      "bytes": 482,
+      "sha256": "ca2566636185ead4f699e8a16b37c6603a524f6645c6d4537296eb8bff3aad8c"
+    },
+    {
+      "path": "native-jekyll-build.txt",
+      "bytes": 3109,
+      "sha256": "91022f2e9ab9c09d94d171ba8d1ea5c2a696ece211b5885e3556201ab8c42147"
+    },
+    {
+      "path": "release-packaging-audit.json",
+      "bytes": 5600,
+      "sha256": "efcf76c800355d79742fdc88101c1ced705d6f9a8e4542704483c8404250a3f1"
+    },
+    {
+      "path": "replay-live.jpg",
+      "bytes": 68692,
+      "sha256": "93527b86c6363faa82c921ea770ef00315fb55f18f1bd0ed7614d2c1e21ece4c"
+    },
+    {
+      "path": "SHA256SUMS.txt",
+      "bytes": 440,
+      "sha256": "298d6451550c7065bf8911fec076587819108f2060f127ebd19a690e874359d4"
+    },
+    {
+      "path": "source-evidence-repair-audit.json",
+      "bytes": 16349,
+      "sha256": "8e6648f2e56045f20c9968d4f1cb1257597d90f298a80ed00a9097f1a9f9e753"
+    }
+  ]
+}

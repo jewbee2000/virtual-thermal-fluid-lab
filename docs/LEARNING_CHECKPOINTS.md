@@ -19,3 +19,12 @@ The [five-minute walkthrough](DEMO.md) connects the key results. The hardware
 packet is a future experiment design: NOT_FABRICATED, board NOT_EXECUTED,
 physical validation NOT_STARTED. A portfolio interview should use these labels
 and acknowledge Codex's implementation/review assistance.
+
+M7 completed on2026-10-06: [v0.1.0](https://github.com/jewbee2000/virtual-thermal-fluid-lab/releases/tag/v0.1.0),
+[live replay](https://walter.teitelbaum.us/assets/projects/virtual-thermal-fluid-lab/replay/)
+and [case study](https://walter.teitelbaum.us/2026/10/06/virtual-thermal-fluid-lab/)
+are published and checked. Open the stuck-heat case, choose no comparison and press
+End: explain why expectationPASS coexists with containmentFAILED and completionFAIL.
+Download its CSV and follow a value through the manifest to the tested source.
+The next hands-on checkpoint is H1: capture indicator-only Pico acquisition,
+arming, latching, reconnects and timing before claiming board execution.

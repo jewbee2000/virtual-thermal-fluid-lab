@@ -1,0 +1,54 @@
+{
+  "status": "PASS",
+  "checked_utc": "2026-10-06T10:55:23.742260+00:00",
+  "method": "actual stage-zero Git object bytes from ls-files --stage -z and cat-file --batch; no checkout normalization",
+  "site_head": "3cd88de609fe59d59841e642dacfb8a2189112e3",
+  "core_autocrlf": "true",
+  "index_inventory_sha256": "93a611cba4da4f0873de82542556dbc8efdb38c052ec2796406d4f6e412cfd5a",
+  "released_files": 237,
+  "verified_replay_files_per_tree": {
+    "assets/projects/virtual-thermal-fluid-lab/replay": 237,
+    "docs/assets/projects/virtual-thermal-fluid-lab/replay": 237
+  },
+  "staged_replay_files_compared": 474,
+  "replay_manifest_sha256": "579c4f3b3fb2407d47cd3919f66ddc6e1061b34ad4f01ac5154eb0a1f0737aa4",
+  "figure_pairs": {
+    "nominal.png": {
+      "source_git_blob": "0e7b4b8ef41c7465cf542427b542d6ea9eb85348",
+      "generated_git_blob": "0e7b4b8ef41c7465cf542427b542d6ea9eb85348",
+      "sha256": "82199aa19727bb5a3773b6314e8d8afa25acf2ef28f206b7127e850a48934013"
+    },
+    "frozen-temperature.png": {
+      "source_git_blob": "64cace355254cb172a0f31e5e3926b0819e93c2a",
+      "generated_git_blob": "64cace355254cb172a0f31e5e3926b0819e93c2a",
+      "sha256": "337a291bcc1864fd1c2969fa0644ae6060e3d8876343814a2a38d57f91577430"
+    },
+    "stuck-heat-lost-sink.png": {
+      "source_git_blob": "d57d85770d691865dc98f2e5df35666becec37e0",
+      "generated_git_blob": "d57d85770d691865dc98f2e5df35666becec37e0",
+      "sha256": "2785d013de2dbea5fa099e34f53c1ad0c702cbfebf9dd68acfc2b473cda5c086"
+    },
+    "thermal-loop.svg": {
+      "source_git_blob": "a1417ddd1f57150ccf7a57a1ad888796b9bf6ced",
+      "generated_git_blob": "a1417ddd1f57150ccf7a57a1ad888796b9bf6ced",
+      "sha256": "3e923080ce404b2479bae99ebf11cf8925793827dff7f3e2bf2720ab7caa7ffe"
+    }
+  },
+  "source_post": {
+    "path": "_posts/2026-10-06-virtual-thermal-fluid-lab.md",
+    "git_blob_sha1": "d217117f05de395411aea8af1453c3ad389ba4b6",
+    "sha256": "e1586306e69dc1eb3e4a83e0b3e77776bf598a4cbe7df7cc2387bb9306e75130",
+    "working_bytes_equal": true
+  },
+  "generated_html": {
+    "path": "docs/2026/10/06/virtual-thermal-fluid-lab/index.html",
+    "git_blob_sha1": "47533c189dc56661f45c7d05398090f23a54650a",
+    "sha256": "09d4f7d14b9d7fd1617fa7e62933b96e6f300ad6f95bc2b4f7808146c3082ecb",
+    "working_bytes_equal": true,
+    "template_whitespace": "retained exactly, including blank-line trailing whitespace"
+  },
+  "author_runtime_claim_scope": "ACCEPT; explicit Codex assistance, assumed simulated values, actual host checks and cross-build-only Pico; selected observed-process demo budget kept separate from full suite; no board/physical validation/WCET/safety claim",
+  "independent_claim_review": "site_claims_read ACCEPT of actual indexed source/rendered article against claims ledger and retained performance evidence",
+  "publication": "NOT_YET_VERIFIED_BY_THIS_AUDIT",
+  "issues": []
+}

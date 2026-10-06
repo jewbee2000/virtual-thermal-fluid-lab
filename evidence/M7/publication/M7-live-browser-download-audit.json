@@ -1,0 +1,23 @@
+{
+  "checked_at_utc": "2026-10-06T11:35:20.421179+00:00",
+  "method": "Actual CUA browser downloadMedia from visible live CSV and gzip links; direct bytes and decompressed originals compared",
+  "live_url": "https://walter.teitelbaum.us/assets/projects/virtual-thermal-fluid-lab/replay/",
+  "result": "PASS",
+  "downloads": [
+    {
+      "filename": "telemetry (2).csv",
+      "bytes": 3405126,
+      "sha256": "0294c1f97bdcde3c43aee411015d91a8d776b1722edef7bcecb5dd515b4f6607",
+      "packaged_byte_comparison": "PASS"
+    },
+    {
+      "filename": "summary.json (1).gz",
+      "bytes": 1816918,
+      "sha256": "1cdcdca497f15c708204efd1984c35aec06d8a08adab4eb3ca2e53c250b1ff58",
+      "packaged_byte_comparison": "PASS",
+      "original_bytes": 76847228,
+      "original_sha256": "9c32e1df86ad884538f7ecee07bfe51e449e8015bbd24ee8c3dce23de58357c4",
+      "decompressed_original_comparison": "PASS"
+    }
+  ]
+}

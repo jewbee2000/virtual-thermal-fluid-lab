@@ -1,0 +1,144 @@
+{
+  "checked_at_utc": "2026-10-06T11:31:11.0277914Z",
+  "release_url": "https://github.com/jewbee2000/virtual-thermal-fluid-lab/releases/tag/v0.1.0",
+  "release_id": 404632299,
+  "published_at": "2026-10-06T11:30:37Z",
+  "result": "PASS",
+  "asset_count": 19,
+  "method": "Compare actual GitHub release asset digest and size to original local files",
+  "assets": [
+    {
+      "name": "final-ci-gate.json",
+      "bytes": 18565,
+      "local_sha256": "sha256:5e563fa11db5b73e542cfa94c52459e6ffd97db56b9d2a5f8e6f1bc23fbc68e4",
+      "github_digest": "sha256:5e563fa11db5b73e542cfa94c52459e6ffd97db56b9d2a5f8e6f1bc23fbc68e4",
+      "result": "PASS"
+    },
+    {
+      "name": "final-source-independent-audit.json",
+      "bytes": 42768,
+      "local_sha256": "sha256:75d3498cbf1636a710152305119c29da7364d7e798ceb94d5ff4d5b5fae9973c",
+      "github_digest": "sha256:75d3498cbf1636a710152305119c29da7364d7e798ceb94d5ff4d5b5fae9973c",
+      "result": "PASS"
+    },
+    {
+      "name": "immutable-source-preflight-audit.json",
+      "bytes": 25826,
+      "local_sha256": "sha256:d5458b52456a01e802fdbb31768be9b32c497b248d18512bc1bc03190821c377",
+      "github_digest": "sha256:d5458b52456a01e802fdbb31768be9b32c497b248d18512bc1bc03190821c377",
+      "result": "PASS"
+    },
+    {
+      "name": "M7-final-replay-audit.json",
+      "bytes": 925,
+      "local_sha256": "sha256:09db0053cb272498eb8200a3feb59d55475e1077ed23eb236fea80d953df5c40",
+      "github_digest": "sha256:09db0053cb272498eb8200a3feb59d55475e1077ed23eb236fea80d953df5c40",
+      "result": "PASS"
+    },
+    {
+      "name": "M7-site-file-audit.json",
+      "bytes": 718,
+      "local_sha256": "sha256:15fdcaa27b58076cd5e86667a86f1c5f4816d1deabe5b740d6944e71e144bd61",
+      "github_digest": "sha256:15fdcaa27b58076cd5e86667a86f1c5f4816d1deabe5b740d6944e71e144bd61",
+      "result": "PASS"
+    },
+    {
+      "name": "M7-site-git-index-audit.json",
+      "bytes": 2879,
+      "local_sha256": "sha256:edb819f410b27b0372d62433dd90cea5bf830094d2c123c998209313e2974e9a",
+      "github_digest": "sha256:edb819f410b27b0372d62433dd90cea5bf830094d2c123c998209313e2974e9a",
+      "result": "PASS"
+    },
+    {
+      "name": "M7-site-staging-audit.json",
+      "bytes": 482,
+      "local_sha256": "sha256:ca2566636185ead4f699e8a16b37c6603a524f6645c6d4537296eb8bff3aad8c",
+      "github_digest": "sha256:ca2566636185ead4f699e8a16b37c6603a524f6645c6d4537296eb8bff3aad8c",
+      "result": "PASS"
+    },
+    {
+      "name": "pre-repair-fresh-byte-comparison.json",
+      "bytes": 42644,
+      "local_sha256": "sha256:12b36898d79deed98acee8ed51eca1e2afe36237b9a9012b5dab90306ab89877",
+      "github_digest": "sha256:12b36898d79deed98acee8ed51eca1e2afe36237b9a9012b5dab90306ab89877",
+      "result": "PASS"
+    },
+    {
+      "name": "release-packaging-audit.json",
+      "bytes": 5600,
+      "local_sha256": "sha256:efcf76c800355d79742fdc88101c1ced705d6f9a8e4542704483c8404250a3f1",
+      "github_digest": "sha256:efcf76c800355d79742fdc88101c1ced705d6f9a8e4542704483c8404250a3f1",
+      "result": "PASS"
+    },
+    {
+      "name": "SHA256SUMS.txt",
+      "bytes": 440,
+      "local_sha256": "sha256:298d6451550c7065bf8911fec076587819108f2060f127ebd19a690e874359d4",
+      "github_digest": "sha256:298d6451550c7065bf8911fec076587819108f2060f127ebd19a690e874359d4",
+      "result": "PASS"
+    },
+    {
+      "name": "source-evidence-repair-audit.json",
+      "bytes": 16349,
+      "local_sha256": "sha256:8e6648f2e56045f20c9968d4f1cb1257597d90f298a80ed00a9097f1a9f9e753",
+      "github_digest": "sha256:8e6648f2e56045f20c9968d4f1cb1257597d90f298a80ed00a9097f1a9f9e753",
+      "result": "PASS"
+    },
+    {
+      "name": "virtual-thermal-fluid-lab-v0.1.0-evidence.audit.json",
+      "bytes": 355279,
+      "local_sha256": "sha256:3b859ce6ac5f3170a3ff8833d53aa3e9692f78d6d12b7f3111daae2fe75a2838",
+      "github_digest": "sha256:3b859ce6ac5f3170a3ff8833d53aa3e9692f78d6d12b7f3111daae2fe75a2838",
+      "result": "PASS"
+    },
+    {
+      "name": "virtual-thermal-fluid-lab-v0.1.0-evidence.zip",
+      "bytes": 152390500,
+      "local_sha256": "sha256:af4010654f1573ce2f3161598dacae0402ba87a80828e0fb4aa33337e5db48dd",
+      "github_digest": "sha256:af4010654f1573ce2f3161598dacae0402ba87a80828e0fb4aa33337e5db48dd",
+      "result": "PASS"
+    },
+    {
+      "name": "virtual-thermal-fluid-lab-v0.1.0-pico.audit.json",
+      "bytes": 9122,
+      "local_sha256": "sha256:42bd1c17ac6be119857c030aa4e1cc29f528ca4bdf0c7fd960f655e1c8360ab9",
+      "github_digest": "sha256:42bd1c17ac6be119857c030aa4e1cc29f528ca4bdf0c7fd960f655e1c8360ab9",
+      "result": "PASS"
+    },
+    {
+      "name": "virtual-thermal-fluid-lab-v0.1.0-pico.zip",
+      "bytes": 852085,
+      "local_sha256": "sha256:dc695fb53ca4e36dafac4b489458642bbcdd75741c6d98557f987b39a1253903",
+      "github_digest": "sha256:dc695fb53ca4e36dafac4b489458642bbcdd75741c6d98557f987b39a1253903",
+      "result": "PASS"
+    },
+    {
+      "name": "virtual-thermal-fluid-lab-v0.1.0-replay.audit.json",
+      "bytes": 57465,
+      "local_sha256": "sha256:40d89db5509ba1a69c6b6be925e7dc4fedbf8f91c53b86b9383c960c6ad7d824",
+      "github_digest": "sha256:40d89db5509ba1a69c6b6be925e7dc4fedbf8f91c53b86b9383c960c6ad7d824",
+      "result": "PASS"
+    },
+    {
+      "name": "virtual-thermal-fluid-lab-v0.1.0-replay.zip",
+      "bytes": 33895651,
+      "local_sha256": "sha256:282dffd143a8c0cd5b21c2c98d9c53e4f426019faa4bf8f0dd9cc889c626eb05",
+      "github_digest": "sha256:282dffd143a8c0cd5b21c2c98d9c53e4f426019faa4bf8f0dd9cc889c626eb05",
+      "result": "PASS"
+    },
+    {
+      "name": "virtual-thermal-fluid-lab-v0.1.0-source.audit.json",
+      "bytes": 114333,
+      "local_sha256": "sha256:00de8f7d6c4fc5b01a1a1776b4f1a42af6ed61b8a111228c4be47f4e1670a4fa",
+      "github_digest": "sha256:00de8f7d6c4fc5b01a1a1776b4f1a42af6ed61b8a111228c4be47f4e1670a4fa",
+      "result": "PASS"
+    },
+    {
+      "name": "virtual-thermal-fluid-lab-v0.1.0-source.zip",
+      "bytes": 1935389,
+      "local_sha256": "sha256:39ee1859a473a4b20c4975ee95c47b05e6849b88ef68b1a4eb461017e4a2c6cc",
+      "github_digest": "sha256:39ee1859a473a4b20c4975ee95c47b05e6849b88ef68b1a4eb461017e4a2c6cc",
+      "result": "PASS"
+    }
+  ]
+}

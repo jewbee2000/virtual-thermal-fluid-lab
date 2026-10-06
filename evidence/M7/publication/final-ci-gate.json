@@ -1,0 +1,532 @@
+{
+  "conclusion": "success",
+  "headSha": "dd8b9814859691c7f71019bb2bca4e4d0baef284",
+  "jobs": [
+    {
+      "completedAt": "2026-10-06T10:56:21Z",
+      "conclusion": "success",
+      "databaseId": 112233967005,
+      "name": "sanitizers",
+      "startedAt": "2026-10-06T10:56:11Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completedAt": "2026-10-06T10:56:13Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "startedAt": "2026-10-06T10:56:12Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-06T10:56:15Z",
+          "conclusion": "success",
+          "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "number": 2,
+          "startedAt": "2026-10-06T10:56:13Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-06T10:56:19Z",
+          "conclusion": "success",
+          "name": "Run cmake -S . -B artifacts/sanitize -DCMAKE_BUILD_TYPE=Debug -DFL_SANITIZE=ON",
+          "number": 3,
+          "startedAt": "2026-10-06T10:56:15Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-06T10:56:19Z",
+          "conclusion": "success",
+          "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "number": 6,
+          "startedAt": "2026-10-06T10:56:19Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-06T10:56:19Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 7,
+          "startedAt": "2026-10-06T10:56:19Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/jewbee2000/virtual-thermal-fluid-lab/actions/runs/37452839832/job/112233967005"
+    },
+    {
+      "completedAt": "2026-10-06T11:12:36Z",
+      "conclusion": "success",
+      "databaseId": 112233967373,
+      "name": "verification (ubuntu-24.04)",
+      "startedAt": "2026-10-06T10:56:12Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completedAt": "2026-10-06T10:56:14Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "startedAt": "2026-10-06T10:56:13Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-06T10:56:15Z",
+          "conclusion": "success",
+          "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "number": 2,
+          "startedAt": "2026-10-06T10:56:14Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-06T10:56:15Z",
+          "conclusion": "skipped",
+          "name": "Pinned CMake (Windows)",
+          "number": 3,
+          "startedAt": "2026-10-06T10:56:15Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-06T10:56:17Z",
+          "conclusion": "success",
+          "name": "Pinned CMake (Linux)",
+          "number": 4,
+          "startedAt": "2026-10-06T10:56:15Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-06T10:56:23Z",
+          "conclusion": "success",
+          "name": "Run astral-sh/setup-uv@bec219d24cd3e171d82865faccec33120bb574f4",
+          "number": 5,
+          "startedAt": "2026-10-06T10:56:17Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-06T10:56:25Z",
+          "conclusion": "success",
+          "name": "Run uv python install 3.12",
+          "number": 6,
+          "startedAt": "2026-10-06T10:56:23Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-06T10:56:26Z",
+          "conclusion": "success",
+          "name": "Run uv sync --locked",
+          "number": 7,
+          "startedAt": "2026-10-06T10:56:25Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-06T10:56:26Z",
+          "conclusion": "skipped",
+          "name": "Native Windows C host and CTest",
+          "number": 8,
+          "startedAt": "2026-10-06T10:56:26Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-06T10:56:28Z",
+          "conclusion": "success",
+          "name": "Native Linux C host and CTest",
+          "number": 9,
+          "startedAt": "2026-10-06T10:56:26Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-06T10:56:28Z",
+          "conclusion": "success",
+          "name": "Native device policy, HAL and bounded USB tests",
+          "number": 10,
+          "startedAt": "2026-10-06T10:56:28Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-06T10:56:51Z",
+          "conclusion": "success",
+          "name": "Run uv run python -m unittest discover -s tests -v",
+          "number": 11,
+          "startedAt": "2026-10-06T10:56:28Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-06T10:56:59Z",
+          "conclusion": "success",
+          "name": "Run uv run python scripts/run_suite.py",
+          "number": 12,
+          "startedAt": "2026-10-06T10:56:51Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-06T10:57:11Z",
+          "conclusion": "success",
+          "name": "Run uv run python scripts/verify_thermal.py --out artifacts/thermal-verification",
+          "number": 13,
+          "startedAt": "2026-10-06T10:56:59Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-06T10:57:11Z",
+          "conclusion": "skipped",
+          "name": "C-controller tank regression (Windows)",
+          "number": 14,
+          "startedAt": "2026-10-06T10:57:11Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-06T10:57:41Z",
+          "conclusion": "success",
+          "name": "C-controller tank regression (Linux)",
+          "number": 15,
+          "startedAt": "2026-10-06T10:57:11Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-06T10:57:41Z",
+          "conclusion": "skipped",
+          "name": "Frozen integrated campaign and refinement (Windows)",
+          "number": 16,
+          "startedAt": "2026-10-06T10:57:41Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-06T11:08:41Z",
+          "conclusion": "success",
+          "name": "Frozen integrated campaign and refinement (Linux)",
+          "number": 17,
+          "startedAt": "2026-10-06T10:57:41Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-06T11:11:53Z",
+          "conclusion": "success",
+          "name": "Independent schema and export hash audit",
+          "number": 18,
+          "startedAt": "2026-10-06T11:08:41Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-06T11:12:33Z",
+          "conclusion": "success",
+          "name": "Run actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a",
+          "number": 19,
+          "startedAt": "2026-10-06T11:11:53Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-06T11:12:33Z",
+          "conclusion": "success",
+          "name": "Post Run astral-sh/setup-uv@bec219d24cd3e171d82865faccec33120bb574f4",
+          "number": 37,
+          "startedAt": "2026-10-06T11:12:33Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-06T11:12:34Z",
+          "conclusion": "success",
+          "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "number": 38,
+          "startedAt": "2026-10-06T11:12:33Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-06T11:12:34Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 39,
+          "startedAt": "2026-10-06T11:12:34Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/jewbee2000/virtual-thermal-fluid-lab/actions/runs/37452839832/job/112233967373"
+    },
+    {
+      "completedAt": "2026-10-06T11:22:43Z",
+      "conclusion": "success",
+      "databaseId": 112233967377,
+      "name": "verification (windows-2025)",
+      "startedAt": "2026-10-06T10:56:11Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completedAt": "2026-10-06T10:56:14Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "startedAt": "2026-10-06T10:56:13Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-06T10:56:20Z",
+          "conclusion": "success",
+          "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "number": 2,
+          "startedAt": "2026-10-06T10:56:14Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-06T10:56:38Z",
+          "conclusion": "success",
+          "name": "Pinned CMake (Windows)",
+          "number": 3,
+          "startedAt": "2026-10-06T10:56:20Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-06T10:56:38Z",
+          "conclusion": "skipped",
+          "name": "Pinned CMake (Linux)",
+          "number": 4,
+          "startedAt": "2026-10-06T10:56:38Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-06T10:56:46Z",
+          "conclusion": "success",
+          "name": "Run astral-sh/setup-uv@bec219d24cd3e171d82865faccec33120bb574f4",
+          "number": 5,
+          "startedAt": "2026-10-06T10:56:38Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-06T10:56:48Z",
+          "conclusion": "success",
+          "name": "Run uv python install 3.12",
+          "number": 6,
+          "startedAt": "2026-10-06T10:56:46Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-06T10:56:50Z",
+          "conclusion": "success",
+          "name": "Run uv sync --locked",
+          "number": 7,
+          "startedAt": "2026-10-06T10:56:48Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-06T10:57:07Z",
+          "conclusion": "success",
+          "name": "Native Windows C host and CTest",
+          "number": 8,
+          "startedAt": "2026-10-06T10:56:50Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-06T10:57:07Z",
+          "conclusion": "skipped",
+          "name": "Native Linux C host and CTest",
+          "number": 9,
+          "startedAt": "2026-10-06T10:57:07Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-06T10:57:11Z",
+          "conclusion": "success",
+          "name": "Native device policy, HAL and bounded USB tests",
+          "number": 10,
+          "startedAt": "2026-10-06T10:57:07Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-06T10:57:47Z",
+          "conclusion": "success",
+          "name": "Run uv run python -m unittest discover -s tests -v",
+          "number": 11,
+          "startedAt": "2026-10-06T10:57:11Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-06T10:57:57Z",
+          "conclusion": "success",
+          "name": "Run uv run python scripts/run_suite.py",
+          "number": 12,
+          "startedAt": "2026-10-06T10:57:47Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-06T10:58:16Z",
+          "conclusion": "success",
+          "name": "Run uv run python scripts/verify_thermal.py --out artifacts/thermal-verification",
+          "number": 13,
+          "startedAt": "2026-10-06T10:57:57Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-06T10:58:58Z",
+          "conclusion": "success",
+          "name": "C-controller tank regression (Windows)",
+          "number": 14,
+          "startedAt": "2026-10-06T10:58:16Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-06T10:58:58Z",
+          "conclusion": "skipped",
+          "name": "C-controller tank regression (Linux)",
+          "number": 15,
+          "startedAt": "2026-10-06T10:58:58Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-06T11:16:04Z",
+          "conclusion": "success",
+          "name": "Frozen integrated campaign and refinement (Windows)",
+          "number": 16,
+          "startedAt": "2026-10-06T10:58:58Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-06T11:16:04Z",
+          "conclusion": "skipped",
+          "name": "Frozen integrated campaign and refinement (Linux)",
+          "number": 17,
+          "startedAt": "2026-10-06T11:16:04Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-06T11:21:50Z",
+          "conclusion": "success",
+          "name": "Independent schema and export hash audit",
+          "number": 18,
+          "startedAt": "2026-10-06T11:16:04Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-06T11:22:38Z",
+          "conclusion": "success",
+          "name": "Run actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a",
+          "number": 19,
+          "startedAt": "2026-10-06T11:21:50Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-06T11:22:38Z",
+          "conclusion": "success",
+          "name": "Post Run astral-sh/setup-uv@bec219d24cd3e171d82865faccec33120bb574f4",
+          "number": 37,
+          "startedAt": "2026-10-06T11:22:38Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-06T11:22:41Z",
+          "conclusion": "success",
+          "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "number": 38,
+          "startedAt": "2026-10-06T11:22:38Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-06T11:22:41Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 39,
+          "startedAt": "2026-10-06T11:22:41Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/jewbee2000/virtual-thermal-fluid-lab/actions/runs/37452839832/job/112233967377"
+    },
+    {
+      "completedAt": "2026-10-06T10:57:32Z",
+      "conclusion": "success",
+      "databaseId": 112233967403,
+      "name": "pico-cross-build",
+      "startedAt": "2026-10-06T10:56:12Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completedAt": "2026-10-06T10:56:14Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "startedAt": "2026-10-06T10:56:13Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-06T10:56:15Z",
+          "conclusion": "success",
+          "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "number": 2,
+          "startedAt": "2026-10-06T10:56:14Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-06T10:56:18Z",
+          "conclusion": "success",
+          "name": "Run astral-sh/setup-uv@bec219d24cd3e171d82865faccec33120bb574f4",
+          "number": 3,
+          "startedAt": "2026-10-06T10:56:15Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-06T10:56:20Z",
+          "conclusion": "success",
+          "name": "Run uv python install 3.12",
+          "number": 4,
+          "startedAt": "2026-10-06T10:56:18Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-06T10:56:21Z",
+          "conclusion": "success",
+          "name": "Run uv sync --locked",
+          "number": 5,
+          "startedAt": "2026-10-06T10:56:20Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-06T10:56:46Z",
+          "conclusion": "success",
+          "name": "Verify and provision pinned build inputs",
+          "number": 6,
+          "startedAt": "2026-10-06T10:56:21Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-06T10:57:27Z",
+          "conclusion": "success",
+          "name": "Build UF2 converter and both Pico firmware modes",
+          "number": 7,
+          "startedAt": "2026-10-06T10:56:46Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-06T10:57:30Z",
+          "conclusion": "success",
+          "name": "Run actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a",
+          "number": 8,
+          "startedAt": "2026-10-06T10:57:27Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-06T10:57:30Z",
+          "conclusion": "success",
+          "name": "Post Run astral-sh/setup-uv@bec219d24cd3e171d82865faccec33120bb574f4",
+          "number": 15,
+          "startedAt": "2026-10-06T10:57:30Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-06T10:57:30Z",
+          "conclusion": "success",
+          "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "number": 16,
+          "startedAt": "2026-10-06T10:57:30Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-06T10:57:30Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 17,
+          "startedAt": "2026-10-06T10:57:30Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/jewbee2000/virtual-thermal-fluid-lab/actions/runs/37452839832/job/112233967403"
+    }
+  ],
+  "status": "completed",
+  "url": "https://github.com/jewbee2000/virtual-thermal-fluid-lab/actions/runs/37452839832"
+}

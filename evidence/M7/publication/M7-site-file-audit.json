@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "replay_files_verified_per_tree": 237,
+  "source_and_generated_replay_original_bytes_equal": true,
+  "figure_count": 4,
+  "article_word_count": 1311,
+  "word_count_method": "source body visible HTML text incl Markdown prose/code; frontmatter excluded",
+  "source_article_sha256": "e1586306e69dc1eb3e4a83e0b3e77776bf598a4cbe7df7cc2387bb9306e75130",
+  "rendered_working_html_sha256": "09d4f7d14b9d7fd1617fa7e62933b96e6f300ad6f95bc2b4f7808146c3082ecb",
+  "replay_manifest_sha256": "579c4f3b3fb2407d47cd3919f66ddc6e1061b34ad4f01ac5154eb0a1f0737aa4",
+  "no_draft_placeholders": true,
+  "publication": "NOT_YET_EXECUTED",
+  "physical_validation": "NOT_STARTED",
+  "board_execution": "NOT_EXECUTED"
+}

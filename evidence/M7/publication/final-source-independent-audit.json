@@ -1,0 +1,1032 @@
+{
+  "version": 1,
+  "status": "PASS",
+  "source_revision": "dd8b9814859691c7f71019bb2bca4e4d0baef284",
+  "method": "Independent explicit documented path selector; sorted POSIX UTF8 path + NUL + uint64BE raw length + raw ZIP bytes; no project implementation imported or called.",
+  "errors": [],
+  "canonical_runtime_source": {
+    "status": "PASS",
+    "sha256": "fa2a7a40d64fc2dad4022ed6f4642dfd7249912d36882f28a845d164e83babc9",
+    "file_count": 63,
+    "inclusion": [
+      "src/**/*.py",
+      "scripts/**/*.py",
+      "schemas/*.json",
+      "pyproject.toml",
+      "uv.lock",
+      "firmware/**/*.c",
+      "firmware/**/*.h",
+      "firmware/**/*.cmake",
+      "firmware/**/CMakeLists.txt",
+      "CMakeLists.txt",
+      "scripts/**/*.ps1"
+    ],
+    "exclusion": [
+      "firmware/**/artifacts/**",
+      "firmware/**/build/**",
+      "firmware/**/generated/**",
+      "firmware/**/out/**",
+      "firmware/**/third_party/**",
+      "firmware/**/vendor/**",
+      "firmware/**/cmake-build-*/**"
+    ],
+    "members": [
+      {
+        "path": "CMakeLists.txt",
+        "size_bytes": 1188,
+        "sha256": "93df455688fc72fb7c04b43de59d0940d99603b36ce1613b2053fb24c1988053"
+      },
+      {
+        "path": "firmware/core/fl_core.c",
+        "size_bytes": 8984,
+        "sha256": "cd5e7a8f003cc843a72395bf733f86925e6966163ce73029fddd58f109f075d8"
+      },
+      {
+        "path": "firmware/core/fl_core.h",
+        "size_bytes": 2480,
+        "sha256": "54e4c93d64a550a09a9a34013c01feedb24cd5f173aa2b4d7e49d3a841b2054b"
+      },
+      {
+        "path": "firmware/core/fl_protocol.c",
+        "size_bytes": 8804,
+        "sha256": "b8ee5c41b3858d04248ac89ca3ae2688d7268aa4cf5f6b63177e81b9c4401cb7"
+      },
+      {
+        "path": "firmware/core/fl_protocol.h",
+        "size_bytes": 1310,
+        "sha256": "d53eef76fedc773fe149361d302649857edb75e6d960dc13bf1c8c6144f1ac74"
+      },
+      {
+        "path": "firmware/host/main.c",
+        "size_bytes": 6927,
+        "sha256": "a1107a28c4cb522c898f5996d200aedf7e4ce7a07eeff491cee6fe950d124e1c"
+      },
+      {
+        "path": "firmware/pico/CMakeLists.txt",
+        "size_bytes": 3026,
+        "sha256": "ae2bfdda9aaba0fc36c55a78366dd297b2edbc964637085a1d5f81182add437c"
+      },
+      {
+        "path": "firmware/pico/device_policy.c",
+        "size_bytes": 9707,
+        "sha256": "3a6d225bd1c113a264d9dec91e70cf6569cfabb969232c4936a3e3e47d71878f"
+      },
+      {
+        "path": "firmware/pico/device_policy.h",
+        "size_bytes": 2166,
+        "sha256": "ef5706809efe38ced832a4298a4e64e216971dda2018d15c027a4e7feab01274"
+      },
+      {
+        "path": "firmware/pico/fl_hal.c",
+        "size_bytes": 1323,
+        "sha256": "bad89ca27ae85cb4a883d0478f42a3949edf2796f9e5fc4a05aa213e342ac917"
+      },
+      {
+        "path": "firmware/pico/fl_hal.h",
+        "size_bytes": 455,
+        "sha256": "74c3d84cd02ff40a71c4a9d99112ad747765cbaf90dd6ca5ffc64a4acd731f3a"
+      },
+      {
+        "path": "firmware/pico/main.c",
+        "size_bytes": 3805,
+        "sha256": "f4309bda3f3b4db84713656dde604ffdaf52c32bf04bf36b14fcdcb55036dac3"
+      },
+      {
+        "path": "firmware/pico/tests/CMakeLists.txt",
+        "size_bytes": 1511,
+        "sha256": "0f438eb66c0254add0b1fd33dfc1249846ea1c06a80f450aadc83ba59d6c713e"
+      },
+      {
+        "path": "firmware/pico/tests/hal_stub/hardware/adc.h",
+        "size_bytes": 597,
+        "sha256": "7e1af2cc663741f3b7dc8b85ca40bd1cc66e8a02e6f82792753267449008297f"
+      },
+      {
+        "path": "firmware/pico/tests/hal_stub/pico/stdlib.h",
+        "size_bytes": 553,
+        "sha256": "b065f0abd92e30c222226ebe53a7506097a6cb47e8e651f85fa915c2712730cd"
+      },
+      {
+        "path": "firmware/pico/tests/test_device.c",
+        "size_bytes": 13618,
+        "sha256": "ba80b501969764017b410e353969b3c3dc77b08ba90262fe005d231e1bd66546"
+      },
+      {
+        "path": "firmware/pico/tests/test_hal.c",
+        "size_bytes": 2685,
+        "sha256": "bd7ae9fe63b2b0a304c38b0f367ebb117ea742206f0a7f8ad4bf1af25a24870c"
+      },
+      {
+        "path": "firmware/pico/tests/test_usb_budget.c",
+        "size_bytes": 695,
+        "sha256": "901749c55e191fe975a048a7bb84f6f36060e817f863392781539bbd8ef03ab5"
+      },
+      {
+        "path": "firmware/pico/tests/usb_stub/tusb.h",
+        "size_bytes": 248,
+        "sha256": "dd3d45ecf744d7f034248cddbb81862178dbe82d9c3df8d850ab8adc06461684"
+      },
+      {
+        "path": "firmware/pico/tests/usb_stub/usbd.c",
+        "size_bytes": 240,
+        "sha256": "ac641b4397cbb7c0d38dd62f1a6f0e8101cd88ed9614d4e13ce09c0f577d21b9"
+      },
+      {
+        "path": "firmware/pico/tusb_config.h",
+        "size_bytes": 553,
+        "sha256": "6a519c23e5272596e7d403a4deb0c6dcc1a064804782aba96495c47f9de80e37"
+      },
+      {
+        "path": "firmware/pico/usb_descriptors.c",
+        "size_bytes": 1840,
+        "sha256": "ac3591ac67b84a0e07e8e8427723cd3ded1f9c8dd30a50960dc8f54e4ef2fbb5"
+      },
+      {
+        "path": "firmware/pico/usb_task.c",
+        "size_bytes": 966,
+        "sha256": "7d287e0d64f141d1874a343a2f79d30cc8f2adfca350ffe3bfd8cfb910c38005"
+      },
+      {
+        "path": "firmware/tests/test_core.c",
+        "size_bytes": 8288,
+        "sha256": "a1bda95571b568d61fe7b3acf1d1f8c82192e0384ee6a7f80068dafe108997e4"
+      },
+      {
+        "path": "pyproject.toml",
+        "size_bytes": 430,
+        "sha256": "9b48979f9c0168aca7994a9ab0c513099e31c7a9eb5853a710ef08bf29b723ca"
+      },
+      {
+        "path": "schemas/tank-manifest-v1.schema.json",
+        "size_bytes": 3539,
+        "sha256": "0bb96fb4e0ab3e1143439cda4033d30683c1f8152744f22e7b66acf5fbdb95a3"
+      },
+      {
+        "path": "schemas/tank-model-v1.schema.json",
+        "size_bytes": 1387,
+        "sha256": "8db6727e02c9076c6539ea2674ef1ebe057b1bcc96f359998b65f9df8c76d21a"
+      },
+      {
+        "path": "schemas/tank-scenario-v1.schema.json",
+        "size_bytes": 1914,
+        "sha256": "73bc16d99892a2ebb12b0f6f398196bc85454ea244ea227ee3ba2f9ec225b0e0"
+      },
+      {
+        "path": "schemas/tank-solver-v1.schema.json",
+        "size_bytes": 908,
+        "sha256": "f012c7765f8c86a6f36ddcdcc7c8843f6f25ffc66d672166978ef7ab97bc0dc6"
+      },
+      {
+        "path": "schemas/tank-summary-v1.schema.json",
+        "size_bytes": 4057,
+        "sha256": "4d96d0fb4bbb89ed433a287a19573edb3a4b248093824cf1cff424fbdfb4aecb"
+      },
+      {
+        "path": "schemas/tank-telemetry-v1.schema.json",
+        "size_bytes": 2249,
+        "sha256": "e6b5cecbc4642e53d3dc7a717573d47782a277baa2bf9ecccda8cc11eeecb51d"
+      },
+      {
+        "path": "schemas/thermal-campaign-v1.schema.json",
+        "size_bytes": 18639,
+        "sha256": "e5b4efcc55ea0c9af568fcd0f202e11e2a23e059b945f0f80745090d18e08e79"
+      },
+      {
+        "path": "schemas/thermal-controller-v1.schema.json",
+        "size_bytes": 2251,
+        "sha256": "0a25e65aa1fd00eee953040f92814ed039d33d317e0e235be102bc881b7d4513"
+      },
+      {
+        "path": "schemas/thermal-manifest-v1.schema.json",
+        "size_bytes": 7579,
+        "sha256": "38a23d5c60ba12474aa60f5d8f58082280e0dbb530ceb847d8debe87f9ecdda8"
+      },
+      {
+        "path": "schemas/thermal-model-v1.schema.json",
+        "size_bytes": 1821,
+        "sha256": "a2c59b86a42a5842add9172498439ac82d63263ec95d0d5736dd27a4add76391"
+      },
+      {
+        "path": "schemas/thermal-solver-input-v1.schema.json",
+        "size_bytes": 937,
+        "sha256": "2046ebbfb45846b88fe08971eb717c3d26daa693c26a586365dc106ea6984ce3"
+      },
+      {
+        "path": "schemas/thermal-solver-v1.schema.json",
+        "size_bytes": 1034,
+        "sha256": "5b48ae2f57deb365fdc833666273242b3b6f1d924c86b9096d8282c65b1baef2"
+      },
+      {
+        "path": "schemas/thermal-summary-v1.schema.json",
+        "size_bytes": 23809,
+        "sha256": "585406530443dfc95c62300175b6556d40b9ff90d4f3b5c907bd07d9558cd633"
+      },
+      {
+        "path": "schemas/thermal-telemetry-row-v1.schema.json",
+        "size_bytes": 17834,
+        "sha256": "04225fdd9aad0f3a5a407215fc42b6a4e7f1ab42d05af203f7a650f9c209bbc2"
+      },
+      {
+        "path": "scripts/audit_exports.py",
+        "size_bytes": 6753,
+        "sha256": "f64c4883d191118f23f9b7869b9b6a98bbcf02a59a55583933ed979500997a7d"
+      },
+      {
+        "path": "scripts/benchmark_campaign.py",
+        "size_bytes": 10989,
+        "sha256": "2de4ead293b3bc2321de3de64a811eea5b88075be6c13afa0b537917d0d25308"
+      },
+      {
+        "path": "scripts/build_host.ps1",
+        "size_bytes": 1790,
+        "sha256": "e641062a473838540f9155a85855e4130142dc9eb9d3f92f4b76ebde3f07555f"
+      },
+      {
+        "path": "scripts/build_pico.ps1",
+        "size_bytes": 7407,
+        "sha256": "bd6006888e52e0eb3b987f3a826ba5064346c65d9f886b5746ab50710dccbf0a"
+      },
+      {
+        "path": "scripts/build_replay.py",
+        "size_bytes": 18206,
+        "sha256": "ea06c1e5a935a6b1196bb870d9af90385a6d84d86a455e340c01e873d1d02f37"
+      },
+      {
+        "path": "scripts/refine_campaign.py",
+        "size_bytes": 13416,
+        "sha256": "e7f2dec7202fa414839ff2bc7a2fd4f8cd06ea5ff2c7ac6044e31931d1987564"
+      },
+      {
+        "path": "scripts/run_campaign.py",
+        "size_bytes": 4094,
+        "sha256": "72de7ec1b2f555218913e72ba178360a2bead5d4a6809f459d1d0c8c78bd8c98"
+      },
+      {
+        "path": "scripts/run_suite.py",
+        "size_bytes": 820,
+        "sha256": "ab33d251121241d8a6aa20d2b8e6b89454e1513e84cc3d7e0ab57ebc9830355b"
+      },
+      {
+        "path": "scripts/verify_host.py",
+        "size_bytes": 9114,
+        "sha256": "153874ae68107a59a2af943aa444765f0a0f48baf077996ebc5d586829c357cc"
+      },
+      {
+        "path": "scripts/verify_thermal.py",
+        "size_bytes": 16097,
+        "sha256": "b2a7acd2ccbf61814d8094ec4c8f29aa7b61a79090c787b82fae95bd36f8bdc1"
+      },
+      {
+        "path": "src/fluidlab/__init__.py",
+        "size_bytes": 77,
+        "sha256": "f8d23a932ec8175c50d317cb3367c0f6e81bdff7a9b20737bbd07eb760d14377"
+      },
+      {
+        "path": "src/fluidlab/c_controller.py",
+        "size_bytes": 16281,
+        "sha256": "31f502c78f9137a7d50f883a301b4fd0288035da313f6c4a03a283f9814b959c"
+      },
+      {
+        "path": "src/fluidlab/campaign.py",
+        "size_bytes": 38784,
+        "sha256": "3881133c4a5a554eb1f08c0c9ea07f1bd427f1ee648b46659fa992abe02680fe"
+      },
+      {
+        "path": "src/fluidlab/campaign_evaluator.py",
+        "size_bytes": 41987,
+        "sha256": "aad00ecf48d518e1e55816e6f14c4af4c7a2ab39db67cef0984d62dfda74d8c8"
+      },
+      {
+        "path": "src/fluidlab/cli.py",
+        "size_bytes": 1932,
+        "sha256": "6c67e549184fa4829c988ccbe554a1b86201bd38409eed34c32874069de46366"
+      },
+      {
+        "path": "src/fluidlab/contracts.py",
+        "size_bytes": 9188,
+        "sha256": "ef9d5fda55b594d4ac4cded6ff7f9908a786d4902f19895dababc98f2e53a408"
+      },
+      {
+        "path": "src/fluidlab/control.py",
+        "size_bytes": 2572,
+        "sha256": "45a80a9cb8eb95f71f2d2194bb256e26a161672cd9d03121f17ac5b20f84569a"
+      },
+      {
+        "path": "src/fluidlab/evaluator.py",
+        "size_bytes": 13008,
+        "sha256": "542ec0950a761eef63497a027e767bff0229fd1a7df4e3b4d80e4d06870646b7"
+      },
+      {
+        "path": "src/fluidlab/plant.py",
+        "size_bytes": 7269,
+        "sha256": "0463cddf9682ae6466fd510979a1b45842eb87ad6c7eeee5fa8bd1aeee3300ae"
+      },
+      {
+        "path": "src/fluidlab/protocol.py",
+        "size_bytes": 10406,
+        "sha256": "8676845308c4a871f36015af7f781861a407f7fb9708b7a5a5f8ea4d8a071498"
+      },
+      {
+        "path": "src/fluidlab/provenance.py",
+        "size_bytes": 4436,
+        "sha256": "e7a0ca0ac794de1c0eeab160ee0b50ee6fac87a4492b9e0a11726de27b189580"
+      },
+      {
+        "path": "src/fluidlab/runner.py",
+        "size_bytes": 9369,
+        "sha256": "7947e732a50a3dd8f7963c89f986abe29fe2260126de52e020da2966799b50ac"
+      },
+      {
+        "path": "src/fluidlab/thermal.py",
+        "size_bytes": 15647,
+        "sha256": "7becf06efd5a586b92078b7be5769d4692fb7c5bdd684d14fde183706db3ebf8"
+      },
+      {
+        "path": "uv.lock",
+        "size_bytes": 31125,
+        "sha256": "76472376ec629c6fb1da220501125f413dc2944f76e75139283ea2cb3ca7bcd0"
+      }
+    ]
+  },
+  "copied_fresh_evidence": {
+    "status": "PASS",
+    "count": 55,
+    "all_original_bytes_preserved": true,
+    "members": [
+      {
+        "source_zip_path": "evidence/M7/fresh-windows/01-uv-sync.json",
+        "fresh_release_path": "checks/01-uv-sync.json",
+        "size_bytes": 1048,
+        "sha256": "8d8e2919047c2a57a9268bab5d70b215bd9d8204cf7ae27ccb9886890356ed77",
+        "crlf_sequences": 22,
+        "original_size_bytes": 1048,
+        "original_sha256": "8d8e2919047c2a57a9268bab5d70b215bd9d8204cf7ae27ccb9886890356ed77",
+        "original_crlf_sequences": 22,
+        "byte_equal": true
+      },
+      {
+        "source_zip_path": "evidence/M7/fresh-windows/01-uv-sync.stderr.txt",
+        "fresh_release_path": "checks/01-uv-sync.stderr.txt",
+        "size_bytes": 815,
+        "sha256": "2fab2f6348a1193d98bf65d7c13e2935c33a79bbb2bf6271b4aef9a47fbea833",
+        "crlf_sequences": 0,
+        "original_size_bytes": 815,
+        "original_sha256": "2fab2f6348a1193d98bf65d7c13e2935c33a79bbb2bf6271b4aef9a47fbea833",
+        "original_crlf_sequences": 0,
+        "byte_equal": true
+      },
+      {
+        "source_zip_path": "evidence/M7/fresh-windows/01-uv-sync.stdout.txt",
+        "fresh_release_path": "checks/01-uv-sync.stdout.txt",
+        "size_bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "crlf_sequences": 0,
+        "original_size_bytes": 0,
+        "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "original_crlf_sequences": 0,
+        "byte_equal": true
+      },
+      {
+        "source_zip_path": "evidence/M7/fresh-windows/02-host-build-ctest.json",
+        "fresh_release_path": "checks/02-host-build-ctest.json",
+        "size_bytes": 1366,
+        "sha256": "03a010683d56198a66a29e875a0dbbd5de5e43055106ac27f68bb665c7cde57a",
+        "crlf_sequences": 27,
+        "original_size_bytes": 1366,
+        "original_sha256": "03a010683d56198a66a29e875a0dbbd5de5e43055106ac27f68bb665c7cde57a",
+        "original_crlf_sequences": 27,
+        "byte_equal": true
+      },
+      {
+        "source_zip_path": "evidence/M7/fresh-windows/02-host-build-ctest.stderr.txt",
+        "fresh_release_path": "checks/02-host-build-ctest.stderr.txt",
+        "size_bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "crlf_sequences": 0,
+        "original_size_bytes": 0,
+        "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "original_crlf_sequences": 0,
+        "byte_equal": true
+      },
+      {
+        "source_zip_path": "evidence/M7/fresh-windows/02-host-build-ctest.stdout.txt",
+        "fresh_release_path": "checks/02-host-build-ctest.stdout.txt",
+        "size_bytes": 2218,
+        "sha256": "3f457871380021f9661d6347daa0743677b6364772fcedbbf5c668b9184c7e38",
+        "crlf_sequences": 17,
+        "original_size_bytes": 2218,
+        "original_sha256": "3f457871380021f9661d6347daa0743677b6364772fcedbbf5c668b9184c7e38",
+        "original_crlf_sequences": 17,
+        "byte_equal": true
+      },
+      {
+        "source_zip_path": "evidence/M7/fresh-windows/03-device-configure.json",
+        "fresh_release_path": "checks/03-device-configure.json",
+        "size_bytes": 1295,
+        "sha256": "7c6110712bea5785560000ae5be91d066e5ff43df6dc99ee7132cba4c68e3881",
+        "crlf_sequences": 28,
+        "original_size_bytes": 1295,
+        "original_sha256": "7c6110712bea5785560000ae5be91d066e5ff43df6dc99ee7132cba4c68e3881",
+        "original_crlf_sequences": 28,
+        "byte_equal": true
+      },
+      {
+        "source_zip_path": "evidence/M7/fresh-windows/03-device-configure.stderr.txt",
+        "fresh_release_path": "checks/03-device-configure.stderr.txt",
+        "size_bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "crlf_sequences": 0,
+        "original_size_bytes": 0,
+        "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "original_crlf_sequences": 0,
+        "byte_equal": true
+      },
+      {
+        "source_zip_path": "evidence/M7/fresh-windows/03-device-configure.stdout.txt",
+        "fresh_release_path": "checks/03-device-configure.stdout.txt",
+        "size_bytes": 627,
+        "sha256": "8fc122d49bf40be81f9646221c8d014eb1c46a7bbf8ba645753b6f91f8c77d44",
+        "crlf_sequences": 0,
+        "original_size_bytes": 627,
+        "original_sha256": "8fc122d49bf40be81f9646221c8d014eb1c46a7bbf8ba645753b6f91f8c77d44",
+        "original_crlf_sequences": 0,
+        "byte_equal": true
+      },
+      {
+        "source_zip_path": "evidence/M7/fresh-windows/04-device-build.json",
+        "fresh_release_path": "checks/04-device-build.json",
+        "size_bytes": 1218,
+        "sha256": "ddf36317e0dcadcf108cfae3aa4ec2df5add5868c4dfb614feb360e3cc0234f6",
+        "crlf_sequences": 24,
+        "original_size_bytes": 1218,
+        "original_sha256": "ddf36317e0dcadcf108cfae3aa4ec2df5add5868c4dfb614feb360e3cc0234f6",
+        "original_crlf_sequences": 24,
+        "byte_equal": true
+      },
+      {
+        "source_zip_path": "evidence/M7/fresh-windows/04-device-build.stderr.txt",
+        "fresh_release_path": "checks/04-device-build.stderr.txt",
+        "size_bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "crlf_sequences": 0,
+        "original_size_bytes": 0,
+        "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "original_crlf_sequences": 0,
+        "byte_equal": true
+      },
+      {
+        "source_zip_path": "evidence/M7/fresh-windows/04-device-build.stdout.txt",
+        "fresh_release_path": "checks/04-device-build.stdout.txt",
+        "size_bytes": 1342,
+        "sha256": "fefe83c063ca4b898129e7e7ed5a6fc473f720b72491590dec51859a21c954a2",
+        "crlf_sequences": 21,
+        "original_size_bytes": 1342,
+        "original_sha256": "fefe83c063ca4b898129e7e7ed5a6fc473f720b72491590dec51859a21c954a2",
+        "original_crlf_sequences": 21,
+        "byte_equal": true
+      },
+      {
+        "source_zip_path": "evidence/M7/fresh-windows/05-device-ctest.json",
+        "fresh_release_path": "checks/05-device-ctest.json",
+        "size_bytes": 1243,
+        "sha256": "5c72b7bd615dc47be30ef71f74879aa8704c49a2d572b4b539b2a3c34f534d69",
+        "crlf_sequences": 25,
+        "original_size_bytes": 1243,
+        "original_sha256": "5c72b7bd615dc47be30ef71f74879aa8704c49a2d572b4b539b2a3c34f534d69",
+        "original_crlf_sequences": 25,
+        "byte_equal": true
+      },
+      {
+        "source_zip_path": "evidence/M7/fresh-windows/05-device-ctest.stderr.txt",
+        "fresh_release_path": "checks/05-device-ctest.stderr.txt",
+        "size_bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "crlf_sequences": 0,
+        "original_size_bytes": 0,
+        "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "original_crlf_sequences": 0,
+        "byte_equal": true
+      },
+      {
+        "source_zip_path": "evidence/M7/fresh-windows/05-device-ctest.stdout.txt",
+        "fresh_release_path": "checks/05-device-ctest.stdout.txt",
+        "size_bytes": 484,
+        "sha256": "8d069daf26f55985baefaf943f46c3c763db62a06c1f7f38b62b5605cc542017",
+        "crlf_sequences": 0,
+        "original_size_bytes": 484,
+        "original_sha256": "8d069daf26f55985baefaf943f46c3c763db62a06c1f7f38b62b5605cc542017",
+        "original_crlf_sequences": 0,
+        "byte_equal": true
+      },
+      {
+        "source_zip_path": "evidence/M7/fresh-windows/06-full-unit.json",
+        "fresh_release_path": "checks/06-full-unit.json",
+        "size_bytes": 1133,
+        "sha256": "38e7bc5e890dd957102fc7a71fb5e847388d50beadd823c7efbc87dc63806955",
+        "crlf_sequences": 28,
+        "original_size_bytes": 1133,
+        "original_sha256": "38e7bc5e890dd957102fc7a71fb5e847388d50beadd823c7efbc87dc63806955",
+        "original_crlf_sequences": 28,
+        "byte_equal": true
+      },
+      {
+        "source_zip_path": "evidence/M7/fresh-windows/06-full-unit.stderr.txt",
+        "fresh_release_path": "checks/06-full-unit.stderr.txt",
+        "size_bytes": 19488,
+        "sha256": "7982108f440bc493eea9fe5ae7857e3e58da7a161d6a060dbbdc700f2b3244e1",
+        "crlf_sequences": 140,
+        "original_size_bytes": 19488,
+        "original_sha256": "7982108f440bc493eea9fe5ae7857e3e58da7a161d6a060dbbdc700f2b3244e1",
+        "original_crlf_sequences": 140,
+        "byte_equal": true
+      },
+      {
+        "source_zip_path": "evidence/M7/fresh-windows/06-full-unit.stdout.txt",
+        "fresh_release_path": "checks/06-full-unit.stdout.txt",
+        "size_bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "crlf_sequences": 0,
+        "original_size_bytes": 0,
+        "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "original_crlf_sequences": 0,
+        "byte_equal": true
+      },
+      {
+        "source_zip_path": "evidence/M7/fresh-windows/07-python-tank-suite.json",
+        "fresh_release_path": "checks/07-python-tank-suite.json",
+        "size_bytes": 1149,
+        "sha256": "8b3141a5d5a0e765c00fbeba81e7e59d3c5727510f785b58278d22a719e3460d",
+        "crlf_sequences": 25,
+        "original_size_bytes": 1149,
+        "original_sha256": "8b3141a5d5a0e765c00fbeba81e7e59d3c5727510f785b58278d22a719e3460d",
+        "original_crlf_sequences": 25,
+        "byte_equal": true
+      },
+      {
+        "source_zip_path": "evidence/M7/fresh-windows/07-python-tank-suite.stderr.txt",
+        "fresh_release_path": "checks/07-python-tank-suite.stderr.txt",
+        "size_bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "crlf_sequences": 0,
+        "original_size_bytes": 0,
+        "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "original_crlf_sequences": 0,
+        "byte_equal": true
+      },
+      {
+        "source_zip_path": "evidence/M7/fresh-windows/07-python-tank-suite.stdout.txt",
+        "fresh_release_path": "checks/07-python-tank-suite.stdout.txt",
+        "size_bytes": 228,
+        "sha256": "a431577dd170a702d79b2e54f3c5a1331ddf541f1813f03928a67ae5edfffb00",
+        "crlf_sequences": 7,
+        "original_size_bytes": 228,
+        "original_sha256": "a431577dd170a702d79b2e54f3c5a1331ddf541f1813f03928a67ae5edfffb00",
+        "original_crlf_sequences": 7,
+        "byte_equal": true
+      },
+      {
+        "source_zip_path": "evidence/M7/fresh-windows/08-thermal-benchmarks.json",
+        "fresh_release_path": "checks/08-thermal-benchmarks.json",
+        "size_bytes": 1161,
+        "sha256": "2678eff488fb6d64b6ee3ba0c9d2bdc8dee3f6a13da31bdf86101efec7bb9039",
+        "crlf_sequences": 25,
+        "original_size_bytes": 1161,
+        "original_sha256": "2678eff488fb6d64b6ee3ba0c9d2bdc8dee3f6a13da31bdf86101efec7bb9039",
+        "original_crlf_sequences": 25,
+        "byte_equal": true
+      },
+      {
+        "source_zip_path": "evidence/M7/fresh-windows/08-thermal-benchmarks.stderr.txt",
+        "fresh_release_path": "checks/08-thermal-benchmarks.stderr.txt",
+        "size_bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "crlf_sequences": 0,
+        "original_size_bytes": 0,
+        "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "original_crlf_sequences": 0,
+        "byte_equal": true
+      },
+      {
+        "source_zip_path": "evidence/M7/fresh-windows/08-thermal-benchmarks.stdout.txt",
+        "fresh_release_path": "checks/08-thermal-benchmarks.stdout.txt",
+        "size_bytes": 3700,
+        "sha256": "d7c2e75a30464ab03363449209ca67f94b8387d685f1c29f46b7f9eb1e1589e0",
+        "crlf_sequences": 135,
+        "original_size_bytes": 3700,
+        "original_sha256": "d7c2e75a30464ab03363449209ca67f94b8387d685f1c29f46b7f9eb1e1589e0",
+        "original_crlf_sequences": 135,
+        "byte_equal": true
+      },
+      {
+        "source_zip_path": "evidence/M7/fresh-windows/09-full-campaign.json",
+        "fresh_release_path": "checks/09-full-campaign.json",
+        "size_bytes": 1240,
+        "sha256": "9a62d46653417873d2f01b47d37b11ffc5adbfe034f47bf45820072f5cc2a2b6",
+        "crlf_sequences": 28,
+        "original_size_bytes": 1240,
+        "original_sha256": "9a62d46653417873d2f01b47d37b11ffc5adbfe034f47bf45820072f5cc2a2b6",
+        "original_crlf_sequences": 28,
+        "byte_equal": true
+      },
+      {
+        "source_zip_path": "evidence/M7/fresh-windows/09-full-campaign.stderr.txt",
+        "fresh_release_path": "checks/09-full-campaign.stderr.txt",
+        "size_bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "crlf_sequences": 0,
+        "original_size_bytes": 0,
+        "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "original_crlf_sequences": 0,
+        "byte_equal": true
+      },
+      {
+        "source_zip_path": "evidence/M7/fresh-windows/09-full-campaign.stdout.txt",
+        "fresh_release_path": "checks/09-full-campaign.stdout.txt",
+        "size_bytes": 963,
+        "sha256": "8b492281813ca1bedf0adaa9479d7eb2b573ba295eb8fac2f728378970c1b404",
+        "crlf_sequences": 17,
+        "original_size_bytes": 963,
+        "original_sha256": "8b492281813ca1bedf0adaa9479d7eb2b573ba295eb8fac2f728378970c1b404",
+        "original_crlf_sequences": 17,
+        "byte_equal": true
+      },
+      {
+        "source_zip_path": "evidence/M7/fresh-windows/10-full-refinement.json",
+        "fresh_release_path": "checks/10-full-refinement.json",
+        "size_bytes": 1234,
+        "sha256": "99650eef9cdda184b55e78831d84c95efa69b04458d32e6f7beec69cdc4a6774",
+        "crlf_sequences": 27,
+        "original_size_bytes": 1234,
+        "original_sha256": "99650eef9cdda184b55e78831d84c95efa69b04458d32e6f7beec69cdc4a6774",
+        "original_crlf_sequences": 27,
+        "byte_equal": true
+      },
+      {
+        "source_zip_path": "evidence/M7/fresh-windows/10-full-refinement.stderr.txt",
+        "fresh_release_path": "checks/10-full-refinement.stderr.txt",
+        "size_bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "crlf_sequences": 0,
+        "original_size_bytes": 0,
+        "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "original_crlf_sequences": 0,
+        "byte_equal": true
+      },
+      {
+        "source_zip_path": "evidence/M7/fresh-windows/10-full-refinement.stdout.txt",
+        "fresh_release_path": "checks/10-full-refinement.stdout.txt",
+        "size_bytes": 275,
+        "sha256": "22ab7a0783703d26ede8cb3febe8d87b741c5f8bfa563f99a0076d6234329a5a",
+        "crlf_sequences": 9,
+        "original_size_bytes": 275,
+        "original_sha256": "22ab7a0783703d26ede8cb3febe8d87b741c5f8bfa563f99a0076d6234329a5a",
+        "original_crlf_sequences": 9,
+        "byte_equal": true
+      },
+      {
+        "source_zip_path": "evidence/M7/fresh-windows/11-independent-export-audit.json",
+        "fresh_release_path": "checks/11-independent-export-audit.json",
+        "size_bytes": 1324,
+        "sha256": "6bb826c5feec2637c00056b96220f2f9356494a64a625ca7465da686f41e7bc4",
+        "crlf_sequences": 32,
+        "original_size_bytes": 1324,
+        "original_sha256": "6bb826c5feec2637c00056b96220f2f9356494a64a625ca7465da686f41e7bc4",
+        "original_crlf_sequences": 32,
+        "byte_equal": true
+      },
+      {
+        "source_zip_path": "evidence/M7/fresh-windows/11-independent-export-audit.stderr.txt",
+        "fresh_release_path": "checks/11-independent-export-audit.stderr.txt",
+        "size_bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "crlf_sequences": 0,
+        "original_size_bytes": 0,
+        "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "original_crlf_sequences": 0,
+        "byte_equal": true
+      },
+      {
+        "source_zip_path": "evidence/M7/fresh-windows/11-independent-export-audit.stdout.txt",
+        "fresh_release_path": "checks/11-independent-export-audit.stdout.txt",
+        "size_bytes": 198,
+        "sha256": "a6b56c508c174344b3fe6c171bc99b8a6f392ed870751add97b802d8192a11d3",
+        "crlf_sequences": 10,
+        "original_size_bytes": 198,
+        "original_sha256": "a6b56c508c174344b3fe6c171bc99b8a6f392ed870751add97b802d8192a11d3",
+        "original_crlf_sequences": 10,
+        "byte_equal": true
+      },
+      {
+        "source_zip_path": "evidence/M7/fresh-windows/12-pico-cross-build.json",
+        "fresh_release_path": "checks/12-pico-cross-build.json",
+        "size_bytes": 1918,
+        "sha256": "52762e37b8fcc28dc83a19e01e9af46bf7537f44dcb13caf5d275687e6d0f551",
+        "crlf_sequences": 37,
+        "original_size_bytes": 1918,
+        "original_sha256": "52762e37b8fcc28dc83a19e01e9af46bf7537f44dcb13caf5d275687e6d0f551",
+        "original_crlf_sequences": 37,
+        "byte_equal": true
+      },
+      {
+        "source_zip_path": "evidence/M7/fresh-windows/12-pico-cross-build.stderr.txt",
+        "fresh_release_path": "checks/12-pico-cross-build.stderr.txt",
+        "size_bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "crlf_sequences": 0,
+        "original_size_bytes": 0,
+        "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "original_crlf_sequences": 0,
+        "byte_equal": true
+      },
+      {
+        "source_zip_path": "evidence/M7/fresh-windows/12-pico-cross-build.stdout.txt",
+        "fresh_release_path": "checks/12-pico-cross-build.stdout.txt",
+        "size_bytes": 34582,
+        "sha256": "f71d4ac2b658412ba6b652a480617a1764b18c0ee054c21ba432e499e65c9429",
+        "crlf_sequences": 229,
+        "original_size_bytes": 34582,
+        "original_sha256": "f71d4ac2b658412ba6b652a480617a1764b18c0ee054c21ba432e499e65c9429",
+        "original_crlf_sequences": 229,
+        "byte_equal": true
+      },
+      {
+        "source_zip_path": "evidence/M7/fresh-windows/13-replay-plain.txt",
+        "fresh_release_path": "checks/13-replay-plain.txt",
+        "size_bytes": 541,
+        "sha256": "f5df710a8fe17710326ed14362252e26cdffbcdd2a849a444a86d9c2eb713e6f",
+        "crlf_sequences": 25,
+        "original_size_bytes": 541,
+        "original_sha256": "f5df710a8fe17710326ed14362252e26cdffbcdd2a849a444a86d9c2eb713e6f",
+        "original_crlf_sequences": 25,
+        "byte_equal": true
+      },
+      {
+        "source_zip_path": "evidence/M7/fresh-windows/13-report-write.json",
+        "fresh_release_path": "checks/13-report-write.json",
+        "size_bytes": 1109,
+        "sha256": "88d0e97af64c6a9ae0f2c8fe3d30cbaa42bf99fddec8200339e6b7846724d05a",
+        "crlf_sequences": 23,
+        "original_size_bytes": 1109,
+        "original_sha256": "88d0e97af64c6a9ae0f2c8fe3d30cbaa42bf99fddec8200339e6b7846724d05a",
+        "original_crlf_sequences": 23,
+        "byte_equal": true
+      },
+      {
+        "source_zip_path": "evidence/M7/fresh-windows/13-report-write.stderr.txt",
+        "fresh_release_path": "checks/13-report-write.stderr.txt",
+        "size_bytes": 660,
+        "sha256": "de6142005cb82564c15f7d03ea38f62d23113da0203744219403b4da7ac3b961",
+        "crlf_sequences": 8,
+        "original_size_bytes": 660,
+        "original_sha256": "de6142005cb82564c15f7d03ea38f62d23113da0203744219403b4da7ac3b961",
+        "original_crlf_sequences": 8,
+        "byte_equal": true
+      },
+      {
+        "source_zip_path": "evidence/M7/fresh-windows/13-report-write.stdout.txt",
+        "fresh_release_path": "checks/13-report-write.stdout.txt",
+        "size_bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "crlf_sequences": 0,
+        "original_size_bytes": 0,
+        "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "original_crlf_sequences": 0,
+        "byte_equal": true
+      },
+      {
+        "source_zip_path": "evidence/M7/fresh-windows/14-replay-hosted.txt",
+        "fresh_release_path": "checks/14-replay-hosted.txt",
+        "size_bytes": 548,
+        "sha256": "be961b419fae90da34c36cc86e2dd402fd12efd3fc63ff069d9891b54cc41162",
+        "crlf_sequences": 25,
+        "original_size_bytes": 548,
+        "original_sha256": "be961b419fae90da34c36cc86e2dd402fd12efd3fc63ff069d9891b54cc41162",
+        "original_crlf_sequences": 25,
+        "byte_equal": true
+      },
+      {
+        "source_zip_path": "evidence/M7/fresh-windows/14-report-write-corrected.json",
+        "fresh_release_path": "checks/14-report-write-corrected.json",
+        "size_bytes": 1139,
+        "sha256": "d87532df17d9873db31977bbe4007c6bd4bd245d505f37248029482b7bfb4994",
+        "crlf_sequences": 23,
+        "original_size_bytes": 1139,
+        "original_sha256": "d87532df17d9873db31977bbe4007c6bd4bd245d505f37248029482b7bfb4994",
+        "original_crlf_sequences": 23,
+        "byte_equal": true
+      },
+      {
+        "source_zip_path": "evidence/M7/fresh-windows/14-report-write-corrected.stderr.txt",
+        "fresh_release_path": "checks/14-report-write-corrected.stderr.txt",
+        "size_bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "crlf_sequences": 0,
+        "original_size_bytes": 0,
+        "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "original_crlf_sequences": 0,
+        "byte_equal": true
+      },
+      {
+        "source_zip_path": "evidence/M7/fresh-windows/14-report-write-corrected.stdout.txt",
+        "fresh_release_path": "checks/14-report-write-corrected.stdout.txt",
+        "size_bytes": 415,
+        "sha256": "6365bfab85245c246d526c77ec3ae4ca7fec7f71617873aa8ecdc61519715349",
+        "crlf_sequences": 9,
+        "original_size_bytes": 415,
+        "original_sha256": "6365bfab85245c246d526c77ec3ae4ca7fec7f71617873aa8ecdc61519715349",
+        "original_crlf_sequences": 9,
+        "byte_equal": true
+      },
+      {
+        "source_zip_path": "evidence/M7/fresh-windows/15-replay-plain-final.txt",
+        "fresh_release_path": "checks/15-replay-plain-final.txt",
+        "size_bytes": 547,
+        "sha256": "4dd2489d608993db8eb47978b804d05a7d9b4936e6b5437a51910a1d3688671d",
+        "crlf_sequences": 25,
+        "original_size_bytes": 547,
+        "original_sha256": "4dd2489d608993db8eb47978b804d05a7d9b4936e6b5437a51910a1d3688671d",
+        "original_crlf_sequences": 25,
+        "byte_equal": true
+      },
+      {
+        "source_zip_path": "evidence/M7/fresh-windows/16-replay-hosted-final.txt",
+        "fresh_release_path": "checks/16-replay-hosted-final.txt",
+        "size_bytes": 554,
+        "sha256": "313efe7633d4e9fd58bd11925cd3ef7242458e16aeb4a125280fe81ced57a146",
+        "crlf_sequences": 25,
+        "original_size_bytes": 554,
+        "original_sha256": "313efe7633d4e9fd58bd11925cd3ef7242458e16aeb4a125280fe81ced57a146",
+        "original_crlf_sequences": 25,
+        "byte_equal": true
+      },
+      {
+        "source_zip_path": "evidence/M7/fresh-windows/17-replay-artifact-audit.json",
+        "fresh_release_path": "checks/17-replay-artifact-audit.json",
+        "size_bytes": 901,
+        "sha256": "6253ebd691db4676fdad62191f5767d74110ddcc81d31f285fd71017945d238f",
+        "crlf_sequences": 0,
+        "original_size_bytes": 901,
+        "original_sha256": "6253ebd691db4676fdad62191f5767d74110ddcc81d31f285fd71017945d238f",
+        "original_crlf_sequences": 0,
+        "byte_equal": true
+      },
+      {
+        "source_zip_path": "evidence/M7/fresh-windows/campaign-stage-readback.json",
+        "fresh_release_path": "checks/campaign-stage-readback.json",
+        "size_bytes": 734,
+        "sha256": "9eacfbcb12a4bb28417eba610b33627a32e44894f58cf381cbcb703588ddc475",
+        "crlf_sequences": 39,
+        "original_size_bytes": 734,
+        "original_sha256": "9eacfbcb12a4bb28417eba610b33627a32e44894f58cf381cbcb703588ddc475",
+        "original_crlf_sequences": 39,
+        "byte_equal": true
+      },
+      {
+        "source_zip_path": "evidence/M7/fresh-windows/campaign.json",
+        "fresh_release_path": "campaign/campaign.json",
+        "size_bytes": 67984,
+        "sha256": "556d71a1ca4cc42c3cd86e7da7d97e39f85be0193a2ffbfad502f20a395770a6",
+        "crlf_sequences": 0,
+        "original_size_bytes": 67984,
+        "original_sha256": "556d71a1ca4cc42c3cd86e7da7d97e39f85be0193a2ffbfad502f20a395770a6",
+        "original_crlf_sequences": 0,
+        "byte_equal": true
+      },
+      {
+        "source_zip_path": "evidence/M7/fresh-windows/invoke-check.ps1",
+        "fresh_release_path": "checks/invoke-check.ps1",
+        "size_bytes": 3302,
+        "sha256": "4dfd068597e34f4db3ee71d5040834cc063313aa3a9e88ca21492642aa25dbe6",
+        "crlf_sequences": 0,
+        "original_size_bytes": 3302,
+        "original_sha256": "4dfd068597e34f4db3ee71d5040834cc063313aa3a9e88ca21492642aa25dbe6",
+        "original_crlf_sequences": 0,
+        "byte_equal": true
+      },
+      {
+        "source_zip_path": "evidence/M7/fresh-windows/pico-build-evidence.json",
+        "fresh_release_path": "pico/build-evidence.json",
+        "size_bytes": 11062,
+        "sha256": "d32dca5dd6a53bb1c9dea683beb40c10a82a83c4c903e784e3228bd4a4e0d6e5",
+        "crlf_sequences": 302,
+        "original_size_bytes": 11062,
+        "original_sha256": "d32dca5dd6a53bb1c9dea683beb40c10a82a83c4c903e784e3228bd4a4e0d6e5",
+        "original_crlf_sequences": 302,
+        "byte_equal": true
+      },
+      {
+        "source_zip_path": "evidence/M7/fresh-windows/refinement.json",
+        "fresh_release_path": "refinement/refinement.json",
+        "size_bytes": 93264,
+        "sha256": "4023cc0e5c7b9b7fc238ae412c032f441491ed2b85f15ca7528e2a6a0772cdfc",
+        "crlf_sequences": 0,
+        "original_size_bytes": 93264,
+        "original_sha256": "4023cc0e5c7b9b7fc238ae412c032f441491ed2b85f15ca7528e2a6a0772cdfc",
+        "original_crlf_sequences": 0,
+        "byte_equal": true
+      },
+      {
+        "source_zip_path": "evidence/M7/fresh-windows/reproduction.json",
+        "fresh_release_path": "checks/reproduction.json",
+        "size_bytes": 44238,
+        "sha256": "ee77e03b1269f47eb4b9a6c5d9fb14b9a6c4fc4fdcbe52c6bf5e764f0d5b865f",
+        "crlf_sequences": 0,
+        "original_size_bytes": 44238,
+        "original_sha256": "ee77e03b1269f47eb4b9a6c5d9fb14b9a6c4fc4fdcbe52c6bf5e764f0d5b865f",
+        "original_crlf_sequences": 0,
+        "byte_equal": true
+      },
+      {
+        "source_zip_path": "evidence/M7/fresh-windows/verification.json",
+        "fresh_release_path": "thermal/verification.json",
+        "size_bytes": 68552,
+        "sha256": "97fbdd803e69b2e29a8c8c2b9be087a2576420f441bb29858cb021f109505afb",
+        "crlf_sequences": 0,
+        "original_size_bytes": 68552,
+        "original_sha256": "97fbdd803e69b2e29a8c8c2b9be087a2576420f441bb29858cb021f109505afb",
+        "original_crlf_sequences": 0,
+        "byte_equal": true
+      },
+      {
+        "source_zip_path": "evidence/M7/fresh-windows/write-report.py",
+        "fresh_release_path": "checks/write-report.py",
+        "size_bytes": 4623,
+        "sha256": "e9c0791709db4e7aefa104b9d6062b975f6c7e03ae73b393e603daa1fae4ab1c",
+        "crlf_sequences": 0,
+        "original_size_bytes": 4623,
+        "original_sha256": "e9c0791709db4e7aefa104b9d6062b975f6c7e03ae73b393e603daa1fae4ab1c",
+        "original_crlf_sequences": 0,
+        "byte_equal": true
+      }
+    ]
+  },
+  "published_svg_identity": {
+    "status": "PASS",
+    "sha256": "3e923080ce404b2479bae99ebf11cf8925793827dff7f3e2bf2720ab7caa7ffe",
+    "source_zip_path": "docs/images/thermal-loop.svg",
+    "site_relative_path": "assets/projects/virtual-thermal-fluid-lab/thermal-loop.svg"
+  },
+  "svg_nominal_csv_values": {
+    "status": "PASS",
+    "source_time_s": 240,
+    "values": {
+      "wall_temperature_c": {
+        "actual": 42.35960812284185,
+        "rendered": "42.360 \u00b0C"
+      },
+      "hot_temperature_c": {
+        "actual": 26.45541024478939,
+        "rendered": "26.455 \u00b0C"
+      },
+      "cold_temperature_c": {
+        "actual": 19.04880637781821,
+        "rendered": "19.049 \u00b0C"
+      },
+      "flow_l_min": {
+        "actual": 9.000030155717143,
+        "rendered": "9.00003 L/min"
+      },
+      "pump_speed": {
+        "actual": 0.5275000497926001,
+        "rendered": "0.527500"
+      },
+      "pump_pressure_kpa": {
+        "actual": 18.825569941584234,
+        "rendered": "18.82557 kPa"
+      },
+      "valve_opening": {
+        "actual": 0.65,
+        "rendered": "0.65"
+      },
+      "applied_heat_w": {
+        "actual": 5000.0,
+        "rendered": "5,000 W"
+      }
+    },
+    "assumed_parameters_match_manifest": true
+  },
+  "final_article_review": {
+    "status": "ACCEPT",
+    "post_sha256": "e1586306e69dc1eb3e4a83e0b3e77776bf598a4cbe7df7cc2387bb9306e75130",
+    "visible_whitespace_word_count": 1285,
+    "word_count_policy": "Body after YAML front matter; remove HTML markup; replace Markdown links with visible labels; split whitespace.",
+    "numeric_claims_checked": [
+      "equilibrium temperatures",
+      "frozen/biased trip and bound",
+      "stuck heat trip/boundary/FAILED incomplete horizon",
+      "independent weighted-mean slope/latest-boundary bound",
+      "100/50ms boundary delta",
+      "135 unit tests",
+      "ten thermal checks",
+      "selected demo wall speed and observed memory peaks",
+      "full-suite wall duration"
+    ],
+    "physical_and_assistance_claims": "Explicit simulated assumed equipment, Codex assistance, NOT_EXECUTED board and NOT_STARTED physical validation; no fabrication, hardware timing, certification or proprietary Endurance stack claim.",
+    "kv_units": "Kvalve is pressure resistance Pa s^2/m^6 multiplying volume-flow Q^2; no valve Kv/Cv substitution.",
+    "independent_mean_rise_k_s": 0.16181229773462782,
+    "independent_latest_boundary_s": 585.3,
+    "memory_scope_limitations_preserved": true,
+    "runtime_ci_jobs_success": true
+  },
+  "completed_utc": "2026-10-06T10:56:14Z"
+}

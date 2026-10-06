@@ -1,0 +1,136 @@
+{
+  "version": 1,
+  "status": "PASS",
+  "archives": [
+    {
+      "filename": "virtual-thermal-fluid-lab-v0.1.0-source.zip",
+      "sha256": "39ee1859a473a4b20c4975ee95c47b05e6849b88ef68b1a4eb461017e4a2c6cc",
+      "archive_size_bytes": 1935389,
+      "uncompressed_size_bytes": 6211823,
+      "member_count": 370,
+      "members_verified": 370,
+      "status": "PASS",
+      "per_member_audit": "virtual-thermal-fluid-lab-v0.1.0-source.audit.json",
+      "per_member_audit_sha256": "00de8f7d6c4fc5b01a1a1776b4f1a42af6ed61b8a111228c4be47f4e1670a4fa"
+    },
+    {
+      "filename": "virtual-thermal-fluid-lab-v0.1.0-evidence.zip",
+      "sha256": "af4010654f1573ce2f3161598dacae0402ba87a80828e0fb4aa33337e5db48dd",
+      "archive_size_bytes": 152390500,
+      "uncompressed_size_bytes": 4525405479,
+      "member_count": 998,
+      "members_verified": 998,
+      "status": "PASS",
+      "per_member_audit": "virtual-thermal-fluid-lab-v0.1.0-evidence.audit.json",
+      "per_member_audit_sha256": "3b859ce6ac5f3170a3ff8833d53aa3e9692f78d6d12b7f3111daae2fe75a2838"
+    },
+    {
+      "filename": "virtual-thermal-fluid-lab-v0.1.0-replay.zip",
+      "sha256": "282dffd143a8c0cd5b21c2c98d9c53e4f426019faa4bf8f0dd9cc889c626eb05",
+      "archive_size_bytes": 33895651,
+      "uncompressed_size_bytes": 897021654,
+      "member_count": 237,
+      "members_verified": 237,
+      "status": "PASS",
+      "per_member_audit": "virtual-thermal-fluid-lab-v0.1.0-replay.audit.json",
+      "per_member_audit_sha256": "40d89db5509ba1a69c6b6be925e7dc4fedbf8f91c53b86b9383c960c6ad7d824"
+    },
+    {
+      "filename": "virtual-thermal-fluid-lab-v0.1.0-pico.zip",
+      "sha256": "dc695fb53ca4e36dafac4b489458642bbcdd75741c6d98557f987b39a1253903",
+      "archive_size_bytes": 852085,
+      "uncompressed_size_bytes": 3239377,
+      "member_count": 27,
+      "members_verified": 27,
+      "status": "PASS",
+      "per_member_audit": "virtual-thermal-fluid-lab-v0.1.0-pico.audit.json",
+      "per_member_audit_sha256": "42bd1c17ac6be119857c030aa4e1cc29f528ca4bdf0c7fd960f655e1c8360ab9"
+    }
+  ],
+  "source_revision": "dd8b9814859691c7f71019bb2bca4e4d0baef284",
+  "fresh_runtime_revision": "cc5a6feae95dc5888bf3041bc9dc3306dba667ba",
+  "independently_recomputed_runtime_source_sha256": "fa2a7a40d64fc2dad4022ed6f4642dfd7249912d36882f28a845d164e83babc9",
+  "independent_runtime_source_members": 63,
+  "copied_original_fresh_files_byte_identical": 55,
+  "pre_repair_mismatches": 31,
+  "all_original_raw_files_preserved": true,
+  "source_all_370_git_blob_identities_verified": true,
+  "exact_inventory_safe_paths_case_collisions_sha256_crc32_sizes": "PASS",
+  "unchanged_three_archives": "Copied from preserved package-execution-20261006; copied archive SHA256 matches original fully decompressed per-member audit. No altered raw provenance.",
+  "execution": [
+    {
+      "run": "immutable-preflight",
+      "exit_code": 0,
+      "stdout": "immutable-preflight.stdout.txt",
+      "stderr": "immutable-preflight.stderr.txt",
+      "stderr_size_bytes": 0
+    },
+    {
+      "run": "source-packaging",
+      "exit_code": 0,
+      "stdout": "source-packaging.stdout.txt",
+      "stderr": "source-packaging.stderr.txt",
+      "stderr_size_bytes": 0
+    },
+    {
+      "run": "independent-review",
+      "exit_code": 0,
+      "stdout": "independent-review.stdout.txt",
+      "stderr": "independent-review.stderr.txt",
+      "stderr_size_bytes": 0
+    }
+  ],
+  "executed_commands": "executed-commands.json",
+  "audit_supplements": [
+    {
+      "path": "immutable-source-preflight-audit.json",
+      "sha256": "d5458b52456a01e802fdbb31768be9b32c497b248d18512bc1bc03190821c377"
+    },
+    {
+      "path": "final-source-independent-audit.json",
+      "sha256": "75d3498cbf1636a710152305119c29da7364d7e798ceb94d5ff4d5b5fae9973c"
+    },
+    {
+      "path": "unchanged-assets-copy-audit.json",
+      "sha256": "8c43a8859631563e89077ef4113f2d51f5c1b34140fdb7b143ac131a1a79e4a8"
+    },
+    {
+      "path": "source-evidence-repair-audit.json",
+      "sha256": "8e6648f2e56045f20c9968d4f1cb1257597d90f298a80ed00a9097f1a9f9e753"
+    },
+    {
+      "path": "pre-repair-fresh-byte-comparison.json",
+      "sha256": "12b36898d79deed98acee8ed51eca1e2afe36237b9a9012b5dab90306ab89877"
+    },
+    {
+      "path": "pre-repair-expanded-review-audit.json",
+      "sha256": "fa2130f10fce365ac0ce5cdd642b611db63ba2f1fb2e7a5c6feedeed599d79f1"
+    }
+  ],
+  "retained_scripts": [
+    {
+      "path": "package_source_replay.py",
+      "sha256": "70151c9c127817223eecc452c204ec58a34fa52ec108e81a226b004ca55e71ca"
+    },
+    {
+      "path": "independent_final_review.py",
+      "sha256": "519ca95d7b21a265e9560421631ef5904bdf3b7dc050b4f9768c19f1060469ea"
+    },
+    {
+      "path": "preflight_immutable_bytes.py",
+      "sha256": "32f63ca8e2dac35d0783942a31ad2185f5669bfddcd4f8cb960ae71a3537b18b"
+    }
+  ],
+  "preserved_prior_directories": [
+    "../package-execution-20261006",
+    "../package-release-v0.1.0"
+  ],
+  "checksum_list": "SHA256SUMS.txt",
+  "limitations": [
+    "Cross-build only: board execution NOT_EXECUTED and physical validation NOT_STARTED.",
+    "Upstream newlib notice inventory does not prove exact identity of Arm patched runtime source.",
+    "Source final documentation commit differs from retained original clean-runtime revision; runtime bytes independently match.",
+    "Secret scan is bounded high-confidence token/private-key scan, not general confidentiality certification.",
+    "Host executable requires external Windows compiler runtime components; no toolchain/SDK/Python environment/account/cache redistribution."
+  ]
+}

@@ -1,0 +1,297 @@
+{
+  "version": 1,
+  "status": "PASS",
+  "scope": "Independent failure/repair comparison of indexed source-package copies; full raw evidence archive remains unchanged. No simulation/build repeated.",
+  "pre_repair_commit": "b774289898cd9a070dd8ff514d62bb71b3163f1e",
+  "final_source_commit": "dd8b9814859691c7f71019bb2bca4e4d0baef284",
+  "repair": "git add --renormalize under existing -text attributes, performed by coordinator; verified final immutable blobs and ZIP bytes against original fresh-release files.",
+  "pre_repair_mismatch_count": 31,
+  "final_original_matches": 55,
+  "members": [
+    {
+      "path": "evidence/M7/fresh-windows/01-uv-sync.json",
+      "pre_repair_sha256": "2b86d239d60e08973c31113661813aaa92ad04b40bddeb0573b97904bdec2b6d",
+      "actual_original_sha256": "8d8e2919047c2a57a9268bab5d70b215bd9d8204cf7ae27ccb9886890356ed77",
+      "final_source_sha256": "8d8e2919047c2a57a9268bab5d70b215bd9d8204cf7ae27ccb9886890356ed77",
+      "pre_repair_crlf_sequences": 0,
+      "final_original_crlf_sequences": 22,
+      "repair_preserves_original_bytes": true
+    },
+    {
+      "path": "evidence/M7/fresh-windows/02-host-build-ctest.json",
+      "pre_repair_sha256": "7e933f017bf6208a113f0d9df18c5f95a41c55a86d769114841294ab6fc49862",
+      "actual_original_sha256": "03a010683d56198a66a29e875a0dbbd5de5e43055106ac27f68bb665c7cde57a",
+      "final_source_sha256": "03a010683d56198a66a29e875a0dbbd5de5e43055106ac27f68bb665c7cde57a",
+      "pre_repair_crlf_sequences": 0,
+      "final_original_crlf_sequences": 27,
+      "repair_preserves_original_bytes": true
+    },
+    {
+      "path": "evidence/M7/fresh-windows/02-host-build-ctest.stdout.txt",
+      "pre_repair_sha256": "aae279aa995472b555d6d6a80b39a1a3d057af67af8e001e2dbdfd3e6667502b",
+      "actual_original_sha256": "3f457871380021f9661d6347daa0743677b6364772fcedbbf5c668b9184c7e38",
+      "final_source_sha256": "3f457871380021f9661d6347daa0743677b6364772fcedbbf5c668b9184c7e38",
+      "pre_repair_crlf_sequences": 0,
+      "final_original_crlf_sequences": 17,
+      "repair_preserves_original_bytes": true
+    },
+    {
+      "path": "evidence/M7/fresh-windows/03-device-configure.json",
+      "pre_repair_sha256": "32532c221af07ad579a9d8acc903ec5ae7723042010e8232801fd332851e9f72",
+      "actual_original_sha256": "7c6110712bea5785560000ae5be91d066e5ff43df6dc99ee7132cba4c68e3881",
+      "final_source_sha256": "7c6110712bea5785560000ae5be91d066e5ff43df6dc99ee7132cba4c68e3881",
+      "pre_repair_crlf_sequences": 0,
+      "final_original_crlf_sequences": 28,
+      "repair_preserves_original_bytes": true
+    },
+    {
+      "path": "evidence/M7/fresh-windows/04-device-build.json",
+      "pre_repair_sha256": "edfc61de8a290cab6e1d42b4b1317ef0601379f98e73e97e1adc9097059585c4",
+      "actual_original_sha256": "ddf36317e0dcadcf108cfae3aa4ec2df5add5868c4dfb614feb360e3cc0234f6",
+      "final_source_sha256": "ddf36317e0dcadcf108cfae3aa4ec2df5add5868c4dfb614feb360e3cc0234f6",
+      "pre_repair_crlf_sequences": 0,
+      "final_original_crlf_sequences": 24,
+      "repair_preserves_original_bytes": true
+    },
+    {
+      "path": "evidence/M7/fresh-windows/04-device-build.stdout.txt",
+      "pre_repair_sha256": "41c232289894c1cff575962b6aa489e6855c6690949d421f4babeee6c7588c50",
+      "actual_original_sha256": "fefe83c063ca4b898129e7e7ed5a6fc473f720b72491590dec51859a21c954a2",
+      "final_source_sha256": "fefe83c063ca4b898129e7e7ed5a6fc473f720b72491590dec51859a21c954a2",
+      "pre_repair_crlf_sequences": 0,
+      "final_original_crlf_sequences": 21,
+      "repair_preserves_original_bytes": true
+    },
+    {
+      "path": "evidence/M7/fresh-windows/05-device-ctest.json",
+      "pre_repair_sha256": "f2d4b2176d19b1e52fb995af8c06ee5b17cb123a6bc248ce3a315ea63b1c8b96",
+      "actual_original_sha256": "5c72b7bd615dc47be30ef71f74879aa8704c49a2d572b4b539b2a3c34f534d69",
+      "final_source_sha256": "5c72b7bd615dc47be30ef71f74879aa8704c49a2d572b4b539b2a3c34f534d69",
+      "pre_repair_crlf_sequences": 0,
+      "final_original_crlf_sequences": 25,
+      "repair_preserves_original_bytes": true
+    },
+    {
+      "path": "evidence/M7/fresh-windows/06-full-unit.json",
+      "pre_repair_sha256": "04eaec71368b8bb4fe3c01ba1e809d403288c9f535030faedae3ca0e91aac115",
+      "actual_original_sha256": "38e7bc5e890dd957102fc7a71fb5e847388d50beadd823c7efbc87dc63806955",
+      "final_source_sha256": "38e7bc5e890dd957102fc7a71fb5e847388d50beadd823c7efbc87dc63806955",
+      "pre_repair_crlf_sequences": 0,
+      "final_original_crlf_sequences": 28,
+      "repair_preserves_original_bytes": true
+    },
+    {
+      "path": "evidence/M7/fresh-windows/06-full-unit.stderr.txt",
+      "pre_repair_sha256": "483e555aa863a9bbd8e217d265052f84a3068da71c3b3b187e6789227a5c1847",
+      "actual_original_sha256": "7982108f440bc493eea9fe5ae7857e3e58da7a161d6a060dbbdc700f2b3244e1",
+      "final_source_sha256": "7982108f440bc493eea9fe5ae7857e3e58da7a161d6a060dbbdc700f2b3244e1",
+      "pre_repair_crlf_sequences": 0,
+      "final_original_crlf_sequences": 140,
+      "repair_preserves_original_bytes": true
+    },
+    {
+      "path": "evidence/M7/fresh-windows/07-python-tank-suite.json",
+      "pre_repair_sha256": "e646941dfb8f88cf733df5da5467204c123e8d60d60c90f613ee21150d565b62",
+      "actual_original_sha256": "8b3141a5d5a0e765c00fbeba81e7e59d3c5727510f785b58278d22a719e3460d",
+      "final_source_sha256": "8b3141a5d5a0e765c00fbeba81e7e59d3c5727510f785b58278d22a719e3460d",
+      "pre_repair_crlf_sequences": 0,
+      "final_original_crlf_sequences": 25,
+      "repair_preserves_original_bytes": true
+    },
+    {
+      "path": "evidence/M7/fresh-windows/07-python-tank-suite.stdout.txt",
+      "pre_repair_sha256": "e4c03382ad3c229351e81eb92627bfd70a3f88f3402fd397cc606b596dcd1db4",
+      "actual_original_sha256": "a431577dd170a702d79b2e54f3c5a1331ddf541f1813f03928a67ae5edfffb00",
+      "final_source_sha256": "a431577dd170a702d79b2e54f3c5a1331ddf541f1813f03928a67ae5edfffb00",
+      "pre_repair_crlf_sequences": 0,
+      "final_original_crlf_sequences": 7,
+      "repair_preserves_original_bytes": true
+    },
+    {
+      "path": "evidence/M7/fresh-windows/08-thermal-benchmarks.json",
+      "pre_repair_sha256": "90466877316bf4a48785a1e97eb6c02552e7d4f109fe398e7b071e13fcbd1066",
+      "actual_original_sha256": "2678eff488fb6d64b6ee3ba0c9d2bdc8dee3f6a13da31bdf86101efec7bb9039",
+      "final_source_sha256": "2678eff488fb6d64b6ee3ba0c9d2bdc8dee3f6a13da31bdf86101efec7bb9039",
+      "pre_repair_crlf_sequences": 0,
+      "final_original_crlf_sequences": 25,
+      "repair_preserves_original_bytes": true
+    },
+    {
+      "path": "evidence/M7/fresh-windows/08-thermal-benchmarks.stdout.txt",
+      "pre_repair_sha256": "0f250a69ab138c50c042805ff8877e1f198b6650fc61351f857623c3dff67f06",
+      "actual_original_sha256": "d7c2e75a30464ab03363449209ca67f94b8387d685f1c29f46b7f9eb1e1589e0",
+      "final_source_sha256": "d7c2e75a30464ab03363449209ca67f94b8387d685f1c29f46b7f9eb1e1589e0",
+      "pre_repair_crlf_sequences": 0,
+      "final_original_crlf_sequences": 135,
+      "repair_preserves_original_bytes": true
+    },
+    {
+      "path": "evidence/M7/fresh-windows/09-full-campaign.json",
+      "pre_repair_sha256": "89dbc97a17b559da8346d84d1536d642a6fc86fb0ddca611dce359cb1739a75d",
+      "actual_original_sha256": "9a62d46653417873d2f01b47d37b11ffc5adbfe034f47bf45820072f5cc2a2b6",
+      "final_source_sha256": "9a62d46653417873d2f01b47d37b11ffc5adbfe034f47bf45820072f5cc2a2b6",
+      "pre_repair_crlf_sequences": 0,
+      "final_original_crlf_sequences": 28,
+      "repair_preserves_original_bytes": true
+    },
+    {
+      "path": "evidence/M7/fresh-windows/09-full-campaign.stdout.txt",
+      "pre_repair_sha256": "0d76a641de396ea90b1166ff75a199dc81a474a2ff3289b10c01adbf31b7cdb2",
+      "actual_original_sha256": "8b492281813ca1bedf0adaa9479d7eb2b573ba295eb8fac2f728378970c1b404",
+      "final_source_sha256": "8b492281813ca1bedf0adaa9479d7eb2b573ba295eb8fac2f728378970c1b404",
+      "pre_repair_crlf_sequences": 0,
+      "final_original_crlf_sequences": 17,
+      "repair_preserves_original_bytes": true
+    },
+    {
+      "path": "evidence/M7/fresh-windows/10-full-refinement.json",
+      "pre_repair_sha256": "f764bc9895ef7e41be59e55de5635f861d07d9e86487f58934ca4e2ecef1948f",
+      "actual_original_sha256": "99650eef9cdda184b55e78831d84c95efa69b04458d32e6f7beec69cdc4a6774",
+      "final_source_sha256": "99650eef9cdda184b55e78831d84c95efa69b04458d32e6f7beec69cdc4a6774",
+      "pre_repair_crlf_sequences": 0,
+      "final_original_crlf_sequences": 27,
+      "repair_preserves_original_bytes": true
+    },
+    {
+      "path": "evidence/M7/fresh-windows/10-full-refinement.stdout.txt",
+      "pre_repair_sha256": "330286c47c8233a93d96895e363add08794b2a618b253b4e34489367ebbdc525",
+      "actual_original_sha256": "22ab7a0783703d26ede8cb3febe8d87b741c5f8bfa563f99a0076d6234329a5a",
+      "final_source_sha256": "22ab7a0783703d26ede8cb3febe8d87b741c5f8bfa563f99a0076d6234329a5a",
+      "pre_repair_crlf_sequences": 0,
+      "final_original_crlf_sequences": 9,
+      "repair_preserves_original_bytes": true
+    },
+    {
+      "path": "evidence/M7/fresh-windows/11-independent-export-audit.json",
+      "pre_repair_sha256": "3f2cffc89edf8db9086abba86b6455f9a767c48adc5999a6e67761dcae5f2f76",
+      "actual_original_sha256": "6bb826c5feec2637c00056b96220f2f9356494a64a625ca7465da686f41e7bc4",
+      "final_source_sha256": "6bb826c5feec2637c00056b96220f2f9356494a64a625ca7465da686f41e7bc4",
+      "pre_repair_crlf_sequences": 0,
+      "final_original_crlf_sequences": 32,
+      "repair_preserves_original_bytes": true
+    },
+    {
+      "path": "evidence/M7/fresh-windows/11-independent-export-audit.stdout.txt",
+      "pre_repair_sha256": "621a80e6ea7395d619c5ac74c12950c46863f5906f58574c77590972331a5733",
+      "actual_original_sha256": "a6b56c508c174344b3fe6c171bc99b8a6f392ed870751add97b802d8192a11d3",
+      "final_source_sha256": "a6b56c508c174344b3fe6c171bc99b8a6f392ed870751add97b802d8192a11d3",
+      "pre_repair_crlf_sequences": 0,
+      "final_original_crlf_sequences": 10,
+      "repair_preserves_original_bytes": true
+    },
+    {
+      "path": "evidence/M7/fresh-windows/12-pico-cross-build.json",
+      "pre_repair_sha256": "a914e47aa0d71e455c87576a973f594ad46be271bf49c91e53d935591983c767",
+      "actual_original_sha256": "52762e37b8fcc28dc83a19e01e9af46bf7537f44dcb13caf5d275687e6d0f551",
+      "final_source_sha256": "52762e37b8fcc28dc83a19e01e9af46bf7537f44dcb13caf5d275687e6d0f551",
+      "pre_repair_crlf_sequences": 0,
+      "final_original_crlf_sequences": 37,
+      "repair_preserves_original_bytes": true
+    },
+    {
+      "path": "evidence/M7/fresh-windows/12-pico-cross-build.stdout.txt",
+      "pre_repair_sha256": "659ed802a82c4886f4f8f1754263d794d72b127cb134adb28e1c09f0f8cf0d31",
+      "actual_original_sha256": "f71d4ac2b658412ba6b652a480617a1764b18c0ee054c21ba432e499e65c9429",
+      "final_source_sha256": "f71d4ac2b658412ba6b652a480617a1764b18c0ee054c21ba432e499e65c9429",
+      "pre_repair_crlf_sequences": 0,
+      "final_original_crlf_sequences": 229,
+      "repair_preserves_original_bytes": true
+    },
+    {
+      "path": "evidence/M7/fresh-windows/13-replay-plain.txt",
+      "pre_repair_sha256": "ba6a62c339254de880a1499fa58d5f0fdb4b1618f255b2d5efeae8dc25b59488",
+      "actual_original_sha256": "f5df710a8fe17710326ed14362252e26cdffbcdd2a849a444a86d9c2eb713e6f",
+      "final_source_sha256": "f5df710a8fe17710326ed14362252e26cdffbcdd2a849a444a86d9c2eb713e6f",
+      "pre_repair_crlf_sequences": 0,
+      "final_original_crlf_sequences": 25,
+      "repair_preserves_original_bytes": true
+    },
+    {
+      "path": "evidence/M7/fresh-windows/13-report-write.json",
+      "pre_repair_sha256": "acde9d69d09c5c8ffb32a48a89ab605acdc607b75c360dd5e537d19d2d56358f",
+      "actual_original_sha256": "88d0e97af64c6a9ae0f2c8fe3d30cbaa42bf99fddec8200339e6b7846724d05a",
+      "final_source_sha256": "88d0e97af64c6a9ae0f2c8fe3d30cbaa42bf99fddec8200339e6b7846724d05a",
+      "pre_repair_crlf_sequences": 0,
+      "final_original_crlf_sequences": 23,
+      "repair_preserves_original_bytes": true
+    },
+    {
+      "path": "evidence/M7/fresh-windows/13-report-write.stderr.txt",
+      "pre_repair_sha256": "00241bd7a7bb4834e007b930068ed4bd289784e5f3cfdb89aaffce02ccafc98a",
+      "actual_original_sha256": "de6142005cb82564c15f7d03ea38f62d23113da0203744219403b4da7ac3b961",
+      "final_source_sha256": "de6142005cb82564c15f7d03ea38f62d23113da0203744219403b4da7ac3b961",
+      "pre_repair_crlf_sequences": 0,
+      "final_original_crlf_sequences": 8,
+      "repair_preserves_original_bytes": true
+    },
+    {
+      "path": "evidence/M7/fresh-windows/14-replay-hosted.txt",
+      "pre_repair_sha256": "1f652174906c40ad4307d6881e42fa04a3232dc15d8f1174e4880c1f2fde5544",
+      "actual_original_sha256": "be961b419fae90da34c36cc86e2dd402fd12efd3fc63ff069d9891b54cc41162",
+      "final_source_sha256": "be961b419fae90da34c36cc86e2dd402fd12efd3fc63ff069d9891b54cc41162",
+      "pre_repair_crlf_sequences": 0,
+      "final_original_crlf_sequences": 25,
+      "repair_preserves_original_bytes": true
+    },
+    {
+      "path": "evidence/M7/fresh-windows/14-report-write-corrected.json",
+      "pre_repair_sha256": "6020aba5d79bb15a0b0865cc0aad62c37bdf06f51da202b321526c6b3180a42b",
+      "actual_original_sha256": "d87532df17d9873db31977bbe4007c6bd4bd245d505f37248029482b7bfb4994",
+      "final_source_sha256": "d87532df17d9873db31977bbe4007c6bd4bd245d505f37248029482b7bfb4994",
+      "pre_repair_crlf_sequences": 0,
+      "final_original_crlf_sequences": 23,
+      "repair_preserves_original_bytes": true
+    },
+    {
+      "path": "evidence/M7/fresh-windows/14-report-write-corrected.stdout.txt",
+      "pre_repair_sha256": "2f530774ba50eef24eda052f16f4770c1cfab7fcfa5725fefa15048de80c9935",
+      "actual_original_sha256": "6365bfab85245c246d526c77ec3ae4ca7fec7f71617873aa8ecdc61519715349",
+      "final_source_sha256": "6365bfab85245c246d526c77ec3ae4ca7fec7f71617873aa8ecdc61519715349",
+      "pre_repair_crlf_sequences": 0,
+      "final_original_crlf_sequences": 9,
+      "repair_preserves_original_bytes": true
+    },
+    {
+      "path": "evidence/M7/fresh-windows/15-replay-plain-final.txt",
+      "pre_repair_sha256": "6a217b9f3d0e6f2184867c898f90868119c3a3b520e38ee1696d62e800f930b9",
+      "actual_original_sha256": "4dd2489d608993db8eb47978b804d05a7d9b4936e6b5437a51910a1d3688671d",
+      "final_source_sha256": "4dd2489d608993db8eb47978b804d05a7d9b4936e6b5437a51910a1d3688671d",
+      "pre_repair_crlf_sequences": 0,
+      "final_original_crlf_sequences": 25,
+      "repair_preserves_original_bytes": true
+    },
+    {
+      "path": "evidence/M7/fresh-windows/16-replay-hosted-final.txt",
+      "pre_repair_sha256": "4a37d0123d4924c183042f0c16a7726084d5ac3c7c3f4de29f6079d30cb406e3",
+      "actual_original_sha256": "313efe7633d4e9fd58bd11925cd3ef7242458e16aeb4a125280fe81ced57a146",
+      "final_source_sha256": "313efe7633d4e9fd58bd11925cd3ef7242458e16aeb4a125280fe81ced57a146",
+      "pre_repair_crlf_sequences": 0,
+      "final_original_crlf_sequences": 25,
+      "repair_preserves_original_bytes": true
+    },
+    {
+      "path": "evidence/M7/fresh-windows/campaign-stage-readback.json",
+      "pre_repair_sha256": "c86fcaf6d4e590662bc3193602b9a011b002cfacb6e5b6004b729233237a6ea1",
+      "actual_original_sha256": "9eacfbcb12a4bb28417eba610b33627a32e44894f58cf381cbcb703588ddc475",
+      "final_source_sha256": "9eacfbcb12a4bb28417eba610b33627a32e44894f58cf381cbcb703588ddc475",
+      "pre_repair_crlf_sequences": 0,
+      "final_original_crlf_sequences": 39,
+      "repair_preserves_original_bytes": true
+    },
+    {
+      "path": "evidence/M7/fresh-windows/pico-build-evidence.json",
+      "pre_repair_sha256": "9d29d43a2e81f80964c4f9115089febcd6d3c9c223f786c04b414c863b616412",
+      "actual_original_sha256": "d32dca5dd6a53bb1c9dea683beb40c10a82a83c4c903e784e3228bd4a4e0d6e5",
+      "final_source_sha256": "d32dca5dd6a53bb1c9dea683beb40c10a82a83c4c903e784e3228bd4a4e0d6e5",
+      "pre_repair_crlf_sequences": 0,
+      "final_original_crlf_sequences": 302,
+      "repair_preserves_original_bytes": true
+    }
+  ],
+  "supplements": [
+    "pre-repair-fresh-byte-comparison.json",
+    "pre-repair-expanded-review-audit.json",
+    "immutable-source-preflight-audit.json",
+    "final-source-independent-audit.json"
+  ]
+}
