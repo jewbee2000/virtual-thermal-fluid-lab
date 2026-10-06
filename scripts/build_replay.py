@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import gzip
 import hashlib
 import io
 import json
@@ -215,7 +216,21 @@ def _fallback(run, rows, out):
     plt.close(fig)
 
 
-def build_replay(sources, out, *, allow_ui_fixture=False, screenshots=True):
+def _pack_download(name, raw, compress_raw):
+    """Lossless download packaging; no source bytes or displayed rows change."""
+    compressed = compress_raw and (name == "summary.json" or PurePosixPath(name).parts[0] == "wire")
+    if not compressed:
+        return name, raw, "identity"
+    buffer = io.BytesIO()
+    # Explicit empty filename and mtime=0 make headers deterministic. GzipFile
+    # also emits a platform-independent OS header rather than the fast-path
+    # gzip.compress(mtime=0) header used by some Python/zlib combinations.
+    with gzip.GzipFile(filename="", mode="wb", fileobj=buffer, compresslevel=6, mtime=0) as stream:
+        stream.write(raw)
+    return name + ".gz", buffer.getvalue(), "gzip"
+
+
+def build_replay(sources, out, *, allow_ui_fixture=False, screenshots=True, compress_raw=False):
     out = Path(out).resolve()
     sources = [Path(source).resolve() for source in sources]
     if not sources:
@@ -228,6 +243,12 @@ def build_replay(sources, out, *, allow_ui_fixture=False, screenshots=True):
     names = [run[0]["name"] for run in prepared]
     if len(set(names)) != len(names):
         raise ValueError("run names must be unique")
+    for _, assets, _ in prepared:
+        packaged_names = [str(PurePosixPath(name + ".gz" if compress_raw and
+                          (name == "summary.json" or PurePosixPath(name).parts[0] == "wire") else name))
+                          for name in assets]
+        if len(set(packaged_names)) != len(packaged_names):
+            raise ValueError("download packaging paths collide; no source artifact may be omitted")
     # Inputs are all checked before the output directory is created.
     shutil.copytree(ROOT / "web", out)
     # The standalone bundle redistributes project-authored HTML/CSS/JS. Retain
@@ -236,11 +257,18 @@ def build_replay(sources, out, *, allow_ui_fixture=False, screenshots=True):
     runs = []
     for run, assets, rows in prepared:
         raw_dir = out / "raw" / run["name"]
+        run["downloads"] = {}
+        run["download_metadata"] = {}
         for name, raw in assets.items():
-            target = raw_dir.joinpath(*PurePosixPath(name).parts)
+            packaged_name, packaged, encoding = _pack_download(name, raw, compress_raw)
+            relative = f"raw/{run['name']}/{packaged_name}"
+            target = raw_dir.joinpath(*PurePosixPath(packaged_name).parts)
             target.parent.mkdir(parents=True, exist_ok=True)
-            target.write_bytes(raw)
-        run["downloads"] = {name: f"raw/{run['name']}/{name}" for name in assets}
+            target.write_bytes(packaged)
+            run["downloads"][name] = relative
+            run["download_metadata"][name] = dict(path=relative, encoding=encoding,
+                filename=PurePosixPath(packaged_name).name, label=name + (" (gzip)" if encoding == "gzip" else ""),
+                original_sha256=run["raw_hashes"][name], file_sha256=_digest(packaged))
         if screenshots:
             target = out / "fallback" / (run["name"] + ".png")
             target.parent.mkdir(parents=True, exist_ok=True)
@@ -248,6 +276,7 @@ def build_replay(sources, out, *, allow_ui_fixture=False, screenshots=True):
             run["screenshot"] = f"fallback/{run['name']}.png"
         runs.append(run)
     payload = dict(schema_version=1, display_policy="full source rows; no decimation; absolute simulation seconds; no inserted/interpolated samples",
+                   raw_packaging="plain_or_lossless_gzip" if compress_raw else "plain",
                    physical_validation="NOT_STARTED", board_execution="NOT_EXECUTED", runs=runs)
     if screenshots:
         index_path = out / "index.html"
@@ -258,6 +287,8 @@ def build_replay(sources, out, *, allow_ui_fixture=False, screenshots=True):
         index_path.write_text(html, encoding="utf-8", newline="\n")
     (out / "data.js").write_text("window.FLUIDLAB_REPLAY=" + json.dumps(payload, separators=(",", ":"), ensure_ascii=True, allow_nan=False) + ";\n", encoding="utf-8", newline="\n")
     index = dict(schema_version=1, runs=names, display_policy=payload["display_policy"],
+                 raw_packaging=payload["raw_packaging"],
+                 gzip_settings=dict(mtime=0, filename="", compresslevel=6) if compress_raw else None,
                  artifacts={p.relative_to(out).as_posix(): _digest(p.read_bytes()) for p in sorted(out.rglob("*")) if p.is_file()})
     (out / "replay-manifest.json").write_text(json.dumps(index, indent=2, allow_nan=False) + "\n", encoding="utf-8", newline="\n")
     return index
@@ -269,8 +300,10 @@ def main():
     parser.add_argument("--out", type=Path, required=True, help="new output directory")
     parser.add_argument("--allow-ui-fixture", action="store_true")
     parser.add_argument("--no-screenshots", action="store_true", help="skip static PNG fallbacks for development only")
+    parser.add_argument("--compress-raw", action="store_true", help="hosted-site option: lossless deterministic gzip for summary.json and wire/** downloads; CSV/manifests/configs remain plain")
     args = parser.parse_args()
-    result = build_replay(args.run, args.out, allow_ui_fixture=args.allow_ui_fixture, screenshots=not args.no_screenshots)
+    result = build_replay(args.run, args.out, allow_ui_fixture=args.allow_ui_fixture,
+                          screenshots=not args.no_screenshots, compress_raw=args.compress_raw)
     print(json.dumps({"runs": result["runs"], "artifacts": len(result["artifacts"]), "index": str(args.out / "index.html")}, indent=2))
 
 

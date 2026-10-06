@@ -1,5 +1,6 @@
 """Independent replay boundary checks: byte fidelity, gaps and time semantics."""
 import csv
+import gzip
 import hashlib
 import importlib.util
 import io
@@ -86,6 +87,9 @@ class ReplayExportTests(unittest.TestCase):
         license_bytes=(ROOT/"LICENSE").read_bytes()
         self.assertEqual(license_bytes,(out/"LICENSE.txt").read_bytes())
         self.assertEqual(hashlib.sha256(license_bytes).hexdigest(),manifest["artifacts"]["LICENSE.txt"])
+        self.assertEqual("plain",payload["raw_packaging"])
+        self.assertTrue(all(meta["encoding"]=="identity" and "(gzip)" not in meta["label"]
+                            for meta in run["download_metadata"].values()))
 
     def test_fixture_requires_explicit_development_opt_in(self):
         with self.assertRaisesRegex(ValueError,"UI_FIXTURE"):
@@ -94,9 +98,69 @@ class ReplayExportTests(unittest.TestCase):
     def test_corrupt_artifact_rejected_before_output_creation(self):
         source=self.fixture()
         (source/"telemetry.csv").write_bytes((source/"telemetry.csv").read_bytes()+b"corrupt")
-        out=self.base/"out"
-        with self.assertRaisesRegex(ValueError,"SHA256 mismatch"):
-            replay.build_replay([source],out,allow_ui_fixture=True,screenshots=False)
+        for compressed in (False,True):
+            out=self.base/("out-gzip" if compressed else "out-plain")
+            with self.subTest(compressed=compressed),self.assertRaisesRegex(ValueError,"SHA256 mismatch"):
+                replay.build_replay([source],out,allow_ui_fixture=True,screenshots=False,compress_raw=compressed)
+            self.assertFalse(out.exists())
+
+    def test_gzip_round_trip_full_asset_identity_hashes_labels_and_no_omission(self):
+        source=self.fixture()
+        (source/"wire/epoch-1").mkdir()
+        (source/"wire/epoch-1/stdout.bin").write_bytes(bytes(range(256))*4+b"\r\n\x00")
+        (source/"wire/epoch-1/events.jsonl").write_bytes(b'{"event":"reaped"}\r\n')
+        (source/"solver.json").write_bytes(b'{"rtol": 1e-7}\r\n')
+        (source/"wireless.txt").write_bytes(b"outside wire directory; remains plain\r\n")
+        self.rehash(source)
+        originals={path.relative_to(source).as_posix():path.read_bytes() for path in source.rglob("*") if path.is_file()}
+        out=self.base/"hosted"
+        replay.build_replay([source],out,allow_ui_fixture=True,screenshots=False,compress_raw=True)
+        payload=json.loads((out/"data.js").read_text()[len("window.FLUIDLAB_REPLAY="):-2])
+        run=payload["runs"][0]
+        manifest=json.loads((out/"replay-manifest.json").read_text())
+        self.assertEqual("plain_or_lossless_gzip",payload["raw_packaging"])
+        self.assertEqual(set(originals),set(run["downloads"]))
+        self.assertEqual(set(originals),set(run["download_metadata"]))
+        self.assertEqual(len(originals),len([p for p in (out/"raw/ui_fixture").rglob("*") if p.is_file()]))
+        for name,original in originals.items():
+            with self.subTest(name=name):
+                compressed=name=="summary.json" or name.startswith("wire/")
+                path=run["downloads"][name]
+                self.assertEqual("raw/ui_fixture/"+name+(".gz" if compressed else ""),path)
+                packaged=(out/path).read_bytes()
+                metadata=run["download_metadata"][name]
+                self.assertEqual(original,gzip.decompress(packaged) if compressed else packaged)
+                self.assertEqual(hashlib.sha256(original).hexdigest(),run["raw_hashes"][name])
+                self.assertEqual(run["raw_hashes"][name],metadata["original_sha256"])
+                self.assertEqual(hashlib.sha256(packaged).hexdigest(),metadata["file_sha256"])
+                self.assertEqual(metadata["file_sha256"],manifest["artifacts"][path])
+                self.assertEqual("gzip" if compressed else "identity",metadata["encoding"])
+                self.assertEqual(name+(" (gzip)" if compressed else ""),metadata["label"])
+                self.assertEqual(Path(path).name,metadata["filename"])
+                if compressed:
+                    self.assertEqual(b"\x00\x00\x00\x00",packaged[4:8])
+                    self.assertEqual(0,packaged[3]&8)  # no original filename header
+                    self.assertEqual(255,packaged[9])  # platform-independent OS byte
+        self.assertEqual((ROOT/"LICENSE").read_bytes(),(out/"LICENSE.txt").read_bytes())
+        self.assertTrue((out/"data.js").read_bytes().startswith(b"window.FLUIDLAB_REPLAY="))
+        self.assertFalse((out/"data.js.gz").exists())
+
+    def test_gzip_packaging_is_deterministic_across_exports(self):
+        source=self.fixture()
+        first,second=self.base/"first",self.base/"second"
+        for out in (first,second):
+            replay.build_replay([source],out,allow_ui_fixture=True,screenshots=False,compress_raw=True)
+        first_files={p.relative_to(first).as_posix():p.read_bytes() for p in first.rglob("*") if p.is_file()}
+        second_files={p.relative_to(second).as_posix():p.read_bytes() for p in second.rglob("*") if p.is_file()}
+        self.assertEqual(first_files,second_files)
+
+    def test_packaging_collision_rejected_without_omitting_original_asset(self):
+        source=self.fixture()
+        (source/"summary.json.gz").write_bytes(b"pre-existing distinct source artifact")
+        self.rehash(source)
+        out=self.base/"collision"
+        with self.assertRaisesRegex(ValueError,"packaging paths collide"):
+            replay.build_replay([source],out,allow_ui_fixture=True,screenshots=False,compress_raw=True)
         self.assertFalse(out.exists())
 
     def test_missing_manifest_asset_rejected(self):

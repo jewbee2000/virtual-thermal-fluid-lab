@@ -158,17 +158,18 @@
     events.sort((a,b)=>a.time-b.time); $("events").replaceChildren();
     for (const event of events) { const el=text("button","",event.kind);el.type="button";el.append(text("strong",event.title.replaceAll("_"," ")),text("span",fmt(event.time,3)+" s · "+event.detail));el.addEventListener("click",()=>{pause();setTime(event.time);});$("events").append(el); }
     $("downloads").replaceChildren();
+    if(dataset.raw_packaging==="plain_or_lossless_gzip") $("download-policy").textContent="Downloads are plain or lossless gzip, labeled (gzip) where compressed. Raw SHA256 values identify the original bytes after decompression; the replay manifest also hashes each actual packaged file. All source rows and diagnostics remain available. Display conversions only: K → °C and m³/s → L/min.";
     const important=["telemetry.csv","summary.json","manifest.json"];
     for (const name of important) if(current.downloads[name]) addDownload(name,current.downloads[name],$("downloads"));
     const other=Object.entries(current.downloads).filter(([name])=>!important.includes(name));
     if(other.length){ const details=text("details","");details.append(text("summary",`${other.length} configuration / raw transport files`)); const box=text("div","","downloads");other.forEach(([name,path])=>addDownload(name,path,box));details.append(box);$("downloads").append(details); }
-    $("provenance").textContent=JSON.stringify({evidence_level:current.evidence_level,display_policy:dataset.display_policy,physical_validation:dataset.physical_validation,board_execution:dataset.board_execution,manifest:current.manifest,retained_file_sha256:current.raw_hashes},null,2);
+    $("provenance").textContent=JSON.stringify({evidence_level:current.evidence_level,display_policy:dataset.display_policy,raw_packaging:dataset.raw_packaging,physical_validation:dataset.physical_validation,board_execution:dataset.board_execution,manifest:current.manifest,retained_file_sha256:current.raw_hashes,download_metadata:current.download_metadata},null,2);
     $("all-metrics").textContent=JSON.stringify(metrics,null,2);
     $("fallback").replaceChildren();
     if(current.screenshot){const a=text("a","Download static figure");a.href=current.screenshot;a.download="";const img=document.createElement("img");img.src=current.screenshot;img.alt=current.name+" retained evidence: truth, observations, flow and actuator requests";img.loading="lazy";$("fallback").append(a,img);}
     else $("fallback").append(text("p","No screenshot fallback was exported for this development bundle."));
   }
-  function addDownload(name,path,host){const a=text("a",name);a.href=path;a.download="";host.append(a);}
+  function addDownload(name,path,host){const meta=current.download_metadata?.[name];const a=text("a",meta?.label || name);a.href=path;a.download=meta?.filename || "";if(meta?.encoding==="gzip"){a.type="application/gzip";a.title="Lossless gzip; decompress before comparing raw SHA256 "+meta.original_sha256;}host.append(a);}
   function renderQuality(row) {
     $("quality").replaceChildren();
     if (!row) { const tr=document.createElement("tr"),td=text("td","No recorded sample at this absolute time. No values are extended beyond termination.");td.colSpan=7;tr.append(td);$("quality").append(tr);return; }

@@ -19,6 +19,21 @@ asset hashes and original file hashes are in `replay-manifest.json`.
 The exporter retains the project root MIT license byte-for-byte as `LICENSE.txt`
 for the authored replay assets; uPlot's separate license is also bundled.
 
+For a separate hosted-site variant, add `--compress-raw`. Only `summary.json`
+and files beneath `wire/` are losslessly gzip-compressed; telemetry CSV,
+manifests, configuration JSON, licenses and boot-time `data.js` remain plain.
+The default plain export remains byte-exact and is the full standalone ZIP's
+source. Use a new output directory for the hosted variant; it does not replace
+the plain bundle or discard any diagnostics or rows.
+
+Compressed links end in `.gz` and are labeled `(gzip)`. Decompress a download
+before comparing its original SHA256 in `raw_hashes` or the source run manifest.
+Per-download metadata records encoding, actual filename/path, original SHA256
+and actual packaged-file SHA256; the replay manifest hashes each `.gz` file's
+bytes. Gzip uses level6, mtime0 and no filename header for deterministic output.
+No file is fetched or decompressed at page boot; the embedded display dataset
+remains immediately available in plain `data.js`.
+
 The source page contains no evidence by default. Explicit developer fixtures may
 be exported only with `--allow-ui-fixture`; their summary must declare
 `execution.evidence_level="UI_FIXTURE"`. The page then prominently labels them

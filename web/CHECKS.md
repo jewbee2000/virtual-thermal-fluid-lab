@@ -57,3 +57,21 @@ were observed. These are interface fixtures, not thermal campaign evidence.
 No browser automation was performed after that instruction or for the final
 license link. Logs are `artifacts/M6-checks/coverage-*.txt/json/cjs`; the synthetic
 export is `artifacts/M6-coverage-ui-fixture/` and must not supply release figures.
+
+Hosted packaging follow-up, 2026-10-06: `--compress-raw` adds optional lossless
+gzip downloads for `summary.json` and `wire/**`, with deterministic mtime0/empty
+filename headers. CSV, manifests/configuration JSON, licenses and `data.js` stay
+plain. Per-download encoding/labels/original hashes and actual packaged hashes
+are recorded; the plain default still retains source bytes exactly.
+
+After the coordinator's isolated performance run ended, the requested narrow
+checks were executed: `uv run python -m unittest discover -s tests -p
+test_replay_export.py -v` passed15 tests in0.923 s; `node --check web/replay.js`
+and `node --check web/replay-model.js` passed; `git diff --check` passed. Tests
+independently decompress every fixture asset, compare original bytes/hashes,
+check compressed artifact hashes/labels/filenames, count all assets, preserve
+plain CSV/configs/licenses/boot data, verify deterministic exports and reject
+packaging collisions and corrupted inputs before creating output. No browser
+automation or new simulation campaign was performed for this packaging ticket.
+Root CUA owns hosted-variant browser QA and actual full19-run packaging checks.
+Log: `artifacts/M6-checks/compressed-export-tests.txt`.
