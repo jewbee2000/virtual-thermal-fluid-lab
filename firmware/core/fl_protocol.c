@@ -6,7 +6,7 @@
 uint16_t fl_crc16(const unsigned char *p, size_t n) {
     uint16_t crc=0u; size_t i; unsigned j;
     for(i=0u;i<n;i++) { crc^=(uint16_t)((uint16_t)p[i]<<8u);
-        for(j=0u;j<8u;j++) crc=(uint16_t)((crc & 0x8000u)!=0u ? (crc<<1u)^0x1021u : crc<<1u);
+        for(j=0u;j<8u;j++) crc=(uint16_t)((crc & 0x8000u)!=0u ? ((uint32_t)crc<<1u)^0x1021u : (uint32_t)crc<<1u);
     } return crc;
 }
 void fl_frame_u(fl_frame *f,size_t i,uint64_t v) { if(i<FL_FIELDS_MAX) { f->values[i].magnitude=v; f->values[i].negative=false; } }

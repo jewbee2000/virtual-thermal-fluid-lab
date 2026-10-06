@@ -42,3 +42,23 @@ probes. Child stdin/output deadlines terminate and reap failures without a Pytho
 fallback. Caller-supplied arbitrary Python hook execution is outside that child
 I/O deadline guarantee. Thermal closed-loop containment, MCU execution and
 physical validation are not established by these host checks.
+
+## First portability CI failure and repair
+
+PR run37436321899 failed before the scenario checks. GCC13.3 diagnosed integer
+promotion in the CRC shift ternary under -Werror; windows-2025 did not have the
+hard-coded Visual Studio17 instance. The original failed-step output is retained
+in first-ci-failure.log. The repair casts both CRC shifts to uint32_t and selects
+the installed supported Visual Studio generator through vswhere. CRC polynomial,
+golden vectors, warning flags and acceptance thresholds are unchanged.
+
+After this repair, the native MSVC build and CTest passed again (repair-msvc.txt).
+Native GCC14.2 compiled with -std=c11 -Wall -Wextra -Wpedantic -Werror and the
+resulting executable passed303846 independent checks (repair-gcc-tests.txt):
+
+```powershell
+C:/mingw64/bin/gcc.exe -std=c11 -Wall -Wextra -Wpedantic -Werror -Ifirmware/core firmware/core/fl_core.c firmware/core/fl_protocol.c firmware/tests/test_core.c -lm -o artifacts/M3-gcc-core-tests.exe
+./artifacts/M3-gcc-core-tests.exe
+```
+
+The repaired CI result will be recorded separately after it actually completes.
