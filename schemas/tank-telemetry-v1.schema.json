@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Tank telemetry row, contract version 1",
+  "type": "object", "additionalProperties": false,
+  "required": ["record_type", "controller_tick", "time_us", "time_s", "clock_id", "level_m", "measured_level_m", "sample_id", "sample_time_s", "receipt_time_s", "measurement_age_s", "sensor_valid", "independent_high_switch", "pump_command", "requested_valve_command", "applied_pump_command", "applied_valve_command", "flow_m3_s", "valve_opening", "target_m", "trip", "volume_residual_m3"],
+  "properties": {
+    "record_type": {"enum": ["controller_tick", "terminal_boundary", "solver_failure"]},
+    "controller_tick": {"type": "integer", "minimum": 0},
+    "time_us": {"type": ["integer", "null"], "minimum": 0},
+    "time_s": {"type": "number", "minimum": 0},
+    "clock_id": {"const": "simulation"},
+    "level_m": {"type": "number"},
+    "measured_level_m": {"type": "number"},
+    "sample_id": {"type": "integer", "minimum": -1},
+    "sample_time_s": {"type": "number", "minimum": 0},
+    "receipt_time_s": {"type": "number", "minimum": 0},
+    "measurement_age_s": {"type": "number", "minimum": 0},
+    "sensor_valid": {"type": "boolean"},
+    "independent_high_switch": {"type": "boolean"},
+    "pump_command": {"type": "number", "minimum": 0, "maximum": 1},
+    "requested_valve_command": {"type": "number", "minimum": 0, "maximum": 1},
+    "applied_pump_command": {"type": "number", "minimum": 0, "maximum": 1},
+    "applied_valve_command": {"type": "number", "minimum": 0, "maximum": 1},
+    "flow_m3_s": {"type": "number", "minimum": 0},
+    "valve_opening": {"type": "number", "minimum": 0, "maximum": 1},
+    "target_m": {"type": "number", "exclusiveMinimum": 0},
+    "trip": {"enum": ["", "high_high", "invalid_sensor", "invalid_timestamp", "stale_sensor", "sensor_range"]},
+    "volume_residual_m3": {"type": "number"}
+  },
+  "$comment": "Runtime additionally rejects nonfinite/nonboolean numeric fields, enforces retained snapshot identity, integer tick/time matching, sample/receipt/age order, topology-specific plant range and boundary root roundoff policy. Sensor range violations are observations, not evidence corruption; the supervisor must diagnose them."
+}

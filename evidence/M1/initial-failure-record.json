@@ -1,0 +1,17 @@
+{
+  "record_kind": "actual_check_outcome_summary_not_verbatim_log",
+  "command": "C:\\Users\\Walt\\.local\\bin\\uv.exe run python -m unittest discover -s tests -v",
+  "exit_code": 1,
+  "tests_executed": 20,
+  "passes": 19,
+  "errors": 1,
+  "elapsed_unittest_s": 7.088,
+  "failing_test": "test_science.PhysicsTests.test_terminal_empty_matches_analytic_time",
+  "exception": "fluidlab.plant.IntegrationFailure: invalid accepted solver state",
+  "cause": "New strict interior-state guard rejected tiny negative floating-point residue at a terminal empty event.",
+  "repair": "Accept only the final stopped event root within an explicit 64-ulp tolerance; retain signed raw event state and diagnostic residual without clipping; stopped plant cannot resume.",
+  "subsequent_command": "C:\\Users\\Walt\\.local\\bin\\uv.exe run python -m unittest discover -s tests -p test_science.py -v",
+  "subsequent_exit_code": 0,
+  "subsequent_tests": 20,
+  "subsequent_elapsed_unittest_s": 7.091
+}

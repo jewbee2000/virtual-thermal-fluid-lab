@@ -1,0 +1,199 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "title": "Tank summary version 1",
+  "required": [
+    "version",
+    "name",
+    "rule_results",
+    "checks",
+    "all_checks_pass",
+    "evidence_valid",
+    "complete_horizon",
+    "containment",
+    "peak_level_m",
+    "continuous_peak_bound_m",
+    "largest_sample_gap_s",
+    "final_level_m",
+    "max_volume_residual_m3",
+    "boundary",
+    "trip_reason",
+    "trip_time_s",
+    "run_outcome",
+    "run_failure",
+    "diagnostics",
+    "execution_config",
+    "peak_bound_meaning",
+    "result_meaning",
+    "physical_validation",
+    "parameters"
+  ],
+  "properties": {
+    "version": {
+      "const": 1
+    },
+    "name": {
+      "type": "string"
+    },
+    "rule_results": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "status",
+          "rationale"
+        ],
+        "properties": {
+          "status": {
+            "enum": [
+              "PASS",
+              "FAIL",
+              "NOT_APPLICABLE",
+              "UNASSESSABLE"
+            ]
+          },
+          "rationale": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "checks": {
+      "type": "object",
+      "additionalProperties": {
+        "type": [
+          "boolean",
+          "null"
+        ]
+      }
+    },
+    "all_checks_pass": {
+      "type": "boolean"
+    },
+    "evidence_valid": {
+      "type": "boolean"
+    },
+    "complete_horizon": {
+      "type": "boolean"
+    },
+    "containment": {
+      "enum": [
+        "PASSED",
+        "FAILED",
+        "UNASSESSABLE"
+      ]
+    },
+    "peak_level_m": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "continuous_peak_bound_m": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "largest_sample_gap_s": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "final_level_m": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "max_volume_residual_m3": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "boundary": {
+      "enum": [
+        null,
+        "empty",
+        "full"
+      ]
+    },
+    "trip_reason": {
+      "enum": [
+        null,
+        "high_high",
+        "invalid_sensor",
+        "invalid_timestamp",
+        "stale_sensor",
+        "sensor_range"
+      ]
+    },
+    "trip_time_s": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "run_outcome": {
+      "enum": [
+        "complete_horizon",
+        "domain_boundary_reached",
+        "solver_failure"
+      ]
+    },
+    "run_failure": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "diagnostics": {
+      "type": "object"
+    },
+    "execution_config": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "version",
+        "scenario",
+        "model",
+        "solver",
+        "provenance"
+      ],
+      "properties": {
+        "version": {
+          "const": 1
+        },
+        "scenario": {
+          "$ref": "tank-scenario-v1.schema.json"
+        },
+        "model": {
+          "$ref": "tank-model-v1.schema.json"
+        },
+        "solver": {
+          "$ref": "tank-solver-v1.schema.json"
+        },
+        "provenance": {
+          "type": "object"
+        }
+      }
+    },
+    "peak_bound_meaning": {
+      "type": "string"
+    },
+    "result_meaning": {
+      "type": "string"
+    },
+    "physical_validation": {
+      "const": "NOT_STARTED"
+    },
+    "parameters": {
+      "$ref": "tank-model-v1.schema.json#/properties/parameters"
+    }
+  },
+  "$comment": "Diagnostics and provenance are extensible diagnostic records; execution fields are versioned. Runtime checks cross-field evidence coherence, complete horizon/expected boundary, finite values and independent acceptance rules. These schemas are retained interface documentation; no unrecorded third-party validation dependency is installed."
+}

@@ -1,0 +1,173 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "title": "Tank manifest version 1",
+  "required": [
+    "version",
+    "source_sha256",
+    "source_files_sha256",
+    "source_inclusion",
+    "source_hash_framing",
+    "source_line_endings",
+    "lock_sha256",
+    "controller_sha256",
+    "controller_implementation",
+    "firmware_execution",
+    "python",
+    "numpy",
+    "scipy",
+    "units",
+    "git_revision",
+    "git_dirty",
+    "git_root_matches",
+    "scenario",
+    "scenario_sha256",
+    "model",
+    "controller",
+    "solver_config",
+    "solver",
+    "rtol",
+    "atol",
+    "solver_max_step_s",
+    "controller_tick_s",
+    "seed",
+    "clock",
+    "input_provenance",
+    "validation_status",
+    "artifact_sha256"
+  ],
+  "properties": {
+    "version": {
+      "const": 1
+    },
+    "source_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "source_files_sha256": {
+      "type": "object"
+    },
+    "source_inclusion": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "source_hash_framing": {
+      "type": "string"
+    },
+    "source_line_endings": {
+      "type": "string"
+    },
+    "lock_sha256": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "controller_sha256": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "controller_implementation": {
+      "const": "python_tank_baseline"
+    },
+    "firmware_execution": {
+      "const": "NOT_EXECUTED"
+    },
+    "python": {
+      "type": "string"
+    },
+    "numpy": {
+      "type": "string"
+    },
+    "scipy": {
+      "type": "string"
+    },
+    "units": {
+      "type": "object"
+    },
+    "git_revision": {
+      "type": "string"
+    },
+    "git_dirty": {
+      "type": "boolean"
+    },
+    "git_root_matches": {
+      "type": "boolean"
+    },
+    "git_diagnostic": {
+      "type": "string"
+    },
+    "scenario": {
+      "$ref": "tank-scenario-v1.schema.json"
+    },
+    "scenario_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "model": {
+      "$ref": "tank-model-v1.schema.json"
+    },
+    "controller": {
+      "$ref": "tank-scenario-v1.schema.json#/properties/controller"
+    },
+    "solver_config": {
+      "$ref": "tank-solver-v1.schema.json"
+    },
+    "solver": {
+      "enum": [
+        "RK45",
+        "DOP853",
+        "Radau"
+      ]
+    },
+    "rtol": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "atol": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "type": "number",
+        "exclusiveMinimum": 0
+      }
+    },
+    "solver_max_step_s": {
+      "type": "number",
+      "exclusiveMinimum": 0,
+      "maximum": 0.05
+    },
+    "controller_tick_s": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "seed": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295
+    },
+    "clock": {
+      "type": "string"
+    },
+    "input_provenance": {
+      "type": "string"
+    },
+    "validation_status": {
+      "const": "NOT_STARTED"
+    },
+    "artifact_sha256": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{64}$"
+      }
+    }
+  },
+  "$comment": "Runtime export uses executed immutable run configuration and startup source provenance, not caller solver labels. Artifact hashes are exact bytes. Manifest itself excluded from self-hash."
+}

@@ -15,12 +15,19 @@ The starter includes a sampled PI controller, latched shutdown supervisor, gravi
 
 M0 actually reproduced all 20 tests and seven scenario expectations on native Windows on 2026-10-06; see `evidence/M0`. Later milestones are tracked as unfinished until their checks run. A hazard expectation passing still means containment failed for the stuck-on pump. License: MIT; Walter confirmed starter authorship. MCU target: Pico/RP2040; board execution NOT_EXECUTED.
 
+M1 source checks passed55 tests and seven scenarios; see `evidence/M1` and current CI
+status in `docs/tasks.json`. Inputs are strict, executed solver settings and portable
+source hashes are retained, terminal snapshots expose sensor age, and incomplete
+evidence cannot pass. The tank remains the Python benchmark until M3 adds C control.
+
 **Credibility:** equations and numerical implementation can be verified; physical validation is NOT_STARTED. Parameters and acceptance thresholds are educational design choices. This is software-in-the-loop (SIL), not hardware-in-the-loop (HIL), a subsea geothermal model, or a certified safety system.
 
 | File | Purpose |
 | --- | --- |
-| `docs/RESEARCH_AND_PLAN.md` | Research, decisions, staged implementation, references |
-| `docs/START_HERE.md` | Linux/Windows setup and first session |
+| `docs/Codex_Implementation_Plan.md` | Required thermal, firmware, replay and release roadmap |
+| `docs/REQUIREMENTS.md` | Rationalized requirements and frozen acceptance criteria |
+| `docs/RESEARCH_AND_PLAN.md` | Historical starter research and source register |
+| `docs/START_HERE.md` | Native Windows setup and first session |
 | `docs/MODEL.md` | Equations, units, assumptions, validity envelope |
 | `docs/VERIFICATION.md` | Checks, physical experiments, uncertainty and acceptance |
 | `docs/ORCHESTRATION.md` | Agent ownership, execution, reviews and recovery |
@@ -28,8 +35,9 @@ M0 actually reproduced all 20 tests and seven scenario expectations on native Wi
 | `.codex/agents/` | Four optional custom agent definitions |
 | `prompts/` | Kickoff and role prompts |
 | `scenarios/` | Seven runnable configurations |
-| `docs/tasks.json` | Initial implementation backlog |
+| `docs/tasks.json` | Current M0–M7 task/evidence record |
 | `docs/CLAIMS.csv` | Evidence and claims ledger |
-| `examples/` | Actual checked baseline output and verification evidence |
+| `examples/` | Inherited starter outputs; historical evidence |
+| `evidence/` | Actual checks performed during revised implementation |
 
 Sources were reviewed on October 5, 2026 Pacific time (October 6 UTC). Official tooling can change: record local versions and verify configuration support. Python libraries are pinned in `pyproject.toml` and `uv.lock`; these are tested project choices, not a claim that they are the newest releases.

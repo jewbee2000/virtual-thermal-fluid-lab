@@ -1,5 +1,13 @@
 # Virtual Fluid Lab: research and implementation plan
 
+HISTORICAL STARTER REFERENCE. This document preserves the original research,
+roadmap and source-status statements as supplied. Its optional thermal milestone,
+older M0–M7/T01–T08 completion criteria, WSL preferences and unexecuted-tooling
+statements are superseded by Codex_Implementation_Plan.md, REQUIREMENTS.md,
+START_HERE.md and tasks.json. Current actual evidence is under evidence/; old
+examples remain inherited records. Do not execute this historical roadmap or
+infer today's tooling/CI state from its dated text.
+
 Prepared for Walter Teitelbaum. Research checked October 5, 2026 Pacific / October 6 UTC.
 
 ## The project I recommend

@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Executed tank model version 1",
+  "type": "object", "additionalProperties": false,
+  "required": ["version", "topology", "parameters", "parameter_pedigree", "initial_pump_flow_m3_s", "initial_valve_opening"],
+  "properties": {
+    "version": {"const": 1}, "topology": {"const": "atmospheric_tank"},
+    "parameter_pedigree": {"const": "assumed"},
+    "initial_pump_flow_m3_s": {"type": "number", "minimum": 0},
+    "initial_valve_opening": {"type": "number", "minimum": 0, "maximum": 1},
+    "parameters": {
+      "type": "object", "additionalProperties": false,
+      "required": ["area_m2", "tank_height_m", "outlet_area_m2", "discharge_coefficient", "gravity_m_s2", "pump_max_m3_s", "pump_tau_s", "valve_tau_s"],
+      "properties": {
+        "area_m2": {"type": "number", "exclusiveMinimum": 0},
+        "tank_height_m": {"type": "number", "exclusiveMinimum": 0},
+        "outlet_area_m2": {"type": "number", "exclusiveMinimum": 0},
+        "discharge_coefficient": {"type": "number", "exclusiveMinimum": 0, "maximum": 1},
+        "gravity_m_s2": {"type": "number", "exclusiveMinimum": 0},
+        "pump_max_m3_s": {"type": "number", "exclusiveMinimum": 0},
+        "pump_tau_s": {"type": "number", "exclusiveMinimum": 0},
+        "valve_tau_s": {"type": "number", "exclusiveMinimum": 0}
+      }
+    }
+  }
+}
