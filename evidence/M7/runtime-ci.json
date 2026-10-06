@@ -1,0 +1,33 @@
+{
+  "run_id": 37446999145,
+  "url": "https://github.com/jewbee2000/virtual-thermal-fluid-lab/actions/runs/37446999145",
+  "head_sha": "cc5a6feae95dc5888bf3041bc9dc3306dba667ba",
+  "jobs": [
+    {
+      "id": 112214138187,
+      "name": "sanitizers",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 112214138295,
+      "name": "pico-cross-build",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 112214138449,
+      "name": "verification (ubuntu-24.04)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 112214138471,
+      "name": "verification (windows-2025)",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "status": "PASS",
+  "scope": "Final runtime source; subsequent documentation-only commit requires its own PR CI before merge."
+}

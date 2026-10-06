@@ -1,0 +1,302 @@
+{
+  "picotool": "picotool v2.3.1 (Windows, MSVC-19.44.35229.0, Release)\r\n\r\nThis version of picotool was compiled without USB support. Some commands are not available.",
+  "tinyusb_revision": "86ad6e56c1700e85f1c5678607a762cfe3aa2f47",
+  "tinyusb_usbd_sha256": "d198d57e626db62c2ac42fe9c26c815403984d92cedecd5414a9b38d3836a95d",
+  "adc_timeout_us": 100,
+  "bounded_usb_wrapper_sha256": "7d287e0d64f141d1874a343a2f79d30cc8f2adfca350ffe3bfd8cfb910c38005",
+  "source_sha256": {
+    "firmware/core/fl_protocol.h": "d53eef76fedc773fe149361d302649857edb75e6d960dc13bf1c8c6144f1ac74",
+    "firmware/core/fl_protocol.c": "b8ee5c41b3858d04248ac89ca3ae2688d7268aa4cf5f6b63177e81b9c4401cb7",
+    "firmware/pico/device_policy.c": "3a6d225bd1c113a264d9dec91e70cf6569cfabb969232c4936a3e3e47d71878f",
+    "firmware/pico/tests/CMakeLists.txt": "0f438eb66c0254add0b1fd33dfc1249846ea1c06a80f450aadc83ba59d6c713e",
+    "firmware/pico/tests/usb_stub/tusb.h": "dd3d45ecf744d7f034248cddbb81862178dbe82d9c3df8d850ab8adc06461684",
+    "firmware/pico/tusb_config.h": "6a519c23e5272596e7d403a4deb0c6dcc1a064804782aba96495c47f9de80e37",
+    "firmware/pico/fl_hal.h": "74c3d84cd02ff40a71c4a9d99112ad747765cbaf90dd6ca5ffc64a4acd731f3a",
+    "firmware/pico/THIRD_PARTY_LICENSES.txt": "b8a4de408954f819bf423fe9a0943f1b850280fe529bde0871f74a65b320cf27",
+    "firmware/pico/CMakeLists.txt": "ae2bfdda9aaba0fc36c55a78366dd297b2edbc964637085a1d5f81182add437c",
+    "firmware/pico/tests/test_usb_budget.c": "901749c55e191fe975a048a7bb84f6f36060e817f863392781539bbd8ef03ab5",
+    "firmware/pico/device_policy.h": "ef5706809efe38ced832a4298a4e64e216971dda2018d15c027a4e7feab01274",
+    "firmware/pico/tests/test_hal.c": "bd7ae9fe63b2b0a304c38b0f367ebb117ea742206f0a7f8ad4bf1af25a24870c",
+    "firmware/pico/capture.ps1": "b309b8dd4f49ace25a90f0689817db56dd4e92eb82ceb6354412bc22fd1f6906",
+    "firmware/pico/README.md": "91940184d35965954e65f12d34d03ee43408f158019b921abb75571092b15bac",
+    "firmware/core/fl_core.h": "54e4c93d64a550a09a9a34013c01feedb24cd5f173aa2b4d7e49d3a841b2054b",
+    "firmware/pico/main.c": "f4309bda3f3b4db84713656dde604ffdaf52c32bf04bf36b14fcdcb55036dac3",
+    "firmware/pico/tests/hal_stub/hardware/adc.h": "7e1af2cc663741f3b7dc8b85ca40bd1cc66e8a02e6f82792753267449008297f",
+    "firmware/pico/usb_task.c": "7d287e0d64f141d1874a343a2f79d30cc8f2adfca350ffe3bfd8cfb910c38005",
+    "firmware/pico/tests/hal_stub/pico/stdlib.h": "b065f0abd92e30c222226ebe53a7506097a6cb47e8e651f85fa915c2712730cd",
+    "firmware/pico/tests/usb_stub/usbd.c": "ac641b4397cbb7c0d38dd62f1a6f0e8101cd88ed9614d4e13ce09c0f577d21b9",
+    "firmware/pico/make_stimulus.py": "7dc55ee0892e9ffacdf86ec9070dc611d79da8321c4819c0e9d790305ffe1d41",
+    "firmware/pico/fl_hal.c": "bad89ca27ae85cb4a883d0478f42a3949edf2796f9e5fc4a05aa213e342ac917",
+    "firmware/core/fl_core.c": "cd5e7a8f003cc843a72395bf733f86925e6966163ce73029fddd58f109f075d8",
+    "firmware/pico/usb_descriptors.c": "ac3591ac67b84a0e07e8e8427723cd3ded1f9c8dd30a50960dc8f54e4ef2fbb5",
+    "firmware/pico/tests/test_device.c": "ba80b501969764017b410e353969b3c3dc77b08ba90262fe005d231e1bd66546"
+  },
+  "usb_queue_receives_per_pass": 8,
+  "outputs": [
+    {
+      "main_ram_allocated_sections_bytes": 22716,
+      "berkeley_data_plus_bss_bytes": 16772,
+      "memory_meaning": "RAM VMA sections include read-only RAM code/data and reserved heap/stack; Berkeley text/data classification differs. Stack/runtime peak and board measurements not established",
+      "data_bytes": 0,
+      "bss_bytes": 16772,
+      "text_bytes": 45724,
+      "target": "fluid_controller_pico_link",
+      "mode": 1,
+      "scratch_ram_allocated_sections_bytes": 2048,
+      "artifact_sha256": {
+        "fluid_controller_pico_link.uf2": "998cb868e13cccb6151bcce6284839ef767d0fb48089921588fabed59f904789",
+        "fluid_controller_pico_link.bin": "f81366ba025f7c1da12ef21cb09cd7af36641016047331ba2df86f6fbe403834",
+        "fluid_controller_pico_link.elf.map": "2017af6555bfe11409fbdc25a152febfafc4ca9f8cb658186747ec6ed4418e9a",
+        "fluid_controller_pico_link.elf": "8743fb8196b4beea1f43cfd6a528def0fc4e821a0d4a1f43083aaf283f8d366b"
+      },
+      "allocated_sections": [
+        {
+          "name": ".boot2",
+          "vma": 268435456,
+          "size_bytes": 256
+        },
+        {
+          "name": ".text",
+          "vma": 268435712,
+          "size_bytes": 35952
+        },
+        {
+          "name": ".rodata",
+          "vma": 268471664,
+          "size_bytes": 1492
+        },
+        {
+          "name": ".binary_info",
+          "vma": 268473156,
+          "size_bytes": 32
+        },
+        {
+          "name": ".xip_ram",
+          "vma": 352321536,
+          "size_bytes": 0
+        },
+        {
+          "name": ".ram_vector_table",
+          "vma": 536870912,
+          "size_bytes": 192
+        },
+        {
+          "name": ".uninitialized_data",
+          "vma": 536871104,
+          "size_bytes": 0
+        },
+        {
+          "name": ".data",
+          "vma": 536871104,
+          "size_bytes": 3896
+        },
+        {
+          "name": ".tdata",
+          "vma": 536875000,
+          "size_bytes": 0
+        },
+        {
+          "name": ".tbss",
+          "vma": 536875000,
+          "size_bytes": 0
+        },
+        {
+          "name": ".tbss_space",
+          "vma": 536875000,
+          "size_bytes": 0
+        },
+        {
+          "name": ".bss",
+          "vma": 536875000,
+          "size_bytes": 16580
+        },
+        {
+          "name": ".tls0",
+          "vma": 536891580,
+          "size_bytes": 0
+        },
+        {
+          "name": ".tls1",
+          "vma": 536891580,
+          "size_bytes": 0
+        },
+        {
+          "name": ".persistent_data",
+          "vma": 536891580,
+          "size_bytes": 0
+        },
+        {
+          "name": ".dummy_pre_heap",
+          "vma": 536891580,
+          "size_bytes": 0
+        },
+        {
+          "name": ".heap",
+          "vma": 536891580,
+          "size_bytes": 2048
+        },
+        {
+          "name": ".scratch_x",
+          "vma": 537133056,
+          "size_bytes": 0
+        },
+        {
+          "name": ".scratch_y",
+          "vma": 537137152,
+          "size_bytes": 0
+        },
+        {
+          "name": ".stack_dummy",
+          "vma": 537137152,
+          "size_bytes": 2048
+        }
+      ],
+      "flash_image_bin_bytes": 41628,
+      "linked_text_plus_data_bytes": 45724
+    },
+    {
+      "main_ram_allocated_sections_bytes": 22716,
+      "berkeley_data_plus_bss_bytes": 16772,
+      "memory_meaning": "RAM VMA sections include read-only RAM code/data and reserved heap/stack; Berkeley text/data classification differs. Stack/runtime peak and board measurements not established",
+      "data_bytes": 0,
+      "bss_bytes": 16772,
+      "text_bytes": 45860,
+      "target": "fluid_controller_pico_peripheral",
+      "mode": 2,
+      "scratch_ram_allocated_sections_bytes": 2048,
+      "artifact_sha256": {
+        "fluid_controller_pico_peripheral.elf.map": "9bffd76fff6be54f44b016054efb539402799ffa547d0584ca61f22534a2d6ae",
+        "fluid_controller_pico_peripheral.bin": "5f1d37731f82149b0d3ba6a8e093a1514a4f3e47dd63e6e635bcf6b1440b666d",
+        "fluid_controller_pico_peripheral.uf2": "8eb99f2598bc21a3aaa93678f146850417c7699f99655bf1d407135caf749fa8",
+        "fluid_controller_pico_peripheral.elf": "3d6b492de692d73363c26e923a9b977eb332ceba5e57c42334f4639e65196e7e"
+      },
+      "allocated_sections": [
+        {
+          "name": ".boot2",
+          "vma": 268435456,
+          "size_bytes": 256
+        },
+        {
+          "name": ".text",
+          "vma": 268435712,
+          "size_bytes": 36088
+        },
+        {
+          "name": ".rodata",
+          "vma": 268471800,
+          "size_bytes": 1492
+        },
+        {
+          "name": ".binary_info",
+          "vma": 268473292,
+          "size_bytes": 32
+        },
+        {
+          "name": ".xip_ram",
+          "vma": 352321536,
+          "size_bytes": 0
+        },
+        {
+          "name": ".ram_vector_table",
+          "vma": 536870912,
+          "size_bytes": 192
+        },
+        {
+          "name": ".uninitialized_data",
+          "vma": 536871104,
+          "size_bytes": 0
+        },
+        {
+          "name": ".data",
+          "vma": 536871104,
+          "size_bytes": 3896
+        },
+        {
+          "name": ".tdata",
+          "vma": 536875000,
+          "size_bytes": 0
+        },
+        {
+          "name": ".tbss",
+          "vma": 536875000,
+          "size_bytes": 0
+        },
+        {
+          "name": ".tbss_space",
+          "vma": 536875000,
+          "size_bytes": 0
+        },
+        {
+          "name": ".bss",
+          "vma": 536875000,
+          "size_bytes": 16580
+        },
+        {
+          "name": ".tls0",
+          "vma": 536891580,
+          "size_bytes": 0
+        },
+        {
+          "name": ".tls1",
+          "vma": 536891580,
+          "size_bytes": 0
+        },
+        {
+          "name": ".persistent_data",
+          "vma": 536891580,
+          "size_bytes": 0
+        },
+        {
+          "name": ".dummy_pre_heap",
+          "vma": 536891580,
+          "size_bytes": 0
+        },
+        {
+          "name": ".heap",
+          "vma": 536891580,
+          "size_bytes": 2048
+        },
+        {
+          "name": ".scratch_x",
+          "vma": 537133056,
+          "size_bytes": 0
+        },
+        {
+          "name": ".scratch_y",
+          "vma": 537137152,
+          "size_bytes": 0
+        },
+        {
+          "name": ".stack_dummy",
+          "vma": 537137152,
+          "size_bytes": 2048
+        }
+      ],
+      "flash_image_bin_bytes": 41764,
+      "linked_text_plus_data_bytes": 45860
+    }
+  ],
+  "board": "pico/RP2040",
+  "sdk_generation_python": "Python 3.12.2",
+  "supported_device_tick_us": {
+    "maximum": 1000000,
+    "minimum": 1000,
+    "default": 100000
+  },
+  "tx_frame_slots": 8,
+  "board_execution": "NOT_EXECUTED",
+  "version": 1,
+  "ninja": "1.13.2",
+  "physical_validation": "NOT_STARTED",
+  "adc_poll_cap": 10000,
+  "source_dirty": false,
+  "cmake": "cmake version 4.4.4\r\n\r\nCMake suite maintained and supported by Kitware (kitware.com/cmake).",
+  "adc_conversion_error_quality": "invalid",
+  "compiler": "arm-none-eabi-gcc.exe (Arm GNU Toolchain 15.2.Rel1 (Build arm-15.86)) 15.2.1 20251203\r\nCopyright (C) 2025 Free Software Foundation, Inc.\r\nThis is free software; see the source for copying conditions.  There is NO\r\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.",
+  "sdk_version": "2.3.1",
+  "rx_bytes_per_pass": 256,
+  "source_revision": "cc5a6feae95dc5888bf3041bc9dc3306dba667ba",
+  "watchdog_ms": 1500,
+  "sdk_revision": "079c6f39023649b154152db30f1d781e884879bc",
+  "usb_task_timeout_ms": 0
+}

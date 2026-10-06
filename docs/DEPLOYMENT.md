@@ -1,6 +1,6 @@
 # Verified existing website workflow
 
-Read-only reconnaissance on2026-10-06; no site edited or published yet.
+Workflow reconnaissance and local release preparation on2026-10-06.
 Site: https://walter.teitelbaum.us/; repo:jewbee2000/walts_jekyll_site.
 Existing local checkout:C:\Users\Walt\PycharmProjects\walts_jekyll_site, clean
 on gh-pages at3cd88de609fe59d59841e642dacfb8a2189112e3.
@@ -10,7 +10,8 @@ docs/ and root .nojekyll are tracked. main has stale posts and is not the verifi
 publishing source. Here generated docs must be included after the Jekyll build.
 Use a separate fresh gh-pages clone/worktree for publication; preserve site style,
 navigation and post layout. Ruby3.3.7/Bundler2.6.7 installed; bundle check passed.
-A full build/preview is still unexecuted and must pass at M7.
+Fresh baseline and draft article builds passed natively. Final release preview
+and actual new Pages publication are still required before M7 completion.
 
 Verification matched local, immutable GitHub and live article
 https://walter.teitelbaum.us/2026/10/04/abyssbench/ with SHA256
@@ -35,4 +36,6 @@ response at9b2948e2c6cc5dd33de64bc8e14ebb84a9a04180984072995f46a0b25e1cb2a5.
 Do not mistake working newline conversion for changed deployed content.
 Fresh `bundle check` and `bundle exec jekyll build --trace` actually passed,
 with Jekyll reporting4.129s. Original build log is in the lab's ignored
-artifacts/site-baseline-build.log. No new article has been published.
+artifacts/site-baseline-build.log. A separate draft article and19-run hosted
+replay were built and inspected through the local in-app browser. Final figures,
+immutable release links, full preview, PR and actual publication remain pending.

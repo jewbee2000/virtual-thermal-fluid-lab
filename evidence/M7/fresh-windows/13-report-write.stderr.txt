@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "C:\Users\Walt\.codex\worktrees\thermal-lab-release-check\virtual-fluid-lab\artifacts\release\checks\write-report.py", line 37, in <module>
+    all_commands_exit_zero=all(command["exit_code"] == 0 for command in commands),
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Walt\.codex\worktrees\thermal-lab-release-check\virtual-fluid-lab\artifacts\release\checks\write-report.py", line 37, in <genexpr>
+    all_commands_exit_zero=all(command["exit_code"] == 0 for command in commands),
+                               ~~~~~~~^^^^^^^^^^^^^
+KeyError: 'exit_code'

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 500" role="img" aria-labelledby="title desc">
+  <title id="title">Assumed thermal loop at 240 seconds in the nominal C SIL run</title>
+  <desc id="desc">A 5 kilowatt heat input warms the wall and hot liquid. Nine litres per minute circulates through the valve and cooled liquid, which rejects heat to a 10 degree Celsius sink. Values come from retained simulated truth, not physical measurements.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#356c93"/></marker>
+    <marker id="heat" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#a43f30"/></marker>
+    <style>text{font-family:Arial,sans-serif;fill:#20394a} .heading{font-size:25px;font-weight:bold}.label{font-size:21px;font-weight:bold}.value{font-size:20px}.note{font-size:17px}.pipe{fill:none;stroke:#356c93;stroke-width:5;marker-end:url(#arrow)}.heat{stroke:#a43f30;stroke-width:4;marker-end:url(#heat)}.box{stroke:#466675;stroke-width:2;rx:14}</style>
+  </defs>
+  <rect width="960" height="500" fill="#f6f9fa"/>
+  <text x="32" y="42" class="heading">Nominal simulation • retained truth at 240 s</text>
+  <text x="32" y="72" class="note">Assumed topology and parameters • no physical rig or board execution</text>
+  <rect x="40" y="150" width="160" height="150" fill="#f9d6cc" class="box"/>
+  <text x="61" y="189" class="label">Hot wall</text><text x="61" y="222" class="value">42.360 °C</text>
+  <text x="61" y="255" class="note">Cw = 10 kJ/K</text>
+  <path d="M120 105V145" class="heat"/><text x="141" y="125" class="value">5,000 W</text>
+  <path d="M205 222H265" class="heat"/>
+  <text x="203" y="191" class="note">UA = 300 W/K</text>
+  <rect x="272" y="150" width="185" height="150" fill="#fdebdc" class="box"/>
+  <text x="292" y="188" class="label">Hot liquid</text><text x="292" y="222" class="value">26.455 °C</text>
+  <text x="292" y="255" class="note">2 kg • well mixed</text>
+  <path d="M461 220H670" class="pipe"/>
+  <path d="M523 205L557 235V205L523 235Z" fill="#dce9f1" stroke="#356c93" stroke-width="2"/>
+  <text x="492" y="172" class="note">Valve z = 0.65</text>
+  <text x="490" y="285" class="value">Q = 9.00003 L/min</text>
+  <rect x="678" y="150" width="230" height="150" fill="#dfedf5" class="box"/>
+  <text x="698" y="189" class="label">Cooled liquid</text><text x="698" y="222" class="value">19.049 °C</text>
+  <text x="698" y="255" class="note">3 kg • well mixed</text>
+  <path d="M791 147V110" class="heat"/>
+  <text x="624" y="105" class="note">10 °C sink • UA = 500 W/K</text>
+  <path d="M791 304V374H607" class="pipe"/>
+  <circle cx="566" cy="374" r="36" fill="#e1edf3" stroke="#356c93" stroke-width="3"/>
+  <path d="M584 361L549 374L584 387Z" fill="#356c93"/>
+  <path d="M526 374H365V305" class="pipe"/>
+  <text x="627" y="366" class="note">Actual pump speed = 0.527500</text>
+  <text x="627" y="394" class="note">Pressure rise = 18.82557 kPa</text>
+  <text x="32" y="453" class="note">Source: nominal_heat_step/telemetry.csv, final row; clean source cc5a6fe / fa2a7a40</text>
+  <text x="32" y="480" class="note">This cold-start state is transient. The independent 1,200 s benchmark tests equilibrium.</text>
+</svg>

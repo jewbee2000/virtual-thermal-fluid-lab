@@ -1,7 +1,9 @@
 # Five-minute evidence walkthrough
 
-Open the exported replay `index.html` in a browser. The static bundle needs no
-Python, server or account. Read the assumed-parameter and execution labels first.
+Open the hosted replay, or serve an exported directory with a static HTTP server
+as shown in the README. All assets/data are local and no account is needed.
+Direct-file offline execution is designed into the bundle but was unavailable to
+the browser automation here. Read the assumed-parameter and execution labels first.
 
 1. Inspect **nominal heat step**. At20s heat demand becomes5000W. Compare wall,
    hot and cooled temperatures, and convert9L/min to1.5e-4m3/s. The240s cold-start

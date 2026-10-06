@@ -6,6 +6,7 @@ release. Setup automation must verify these pins before using downloads.
 
 | Tool | Pin/source | Verification/status |
 | --- | --- | --- |
+| PowerShell | 7.6.5 executed | PowerShell7 required for the native build scripts; Windows PowerShell5.1 is not the tested shell |
 | uv | 0.12.19 official installer | Installer SHA256 f44cf87798d181653f4c160ee28df6353ccf0ac4efea16c9a32abff694c8f45b; installed and executed |
 | Python | 3.12.2 already installed | Actual M0 interpreter; compatible Python3.12 required |
 | Git | 2.55.0.windows.5 | Existing native tool |

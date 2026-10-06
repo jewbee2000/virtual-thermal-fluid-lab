@@ -8,3 +8,5 @@
 *.elf binary
 *.uf2 binary
 third_party/licenses/* -text
+evidence/M7/fresh-windows/* -text
+evidence/M6/browser-download-audit.json -text

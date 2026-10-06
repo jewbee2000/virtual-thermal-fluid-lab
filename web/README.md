@@ -6,14 +6,17 @@ manifest-listed raw artifact:
 
 ```powershell
 uv run python scripts/build_replay.py --run artifacts/campaign/nominal_heat_step --run artifacts/campaign/reduced_rejection --run artifacts/campaign/frozen_temperature --run artifacts/campaign/stuck_heat_lost_sink --out artifacts/replay
-Start-Process artifacts/replay/index.html
+uv run python -m http.server 8000 --bind 127.0.0.1 --directory artifacts/replay
 ```
 
-The paths are examples; use the actual run directories produced by the campaign.
+Open `http://127.0.0.1:8000/` for the verified static HTTP path. The paths above
+are examples; use the actual run directories produced by the campaign.
 The output must be a new directory. The exporter verifies manifest SHA256s before
 writing and copies original bytes into `raw/<run>/`. It embeds a column-oriented
-presentation dataset in local `data.js`, so `index.html` also works offline under
-`file://` without browser CORS exceptions, Python, a server, network or account.
+presentation dataset in local `data.js`, designed for direct offline opening
+without fetch/CORS exceptions, Python or an account. Local HTTP/hosted browser
+checks are recorded; direct `file://` execution was unavailable to this desktop
+automation and is not claimed as an executed check.
 Hosting the unchanged directory is sufficient for website replay. All bundled
 asset hashes and original file hashes are in `replay-manifest.json`.
 The exporter retains the project root MIT license byte-for-byte as `LICENSE.txt`

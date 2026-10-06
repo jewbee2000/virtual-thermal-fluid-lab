@@ -1,0 +1,25 @@
+{
+  "name": "07-python-tank-suite",
+  "program": "C:/Users/Walt/.local/bin/uv.exe",
+  "arguments": [
+    "run",
+    "python",
+    "scripts/run_suite.py",
+    "--out",
+    "artifacts/release/tank"
+  ],
+  "working_directory": "C:\\Users\\Walt\\.codex\\worktrees\\thermal-lab-release-check\\virtual-fluid-lab",
+  "started_utc": "2026-10-06T10:04:17.4106715Z",
+  "ended_utc": "2026-10-06T10:04:23.9590779Z",
+  "wall_elapsed_s": 6.5081473,
+  "exit_code": 0,
+  "invocation_error": null,
+  "git_revision": "cc5a6feae95dc5888bf3041bc9dc3306dba667ba",
+  "git_dirty_before": false,
+  "git_dirty_after": false,
+  "git_status_after": [],
+  "lock_sha256_before": "76472376ec629c6fb1da220501125f413dc2944f76e75139283ea2cb3ca7bcd0",
+  "lock_sha256_after": "76472376ec629c6fb1da220501125f413dc2944f76e75139283ea2cb3ca7bcd0",
+  "stdout": "C:\\Users\\Walt\\.codex\\worktrees\\thermal-lab-release-check\\virtual-fluid-lab\\artifacts\\release\\checks\\07-python-tank-suite.stdout.txt",
+  "stderr": "C:\\Users\\Walt\\.codex\\worktrees\\thermal-lab-release-check\\virtual-fluid-lab\\artifacts\\release\\checks\\07-python-tank-suite.stderr.txt"
+}

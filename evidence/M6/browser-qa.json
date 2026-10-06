@@ -1,0 +1,41 @@
+{
+  "status": "PASS",
+  "date_utc": "2026-10-06",
+  "browser": "Codex in-app browser on native Windows; automation did not expose browser UA/version",
+  "url": "http://127.0.0.1:8766/",
+  "release_source_revision": "cc5a6feae95dc5888bf3041bc9dc3306dba667ba",
+  "source_sha256": "fa2a7a40d64fc2dad4022ed6f4642dfd7249912d36882f28a845d164e83babc9",
+  "replay_manifest_sha256": "75e09f9e214bf1b70b47b0aec0ffb3803277c9a028ee52f75b819566941cb6c1",
+  "runs": 19,
+  "full_rows": 43873,
+  "render_observations_ms": [877.4, 544.3, 463.8, 377.2],
+  "render_scope": "Initial local script/plot render; first observed load plus three reloads; browser startup excluded; refinement was concurrently running on this laptop; no universal speed claim",
+  "desktop_document_client_width_px": 1265,
+  "mobile_viewport_px": [375, 900],
+  "mobile_document_client_width_px": 360,
+  "mobile_document_scroll_width_px": 360,
+  "checks": [
+    "Default nominal heat step and absolute-time comparison rendered full data",
+    "Play changed to Pause with clock advancement4.169s; pause stopped at5.337s",
+    "Home/End keyboard cursor controls executed",
+    "Truth/observed checkboxes changed DOM state then restored",
+    "Stuck heat terminal cursor preserves466.29959012692245s; expectedPASS/containmentFAILED/completionFAIL",
+    "Hazard bound RETAINED_PREFIX through466.299590127s, requested1200s,4669rows/zero discarded",
+    "Comparison beyond a shorter run shows no recorded sample rather than extending values",
+    "Flow dropout60.300s shows TRIPPED/stale, last-good59.900s, age0.400s",
+    "Previous60.200s sample shows RUNNING, age0.300s and valid/fresh equality",
+    "Before/after event rows601/602 both60.000s remain individually inspectable",
+    "Frozen600s primary wall44.641C/hot27.974C remain valid/fresh despite rising truth",
+    "Restart60s shows epoch2 DISARMED; explicit arm62s shows epoch2 RUNNING",
+    "Mobile controls and outcome readable; no page horizontal overflow; topology has its own labeled scroll region",
+    "CSV and summary gzip downloaded through actual browser; original byte/hash comparisons passed",
+    "Browser console error/warning list empty",
+    "Screenshots visually inspected on desktop and settled mobile viewport"
+  ],
+  "limitations": [
+    "Direct file:// navigation was blocked by the browser automation policy; no alternate browser/security bypass attempted. Static HTTP form is tested, offline direct-file execution remains unexecuted here.",
+    "Initial viewport observations preceded resize settling and still measured1265px; only the later360px client-width screenshot closes mobile QA.",
+    "An initial byte-audit helper ran before export completion and rejected the unfinished data.js; completed export audit passed separately.",
+    "Physical validation NOT_STARTED; board NOT_EXECUTED; fixture NOT_FABRICATED."
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "jsonschema": "4.25.1",
+  "schemas": 14,
+  "scenarios": 17,
+  "thermal_runs": 48,
+  "telemetry_rows": 157182,
+  "artifact_hashes": 484,
+  "row_scope": "ALL_ROWS",
+  "status": "PASS"
+}

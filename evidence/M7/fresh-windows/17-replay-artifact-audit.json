@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "method": "independent stdlib direct-original-byte, manifest, gzip-header/round-trip and full row clock/id audit",
+  "runs": 19,
+  "rows": 43873,
+  "original_downloads_verified": 205,
+  "gzip_round_trips": 99,
+  "source_sha256": [
+    "fa2a7a40d64fc2dad4022ed6f4642dfd7249912d36882f28a845d164e83babc9"
+  ],
+  "git_revisions": [
+    "cc5a6feae95dc5888bf3041bc9dc3306dba667ba"
+  ],
+  "bundles": {
+    "replay-final": {
+      "files": 237,
+      "bytes": 897021420,
+      "manifest_sha256": "87821edf193a0acf4b4870462cf259993cd5077748032d5ca9c61c4c77425eaa",
+      "verified_hashes": 236
+    },
+    "replay-hosted-final": {
+      "files": 237,
+      "bytes": 76903184,
+      "manifest_sha256": "75e09f9e214bf1b70b47b0aec0ffb3803277c9a028ee52f75b819566941cb6c1",
+      "verified_hashes": 236
+    }
+  },
+  "physical_validation": "NOT_STARTED",
+  "board_execution": "NOT_EXECUTED"
+}
