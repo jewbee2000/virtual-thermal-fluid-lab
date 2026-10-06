@@ -1,0 +1,140 @@
+{
+  "checked_at_utc": "2026-10-06T15:08:46.029164+00:00",
+  "status": "PASS",
+  "method": "Actual HTTPS GET identity bytes compared directly with reviewed commit64d0f1a Git blobs",
+  "source_commit": "64d0f1a260d613aaae57b1a689bb965925aa7b60",
+  "merge_commit": "ca80f0e55b0f51884f15a5d350c9ff5395390901",
+  "files": 13,
+  "assets": [
+    {
+      "url": "https://walter.teitelbaum.us/2026/10/06/virtual-thermal-fluid-lab/index.html",
+      "path": "2026/10/06/virtual-thermal-fluid-lab/index.html",
+      "bytes": 17626,
+      "status": 200,
+      "sha256": "bf6a124285db85e031ec53a9f082ce38eadfada05c08bb8cf0be1e94b4858878",
+      "expected_git_sha256": "bf6a124285db85e031ec53a9f082ce38eadfada05c08bb8cf0be1e94b4858878",
+      "content_type": "text/html; charset=utf-8",
+      "result": "PASS"
+    },
+    {
+      "url": "https://walter.teitelbaum.us/index.html",
+      "path": "index.html",
+      "bytes": 9783,
+      "status": 200,
+      "sha256": "d02b0016f5af44e49b54ff87cbe23464f9c2bfffeaea3d961afed3039f9ab263",
+      "expected_git_sha256": "d02b0016f5af44e49b54ff87cbe23464f9c2bfffeaea3d961afed3039f9ab263",
+      "content_type": "text/html; charset=utf-8",
+      "result": "PASS"
+    },
+    {
+      "url": "https://walter.teitelbaum.us/feed.xml",
+      "path": "feed.xml",
+      "bytes": 52412,
+      "status": 200,
+      "sha256": "b13f47e3fbf07a688fa7a7c0b6af81d2b9e0562c37a26186c63396b26282facd",
+      "expected_git_sha256": "b13f47e3fbf07a688fa7a7c0b6af81d2b9e0562c37a26186c63396b26282facd",
+      "content_type": "application/xml",
+      "result": "PASS"
+    },
+    {
+      "url": "https://walter.teitelbaum.us/posts/page10/index.html",
+      "path": "posts/page10/index.html",
+      "bytes": 4395,
+      "status": 200,
+      "sha256": "aa40809b7f7e1180c1356df1a43b8c0974249360e2af41c4cf8f3881db5492ca",
+      "expected_git_sha256": "aa40809b7f7e1180c1356df1a43b8c0974249360e2af41c4cf8f3881db5492ca",
+      "content_type": "text/html; charset=utf-8",
+      "result": "PASS"
+    },
+    {
+      "url": "https://walter.teitelbaum.us/assets/projects/virtual-thermal-fluid-lab/software-architecture.svg",
+      "path": "assets/projects/virtual-thermal-fluid-lab/software-architecture.svg",
+      "bytes": 8981,
+      "status": 200,
+      "sha256": "c8deff2739bc71c7dfa3c67d996a28eb733b74b2d07632a5955e8e5ee9da3ae7",
+      "expected_git_sha256": "c8deff2739bc71c7dfa3c67d996a28eb733b74b2d07632a5955e8e5ee9da3ae7",
+      "content_type": "image/svg+xml",
+      "result": "PASS"
+    },
+    {
+      "url": "https://walter.teitelbaum.us/assets/projects/virtual-thermal-fluid-lab/software-architecture-mobile.svg",
+      "path": "assets/projects/virtual-thermal-fluid-lab/software-architecture-mobile.svg",
+      "bytes": 8414,
+      "status": 200,
+      "sha256": "541a34cfb02de9cbb7450dc28ad5b49389f3e915a7bc4aeb10e9e185f3cf9a84",
+      "expected_git_sha256": "541a34cfb02de9cbb7450dc28ad5b49389f3e915a7bc4aeb10e9e185f3cf9a84",
+      "content_type": "image/svg+xml",
+      "result": "PASS"
+    },
+    {
+      "url": "https://walter.teitelbaum.us/assets/projects/virtual-thermal-fluid-lab/restriction.png",
+      "path": "assets/projects/virtual-thermal-fluid-lab/restriction.png",
+      "bytes": 113052,
+      "status": 200,
+      "sha256": "6f0b7a8006003447e37b0ba5b49887d74c924ff60f85a1f4a51baebf30d65f86",
+      "expected_git_sha256": "6f0b7a8006003447e37b0ba5b49887d74c924ff60f85a1f4a51baebf30d65f86",
+      "content_type": "image/png",
+      "result": "PASS"
+    },
+    {
+      "url": "https://walter.teitelbaum.us/assets/projects/virtual-thermal-fluid-lab/nominal.png",
+      "path": "assets/projects/virtual-thermal-fluid-lab/nominal.png",
+      "bytes": 117687,
+      "status": 200,
+      "sha256": "82199aa19727bb5a3773b6314e8d8afa25acf2ef28f206b7127e850a48934013",
+      "expected_git_sha256": "82199aa19727bb5a3773b6314e8d8afa25acf2ef28f206b7127e850a48934013",
+      "content_type": "image/png",
+      "result": "PASS"
+    },
+    {
+      "url": "https://walter.teitelbaum.us/assets/projects/virtual-thermal-fluid-lab/thermal-loop.svg",
+      "path": "assets/projects/virtual-thermal-fluid-lab/thermal-loop.svg",
+      "bytes": 3382,
+      "status": 200,
+      "sha256": "3e923080ce404b2479bae99ebf11cf8925793827dff7f3e2bf2720ab7caa7ffe",
+      "expected_git_sha256": "3e923080ce404b2479bae99ebf11cf8925793827dff7f3e2bf2720ab7caa7ffe",
+      "content_type": "image/svg+xml",
+      "result": "PASS"
+    },
+    {
+      "url": "https://walter.teitelbaum.us/assets/projects/virtual-thermal-fluid-lab/frozen-temperature.png",
+      "path": "assets/projects/virtual-thermal-fluid-lab/frozen-temperature.png",
+      "bytes": 123500,
+      "status": 200,
+      "sha256": "337a291bcc1864fd1c2969fa0644ae6060e3d8876343814a2a38d57f91577430",
+      "expected_git_sha256": "337a291bcc1864fd1c2969fa0644ae6060e3d8876343814a2a38d57f91577430",
+      "content_type": "image/png",
+      "result": "PASS"
+    },
+    {
+      "url": "https://walter.teitelbaum.us/assets/projects/virtual-thermal-fluid-lab/stuck-heat-lost-sink.png",
+      "path": "assets/projects/virtual-thermal-fluid-lab/stuck-heat-lost-sink.png",
+      "bytes": 130881,
+      "status": 200,
+      "sha256": "2785d013de2dbea5fa099e34f53c1ad0c702cbfebf9dd68acfc2b473cda5c086",
+      "expected_git_sha256": "2785d013de2dbea5fa099e34f53c1ad0c702cbfebf9dd68acfc2b473cda5c086",
+      "content_type": "image/png",
+      "result": "PASS"
+    },
+    {
+      "url": "https://walter.teitelbaum.us/assets/projects/virtual-thermal-fluid-lab/replay/index.html",
+      "path": "assets/projects/virtual-thermal-fluid-lab/replay/index.html",
+      "bytes": 9457,
+      "status": 200,
+      "sha256": "66da07c40f0a3539e8d4e346cdc767fdf6991b2e692d75fc81b5d8a8b052835f",
+      "expected_git_sha256": "66da07c40f0a3539e8d4e346cdc767fdf6991b2e692d75fc81b5d8a8b052835f",
+      "content_type": "text/html; charset=utf-8",
+      "result": "PASS"
+    },
+    {
+      "url": "https://walter.teitelbaum.us/assets/projects/virtual-thermal-fluid-lab/replay/replay-manifest.json",
+      "path": "assets/projects/virtual-thermal-fluid-lab/replay/replay-manifest.json",
+      "bytes": 27004,
+      "status": 200,
+      "sha256": "579c4f3b3fb2407d47cd3919f66ddc6e1061b34ad4f01ac5154eb0a1f0737aa4",
+      "expected_git_sha256": "579c4f3b3fb2407d47cd3919f66ddc6e1061b34ad4f01ac5154eb0a1f0737aa4",
+      "content_type": "application/json; charset=utf-8",
+      "result": "PASS"
+    }
+  ]
+}

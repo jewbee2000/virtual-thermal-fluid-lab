@@ -85,3 +85,36 @@ Live [case study](https://walter.teitelbaum.us/2026/10/06/virtual-thermal-fluid-
 and [replay](https://walter.teitelbaum.us/assets/projects/virtual-thermal-fluid-lab/replay/).
 Parameters assumed; board NOT_EXECUTED; fixture NOT_FABRICATED;
 physical validation NOT_STARTED.
+
+## Software-focused article revision on 2026-10-06
+
+The user requested a friendlier account of the software implementation. The
+revision removes the specified authorship paragraph, adds project scope and a
+link to the complete requirements table, and explains the components with an
+annotated architecture diagram. Separate desktop and mobile SVGs preserve
+readability. A restriction recovery example uses the existing released plot
+and retained scenario records. Thermal equations and the original results and
+figures remain. The revised article has 1,361 words and six figures.
+
+The native `bundle exec jekyll build --trace` passed in 7.467 s. Read-only
+architecture and scenario reviews accepted the source-grounded descriptions.
+Actual desktop (1,265 px) and mobile (360 px) browser checks found no page
+overflow; the requirements link was activated, equations scrolled with the
+keyboard, and all figures loaded. A fresh live browser console had no errors.
+
+[Site PR 2](https://github.com/jewbee2000/walts_jekyll_site/pull/2) merged reviewed
+source `64d0f1a260d613aaae57b1a689bb965925aa7b60` into gh-pages at
+`ca80f0e55b0f51884f15a5d350c9ff5395390901`; their Git trees match.
+[Pages run 37484616287](https://github.com/jewbee2000/walts_jekyll_site/actions/runs/37484616287)
+completed successfully, and deployment `6887629992` reports success.
+Thirteen updated or referenced HTTPS files matched the reviewed immutable Git
+blobs. The current article HTML SHA256 is
+`bf6a124285db85e031ec53a9f082ce38eadfada05c08bb8cf0be1e94b4858878`;
+the earlier publication hash above describes the original article version.
+
+Receipts and an actual screenshot of the published diagram are in
+`evidence/website/article-software-update-20261006/`. All 237 replay files in
+each source/generated tree are unchanged. This article-only update changes no
+simulation, firmware, acceptance threshold, dependency, or v0.1.0 release
+artifact. No new simulation or hardware measurement was performed. Board
+execution remains NOT_EXECUTED and physical validation remains NOT_STARTED.

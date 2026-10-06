@@ -1,0 +1,93 @@
+{
+  "checked_at_utc": "2026-10-06T15:03:22.410Z",
+  "status": "PASS",
+  "desktop_client_width": 1265,
+  "desktop_scroll_width": 1265,
+  "removed_paragraph": true,
+  "requirements_link": "https://github.com/jewbee2000/virtual-thermal-fluid-lab/blob/v0.1.0/docs/REQUIREMENTS.md#requirements-rationale-and-gates",
+  "requirements_table_actual_navigation": "PASS; rendered ENV-01 and SITE-01 observed in GitHub page",
+  "responsive_method": "Actual top-level narrow page and375px same-origin iframe; early override attempts remained desktop until a later navigation applied the override",
+  "narrow_layout": {
+    "architecture": [
+      {
+        "clientHeight": 1093,
+        "clientWidth": 339,
+        "complete": true,
+        "currentSrc": "http://127.0.0.1:8767/assets/projects/virtual-thermal-fluid-lab/software-architecture-mobile.svg"
+      }
+    ],
+    "clientWidth": 360,
+    "equations": [
+      {
+        "client": 336,
+        "scroll": 436,
+        "scrollLeft": 20,
+        "tabindex": "0"
+      },
+      {
+        "client": 336,
+        "scroll": 502,
+        "scrollLeft": 0,
+        "tabindex": "0"
+      }
+    ],
+    "scrollWidth": 360
+  },
+  "figures": 6,
+  "new_restriction_plot": "Original released PNG reused byte-for-byte",
+  "architecture_review": "Source-verified read-only review ACCEPT; clarification distinguishes fluid travel-time omissions from implemented link delays",
+  "scenario_review": "Retained CSV, summary, config and manifest directly checked against clean release; no run repeated",
+  "build_log": "article-software-publish-build.txt",
+  "board_execution": "NOT_EXECUTED",
+  "physical_validation": "NOT_STARTED",
+  "top_level_mobile": {
+    "architecture": [
+      {
+        "clientHeight": 1093,
+        "clientWidth": 339,
+        "complete": true,
+        "currentSrc": "http://127.0.0.1:8767/assets/projects/virtual-thermal-fluid-lab/software-architecture-mobile.svg"
+      }
+    ],
+    "clientWidth": 360,
+    "equations": [
+      {
+        "client": 336,
+        "scroll": 436,
+        "scrollLeft": 16,
+        "tabindex": "0"
+      },
+      {
+        "client": 336,
+        "scroll": 502,
+        "scrollLeft": 0,
+        "tabindex": "0"
+      }
+    ],
+    "scrollWidth": 360
+  },
+  "live": {
+    "url": "https://walter.teitelbaum.us/2026/10/06/virtual-thermal-fluid-lab/",
+    "removed_paragraph": true,
+    "headings": [
+      "Project scope",
+      "How the software fits together",
+      "How the thermal simulation works",
+      "Example: recovering flow after a restriction",
+      "Example: inspecting temperature and heater faults",
+      "Explore the results"
+    ],
+    "figures": 6,
+    "desktop": {
+      "clientWidth": 1265,
+      "scrollWidth": 1265
+    },
+    "mobile": {
+      "clientWidth": 360,
+      "scrollWidth": 360
+    },
+    "console": [],
+    "screenshot": "article-software-diagram-live.jpg",
+    "screenshot_scope": "Actual full-page screenshot of the published standalone SVG; article/page layouts checked separately"
+  }
+}

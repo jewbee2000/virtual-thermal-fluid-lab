@@ -11,3 +11,4 @@ third_party/licenses/* -text
 evidence/M7/fresh-windows/* -text
 evidence/M6/browser-download-audit.json -text
 evidence/M7/publication/** -text
+evidence/website/article-software-update-20261006/** -text

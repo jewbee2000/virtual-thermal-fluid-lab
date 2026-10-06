@@ -1,0 +1,64 @@
+{
+  "checked_at_utc": "2026-10-06T15:13:55.499937+00:00",
+  "status": "PASS",
+  "article_url": "https://walter.teitelbaum.us/2026/10/06/virtual-thermal-fluid-lab/",
+  "site_source_commit": "64d0f1a260d613aaae57b1a689bb965925aa7b60",
+  "site_merge_commit": "ca80f0e55b0f51884f15a5d350c9ff5395390901",
+  "pages_run_url": "https://github.com/jewbee2000/walts_jekyll_site/actions/runs/37484616287",
+  "deployment_id": 6887629992,
+  "scope": "User-requested software-focused article update; requirements callout, annotated desktop/mobile architecture, retained restriction example; existing thermal equations and plots preserved",
+  "checks": "Native Jekyll7.467s; architecture/scenario read-only reviews; actual desktop/narrow/keyboard/requirements-link/live browser checks;13 HTTPS assets compared directly to reviewed Git blobs",
+  "release_and_runtime": "Original v0.1.0 tag/assets and simulation/firmware/runtime/thresholds unchanged;all237replay files unchanged in source/generated trees",
+  "restriction_plot_sha256": "6f0b7a8006003447e37b0ba5b49887d74c924ff60f85a1f4a51baebf30d65f86",
+  "article_html_sha256": "bf6a124285db85e031ec53a9f082ce38eadfada05c08bb8cf0be1e94b4858878",
+  "review_notes": "Source-verified architecture ACCEPT; travel-time wording clarified; retained restriction rows/config/manifest ACCEPT; no additional simulation run or hardware measurement",
+  "board_execution": "NOT_EXECUTED",
+  "physical_validation": "NOT_STARTED",
+  "receipts": [
+    {
+      "path": "article-software-browser-qa.json",
+      "bytes": 3000,
+      "sha256": "15a4d548c358978f56772e0b3b50d2eba9887916dc81084341c0f8b88f253bf5"
+    },
+    {
+      "path": "article-software-index-audit.json",
+      "bytes": 2193,
+      "sha256": "538dfbff91bcf4f3fbf3b9b86a58a9f3f2bf1289e87733ac9d31fa75d27b9dce"
+    },
+    {
+      "path": "article-software-live-byte-audit.json",
+      "bytes": 6555,
+      "sha256": "dce02d8faaced8ebcf1f151da5aa0697423be952437a08391a92700957cad359"
+    },
+    {
+      "path": "article-software-pages-deployments.json",
+      "bytes": 3052,
+      "sha256": "2ade99b265f359d2678c7005f2ddba8be2efad0106d93901949368f3e33338e8"
+    },
+    {
+      "path": "article-software-pages-run.json",
+      "bytes": 3022,
+      "sha256": "32d2aedcde24787006ee68e3faf6f27e24190d873d06c7942408d8999b16e515"
+    },
+    {
+      "path": "article-software-pages-statuses.json",
+      "bytes": 6871,
+      "sha256": "f1d0804ec38af7328dc0df9df7b7a3322d48572f5d9414d78219817371d079cd"
+    },
+    {
+      "path": "article-software-pr.json",
+      "bytes": 238,
+      "sha256": "fb1701f00cafc194173a6d9f1bbea98f3dfd8b9a46a6e66d1a6436ae652855d2"
+    },
+    {
+      "path": "article-software-publish-build.txt",
+      "bytes": 3109,
+      "sha256": "223ef92990edc43c4b2d1a1d74548b43412c7f59b2cd186ae3354da4315bb01b"
+    },
+    {
+      "path": "diagram-live.jpg",
+      "bytes": 181812,
+      "sha256": "1ba4a1540a094cc5ffe7232c5a3ca2244f5199fb7043a12083cf1ae9b60c9d0f"
+    }
+  ]
+}

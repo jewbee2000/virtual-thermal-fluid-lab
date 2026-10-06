@@ -1,0 +1,53 @@
+Configuration file: C:/Users/Walt/Documents/Codex/fluid-lab-site-release/_config.yml
+To use retry middleware with Faraday v2.0+, install `faraday-retry` gem
+            Source: C:/Users/Walt/Documents/Codex/fluid-lab-site-release
+       Destination: docs
+ Incremental build: disabled. Enable with --incremental
+      Generating... 
+       Jekyll Feed: Generating feed for posts
+         AutoPages: Disabled/Not configured in site.config.
+        Pagination: Complete, processed 1 pagination page(s)
+
+Filename                             | Count |   Bytes |  Time
+-------------------------------------+-------+---------+------
+_layouts/default.html                |    24 | 174.60K | 0.112
+_includes/head.html                  |    24 |  63.11K | 0.080
+feed.xml                             |     1 |  51.18K | 0.064
+.html                                |    10 |  27.01K | 0.037
+_layouts/post.html                   |    10 |  51.91K | 0.027
+_includes/pagination.html            |    10 |   7.18K | 0.019
+_layouts/page.html                   |    11 |  32.70K | 0.018
+_includes/footer.html                |    23 |   3.19K | 0.005
+sitemap.xml                          |     1 |   2.28K | 0.005
+_includes/particles-home.html        |     1 |   3.65K | 0.005
+_includes/postlist.html              |    10 |  19.18K | 0.004
+cv.md                                |     1 |   8.33K | 0.004
+_includes/header.html                |    22 |   5.31K | 0.003
+_includes/contact.html               |     1 |   2.39K | 0.003
+_includes/experiment-series.html     |     4 |   1.53K | 0.002
+_layouts/home.html                   |     1 |   3.31K | 0.002
+_layouts/cv.html                     |     1 |   9.74K | 0.002
+index.md                             |     1 |   2.93K | 0.001
+_includes/particles-404.html         |     1 |   0.60K | 0.001
+_includes/archive.html               |     1 |   2.47K | 0.001
+ai-engineering-experiment.md         |     1 |   0.74K | 0.000
+_includes/svg/nav-arrow-left.svg     |    10 |   2.50K | 0.000
+_includes/svg/nav-arrow-right.svg    |    10 |   2.48K | 0.000
+robots.txt                           |     1 |   0.05K | 0.000
+_includes/experiment-banner.html     |     4 |   2.39K | 0.000
+_includes/toggler.html               |     1 |   0.11K | 0.000
+_includes/svg/arrow-left-circled.svg |     1 |   0.34K | 0.000
+_includes/svg/phone.svg              |     1 |   0.46K | 0.000
+_includes/svg/pin-alt.svg            |     1 |   0.38K | 0.000
+_includes/svg/cv-circled.svg         |     1 |   0.69K | 0.000
+_includes/svg/instagram.svg          |     1 |   0.50K | 0.000
+_includes/svg/internet.svg           |     1 |   0.69K | 0.000
+_includes/svg/facebook.svg           |     1 |   0.30K | 0.000
+_includes/svg/github.svg             |     1 |   0.54K | 0.000
+_includes/svg/linkedin.svg           |     1 |   0.47K | 0.000
+_includes/svg/mail.svg               |     1 |   0.37K | 0.000
+_includes/svg/nav-arrow-down.svg     |     1 |   0.25K | 0.000
+
+ 
+                    done in 7.467 seconds.
+ Auto-regeneration: disabled. Use --watch to enable.
