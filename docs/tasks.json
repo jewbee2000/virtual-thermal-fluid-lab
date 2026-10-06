@@ -281,8 +281,8 @@
         "docs/hardware/"
       ],
       "acceptance": "MCU-01 WIRE-01 LINK-01 BUILD-01; details in docs/REQUIREMENTS.md and revised plan",
-      "status": "in_progress",
-      "commit": null,
+      "status": "complete",
+      "commit": "e9306056115ad946f7966198d91654d4e28b49a5",
       "commands": [
         {
           "command": "scripts/build_pico.ps1 with pinned SDK2.3.1, ARM15.2.Rel1, picotool2.3.1, CMake4.4.4, Ninja1.13.2",
@@ -313,15 +313,20 @@
           "command": "Generate/decode stimuli and PowerShell AST capture parse, no COM access",
           "exit_code": 0,
           "outcome": "504 frames decode; capture script parsed only"
+        },
+        {
+          "command": "GitHub Actions run37440153815",
+          "exit_code": 0,
+          "outcome": "Windows/Linux full verification, native device tests, ASan/UBSan and Linux Pico/picotool builds all passed"
         }
       ],
       "artifacts": [
         "evidence/M4/",
         "firmware/pico/README.md",
-        "isolated worktree artifacts/pico-build/"
+        "isolated worktree artifacts/pico-build/",
+        "evidence/M4/windows-linux-pico-ci.json"
       ],
       "unresolved_limitations": [
-        "M4 Windows/Linux/device/sanitizer/Pico CI pending.",
         "Board execution NOT_EXECUTED; physical validation NOT_STARTED.",
         "Linked memory sections and structural software bounds do not establish runtime stack peak, device timing or watchdog reset.",
         "Linked toolchain/newlib binary notices audit remains M7."
@@ -329,7 +334,9 @@
       "writer": "c_core_writer in isolated managed worktree; M4 device contract frozen before changes",
       "issue": "https://github.com/jewbee2000/virtual-thermal-fluid-lab/issues/7",
       "implementation_commit": "874674fa37e27b55e441c935dc883b3272cd66e1",
-      "integrated_source_commit": "09f5858"
+      "integrated_source_commit": "09f5858",
+      "merge_commit": "75dbd9d5445648076be661c16f016391043c317a",
+      "pull_request": "https://github.com/jewbee2000/virtual-thermal-fluid-lab/pull/10"
     },
     {
       "id": "M5",

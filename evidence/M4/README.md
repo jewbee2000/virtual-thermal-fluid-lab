@@ -66,3 +66,8 @@ rejects every other hash. Source revision, receive-site count, queue budget and
 warning checks are unchanged. The original CI failure and actual successful
 native configure are retained; repaired Linux cross-build must run before M4
 is marked complete. This revises a platform-byte pin, not a behavior threshold.
+
+Repaired PR run37440153815 at e930605 actually passed all four jobs: Windows and
+Linux full verification with native device tests, Linux sanitizers and Linux
+Pico cross-build/UF2 conversion. Job records are windows-linux-pico-ci.json.
+PR10 merged at75dbd9d5445648076be661c16f016391043c317a; M4 software gates complete.

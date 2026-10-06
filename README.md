@@ -41,6 +41,13 @@ Native combined checks passed95 unit tests, CTest and both seven-case tank suite
 The C dropout trips at60.3 s; the stuck pump still overflows after shutdown.
 See `evidence/M3`. MCU clock/HAL additions and thermal C integration follow M4/M5.
 
+M4 now cross-builds both Pico USB images using the same C policy and codec.
+Native device-policy/ADC/USB-budget tests and Windows/Linux/Pico CI passed;
+see `evidence/M4` and `firmware/pico/README.md` for builds and capture instructions.
+The MCU uses actual elapsed D time and local freshness, with separately leased
+intent and explicit arming. Host V scheduling remains exact. Board execution is
+NOT_EXECUTED; linked memory sizes and stubs establish no measured hardware timing.
+
 **Credibility:** equations and numerical implementation can be verified; physical validation is NOT_STARTED. Parameters and acceptance thresholds are educational design choices. This is software-in-the-loop (SIL), not hardware-in-the-loop (HIL), a subsea geothermal model, or a certified safety system.
 
 | File | Purpose |

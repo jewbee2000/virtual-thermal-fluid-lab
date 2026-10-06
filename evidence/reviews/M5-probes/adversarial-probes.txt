@@ -1,0 +1,20 @@
+Command: C:\Users\Walt\.local\bin\uv.exe run python -B artifacts/reviews/M5-test-review/adversarial_probes.py
+Traceback (most recent call last):
+  File "C:\Users\Walt\Documents\Codex\fluid-lab-import\virtual-fluid-lab\artifacts\reviews\M5-test-review\adversarial_probes.py", line 46, in <module>
+    cfg = short("near_tick_before", dict(event_id="flow", type="observation_link", time_us=599000,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Walt\Documents\Codex\fluid-lab-import\virtual-fluid-lab\artifacts\reviews\M5-test-review\adversarial_probes.py", line 35, in short
+    return normalize_campaign(dict(name="independent review fixture", case_id=case, duration_us=2_000_000,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Walt\Documents\Codex\fluid-lab-import\virtual-fluid-lab\src\fluidlab\campaign.py", line 194, in normalize_campaign
+    raise ValueError("name must be a short identifier")
+ValueError: name must be a short identifier
+Rerun after correcting review fixture name to independent_review_fixture:
+{"actual_c_pids": [18092], "configuration_scope": "VARIANT", "expectation_pass": true, "first_trip_time_us": 900000, "probe": "actual_near_tick_positive"}
+{"probe": "tick_and_snapshot_mutations", "rejected": 9, "status": "UNASSESSABLE"}
+{"issues": ["command acceptance label disagrees with independent lease"], "probe": "contradictory_command_acceptance_label", "status": "UNASSESSABLE"}
+{"issues": ["wire cache/reply mismatch or missing reply at 2000000", "missing/extra boot/config/reliable output"], "probe": "actual_retained_final_reply_removed", "status": "UNASSESSABLE"}
+{"acceptance": [true, false, true, false], "audit_status": "PASS", "final_last_good_source_time_us": 0, "final_max_age_us": 400000, "probe": "actual_future_error_quality_last_good", "state": "TRIPPED", "trip_reason": "invalid_input"}
+{"issues": ["ACK declared dropped is present in retained stdin"], "probe": "contradictory_ack_drop_raw_bytes", "status": "UNASSESSABLE"}
+{"probe": "changed_trip_threshold_release_guard", "rejected_before_execution": true, "variant_wall_trip_mK": 357150}
+{"count": 7, "probe": "all_independent_review_probes", "status": "PASS"}

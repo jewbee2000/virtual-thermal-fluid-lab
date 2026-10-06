@@ -1,0 +1,2 @@
+Command: C:\Users\Walt\.local\bin\uv.exe run python -B artifacts/reviews/M5-test-review/endpoint_probe.py
+{"completion_status": "UNASSESSABLE", "evidence_errors": ["incomplete/out-of-order absolute tick schedule"], "expectation_pass": false, "forged_snapshot_time_us": 2000000, "probe": "coherent_whole_final_transaction_removal", "raw_wire_audit_status": "PASS", "retained_last_tick_us": 1900000}

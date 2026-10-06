@@ -57,6 +57,18 @@ jobs:
       - name: C-controller tank regression (Linux)
         if: runner.os == 'Linux'
         run: uv run python scripts/verify_host.py --exe artifacts/host-build/fluid_controller_host --out artifacts/c-tank
+      - name: Frozen integrated campaign and refinement (Windows)
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          uv run python scripts/run_campaign.py --exe artifacts/host-build/Release/fluid_controller_host.exe --out artifacts/integrated-campaign --repeat
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          uv run python scripts/refine_campaign.py --exe artifacts/host-build/Release/fluid_controller_host.exe --out artifacts/integrated-refinement
+      - name: Frozen integrated campaign and refinement (Linux)
+        if: runner.os == 'Linux'
+        run: |
+          uv run python scripts/run_campaign.py --exe artifacts/host-build/fluid_controller_host --out artifacts/integrated-campaign --repeat
+          uv run python scripts/refine_campaign.py --exe artifacts/host-build/fluid_controller_host --out artifacts/integrated-refinement
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
         if: always()
         with:
