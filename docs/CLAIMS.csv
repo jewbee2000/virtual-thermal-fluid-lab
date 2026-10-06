@@ -11,3 +11,4 @@ C09,Native Windows starter baseline reproduced,actual 20 tests and seven scenari
 C10,Thermal pump and equilibrium hand calculation,independent equations and linear matrix solution,docs/THERMAL_MODEL.md,DERIVATION_REVIEWED,Assumed coefficients; no new plant implementation or physical dataset yet
 C11,Common C core executed on MCU,requires target build plus board capture,docs/tasks.json,NOT_EXECUTED,Cross-build alone cannot establish board execution
 C12,Website deployment source verified,matching source immutable artifact and live article,docs/DEPLOYMENT.md,WORKFLOW_IDENTIFIED,New thermal lab article not built or published
+C13,Thermal equations and numerical implementation,independent analytic/matrix benchmarks and read-only review,evidence/M2,SOFTWARE_VERIFIED_ASSUMED_MODEL,78 tests and ten benchmark checks; no physical validation or controller integration yet

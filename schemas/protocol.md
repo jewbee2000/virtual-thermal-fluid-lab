@@ -110,20 +110,43 @@ replacement of HAL channels and records each channel's source.
 Track sequence separately per observed channel and per command/ACK/driver stream.
 Experimental acceptance delta=uint32(new-last),0<delta<0x80000000.
 Reject duplicate/reorder/half-range; ffffffff->0 wraps. Reliable S must be exactly
-next sequence and advance by configured tick; first STEP at declared time0.
-Driver uses nonzero session epoch, increments on process restart, logs capture ID.
+next sequence and advance by configured tick; first STEP is sequence0 at wire time0.
+On a host restart during a campaign, the adapter declares a session origin in
+absolute simulation microseconds. Wire V time is absolute time minus that origin.
+Evidence retains both absolute time and session origin/epoch. Samples acquired
+before the new origin are rejected or reacquired; an old sample cannot be given
+a fresh timestamp to fit the new session. This translation is an explicit clock
+relationship, not a hardware clock synchronization claim.
+Driver uses nonzero session epoch, increments on process restart, skips zero on
+wrap, and logs capture ID. A new H must be half-range-newer by the same uint32
+ordering rule. An old H cannot reset the current session.
 MCU announces epoch0 and waits for handshake. Repeated identical H idempotent;
 deliberate new epoch clears integrator/history/command lease, returns DISARMED.
+Repeated identical configuration in the same session is idempotent; changed
+configuration is rejected until a new session. A repeated H cannot change profile.
 Old epoch cannot refresh anything. Session epoch is not a measured unique hardware
 boot identity. H1 must document actual reset-cause/boot/session observation policy.
 
 Operations0 hold,1 ARM,2 RESET. Valid config, all required valid/fresh/in-range
 inputs, separate trip clear and temperatures below trips are required for ARM or
-RESET. RESET clears trip into DISARMED; a subsequent ARM is mandatory. No reconnect
+RESET. ARM is legal only from DISARMED and RESET only from TRIPPED. An asserted
+trip at startup keeps DISARMED with heat/pump off and rejects ARM. RESET clears
+trip into DISARMED; a subsequent ARM is mandatory. A rejected operation never
+clears a latch. No reconnect
 rearm. Sensor bounds inclusive; trips >=; stale when age>stale_us. Latch reason
 priority:separate_trip,wall_hot,liquid_hot,invalid_input,range_input,stale_input.
 Retain first latched reason; invalid config prevents arming. Reset integrator on
 disarm/trip/reset; PI saturation uses conditional anti-windup.
+
+PI update order: compute raw=feedforward+kp*error+previous_integrator. Integrate
+ki*error*tick only if raw is in[0,1], or the error drives an out-of-range raw value
+toward that interval. Compute output using the updated integrator, bound the
+requested command to[0,1], and quantize nearest-half-up to ppm. This command
+saturation never clips a plant state. Configured control minima/maxima must be
+strictly ordered and contain target. Thermal control minimum is nonnegative;
+temperature minimum<trip limits<=temperature maximum. Tank temperature fields
+are zero. Invalid/missing observations immediately change quality while retaining
+the last-good sample timestamp for age diagnostics; they cannot refresh validity.
 
 Thermal DISARMED requests heat0,pump0,valve1; RUNNING explicit heat demand,
 flow PI/ff,normal valve; TRIPPED heat0,pump1,valve1. Tank DISARMED/TRIPPED requests

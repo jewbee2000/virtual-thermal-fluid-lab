@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ThermalParameters version 1 (assumed educational coefficients)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "density_kg_m3", "specific_heat_j_kg_k", "hot_mass_kg", "cold_mass_kg", "wall_capacity_j_k", "max_heat_w", "hot_conductance_w_k", "sink_conductance_w_k", "sink_temperature_k", "pump_shutoff_pa", "pump_curve_pa_s2_m6", "pipe_resistance_pa_s2_m6", "valve_resistance_pa_s2_m6", "pump_tau_s", "valve_tau_s"],
+  "properties": {
+    "version": {"const": 1},
+    "density_kg_m3": {"type": "number", "exclusiveMinimum": 0},
+    "specific_heat_j_kg_k": {"type": "number", "exclusiveMinimum": 0},
+    "hot_mass_kg": {"type": "number", "exclusiveMinimum": 0},
+    "cold_mass_kg": {"type": "number", "exclusiveMinimum": 0},
+    "wall_capacity_j_k": {"type": "number", "exclusiveMinimum": 0},
+    "max_heat_w": {"type": "number", "minimum": 0},
+    "hot_conductance_w_k": {"type": "number", "minimum": 0},
+    "sink_conductance_w_k": {"type": "number", "minimum": 0},
+    "sink_temperature_k": {"type": "number", "minimum": 273.15, "exclusiveMaximum": 368.15},
+    "pump_shutoff_pa": {"type": "number", "exclusiveMinimum": 0},
+    "pump_curve_pa_s2_m6": {"type": "number", "exclusiveMinimum": 0},
+    "pipe_resistance_pa_s2_m6": {"type": "number", "exclusiveMinimum": 0},
+    "valve_resistance_pa_s2_m6": {"type": "number", "exclusiveMinimum": 0},
+    "pump_tau_s": {"type": "number", "exclusiveMinimum": 0},
+    "valve_tau_s": {"type": "number", "exclusiveMinimum": 0}
+  },
+  "$comment": "Analytic/fault inputs may override nonnegative conductances and resistances explicitly. Runtime also checks finite derived capacities and resistance sums. Temperature state domain is strictly interior to 273.15..368.15 K."
+}

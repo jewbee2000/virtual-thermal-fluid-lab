@@ -15,6 +15,8 @@ release. Setup automation must verify these pins before using downloads.
 | Ninja | 1.13.2 Windows ZIP | SHA256 07fc8261b42b20e71d1720b39068c2e14ffcee6396b76fb7a795fb460b78dc65; downloaded/verified/extracted; --version executed |
 | ARM GCC | 15.2.rel1 Windows x64 ZIP | SHA256 7936cac895611023ffb22a64b8e426098c7104cb689778c1894572ca840b9ece verified; extracted; gcc --version15.2.1 executed; cross-build pending |
 | Pico SDK | 2.3.1 | Actual clone revision079c6f39023649b154152db30f1d781e884879bc; target build pending |
+| TinyUSB | SDK-pinned submodule | Initialized only lib/tinyusb at86ad6e56c1700e85f1c5678607a762cfe3aa2f47; USB target build pending |
+| picotool | 2.3.1 source | Revision2041936441b48a3cc53ae3da9e805229fe8f4e18; native MSVC Release build exit0; version executed; USB loading/signing disabled |
 
 Official portable sources:
 [CMake](https://github.com/Kitware/CMake/releases/tag/v4.4.4),
@@ -33,7 +35,11 @@ winget install --id Microsoft.VisualStudio.2022.BuildTools --exact --silent --ac
 
 Detect installed compiler using vswhere and developer environment rather than
 assuming a Visual Studio path/generator. Keep host and MCU build trees separate.
-Pico UART/ADC/GPIO/timer/watchdog need no SDK USB/network submodules. Without
-picotool, PICO_NO_PICOTOOL=1 permits ELF/bin/map output but not UF2; a board bundle
-needs a verified flashing path before H1. USB mode requires deliberate submodule
-provisioning. Pin SDK/source license notices in ATTRIBUTION.md.
+Pico UART/ADC/GPIO/timer/watchdog need no SDK USB/network submodules. TinyUSB was
+explicitly provisioned at the SDK's recorded commit for a possible USB serial
+target. Network, Bluetooth and mbedTLS submodules remain uninitialized.
+picotool was built with PICOTOOL_NO_LIBUSB=1 and default precompiled helper assets;
+its UF2 conversion can support BOOTSEL drag-and-drop, but no board conversion or
+flash has occurred. Original tool-source MSVC warnings remain in ignored
+artifacts/tools/picotool-build.log; this provisioning success is not a firmware
+test. Pin SDK/source license notices in ATTRIBUTION.md.
