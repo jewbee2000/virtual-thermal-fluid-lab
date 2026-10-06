@@ -283,14 +283,53 @@
       "acceptance": "MCU-01 WIRE-01 LINK-01 BUILD-01; details in docs/REQUIREMENTS.md and revised plan",
       "status": "in_progress",
       "commit": null,
-      "commands": [],
-      "artifacts": [],
+      "commands": [
+        {
+          "command": "scripts/build_pico.ps1 with pinned SDK2.3.1, ARM15.2.Rel1, picotool2.3.1, CMake4.4.4, Ninja1.13.2",
+          "exit_code": 0,
+          "outcome": "Both link/peripheral ELF/map/bin/UF2 targets built twice: clean isolated writer and integrated LF source. Final source_dirty=true accurately records concurrent uncommitted M5 Python work; actual firmware hashes verified"
+        },
+        {
+          "command": "Native device CMake build and CTest",
+          "exit_code": 0,
+          "outcome": "197 policy checks,27 HAL checks,1000 sustained USB queue passes"
+        },
+        {
+          "command": "uv run python -m unittest discover -s tests -v (clean M4 isolated checkout)",
+          "exit_code": 0,
+          "outcome": "98 passed19.301s"
+        },
+        {
+          "command": "Seven Python and seven actual-C tank scenarios",
+          "exit_code": 0,
+          "outcome": "Both suites pass expectations; stuck pump still FAILED containment/full"
+        },
+        {
+          "command": "Integrated root host/device build and CTest",
+          "exit_code": 0,
+          "outcome": "Host test and all3 device CTests passed; all25 firmware source and8 binary artifact hashes match clean writer manifest"
+        },
+        {
+          "command": "Generate/decode stimuli and PowerShell AST capture parse, no COM access",
+          "exit_code": 0,
+          "outcome": "504 frames decode; capture script parsed only"
+        }
+      ],
+      "artifacts": [
+        "evidence/M4/",
+        "firmware/pico/README.md",
+        "isolated worktree artifacts/pico-build/"
+      ],
       "unresolved_limitations": [
-        "Target build/peripheral execution not yet checked; board NOT_EXECUTED.",
-        "Host V clock remains fixed; device D wrapper uses same internal policy with real elapsed time; U/X/N extension is specified in docs/MCU_CONTRACT.md."
+        "M4 Windows/Linux/device/sanitizer/Pico CI pending.",
+        "Board execution NOT_EXECUTED; physical validation NOT_STARTED.",
+        "Linked memory sections and structural software bounds do not establish runtime stack peak, device timing or watchdog reset.",
+        "Linked toolchain/newlib binary notices audit remains M7."
       ],
       "writer": "c_core_writer in isolated managed worktree; M4 device contract frozen before changes",
-      "issue": "https://github.com/jewbee2000/virtual-thermal-fluid-lab/issues/7"
+      "issue": "https://github.com/jewbee2000/virtual-thermal-fluid-lab/issues/7",
+      "implementation_commit": "874674fa37e27b55e441c935dc883b3272cd66e1",
+      "integrated_source_commit": "09f5858"
     },
     {
       "id": "M5",
@@ -338,7 +377,8 @@
         "UI scaffolding proceeds against frozen data contract; final actual-C exports/browser QA await M5.",
         "Hardware packet is planned; fixture NOT_FABRICATED, board NOT_EXECUTED."
       ],
-      "writer": "replay_writer in isolated thermal-lab-replay checkout"
+      "writer": "replay_writer in isolated thermal-lab-replay checkout",
+      "issue": "https://github.com/jewbee2000/virtual-thermal-fluid-lab/issues/9"
     },
     {
       "id": "M7",

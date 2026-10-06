@@ -1,0 +1,42 @@
+-- Selecting Windows SDK version 10.0.26100.0 to target Windows 10.0.26300.
+-- The C compiler identification is MSVC 19.44.35229.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/cl.exe - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Configuring done (1.6s)
+-- Generating done (0.1s)
+-- Build files have been written to: C:/Users/Walt/Documents/Codex/fluid-lab-import/virtual-fluid-lab/artifacts/M4-device-tests
+MSBuild version 17.14.60+43b635718 for .NET Framework
+
+  1>Checking Build System
+  Building Custom Rule C:/Users/Walt/Documents/Codex/fluid-lab-import/virtual-fluid-lab/firmware/pico/tests/CMakeLists.txt
+  test_device.c
+  device_policy.c
+  fl_core.c
+  fl_protocol.c
+  Generating Code...
+  fluid_device_policy_tests.vcxproj -> C:\Users\Walt\Documents\Codex\fluid-lab-import\virtual-fluid-lab\artifacts\M4-device-tests\Release\fluid_device_policy_tests.exe
+  Building Custom Rule C:/Users/Walt/Documents/Codex/fluid-lab-import/virtual-fluid-lab/firmware/pico/tests/CMakeLists.txt
+  test_hal.c
+  fl_hal.c
+  Generating Code...
+  fluid_hal_tests.vcxproj -> C:\Users\Walt\Documents\Codex\fluid-lab-import\virtual-fluid-lab\artifacts\M4-device-tests\Release\fluid_hal_tests.exe
+  Building Custom Rule C:/Users/Walt/Documents/Codex/fluid-lab-import/virtual-fluid-lab/firmware/pico/tests/CMakeLists.txt
+  test_usb_budget.c
+  usb_task.c
+  Generating Code...
+  fluid_usb_budget_tests.vcxproj -> C:\Users\Walt\Documents\Codex\fluid-lab-import\virtual-fluid-lab\artifacts\M4-device-tests\Release\fluid_usb_budget_tests.exe
+  Building Custom Rule C:/Users/Walt/Documents/Codex/fluid-lab-import/virtual-fluid-lab/firmware/pico/tests/CMakeLists.txt
+Test project C:/Users/Walt/Documents/Codex/fluid-lab-import/virtual-fluid-lab/artifacts/M4-device-tests
+    Start 1: device_policy
+1/3 Test #1: device_policy ....................   Passed    0.07 sec
+    Start 2: usb_task_budget
+2/3 Test #2: usb_task_budget ..................   Passed    0.04 sec
+    Start 3: adc_quality_and_bounds
+3/3 Test #3: adc_quality_and_bounds ...........   Passed    0.03 sec
+
+100% tests passed out of 3
+
+Total Test time (real) =   0.21 sec

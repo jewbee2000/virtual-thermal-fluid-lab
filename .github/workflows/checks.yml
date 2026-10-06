@@ -11,6 +11,23 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - name: Pinned CMake (Windows)
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force artifacts/tools | Out-Null
+          Invoke-WebRequest https://github.com/Kitware/CMake/releases/download/v4.4.4/cmake-4.4.4-windows-x86_64.zip -OutFile artifacts/tools/cmake.zip
+          if ((Get-FileHash artifacts/tools/cmake.zip -Algorithm SHA256).Hash.ToLowerInvariant() -ne 'bace36e94b31c68ab6fa295f26dfa11219e0701cf7c94b0284a7d1cb13dac536') { throw 'CMake archive hash mismatch' }
+          Expand-Archive artifacts/tools/cmake.zip artifacts/tools
+          "$pwd/artifacts/tools/cmake-4.4.4-windows-x86_64/bin" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+      - name: Pinned CMake (Linux)
+        if: runner.os == 'Linux'
+        run: |
+          mkdir -p artifacts/tools
+          curl --fail --location https://github.com/Kitware/CMake/releases/download/v4.4.4/cmake-4.4.4-linux-x86_64.tar.gz -o artifacts/tools/cmake.tar.gz
+          echo 'e5bb807f7728cb60cd8b27ebc97a2edb469b68655f21e844a600c3575b76f5bb  artifacts/tools/cmake.tar.gz' | sha256sum --check
+          tar -xzf artifacts/tools/cmake.tar.gz -C artifacts/tools
+          echo "$PWD/artifacts/tools/cmake-4.4.4-linux-x86_64/bin" >> "$GITHUB_PATH"
       - uses: astral-sh/setup-uv@bec219d24cd3e171d82865faccec33120bb574f4 # v10.1.0
         with:
           version: "0.12.19"
@@ -26,6 +43,11 @@ jobs:
           cmake -S . -B artifacts/host-build -DCMAKE_BUILD_TYPE=Release
           cmake --build artifacts/host-build
           ctest --test-dir artifacts/host-build --output-on-failure
+      - name: Native device policy, HAL and bounded USB tests
+        run: |
+          cmake -S firmware/pico/tests -B artifacts/device-tests
+          cmake --build artifacts/device-tests --config Release
+          ctest --test-dir artifacts/device-tests -C Release --output-on-failure
       - run: uv run python -m unittest discover -s tests -v
       - run: uv run python scripts/run_suite.py
       - run: uv run python scripts/verify_thermal.py --out artifacts/thermal-verification
@@ -39,7 +61,9 @@ jobs:
         if: always()
         with:
           name: simulation-evidence-${{ matrix.os }}
-          path: artifacts/
+          path: |
+            artifacts/
+            !artifacts/tools/**
   sanitizers:
     runs-on: ubuntu-24.04
     steps:
@@ -51,3 +75,47 @@ jobs:
         env:
           ASAN_OPTIONS: detect_leaks=1:halt_on_error=1
           UBSAN_OPTIONS: halt_on_error=1:print_stacktrace=1
+  pico-cross-build:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: astral-sh/setup-uv@bec219d24cd3e171d82865faccec33120bb574f4 # v10.1.0
+        with:
+          version: "0.12.19"
+      - run: uv python install 3.12
+      - run: uv sync --locked
+      - name: Verify and provision pinned build inputs
+        run: |
+          mkdir -p artifacts/tools
+          curl --fail --location https://github.com/Kitware/CMake/releases/download/v4.4.4/cmake-4.4.4-linux-x86_64.tar.gz -o artifacts/tools/cmake.tar.gz
+          echo 'e5bb807f7728cb60cd8b27ebc97a2edb469b68655f21e844a600c3575b76f5bb  artifacts/tools/cmake.tar.gz' | sha256sum --check
+          tar -xzf artifacts/tools/cmake.tar.gz -C artifacts/tools
+          echo "$PWD/artifacts/tools/cmake-4.4.4-linux-x86_64/bin" >> "$GITHUB_PATH"
+          curl --fail --location https://developer.arm.com/-/media/Files/downloads/gnu/15.2.rel1/binrel/arm-gnu-toolchain-15.2.rel1-x86_64-arm-none-eabi.tar.xz -o artifacts/tools/arm.tar.xz
+          echo '597893282ac8c6ab1a4073977f2362990184599643b4c5ee34870a8215783a16  artifacts/tools/arm.tar.xz' | sha256sum --check
+          tar -xJf artifacts/tools/arm.tar.xz -C artifacts/tools
+          git clone --branch 2.3.1 --depth 1 https://github.com/raspberrypi/pico-sdk.git artifacts/tools/pico-sdk
+          test "$(git -C artifacts/tools/pico-sdk rev-parse HEAD)" = '079c6f39023649b154152db30f1d781e884879bc'
+          git -C artifacts/tools/pico-sdk submodule update --init --depth 1 lib/tinyusb
+          test "$(git -C artifacts/tools/pico-sdk/lib/tinyusb rev-parse HEAD)" = '86ad6e56c1700e85f1c5678607a762cfe3aa2f47'
+          git clone --branch 2.3.1 --depth 1 https://github.com/raspberrypi/picotool.git artifacts/tools/picotool
+          test "$(git -C artifacts/tools/picotool rev-parse HEAD)" = '2041936441b48a3cc53ae3da9e805229fe8f4e18'
+      - name: Build UF2 converter and both Pico firmware modes
+        run: |
+          cmake -S artifacts/tools/picotool -B artifacts/picotool-build -DPICO_SDK_PATH="$PWD/artifacts/tools/pico-sdk" -DPICOTOOL_NO_LIBUSB=1 -DCMAKE_BUILD_TYPE=Release
+          cmake --build artifacts/picotool-build --parallel 4
+          cmake -S firmware/pico -B artifacts/pico-build -DPICO_SDK_PATH="$PWD/artifacts/tools/pico-sdk" -DPICO_TOOLCHAIN_PATH="$PWD/artifacts/tools/arm-gnu-toolchain-15.2.rel1-x86_64-arm-none-eabi" -DPython3_EXECUTABLE="$PWD/.venv/bin/python" -DPICO_BOARD=pico -DPICO_NO_PICOTOOL=ON -DCMAKE_BUILD_TYPE=Release
+          cmake --build artifacts/pico-build --parallel 4
+          artifacts/tools/arm-gnu-toolchain-15.2.rel1-x86_64-arm-none-eabi/bin/arm-none-eabi-gcc --version > artifacts/pico-build/compiler.txt
+          for target in fluid_controller_pico_link fluid_controller_pico_peripheral; do
+            artifacts/picotool-build/picotool uf2 convert "artifacts/pico-build/$target.elf" "artifacts/pico-build/$target.uf2" --family rp2040
+            artifacts/tools/arm-gnu-toolchain-15.2.rel1-x86_64-arm-none-eabi/bin/arm-none-eabi-size "artifacts/pico-build/$target.elf" > "artifacts/pico-build/$target.size.txt"
+          done
+          sha256sum artifacts/pico-build/*.elf artifacts/pico-build/*.bin artifacts/pico-build/*.uf2 artifacts/pico-build/*.elf.map > artifacts/pico-build/artifact-sha256.txt
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        if: always()
+        with:
+          name: pico-build-evidence
+          path: |
+            artifacts/pico-build/
+            artifacts/picotool-build/CMakeCache.txt

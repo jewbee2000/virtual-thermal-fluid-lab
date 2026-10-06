@@ -78,6 +78,11 @@ terminal_boundary/solver_failure. event_ids joins declared IDs or is empty;
 event_phase is null/before/after. Requested, live lease, applied physical input
 and actuator state remain distinct replay tracks.
 
+operation uses integers0/1/2 (HOLD/ARM/RESET). observed_separate_trip is numeric
+0/1 decoded from channel6. Row wire_time_us=time_us-session_origin_us is a
+nonnegative number; numerical terminal/failure snapshots may be fractional and
+are not transmitted STEP timestamps. Actual frame/reply times remain integers.
+
 ## Summary, raw audit and manifest
 
 Closed summary root: schema_version, name, topology, case_id,

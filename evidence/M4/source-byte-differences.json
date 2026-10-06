@@ -1,0 +1,20 @@
+[
+  {
+    "path": "firmware/pico/tests/test_hal.c",
+    "integrated_sha256": "bd7ae9fe63b2b0a304c38b0f367ebb117ea742206f0a7f8ad4bf1af25a24870c",
+    "writer_sha256": "c4c7950db301aee9ca21b5bc7b61bff4100274639576ca16ce61427712ac7a60",
+    "lf_normalized_equal": true
+  },
+  {
+    "path": "firmware/pico/tests/hal_stub/hardware/adc.h",
+    "integrated_sha256": "7e1af2cc663741f3b7dc8b85ca40bd1cc66e8a02e6f82792753267449008297f",
+    "writer_sha256": "ba961c08c47384899152f2fa39564dde8b16136bb6dad94fb778d0fb9b89d04d",
+    "lf_normalized_equal": true
+  },
+  {
+    "path": "firmware/pico/tests/hal_stub/pico/stdlib.h",
+    "integrated_sha256": "b065f0abd92e30c222226ebe53a7506097a6cb47e8e651f85fa915c2712730cd",
+    "writer_sha256": "685dee6997d84d6cf7f547ec42a54a1c47ca1450694afaa532ef65813a15dac5",
+    "lf_normalized_equal": true
+  }
+]

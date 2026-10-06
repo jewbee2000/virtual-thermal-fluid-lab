@@ -48,16 +48,8 @@
       "maximum": 18446744073709551615
     },
     "wire_time_us": {
-      "anyOf": [
-        {
-          "type": "integer",
-          "minimum": 0,
-          "maximum": 18446744073709551615
-        },
-        {
-          "type": "null"
-        }
-      ]
+      "type": "number",
+      "minimum": 0
     },
     "controller_tick_id": {
       "anyOf": [
@@ -108,17 +100,9 @@
       ]
     },
     "operation": {
-      "anyOf": [
-        {
-          "type": [
-            "string",
-            "integer"
-          ]
-        },
-        {
-          "type": "null"
-        }
-      ]
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 2
     },
     "operation_result": {
       "anyOf": [
@@ -262,13 +246,10 @@
       ]
     },
     "observed_separate_trip": {
-      "anyOf": [
-        {
-          "type": "number"
-        },
-        {
-          "type": "null"
-        }
+      "enum": [
+        null,
+        0,
+        1
       ]
     },
     "flow_value_i": {
