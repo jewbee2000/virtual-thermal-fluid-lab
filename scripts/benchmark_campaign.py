@@ -96,7 +96,7 @@ def worker(args):
 
 
 def retained_process_pids(artifact):
-    """Read actual spawn diagnostics for every thermal and tank wire session."""
+    """Require actual owning Python and C PIDs for every retained wire session."""
     paths={p.parent for p in artifact.rglob("*") if p.is_file()
            and p.name in ("stdin.bin","stdout.bin","stderr.bin","events.jsonl")
            and "wire" in p.relative_to(artifact).parts[:-1]}
@@ -123,6 +123,8 @@ def retained_process_pids(artifact):
                 raise ValueError("missing/duplicate actual process startup or session")
             start,session=starts[0],sessions[0]
             if (type(start.get("process_pid")) is not int or start["process_pid"]<=0
+                    or type(start.get("parent_process_pid")) is not int or start["parent_process_pid"]<=0
+                    or start["parent_process_pid"]==start["process_pid"]
                     or type(start.get("epoch")) is not int or not 0<start["epoch"]<=2**32-1
                     or type(start.get("session_origin_us")) is not int or not 0<=start["session_origin_us"]<=2**64-1
                     or not isinstance(start.get("command"),list) or not start["command"]
@@ -131,10 +133,10 @@ def retained_process_pids(artifact):
                     or start["epoch"]!=session.get("epoch")
                     or start["session_origin_us"]!=session.get("session_origin_us")):
                 raise ValueError("invalid actual process PID/session diagnostic")
-            pids.append(start["process_pid"])
+            pids.extend((start["parent_process_pid"],start["process_pid"]))
         except (OSError,UnicodeError,ValueError,TypeError,KeyError) as exc:
             issues.append(f"{path.relative_to(artifact).as_posix()}: {exc}")
-    return pids,issues
+    return sorted(set(pids)),issues
 
 
 def main():
@@ -175,7 +177,7 @@ def main():
                 observed_process_family_peak_sum_bytes=memory,individual_os_peak_working_sets_bytes=peaks,
                 required_process_pids=required_pids,required_process_pids_observed=required_observed,
                 retained_pid_capture_issues=pid_issues,
-                required_pid_scope="worker and every retained actual C startup in all recursive thermal/tank wire sessions",
+                required_pid_scope="launcher, actual owning Python workers, and every C startup in all recursive thermal/tank wire sessions",
                 memory_method="sum of individual OS lifetime peak working sets/HWM of observed descendants;5ms discovery",
                 memory_scope_limitations="sum is conservative for recorded peaks of observed processes; discovery may miss short-lived descendants/final growth; no strict unseen-family upper bound",
                 monitor_errors=errors,monitoring_overhead="included in wall time; monitor process itself excluded from selected family",

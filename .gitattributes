@@ -7,3 +7,4 @@
 *.zip binary
 *.elf binary
 *.uf2 binary
+third_party/licenses/* -text

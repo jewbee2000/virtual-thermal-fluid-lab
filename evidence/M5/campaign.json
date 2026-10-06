@@ -1,0 +1,2030 @@
+{
+  "schema_version": 1,
+  "contract": "docs/CAMPAIGN.md",
+  "scope": "HOST_SIL; assumed parameters; no board or physical validation",
+  "executable_sha256": "8152e818f72869d201f64389367621b255fc1619d56caacbab5f5d38caa552ef",
+  "cases": {
+    "nominal_heat_step": {
+      "expectation_pass": true,
+      "containment_status": "CONTAINED",
+      "completion_status": "PASS",
+      "metrics": {
+        "sampled_peaks_k": {
+          "wall_temperature_k": 315.5096081228418,
+          "hot_temperature_k": 299.60541024478937,
+          "cold_temperature_k": 293.15
+        },
+        "global_sampled_peak_k": 315.5096081228418,
+        "largest_sample_gap_s": 0.10000000000002274,
+        "global_peak_upper_bound_k": 315.55960812284184,
+        "peak_bound_coverage": {
+          "start_time_us": 0,
+          "end_time_us": 240000000,
+          "requested_end_time_us": 240000000,
+          "retained_samples": 2404,
+          "discarded_rows": 0,
+          "scope": "FULL_RETAINED_HORIZON"
+        },
+        "peak_bound_meaning": "sample max+.5 K/s largest actual event/terminal gap; excludes numerical error",
+        "energy_residual_max_j": 4.547473508864641e-08,
+        "tracking_true_max_error_m3_s": 1.5388495658134622e-09,
+        "tracking_observed_max_error_m3_s": 2.0000000000043854e-09,
+        "integral_flow_error_m3": 0.00018043571757946972,
+        "first_trip_time_us": null,
+        "first_trip_reason": null,
+        "terminal_time_us": null,
+        "trip_expected_time_us": null,
+        "prefault_temperatures_k": null,
+        "final30_mean_temperatures_k": {
+          "wall_temperature_k": 315.12926553481276,
+          "hot_temperature_k": 299.3522321397197,
+          "cold_temperature_k": 292.0403186902791
+        },
+        "wall_elapsed_s": 4.480280499999935,
+        "protocol_latency_s": {
+          "count": 2401,
+          "minimum": 0.0005933000011282274,
+          "median": 0.0008665000004839385,
+          "p95": 0.0013703000004170462,
+          "maximum": 0.007938600001580198
+        }
+      },
+      "rules": {
+        "TH01": {
+          "status": "PASS",
+          "evidence": {
+            "true_max_error_m3_s": 1.5388495658134622e-09,
+            "observed_max_error_m3_s": 2.0000000000043854e-09,
+            "limit_m3_s": 3e-06
+          }
+        },
+        "TH02": {
+          "status": "PASS",
+          "evidence": {
+            "independent_residual_max_j": 4.548928700387478e-08,
+            "limit_j": 0.001
+          }
+        },
+        "TH03": {
+          "status": "PASS",
+          "evidence": {
+            "completed_horizon": true,
+            "no_unexpected_trip": true
+          }
+        },
+        "TH04": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "no trip"
+        },
+        "TH05": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH06": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH07": {
+          "status": "PASS",
+          "evidence": {
+            "continuous_global_peak_upper_bound_k": 315.55960812284184,
+            "limit_k": 359.15,
+            "numerical_error": "not included"
+          }
+        },
+        "TH08": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH09": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH10": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH11": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH12": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        }
+      },
+      "manifest_sha256": "f4aa5a06bfb86886f3e192e9d4f401b8f3c7a72b1940d319c493a5c7040660c2"
+    },
+    "restriction": {
+      "expectation_pass": true,
+      "containment_status": "CONTAINED",
+      "completion_status": "PASS",
+      "metrics": {
+        "sampled_peaks_k": {
+          "wall_temperature_k": 318.31730474687447,
+          "hot_temperature_k": 301.9646632567553,
+          "cold_temperature_k": 293.24957820994274
+        },
+        "global_sampled_peak_k": 318.31730474687447,
+        "largest_sample_gap_s": 0.10000000000002274,
+        "global_peak_upper_bound_k": 318.3673047468745,
+        "peak_bound_coverage": {
+          "start_time_us": 0,
+          "end_time_us": 240000000,
+          "requested_end_time_us": 240000000,
+          "retained_samples": 2404,
+          "discarded_rows": 0,
+          "scope": "FULL_RETAINED_HORIZON"
+        },
+        "peak_bound_meaning": "sample max+.5 K/s largest actual event/terminal gap; excludes numerical error",
+        "energy_residual_max_j": 5.515539669431746e-08,
+        "tracking_true_max_error_m3_s": 6.8476186601416e-07,
+        "tracking_observed_max_error_m3_s": 6.849999999999977e-07,
+        "integral_flow_error_m3": 0.001481600850687798,
+        "first_trip_time_us": null,
+        "first_trip_reason": null,
+        "terminal_time_us": null,
+        "trip_expected_time_us": null,
+        "prefault_temperatures_k": {
+          "wall_temperature_k": 317.7911502575065,
+          "hot_temperature_k": 301.12448440196295,
+          "cold_temperature_k": 293.14999905756594
+        },
+        "final30_mean_temperatures_k": {
+          "wall_temperature_k": 318.0378139381606,
+          "hot_temperature_k": 301.2952448888678,
+          "cold_temperature_k": 293.23665785475697
+        },
+        "wall_elapsed_s": 4.4663932000003115,
+        "protocol_latency_s": {
+          "count": 2401,
+          "minimum": 0.0006160000011732336,
+          "median": 0.0008264000007329741,
+          "p95": 0.001187500000014552,
+          "maximum": 0.001956199999767705
+        }
+      },
+      "rules": {
+        "TH01": {
+          "status": "PASS",
+          "evidence": {
+            "true_max_error_m3_s": 6.8476186601416e-07,
+            "observed_max_error_m3_s": 6.849999999999977e-07,
+            "limit_m3_s": 3e-06
+          }
+        },
+        "TH02": {
+          "status": "PASS",
+          "evidence": {
+            "independent_residual_max_j": 5.51808625459671e-08,
+            "limit_j": 0.001
+          }
+        },
+        "TH03": {
+          "status": "PASS",
+          "evidence": {
+            "completed_horizon": true,
+            "no_unexpected_trip": true
+          }
+        },
+        "TH04": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "no trip"
+        },
+        "TH05": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH06": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH07": {
+          "status": "PASS",
+          "evidence": {
+            "continuous_global_peak_upper_bound_k": 318.3673047468745,
+            "limit_k": 359.15,
+            "numerical_error": "not included"
+          }
+        },
+        "TH08": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH09": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH10": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH11": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH12": {
+          "status": "PASS",
+          "evidence": {
+            "actual_immediate_flow_ratio": 0.6381603528967881,
+            "independent_ratio": 0.6381603528967881,
+            "nominal_feedforward_ppm": 527498
+          }
+        }
+      },
+      "manifest_sha256": "5811d3b10d67a264077d1090ab1411a2a564d623044ece6b59a2696ed4dbc33f"
+    },
+    "reduced_rejection": {
+      "expectation_pass": true,
+      "containment_status": "CONTAINED",
+      "completion_status": "PASS",
+      "metrics": {
+        "sampled_peaks_k": {
+          "wall_temperature_k": 342.9436964541289,
+          "hot_temperature_k": 326.8578386339554,
+          "cold_temperature_k": 319.36573910795164
+        },
+        "global_sampled_peak_k": 342.9436964541289,
+        "largest_sample_gap_s": 0.10000000000002274,
+        "global_peak_upper_bound_k": 342.9936964541289,
+        "peak_bound_coverage": {
+          "start_time_us": 0,
+          "end_time_us": 600000000,
+          "requested_end_time_us": 600000000,
+          "retained_samples": 6004,
+          "discarded_rows": 0,
+          "scope": "FULL_RETAINED_HORIZON"
+        },
+        "peak_bound_meaning": "sample max+.5 K/s largest actual event/terminal gap; excludes numerical error",
+        "energy_residual_max_j": 3.46451997756958e-07,
+        "tracking_true_max_error_m3_s": 8.028602432939673e-11,
+        "tracking_observed_max_error_m3_s": 0.0,
+        "integral_flow_error_m3": 4.809127257602826e-08,
+        "first_trip_time_us": null,
+        "first_trip_reason": null,
+        "terminal_time_us": null,
+        "trip_expected_time_us": null,
+        "prefault_temperatures_k": {
+          "wall_temperature_k": 317.7911502575065,
+          "hot_temperature_k": 301.12448440196295,
+          "cold_temperature_k": 293.14999905756594
+        },
+        "final30_mean_temperatures_k": {
+          "wall_temperature_k": 342.672662335223,
+          "hot_temperature_k": 326.61927907467043,
+          "cold_temperature_k": 319.15415105004706
+        },
+        "wall_elapsed_s": 11.348841600000014,
+        "protocol_latency_s": {
+          "count": 6001,
+          "minimum": 0.0005662999992637197,
+          "median": 0.0008464000002277317,
+          "p95": 0.0014372999994520796,
+          "maximum": 0.0041650000002846355
+        }
+      },
+      "rules": {
+        "TH01": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH02": {
+          "status": "PASS",
+          "evidence": {
+            "independent_residual_max_j": 3.46451997756958e-07,
+            "limit_j": 0.001
+          }
+        },
+        "TH03": {
+          "status": "PASS",
+          "evidence": {
+            "completed_horizon": true,
+            "no_unexpected_trip": true
+          }
+        },
+        "TH04": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "no trip"
+        },
+        "TH05": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH06": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH07": {
+          "status": "PASS",
+          "evidence": {
+            "continuous_global_peak_upper_bound_k": 342.9936964541289,
+            "limit_k": 359.15,
+            "numerical_error": "not included"
+          }
+        },
+        "TH08": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH09": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH10": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH11": {
+          "status": "PASS",
+          "evidence": {
+            "temperature_rises_k": {
+              "wall_temperature_k": 24.88151207771648,
+              "hot_temperature_k": 25.494794672707485,
+              "cold_temperature_k": 26.004151992481127
+            },
+            "flow_max_error_m3_s": 8.028602432939673e-11
+          }
+        },
+        "TH12": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        }
+      },
+      "manifest_sha256": "3ffefb8fe52341d8c25ccbadcbef0535cc2f02f83439d5ea09a23d28d9c1530d"
+    },
+    "flow_dropout": {
+      "expectation_pass": true,
+      "containment_status": "CONTAINED",
+      "completion_status": "PASS",
+      "metrics": {
+        "sampled_peaks_k": {
+          "wall_temperature_k": 317.7911502647935,
+          "hot_temperature_k": 301.1244844063334,
+          "cold_temperature_k": 294.2779570919362
+        },
+        "global_sampled_peak_k": 317.7911502647935,
+        "largest_sample_gap_s": 0.10000000000000853,
+        "global_peak_upper_bound_k": 317.8411502647935,
+        "peak_bound_coverage": {
+          "start_time_us": 0,
+          "end_time_us": 120000000,
+          "requested_end_time_us": 120000000,
+          "retained_samples": 1206,
+          "discarded_rows": 0,
+          "scope": "FULL_RETAINED_HORIZON"
+        },
+        "peak_bound_meaning": "sample max+.5 K/s largest actual event/terminal gap; excludes numerical error",
+        "energy_residual_max_j": 2.1143932826817036e-08,
+        "tracking_true_max_error_m3_s": 0.00015151134457776333,
+        "tracking_observed_max_error_m3_s": 0.00015151100000000003,
+        "integral_flow_error_m3": 0.008898372702159043,
+        "first_trip_time_us": 60300000,
+        "first_trip_reason": "stale_input",
+        "terminal_time_us": null,
+        "trip_expected_time_us": 60300000,
+        "prefault_temperatures_k": {
+          "wall_temperature_k": 317.7911502575065,
+          "hot_temperature_k": 301.12448440196295,
+          "cold_temperature_k": 293.14999905756594
+        },
+        "final30_mean_temperatures_k": {
+          "wall_temperature_k": 302.273697462674,
+          "hot_temperature_k": 294.4711273323727,
+          "cold_temperature_k": 291.8484788124384
+        },
+        "wall_elapsed_s": 2.0949273999995057,
+        "protocol_latency_s": {
+          "count": 1201,
+          "minimum": 0.0006133999995654449,
+          "median": 0.000778800000261981,
+          "p95": 0.0011339999982737936,
+          "maximum": 0.0019958000011683907
+        }
+      },
+      "rules": {
+        "TH01": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH02": {
+          "status": "PASS",
+          "evidence": {
+            "independent_residual_max_j": 2.112938091158867e-08,
+            "limit_j": 0.001
+          }
+        },
+        "TH03": {
+          "status": "PASS",
+          "evidence": {
+            "completed_horizon": true,
+            "no_unexpected_trip": true
+          }
+        },
+        "TH04": {
+          "status": "PASS",
+          "evidence": {
+            "first_trip_time_us": 60300000,
+            "cooling_requests_latched": true
+          }
+        },
+        "TH05": {
+          "status": "PASS",
+          "evidence": {
+            "actual_trip_time_us": 60300000,
+            "independent_expected_us": 60300000
+          }
+        },
+        "TH06": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH07": {
+          "status": "PASS",
+          "evidence": {
+            "continuous_global_peak_upper_bound_k": 317.8411502647935,
+            "limit_k": 359.15,
+            "numerical_error": "not included"
+          }
+        },
+        "TH08": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH09": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH10": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH11": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH12": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        }
+      },
+      "manifest_sha256": "9ae59c7a810df41de00ccbb6b647ad57bbbd28d0a933bed89be67a45f8f25b69"
+    },
+    "frozen_temperature": {
+      "expectation_pass": true,
+      "containment_status": "CONTAINED",
+      "completion_status": "PASS",
+      "metrics": {
+        "sampled_peaks_k": {
+          "wall_temperature_k": 358.15880143174934,
+          "hot_temperature_k": 349.2203879637,
+          "cold_temperature_k": 349.22031895941734
+        },
+        "global_sampled_peak_k": 358.15880143174934,
+        "largest_sample_gap_s": 0.10000000000002274,
+        "global_peak_upper_bound_k": 358.20880143174935,
+        "peak_bound_coverage": {
+          "start_time_us": 0,
+          "end_time_us": 600000000,
+          "requested_end_time_us": 600000000,
+          "retained_samples": 6004,
+          "discarded_rows": 0,
+          "scope": "FULL_RETAINED_HORIZON"
+        },
+        "peak_bound_meaning": "sample max+.5 K/s largest actual event/terminal gap; excludes numerical error",
+        "energy_residual_max_j": 1.73225998878479e-07,
+        "tracking_true_max_error_m3_s": 0.00015151134457776333,
+        "tracking_observed_max_error_m3_s": 0.00015151100000000003,
+        "integral_flow_error_m3": 0.03865522354634817,
+        "first_trip_time_us": 343900000,
+        "first_trip_reason": "separate_trip",
+        "terminal_time_us": null,
+        "trip_expected_time_us": null,
+        "prefault_temperatures_k": {
+          "wall_temperature_k": 317.7911502575065,
+          "hot_temperature_k": 301.12448440196295,
+          "cold_temperature_k": 293.14999905756594
+        },
+        "final30_mean_temperatures_k": {
+          "wall_temperature_k": 349.2210788711052,
+          "hot_temperature_k": 349.220290563389,
+          "cold_temperature_k": 349.22015650210835
+        },
+        "wall_elapsed_s": 10.944675500000812,
+        "protocol_latency_s": {
+          "count": 6001,
+          "minimum": 0.0005994999992253724,
+          "median": 0.0008285999992949655,
+          "p95": 0.001244099999894388,
+          "maximum": 0.05424689999927068
+        }
+      },
+      "rules": {
+        "TH01": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH02": {
+          "status": "PASS",
+          "evidence": {
+            "independent_residual_max_j": 1.73225998878479e-07,
+            "limit_j": 0.001
+          }
+        },
+        "TH03": {
+          "status": "PASS",
+          "evidence": {
+            "completed_horizon": true,
+            "no_unexpected_trip": true
+          }
+        },
+        "TH04": {
+          "status": "PASS",
+          "evidence": {
+            "first_trip_time_us": 343900000,
+            "cooling_requests_latched": true
+          }
+        },
+        "TH05": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH06": {
+          "status": "PASS",
+          "evidence": {
+            "primary_fresh_before_trip": true,
+            "separate_trip_reason": "separate_trip"
+          }
+        },
+        "TH07": {
+          "status": "PASS",
+          "evidence": {
+            "continuous_global_peak_upper_bound_k": 358.20880143174935,
+            "limit_k": 359.15,
+            "numerical_error": "not included"
+          }
+        },
+        "TH08": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH09": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH10": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH11": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH12": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        }
+      },
+      "manifest_sha256": "de33fe8fce316e7fde6e203c3e19ae9a9e7befd7890e36bb71be60914b403cdb"
+    },
+    "biased_temperature": {
+      "expectation_pass": true,
+      "containment_status": "CONTAINED",
+      "completion_status": "PASS",
+      "metrics": {
+        "sampled_peaks_k": {
+          "wall_temperature_k": 358.15880143174934,
+          "hot_temperature_k": 349.2203879637,
+          "cold_temperature_k": 349.22031895941734
+        },
+        "global_sampled_peak_k": 358.15880143174934,
+        "largest_sample_gap_s": 0.10000000000002274,
+        "global_peak_upper_bound_k": 358.20880143174935,
+        "peak_bound_coverage": {
+          "start_time_us": 0,
+          "end_time_us": 600000000,
+          "requested_end_time_us": 600000000,
+          "retained_samples": 6004,
+          "discarded_rows": 0,
+          "scope": "FULL_RETAINED_HORIZON"
+        },
+        "peak_bound_meaning": "sample max+.5 K/s largest actual event/terminal gap; excludes numerical error",
+        "energy_residual_max_j": 1.73225998878479e-07,
+        "tracking_true_max_error_m3_s": 0.00015151134457776333,
+        "tracking_observed_max_error_m3_s": 0.00015151100000000003,
+        "integral_flow_error_m3": 0.03865522354634817,
+        "first_trip_time_us": 343900000,
+        "first_trip_reason": "separate_trip",
+        "terminal_time_us": null,
+        "trip_expected_time_us": null,
+        "prefault_temperatures_k": {
+          "wall_temperature_k": 317.7911502575065,
+          "hot_temperature_k": 301.12448440196295,
+          "cold_temperature_k": 293.14999905756594
+        },
+        "final30_mean_temperatures_k": {
+          "wall_temperature_k": 349.2210788711052,
+          "hot_temperature_k": 349.220290563389,
+          "cold_temperature_k": 349.22015650210835
+        },
+        "wall_elapsed_s": 10.853827200000524,
+        "protocol_latency_s": {
+          "count": 6001,
+          "minimum": 0.000548400001207483,
+          "median": 0.0008170999990397831,
+          "p95": 0.001211100001455634,
+          "maximum": 0.0024895000005926704
+        }
+      },
+      "rules": {
+        "TH01": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH02": {
+          "status": "PASS",
+          "evidence": {
+            "independent_residual_max_j": 1.73225998878479e-07,
+            "limit_j": 0.001
+          }
+        },
+        "TH03": {
+          "status": "PASS",
+          "evidence": {
+            "completed_horizon": true,
+            "no_unexpected_trip": true
+          }
+        },
+        "TH04": {
+          "status": "PASS",
+          "evidence": {
+            "first_trip_time_us": 343900000,
+            "cooling_requests_latched": true
+          }
+        },
+        "TH05": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH06": {
+          "status": "PASS",
+          "evidence": {
+            "primary_fresh_before_trip": true,
+            "separate_trip_reason": "separate_trip"
+          }
+        },
+        "TH07": {
+          "status": "PASS",
+          "evidence": {
+            "continuous_global_peak_upper_bound_k": 358.20880143174935,
+            "limit_k": 359.15,
+            "numerical_error": "not included"
+          }
+        },
+        "TH08": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH09": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH10": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH11": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH12": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        }
+      },
+      "manifest_sha256": "dcff006e75414527e215e41a9f49dba044aa3b658e49d99b4be68f1dc33e1d21"
+    },
+    "delayed_flow": {
+      "expectation_pass": true,
+      "containment_status": "CONTAINED",
+      "completion_status": "PASS",
+      "metrics": {
+        "sampled_peaks_k": {
+          "wall_temperature_k": 317.7911502647935,
+          "hot_temperature_k": 301.1244844063334,
+          "cold_temperature_k": 294.2779570919362
+        },
+        "global_sampled_peak_k": 317.7911502647935,
+        "largest_sample_gap_s": 0.10000000000000853,
+        "global_peak_upper_bound_k": 317.8411502647935,
+        "peak_bound_coverage": {
+          "start_time_us": 0,
+          "end_time_us": 120000000,
+          "requested_end_time_us": 120000000,
+          "retained_samples": 1206,
+          "discarded_rows": 0,
+          "scope": "FULL_RETAINED_HORIZON"
+        },
+        "peak_bound_meaning": "sample max+.5 K/s largest actual event/terminal gap; excludes numerical error",
+        "energy_residual_max_j": 2.1143932826817036e-08,
+        "tracking_true_max_error_m3_s": 0.00015151134457776333,
+        "tracking_observed_max_error_m3_s": 0.00015151100000000003,
+        "integral_flow_error_m3": 0.008898372702159043,
+        "first_trip_time_us": 60300000,
+        "first_trip_reason": "stale_input",
+        "terminal_time_us": null,
+        "trip_expected_time_us": 60300000,
+        "prefault_temperatures_k": {
+          "wall_temperature_k": 317.7911502575065,
+          "hot_temperature_k": 301.12448440196295,
+          "cold_temperature_k": 293.14999905756594
+        },
+        "final30_mean_temperatures_k": {
+          "wall_temperature_k": 302.273697462674,
+          "hot_temperature_k": 294.4711273323727,
+          "cold_temperature_k": 291.8484788124384
+        },
+        "wall_elapsed_s": 2.598203999999896,
+        "protocol_latency_s": {
+          "count": 1201,
+          "minimum": 0.0005927000001975102,
+          "median": 0.0009112999996432336,
+          "p95": 0.0013886999986425508,
+          "maximum": 0.0022260999994614394
+        }
+      },
+      "rules": {
+        "TH01": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH02": {
+          "status": "PASS",
+          "evidence": {
+            "independent_residual_max_j": 2.112938091158867e-08,
+            "limit_j": 0.001
+          }
+        },
+        "TH03": {
+          "status": "PASS",
+          "evidence": {
+            "completed_horizon": true,
+            "no_unexpected_trip": true
+          }
+        },
+        "TH04": {
+          "status": "PASS",
+          "evidence": {
+            "first_trip_time_us": 60300000,
+            "cooling_requests_latched": true
+          }
+        },
+        "TH05": {
+          "status": "PASS",
+          "evidence": {
+            "actual_trip_time_us": 60300000,
+            "independent_expected_us": 60300000
+          }
+        },
+        "TH06": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH07": {
+          "status": "PASS",
+          "evidence": {
+            "continuous_global_peak_upper_bound_k": 317.8411502647935,
+            "limit_k": 359.15,
+            "numerical_error": "not included"
+          }
+        },
+        "TH08": {
+          "status": "PASS",
+          "evidence": {
+            "delayed_record_count": 10,
+            "original_source_times_retained": true
+          }
+        },
+        "TH09": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH10": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH11": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH12": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        }
+      },
+      "manifest_sha256": "eca90fbdab5b11b52742d8f09ff9772fabe2226a0a95bb440e9ac952b67840cf"
+    },
+    "reordered_flow": {
+      "expectation_pass": true,
+      "containment_status": "CONTAINED",
+      "completion_status": "PASS",
+      "metrics": {
+        "sampled_peaks_k": {
+          "wall_temperature_k": 317.7911508756496,
+          "hot_temperature_k": 301.1244847892173,
+          "cold_temperature_k": 293.15
+        },
+        "global_sampled_peak_k": 317.7911508756496,
+        "largest_sample_gap_s": 0.10000000000000853,
+        "global_peak_upper_bound_k": 317.8411508756496,
+        "peak_bound_coverage": {
+          "start_time_us": 0,
+          "end_time_us": 90000000,
+          "requested_end_time_us": 90000000,
+          "retained_samples": 904,
+          "discarded_rows": 0,
+          "scope": "FULL_RETAINED_HORIZON"
+        },
+        "peak_bound_meaning": "sample max+.5 K/s largest actual event/terminal gap; excludes numerical error",
+        "energy_residual_max_j": 4.456865099200513e-08,
+        "tracking_true_max_error_m3_s": 8.028602432939673e-11,
+        "tracking_observed_max_error_m3_s": 0.0,
+        "integral_flow_error_m3": 7.145400168035929e-09,
+        "first_trip_time_us": null,
+        "first_trip_reason": null,
+        "terminal_time_us": null,
+        "trip_expected_time_us": null,
+        "prefault_temperatures_k": {
+          "wall_temperature_k": 317.7911502575065,
+          "hot_temperature_k": 301.12448440196295,
+          "cold_temperature_k": 293.14999905756594
+        },
+        "final30_mean_temperatures_k": {
+          "wall_temperature_k": 317.79115058157254,
+          "hot_temperature_k": 301.12448460258247,
+          "cold_temperature_k": 293.14999917691875
+        },
+        "wall_elapsed_s": 1.694820200000322,
+        "protocol_latency_s": {
+          "count": 901,
+          "minimum": 0.0006293000005825888,
+          "median": 0.0007968000008986564,
+          "p95": 0.0011634999991656514,
+          "maximum": 0.0021885999994992744
+        }
+      },
+      "rules": {
+        "TH01": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH02": {
+          "status": "PASS",
+          "evidence": {
+            "independent_residual_max_j": 4.4587068259716034e-08,
+            "limit_j": 0.001
+          }
+        },
+        "TH03": {
+          "status": "PASS",
+          "evidence": {
+            "completed_horizon": true,
+            "no_unexpected_trip": true
+          }
+        },
+        "TH04": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "no trip"
+        },
+        "TH05": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH06": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH07": {
+          "status": "PASS",
+          "evidence": {
+            "continuous_global_peak_upper_bound_k": 317.8411508756496,
+            "limit_k": 359.15,
+            "numerical_error": "not included"
+          }
+        },
+        "TH08": {
+          "status": "PASS",
+          "evidence": {
+            "old_record_count": 1,
+            "older_arrival_rejected": true
+          }
+        },
+        "TH09": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH10": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH11": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH12": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        }
+      },
+      "manifest_sha256": "bf1880e9ef636297be485cd1c0f7c5a9570383af1e11e72bc8184f7345f89063"
+    },
+    "corrupt_flow": {
+      "expectation_pass": true,
+      "containment_status": "CONTAINED",
+      "completion_status": "PASS",
+      "metrics": {
+        "sampled_peaks_k": {
+          "wall_temperature_k": 317.7911508756496,
+          "hot_temperature_k": 301.1244847892173,
+          "cold_temperature_k": 293.15
+        },
+        "global_sampled_peak_k": 317.7911508756496,
+        "largest_sample_gap_s": 0.10000000000000853,
+        "global_peak_upper_bound_k": 317.8411508756496,
+        "peak_bound_coverage": {
+          "start_time_us": 0,
+          "end_time_us": 90000000,
+          "requested_end_time_us": 90000000,
+          "retained_samples": 904,
+          "discarded_rows": 0,
+          "scope": "FULL_RETAINED_HORIZON"
+        },
+        "peak_bound_meaning": "sample max+.5 K/s largest actual event/terminal gap; excludes numerical error",
+        "energy_residual_max_j": 4.456865099200513e-08,
+        "tracking_true_max_error_m3_s": 8.028602432939673e-11,
+        "tracking_observed_max_error_m3_s": 0.0,
+        "integral_flow_error_m3": 7.145400168035929e-09,
+        "first_trip_time_us": null,
+        "first_trip_reason": null,
+        "terminal_time_us": null,
+        "trip_expected_time_us": null,
+        "prefault_temperatures_k": {
+          "wall_temperature_k": 317.7911502575065,
+          "hot_temperature_k": 301.12448440196295,
+          "cold_temperature_k": 293.14999905756594
+        },
+        "final30_mean_temperatures_k": {
+          "wall_temperature_k": 317.79115058157254,
+          "hot_temperature_k": 301.12448460258247,
+          "cold_temperature_k": 293.14999917691875
+        },
+        "wall_elapsed_s": 1.798369600001024,
+        "protocol_latency_s": {
+          "count": 901,
+          "minimum": 0.0005956999993941281,
+          "median": 0.0008288999997603241,
+          "p95": 0.0012705000008281786,
+          "maximum": 0.04080999999860069
+        }
+      },
+      "rules": {
+        "TH01": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH02": {
+          "status": "PASS",
+          "evidence": {
+            "independent_residual_max_j": 4.4587068259716034e-08,
+            "limit_j": 0.001
+          }
+        },
+        "TH03": {
+          "status": "PASS",
+          "evidence": {
+            "completed_horizon": true,
+            "no_unexpected_trip": true
+          }
+        },
+        "TH04": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "no trip"
+        },
+        "TH05": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH06": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH07": {
+          "status": "PASS",
+          "evidence": {
+            "continuous_global_peak_upper_bound_k": 317.8411508756496,
+            "limit_k": 359.15,
+            "numerical_error": "not included"
+          }
+        },
+        "TH08": {
+          "status": "PASS",
+          "evidence": {
+            "invalid_retained_records": 1,
+            "c_stderr_rejections": 1,
+            "next_tick_recovered": true
+          }
+        },
+        "TH09": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH10": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH11": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH12": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        }
+      },
+      "manifest_sha256": "7e74b2bd2b4865bd81271632c1c45a92f4eda9093a2632429eac49c2c7759b40"
+    },
+    "truncated_flow": {
+      "expectation_pass": true,
+      "containment_status": "CONTAINED",
+      "completion_status": "PASS",
+      "metrics": {
+        "sampled_peaks_k": {
+          "wall_temperature_k": 317.7911508756496,
+          "hot_temperature_k": 301.1244847892173,
+          "cold_temperature_k": 293.15
+        },
+        "global_sampled_peak_k": 317.7911508756496,
+        "largest_sample_gap_s": 0.10000000000000853,
+        "global_peak_upper_bound_k": 317.8411508756496,
+        "peak_bound_coverage": {
+          "start_time_us": 0,
+          "end_time_us": 90000000,
+          "requested_end_time_us": 90000000,
+          "retained_samples": 904,
+          "discarded_rows": 0,
+          "scope": "FULL_RETAINED_HORIZON"
+        },
+        "peak_bound_meaning": "sample max+.5 K/s largest actual event/terminal gap; excludes numerical error",
+        "energy_residual_max_j": 4.456865099200513e-08,
+        "tracking_true_max_error_m3_s": 8.028602432939673e-11,
+        "tracking_observed_max_error_m3_s": 0.0,
+        "integral_flow_error_m3": 7.145400168035929e-09,
+        "first_trip_time_us": null,
+        "first_trip_reason": null,
+        "terminal_time_us": null,
+        "trip_expected_time_us": null,
+        "prefault_temperatures_k": {
+          "wall_temperature_k": 317.7911502575065,
+          "hot_temperature_k": 301.12448440196295,
+          "cold_temperature_k": 293.14999905756594
+        },
+        "final30_mean_temperatures_k": {
+          "wall_temperature_k": 317.79115058157254,
+          "hot_temperature_k": 301.12448460258247,
+          "cold_temperature_k": 293.14999917691875
+        },
+        "wall_elapsed_s": 1.7942358999989665,
+        "protocol_latency_s": {
+          "count": 901,
+          "minimum": 0.0005877999992662808,
+          "median": 0.0008692999999766471,
+          "p95": 0.0013115999990986893,
+          "maximum": 0.002288300000145682
+        }
+      },
+      "rules": {
+        "TH01": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH02": {
+          "status": "PASS",
+          "evidence": {
+            "independent_residual_max_j": 4.4587068259716034e-08,
+            "limit_j": 0.001
+          }
+        },
+        "TH03": {
+          "status": "PASS",
+          "evidence": {
+            "completed_horizon": true,
+            "no_unexpected_trip": true
+          }
+        },
+        "TH04": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "no trip"
+        },
+        "TH05": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH06": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH07": {
+          "status": "PASS",
+          "evidence": {
+            "continuous_global_peak_upper_bound_k": 317.8411508756496,
+            "limit_k": 359.15,
+            "numerical_error": "not included"
+          }
+        },
+        "TH08": {
+          "status": "PASS",
+          "evidence": {
+            "invalid_retained_records": 1,
+            "c_stderr_rejections": 1,
+            "next_tick_recovered": true
+          }
+        },
+        "TH09": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH10": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH11": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH12": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        }
+      },
+      "manifest_sha256": "0dcc4220a41b80ab413f2225a845d3594e64f38635a8a661181fb4296a0bab5f"
+    },
+    "dropped_command": {
+      "expectation_pass": true,
+      "containment_status": "CONTAINED",
+      "completion_status": "PASS",
+      "metrics": {
+        "sampled_peaks_k": {
+          "wall_temperature_k": 317.7911502623674,
+          "hot_temperature_k": 301.12448440487765,
+          "cold_temperature_k": 293.3230018285301
+        },
+        "global_sampled_peak_k": 317.7911502623674,
+        "largest_sample_gap_s": 0.10000000000000853,
+        "global_peak_upper_bound_k": 317.8411502623674,
+        "peak_bound_coverage": {
+          "start_time_us": 0,
+          "end_time_us": 120000000,
+          "requested_end_time_us": 120000000,
+          "retained_samples": 1206,
+          "discarded_rows": 0,
+          "scope": "FULL_RETAINED_HORIZON"
+        },
+        "peak_bound_meaning": "sample max+.5 K/s largest actual event/terminal gap; excludes numerical error",
+        "energy_residual_max_j": 3.528293746057898e-08,
+        "tracking_true_max_error_m3_s": 1.165074696839744e-06,
+        "tracking_observed_max_error_m3_s": 1.164999999999993e-06,
+        "integral_flow_error_m3": 0.00015698039390764574,
+        "first_trip_time_us": null,
+        "first_trip_reason": null,
+        "terminal_time_us": null,
+        "trip_expected_time_us": null,
+        "prefault_temperatures_k": {
+          "wall_temperature_k": 317.7911502575065,
+          "hot_temperature_k": 301.12448440196295,
+          "cold_temperature_k": 293.14999905756594
+        },
+        "final30_mean_temperatures_k": {
+          "wall_temperature_k": 317.61306136559574,
+          "hot_temperature_k": 301.04406756700587,
+          "cold_temperature_k": 293.07968606977954
+        },
+        "wall_elapsed_s": 2.2686144999988755,
+        "protocol_latency_s": {
+          "count": 1201,
+          "minimum": 0.0006195999994815793,
+          "median": 0.000813900000139256,
+          "p95": 0.0011758999989979202,
+          "maximum": 0.04033739999977115
+        }
+      },
+      "rules": {
+        "TH01": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH02": {
+          "status": "PASS",
+          "evidence": {
+            "independent_residual_max_j": 3.527384251356125e-08,
+            "limit_j": 0.001
+          }
+        },
+        "TH03": {
+          "status": "PASS",
+          "evidence": {
+            "completed_horizon": true,
+            "no_unexpected_trip": true
+          }
+        },
+        "TH04": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "no trip"
+        },
+        "TH05": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH06": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH07": {
+          "status": "PASS",
+          "evidence": {
+            "continuous_global_peak_upper_bound_k": 317.8411502623674,
+            "limit_k": 359.15,
+            "numerical_error": "not included"
+          }
+        },
+        "TH08": {
+          "status": "PASS",
+          "evidence": {
+            "independent_expiry_us": 60200000,
+            "expiry_samples": 8,
+            "lease_fallback_verified": true
+          }
+        },
+        "TH09": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH10": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH11": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH12": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        }
+      },
+      "manifest_sha256": "0213c5c760656489266d7390a680cade6bc93c9f2091afb9ac7cfe9d0797743f"
+    },
+    "delayed_command": {
+      "expectation_pass": true,
+      "containment_status": "CONTAINED",
+      "completion_status": "PASS",
+      "metrics": {
+        "sampled_peaks_k": {
+          "wall_temperature_k": 317.7911502623674,
+          "hot_temperature_k": 301.12448440487765,
+          "cold_temperature_k": 293.3230018285301
+        },
+        "global_sampled_peak_k": 317.7911502623674,
+        "largest_sample_gap_s": 0.10000000000000853,
+        "global_peak_upper_bound_k": 317.8411502623674,
+        "peak_bound_coverage": {
+          "start_time_us": 0,
+          "end_time_us": 120000000,
+          "requested_end_time_us": 120000000,
+          "retained_samples": 1216,
+          "discarded_rows": 0,
+          "scope": "FULL_RETAINED_HORIZON"
+        },
+        "peak_bound_meaning": "sample max+.5 K/s largest actual event/terminal gap; excludes numerical error",
+        "energy_residual_max_j": 3.528293746057898e-08,
+        "tracking_true_max_error_m3_s": 1.165074696839744e-06,
+        "tracking_observed_max_error_m3_s": 1.164999999999993e-06,
+        "integral_flow_error_m3": 0.00015698039390764574,
+        "first_trip_time_us": null,
+        "first_trip_reason": null,
+        "terminal_time_us": null,
+        "trip_expected_time_us": null,
+        "prefault_temperatures_k": {
+          "wall_temperature_k": 317.7911502575065,
+          "hot_temperature_k": 301.12448440196295,
+          "cold_temperature_k": 293.14999905756594
+        },
+        "final30_mean_temperatures_k": {
+          "wall_temperature_k": 317.61306136559574,
+          "hot_temperature_k": 301.04406756700587,
+          "cold_temperature_k": 293.07968606977954
+        },
+        "wall_elapsed_s": 2.5604516999992484,
+        "protocol_latency_s": {
+          "count": 1201,
+          "minimum": 0.0006069999999454012,
+          "median": 0.0009312000001955312,
+          "p95": 0.0014960000007704366,
+          "maximum": 0.002843100000973209
+        }
+      },
+      "rules": {
+        "TH01": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH02": {
+          "status": "PASS",
+          "evidence": {
+            "independent_residual_max_j": 3.527384251356125e-08,
+            "limit_j": 0.001
+          }
+        },
+        "TH03": {
+          "status": "PASS",
+          "evidence": {
+            "completed_horizon": true,
+            "no_unexpected_trip": true
+          }
+        },
+        "TH04": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "no trip"
+        },
+        "TH05": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH06": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH07": {
+          "status": "PASS",
+          "evidence": {
+            "continuous_global_peak_upper_bound_k": 317.8411502623674,
+            "limit_k": 359.15,
+            "numerical_error": "not included"
+          }
+        },
+        "TH08": {
+          "status": "PASS",
+          "evidence": {
+            "independent_expiry_us": 60200000,
+            "expiry_samples": 14,
+            "lease_fallback_verified": true
+          }
+        },
+        "TH09": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH10": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH11": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH12": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        }
+      },
+      "manifest_sha256": "8429689035710b6f3ce8ab804dffb640141b5dafec92e4575303d2a70c1f10cf"
+    },
+    "dropped_ack": {
+      "expectation_pass": true,
+      "containment_status": "CONTAINED",
+      "completion_status": "PASS",
+      "metrics": {
+        "sampled_peaks_k": {
+          "wall_temperature_k": 317.79115132415984,
+          "hot_temperature_k": 301.12448508294295,
+          "cold_temperature_k": 293.15
+        },
+        "global_sampled_peak_k": 317.79115132415984,
+        "largest_sample_gap_s": 0.10000000000000853,
+        "global_peak_upper_bound_k": 317.84115132415985,
+        "peak_bound_coverage": {
+          "start_time_us": 0,
+          "end_time_us": 120000000,
+          "requested_end_time_us": 120000000,
+          "retained_samples": 1206,
+          "discarded_rows": 0,
+          "scope": "FULL_RETAINED_HORIZON"
+        },
+        "peak_bound_meaning": "sample max+.5 K/s largest actual event/terminal gap; excludes numerical error",
+        "energy_residual_max_j": 6.370146365952678e-08,
+        "tracking_true_max_error_m3_s": 8.028602432939673e-11,
+        "tracking_observed_max_error_m3_s": 0.0,
+        "integral_flow_error_m3": 9.55398089791783e-09,
+        "first_trip_time_us": null,
+        "first_trip_reason": null,
+        "terminal_time_us": null,
+        "trip_expected_time_us": null,
+        "prefault_temperatures_k": {
+          "wall_temperature_k": 317.7911502575065,
+          "hot_temperature_k": 301.12448440196295,
+          "cold_temperature_k": 293.14999905756594
+        },
+        "final30_mean_temperatures_k": {
+          "wall_temperature_k": 317.7911511114398,
+          "hot_temperature_k": 301.12448494313287,
+          "cold_temperature_k": 293.1499993851727
+        },
+        "wall_elapsed_s": 2.4961387000003015,
+        "protocol_latency_s": {
+          "count": 1201,
+          "minimum": 0.0006298000007518567,
+          "median": 0.0008627999995951541,
+          "p95": 0.001370899999528774,
+          "maximum": 0.0032351000008929987
+        }
+      },
+      "rules": {
+        "TH01": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH02": {
+          "status": "PASS",
+          "evidence": {
+            "independent_residual_max_j": 6.367918103933334e-08,
+            "limit_j": 0.001
+          }
+        },
+        "TH03": {
+          "status": "PASS",
+          "evidence": {
+            "completed_horizon": true,
+            "no_unexpected_trip": true
+          }
+        },
+        "TH04": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "no trip"
+        },
+        "TH05": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH06": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH07": {
+          "status": "PASS",
+          "evidence": {
+            "continuous_global_peak_upper_bound_k": 317.84115132415985,
+            "limit_k": 359.15,
+            "numerical_error": "not included"
+          }
+        },
+        "TH08": {
+          "status": "PASS",
+          "evidence": {
+            "dropped_ack_count": 10,
+            "command_acceptance_continued": true
+          }
+        },
+        "TH09": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH10": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH11": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH12": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        }
+      },
+      "manifest_sha256": "1ff0cee2028913cfbc399437af94065d5d523397b988f26ecb026a5bcc2bab53"
+    },
+    "planned_restart": {
+      "expectation_pass": true,
+      "containment_status": "CONTAINED",
+      "completion_status": "PASS",
+      "metrics": {
+        "sampled_peaks_k": {
+          "wall_temperature_k": 317.7911502575065,
+          "hot_temperature_k": 301.85414330957013,
+          "cold_temperature_k": 293.15
+        },
+        "global_sampled_peak_k": 317.7911502575065,
+        "largest_sample_gap_s": 0.10000000000000853,
+        "global_peak_upper_bound_k": 317.8411502575065,
+        "peak_bound_coverage": {
+          "start_time_us": 0,
+          "end_time_us": 120000000,
+          "requested_end_time_us": 120000000,
+          "retained_samples": 1206,
+          "discarded_rows": 0,
+          "scope": "FULL_RETAINED_HORIZON"
+        },
+        "peak_bound_meaning": "sample max+.5 K/s largest actual event/terminal gap; excludes numerical error",
+        "energy_residual_max_j": 3.414425009395927e-08,
+        "tracking_true_max_error_m3_s": 1.1646811292624528e-06,
+        "tracking_observed_max_error_m3_s": 1.1650000000000202e-06,
+        "integral_flow_error_m3": 0.0003063571158624605,
+        "first_trip_time_us": null,
+        "first_trip_reason": null,
+        "terminal_time_us": null,
+        "trip_expected_time_us": null,
+        "prefault_temperatures_k": {
+          "wall_temperature_k": 317.7911502575065,
+          "hot_temperature_k": 301.12448440196295,
+          "cold_temperature_k": 293.14999905756594
+        },
+        "final30_mean_temperatures_k": {
+          "wall_temperature_k": 317.41925926620246,
+          "hot_temperature_k": 300.90290932760877,
+          "cold_temperature_k": 293.0538386655928
+        },
+        "wall_elapsed_s": 2.4986681999998837,
+        "protocol_latency_s": {
+          "count": 1201,
+          "minimum": 0.0005774000001110835,
+          "median": 0.0008431000005657552,
+          "p95": 0.0013059000011708122,
+          "maximum": 0.0504624999994121
+        }
+      },
+      "rules": {
+        "TH01": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH02": {
+          "status": "PASS",
+          "evidence": {
+            "independent_residual_max_j": 3.416789695620537e-08,
+            "limit_j": 0.001
+          }
+        },
+        "TH03": {
+          "status": "PASS",
+          "evidence": {
+            "completed_horizon": true,
+            "no_unexpected_trip": true
+          }
+        },
+        "TH04": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "no trip"
+        },
+        "TH05": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH06": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH07": {
+          "status": "PASS",
+          "evidence": {
+            "continuous_global_peak_upper_bound_k": 317.8411502575065,
+            "limit_k": 359.15,
+            "numerical_error": "not included"
+          }
+        },
+        "TH08": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH09": {
+          "status": "PASS",
+          "evidence": {
+            "new_epoch_first_time_us": 60000000,
+            "rearm_time_us": 62000000
+          }
+        },
+        "TH10": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH11": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH12": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        }
+      },
+      "manifest_sha256": "33491fc36be2210ea52087d8d445e5a00e1742de4cc2fb7c214a8f71054303c8"
+    },
+    "stuck_heat_lost_sink": {
+      "expectation_pass": true,
+      "containment_status": "FAILED",
+      "completion_status": "FAIL",
+      "metrics": {
+        "sampled_peaks_k": {
+          "wall_temperature_k": 368.15,
+          "hot_temperature_k": 356.8683774613759,
+          "cold_temperature_k": 355.2568860347801
+        },
+        "global_sampled_peak_k": 368.15,
+        "largest_sample_gap_s": 0.10000000000002274,
+        "global_peak_upper_bound_k": 368.2,
+        "peak_bound_coverage": {
+          "start_time_us": 0,
+          "end_time_us": 466299590.1269224,
+          "requested_end_time_us": 1200000000,
+          "retained_samples": 4669,
+          "discarded_rows": 0,
+          "scope": "RETAINED_PREFIX"
+        },
+        "peak_bound_meaning": "sample max+.5 K/s largest actual event/terminal gap; excludes numerical error",
+        "energy_residual_max_j": 3.050081431865692e-07,
+        "tracking_true_max_error_m3_s": null,
+        "tracking_observed_max_error_m3_s": null,
+        "integral_flow_error_m3": 0.01816947484405705,
+        "first_trip_time_us": 346600000,
+        "first_trip_reason": "liquid_hot",
+        "terminal_time_us": 466299590.1269224,
+        "trip_expected_time_us": null,
+        "prefault_temperatures_k": {
+          "wall_temperature_k": 303.4246919938755,
+          "hot_temperature_k": 292.28922801922806,
+          "cold_temperature_k": 287.92329901426814
+        },
+        "final30_mean_temperatures_k": null,
+        "wall_elapsed_s": 8.531805799999347,
+        "protocol_latency_s": {
+          "count": 4663,
+          "minimum": 0.000603899999987334,
+          "median": 0.0008276999997178791,
+          "p95": 0.0012783399999534589,
+          "maximum": 0.05448710000018764
+        }
+      },
+      "rules": {
+        "TH01": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH02": {
+          "status": "PASS",
+          "evidence": {
+            "independent_residual_max_j": 3.0503724701702595e-07,
+            "limit_j": 0.001
+          }
+        },
+        "TH03": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH04": {
+          "status": "PASS",
+          "evidence": {
+            "first_trip_time_us": 346600000,
+            "cooling_requests_latched": true
+          }
+        },
+        "TH05": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH06": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH07": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH08": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH09": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH10": {
+          "status": "PASS",
+          "evidence": {
+            "terminal_boundary": "wall_upper",
+            "terminal_time_us": 466299590.1269224,
+            "independent_latest_boundary_us": 585300000,
+            "containment": "FAILED"
+          }
+        },
+        "TH11": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH12": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        }
+      },
+      "manifest_sha256": "a648187464dd7ea90a30a5476ffd46b9b952c3a739326bc5b9562bbf876ef1c0"
+    },
+    "near_tick_before": {
+      "expectation_pass": true,
+      "containment_status": "CONTAINED",
+      "completion_status": "PASS",
+      "metrics": {
+        "sampled_peaks_k": {
+          "wall_temperature_k": 317.7911502672166,
+          "hot_temperature_k": 301.124484407788,
+          "cold_temperature_k": 294.2779570928292
+        },
+        "global_sampled_peak_k": 317.7911502672166,
+        "largest_sample_gap_s": 0.10000000000000853,
+        "global_peak_upper_bound_k": 317.8411502672166,
+        "peak_bound_coverage": {
+          "start_time_us": 0,
+          "end_time_us": 120000000,
+          "requested_end_time_us": 120000000,
+          "retained_samples": 1206,
+          "discarded_rows": 0,
+          "scope": "FULL_RETAINED_HORIZON"
+        },
+        "peak_bound_meaning": "sample max+.5 K/s largest actual event/terminal gap; excludes numerical error",
+        "energy_residual_max_j": 1.9774233805947006e-08,
+        "tracking_true_max_error_m3_s": 0.00015151134457776333,
+        "tracking_observed_max_error_m3_s": 0.00015151100000000003,
+        "integral_flow_error_m3": 0.008883221579055918,
+        "first_trip_time_us": 60400000,
+        "first_trip_reason": "stale_input",
+        "terminal_time_us": null,
+        "trip_expected_time_us": 60400000,
+        "prefault_temperatures_k": null,
+        "final30_mean_temperatures_k": {
+          "wall_temperature_k": 302.2971229935293,
+          "hot_temperature_k": 294.4826685175275,
+          "cold_temperature_k": 291.8568035707138
+        },
+        "wall_elapsed_s": 2.266683499999999,
+        "protocol_latency_s": {
+          "count": 1201,
+          "minimum": 0.0005698999993910547,
+          "median": 0.000854300000355579,
+          "p95": 0.0013225000002421439,
+          "maximum": 0.002596499998617219
+        }
+      },
+      "rules": {
+        "TH01": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH02": {
+          "status": "PASS",
+          "evidence": {
+            "independent_residual_max_j": 1.9761500880122185e-08,
+            "limit_j": 0.001
+          }
+        },
+        "TH03": {
+          "status": "PASS",
+          "evidence": {
+            "completed_horizon": true,
+            "no_unexpected_trip": true
+          }
+        },
+        "TH04": {
+          "status": "PASS",
+          "evidence": {
+            "first_trip_time_us": 60400000,
+            "cooling_requests_latched": true
+          }
+        },
+        "TH05": {
+          "status": "PASS",
+          "evidence": {
+            "actual_trip_time_us": 60400000,
+            "independent_expected_us": 60400000
+          }
+        },
+        "TH06": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH07": {
+          "status": "PASS",
+          "evidence": {
+            "continuous_global_peak_upper_bound_k": 317.8411502672166,
+            "limit_k": 359.15,
+            "numerical_error": "not included"
+          }
+        },
+        "TH08": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH09": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH10": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH11": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH12": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        }
+      },
+      "manifest_sha256": "50cde49b81e24cf8e68e7fea53aa1c94315c0023ae07e554c9e03a4a1589c5dd"
+    },
+    "near_tick_after": {
+      "expectation_pass": true,
+      "containment_status": "CONTAINED",
+      "completion_status": "PASS",
+      "metrics": {
+        "sampled_peaks_k": {
+          "wall_temperature_k": 317.7911502696369,
+          "hot_temperature_k": 301.1244844092415,
+          "cold_temperature_k": 294.27795709372094
+        },
+        "global_sampled_peak_k": 317.7911502696369,
+        "largest_sample_gap_s": 0.10000000000000853,
+        "global_peak_upper_bound_k": 317.8411502696369,
+        "peak_bound_coverage": {
+          "start_time_us": 0,
+          "end_time_us": 120000000,
+          "requested_end_time_us": 120000000,
+          "retained_samples": 1206,
+          "discarded_rows": 0,
+          "scope": "FULL_RETAINED_HORIZON"
+        },
+        "peak_bound_meaning": "sample max+.5 K/s largest actual event/terminal gap; excludes numerical error",
+        "energy_residual_max_j": 1.994612830458209e-08,
+        "tracking_true_max_error_m3_s": 0.00015151134457776333,
+        "tracking_observed_max_error_m3_s": 0.00015151100000000003,
+        "integral_flow_error_m3": 0.008868070452737463,
+        "first_trip_time_us": 60500000,
+        "first_trip_reason": "stale_input",
+        "terminal_time_us": null,
+        "trip_expected_time_us": 60500000,
+        "prefault_temperatures_k": null,
+        "final30_mean_temperatures_k": {
+          "wall_temperature_k": 302.3205842221993,
+          "hot_temperature_k": 294.49421552895075,
+          "cold_temperature_k": 291.8651291721672
+        },
+        "wall_elapsed_s": 2.281824300000153,
+        "protocol_latency_s": {
+          "count": 1201,
+          "minimum": 0.0005550999994738959,
+          "median": 0.0007965999993757578,
+          "p95": 0.0011615000003075693,
+          "maximum": 0.00226459999976214
+        }
+      },
+      "rules": {
+        "TH01": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH02": {
+          "status": "PASS",
+          "evidence": {
+            "independent_residual_max_j": 1.996522769331932e-08,
+            "limit_j": 0.001
+          }
+        },
+        "TH03": {
+          "status": "PASS",
+          "evidence": {
+            "completed_horizon": true,
+            "no_unexpected_trip": true
+          }
+        },
+        "TH04": {
+          "status": "PASS",
+          "evidence": {
+            "first_trip_time_us": 60500000,
+            "cooling_requests_latched": true
+          }
+        },
+        "TH05": {
+          "status": "PASS",
+          "evidence": {
+            "actual_trip_time_us": 60500000,
+            "independent_expected_us": 60500000
+          }
+        },
+        "TH06": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH07": {
+          "status": "PASS",
+          "evidence": {
+            "continuous_global_peak_upper_bound_k": 317.8411502696369,
+            "limit_k": 359.15,
+            "numerical_error": "not included"
+          }
+        },
+        "TH08": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH09": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH10": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH11": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        },
+        "TH12": {
+          "status": "NOT_APPLICABLE",
+          "evidence": "case-specific rule"
+        }
+      },
+      "manifest_sha256": "b9d69fea684bcbaddd7100a681ccf70b51e1976f2a7559b3bf393cb2d15d1b0a"
+    }
+  },
+  "tank_cases": {
+    "blocked_outlet": {
+      "expectation_pass": true,
+      "containment_status": "PASSED"
+    },
+    "nominal": {
+      "expectation_pass": true,
+      "containment_status": "PASSED"
+    },
+    "pump_failed_off": {
+      "expectation_pass": true,
+      "containment_status": "PASSED"
+    },
+    "pump_stuck_on": {
+      "expectation_pass": true,
+      "containment_status": "FAILED"
+    },
+    "sensor_bias_ramp": {
+      "expectation_pass": true,
+      "containment_status": "PASSED"
+    },
+    "sensor_dropout": {
+      "expectation_pass": true,
+      "containment_status": "PASSED"
+    },
+    "sensor_stuck": {
+      "expectation_pass": true,
+      "containment_status": "PASSED"
+    }
+  },
+  "seeded_repeat": {
+    "status": "PASS",
+    "seed": 1,
+    "telemetry_sha256": "6224feea692366cf2e8e20e3313adfbccd2f257362d3059f37fe45c679cb2943",
+    "comparison": "identical raw telemetry bytes on same machine; wall/provenance excluded"
+  },
+  "exact_frozen_configs": true,
+  "full_release_campaign": true,
+  "wall_elapsed_s": 155.38984209999944,
+  "expectation_pass": true,
+  "artifacts": {
+    "biased_temperature/manifest.json": "dcff006e75414527e215e41a9f49dba044aa3b658e49d99b4be68f1dc33e1d21",
+    "corrupt_flow/manifest.json": "7e74b2bd2b4865bd81271632c1c45a92f4eda9093a2632429eac49c2c7759b40",
+    "delayed_command/manifest.json": "8429689035710b6f3ce8ab804dffb640141b5dafec92e4575303d2a70c1f10cf",
+    "delayed_flow/manifest.json": "eca90fbdab5b11b52742d8f09ff9772fabe2226a0a95bb440e9ac952b67840cf",
+    "dropped_ack/manifest.json": "1ff0cee2028913cfbc399437af94065d5d523397b988f26ecb026a5bcc2bab53",
+    "dropped_command/manifest.json": "0213c5c760656489266d7390a680cade6bc93c9f2091afb9ac7cfe9d0797743f",
+    "flow_dropout/manifest.json": "9ae59c7a810df41de00ccbb6b647ad57bbbd28d0a933bed89be67a45f8f25b69",
+    "frozen_temperature/manifest.json": "de33fe8fce316e7fde6e203c3e19ae9a9e7befd7890e36bb71be60914b403cdb",
+    "near_tick_after/manifest.json": "b9d69fea684bcbaddd7100a681ccf70b51e1976f2a7559b3bf393cb2d15d1b0a",
+    "near_tick_before/manifest.json": "50cde49b81e24cf8e68e7fea53aa1c94315c0023ae07e554c9e03a4a1589c5dd",
+    "nominal_heat_step/manifest.json": "f4aa5a06bfb86886f3e192e9d4f401b8f3c7a72b1940d319c493a5c7040660c2",
+    "planned_restart/manifest.json": "33491fc36be2210ea52087d8d445e5a00e1742de4cc2fb7c214a8f71054303c8",
+    "reduced_rejection/manifest.json": "3ffefb8fe52341d8c25ccbadcbef0535cc2f02f83439d5ea09a23d28d9c1530d",
+    "reordered_flow/manifest.json": "bf1880e9ef636297be485cd1c0f7c5a9570383af1e11e72bc8184f7345f89063",
+    "restriction/manifest.json": "5811d3b10d67a264077d1090ab1411a2a564d623044ece6b59a2696ed4dbc33f",
+    "seeded-repeat/manifest.json": "3b8ad3544b480b902056a556046da37c3c8afd6ce87e57446b1109399f515546",
+    "stuck_heat_lost_sink/manifest.json": "a648187464dd7ea90a30a5476ffd46b9b952c3a739326bc5b9562bbf876ef1c0",
+    "truncated_flow/manifest.json": "0dcc4220a41b80ab413f2225a845d3594e64f38635a8a661181fb4296a0bab5f",
+    "tank/blocked_outlet/manifest.json": "44e67d4c8c4c93d9a81f4571d8f9dcfd366df3af1d00c90e9008210f75af1d92",
+    "tank/nominal/manifest.json": "3559909c4fd53937d01e699ae2f968d24f67a5be44bc8e52b26cf7f4e7d198ee",
+    "tank/pump_failed_off/manifest.json": "f2bb38e583b0368ab571f0aedd3646886a54b5ae439d41704326bfc6d9453e28",
+    "tank/pump_stuck_on/manifest.json": "d8a3b28e91a2585564c42ecfdbde5a723fd36d8a108825114626deac0925ca50",
+    "tank/sensor_bias_ramp/manifest.json": "f242b86eb509376976d8a4232b9db7b557f14893650f339ea2d1b65a1eaa295b",
+    "tank/sensor_dropout/manifest.json": "b8147ed6c6882a58578a85978d0a51d876a3a51b6cb18f2880b02a7b8f1d5bf7",
+    "tank/sensor_stuck/manifest.json": "a10c2885299e80c6941b83c92c97f9c1f6a81c1855fb9d90a6420606bc12801f"
+  }
+}

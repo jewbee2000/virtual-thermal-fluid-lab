@@ -54,15 +54,24 @@ class CampaignContractTests(unittest.TestCase):
                 path.mkdir(parents=True)
                 session=dict(event="session",host_monotonic_s=1.,epoch=1,session_origin_us=0)
                 start=dict(event="process_started",host_monotonic_s=1.1,process_pid=100+index,
-                           command=["controller.exe"],epoch=1,session_origin_us=0)
+                           parent_process_pid=50,command=["controller.exe"],epoch=1,session_origin_us=0)
                 raw="".join(json.dumps(e)+"\n" for e in (session,start))
                 (path/"events.jsonl").write_text(raw,encoding="utf-8")
                 (path/"stdin.bin").write_bytes(b"actual capture")
                 records.append((session,start,raw))
-            self.assertEqual(sorted(retained_process_pids(root)[0]),[100,101])
+            required=retained_process_pids(root)[0]
+            self.assertEqual(required,[50,100,101])
             self.assertEqual(retained_process_pids(root)[1],[])
+            # A venv launcher plus all C children cannot prove coverage of the
+            # distinct scientific worker that actually owns CController.
+            launcher_and_c_peaks={900:1024,100:2048,101:2048}
+            self.assertFalse(all(pid in launcher_and_c_peaks for pid in [900,*required]))
+            self.assertTrue(all(pid in {**launcher_and_c_peaks,50:4096} for pid in [900,*required]))
             session,start,raw=records[1]
             for changed in ({**start,"process_pid":True},{**start,"process_pid":None},
+                            {**start,"parent_process_pid":True},{**start,"parent_process_pid":None},
+                            {**start,"parent_process_pid":0},{**start,"parent_process_pid":101},
+                            {k:v for k,v in start.items() if k!="parent_process_pid"},
                             {**start,"epoch":2},{**start,"command":[]}):
                 (paths[1]/"events.jsonl").write_text(json.dumps(session)+"\n"+json.dumps(changed)+"\n",encoding="utf-8")
                 self.assertTrue(retained_process_pids(root)[1])
@@ -289,7 +298,7 @@ class RealCampaignTests(unittest.TestCase):
             self.assertTrue(all(type(s["process_pid"]) is int for s in summary["wire_evidence"]["sessions"]))
             retained_pids,pid_issues=retained_process_pids(out)
             self.assertEqual(pid_issues,[])
-            self.assertEqual(retained_pids,[s["process_pid"] for s in summary["wire_evidence"]["sessions"]])
+            self.assertEqual(retained_pids,sorted({os.getpid(),*(s["process_pid"] for s in summary["wire_evidence"]["sessions"])}))
             changed=cfg.to_dict();changed["seed"]=2
             with self.assertRaisesRegex(ValueError,"does not match"):
                 write_campaign(out,normalize_campaign(changed),rows,summary,HOST)

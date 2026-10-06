@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Integrated thermal telemetry row v1",
-  "$comment": "Frozen before M5 outcomes. Runtime adds finite-number, duplicate-key, ordering, span, tick and cross-field validation. This schema describes normalized exports.",
+  "$comment": "Normalized exports: absolute terminal time and its derived non-transmitted observation ages may be fractional microseconds. Wire source/receipt/STEP times remain integers. Runtime additionally validates finite values, ordering, spans, ticks and cross-fields.",
   "type": "object",
   "additionalProperties": false,
   "properties": {
@@ -327,7 +327,7 @@
     "flow_age_us": {
       "anyOf": [
         {
-          "type": "integer",
+          "type": "number",
           "minimum": 0,
           "maximum": 18446744073709551615
         },
@@ -411,7 +411,7 @@
     "hot_age_us": {
       "anyOf": [
         {
-          "type": "integer",
+          "type": "number",
           "minimum": 0,
           "maximum": 18446744073709551615
         },
@@ -495,7 +495,7 @@
     "cold_age_us": {
       "anyOf": [
         {
-          "type": "integer",
+          "type": "number",
           "minimum": 0,
           "maximum": 18446744073709551615
         },
@@ -579,7 +579,7 @@
     "wall_age_us": {
       "anyOf": [
         {
-          "type": "integer",
+          "type": "number",
           "minimum": 0,
           "maximum": 18446744073709551615
         },
@@ -663,7 +663,7 @@
     "separate_age_us": {
       "anyOf": [
         {
-          "type": "integer",
+          "type": "number",
           "minimum": 0,
           "maximum": 18446744073709551615
         },

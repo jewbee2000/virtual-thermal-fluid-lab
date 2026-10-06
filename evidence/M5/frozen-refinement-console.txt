@@ -1,0 +1,9 @@
+solver nominal_heat_step: PASS
+solver frozen_temperature: PASS
+solver stuck_heat_lost_sink: PASS
+tick nominal_heat_step: PASS
+tick restriction: PASS
+tick frozen_temperature: PASS
+tick near_tick_before: PASS
+tick near_tick_after: PASS
+tick stuck_heat_lost_sink: PASS

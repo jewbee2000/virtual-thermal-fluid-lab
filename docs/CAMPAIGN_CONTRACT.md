@@ -154,3 +154,12 @@ are nullable numeric microseconds; a terminal root may be fractional. Requested
 end and counts are nonnegative integers. Any discarded/nonfinite/unsorted records
 invalidate the bound. Valid terminal hazard evidence covers only its retained
 prefix. Display the coverage window alongside the bound in the replay.
+
+The standards-based export audit found a metadata type mismatch after the first
+full campaign: terminal time and derived per-channel age can be fractional
+microseconds, while the schema declared the latter integer. Correct the five
+`*_age_us` export properties to nonnegative nullable numbers. Retained controller
+`max_age_us`, wire acquisition/receipt times, sequences and scheduled STEP times
+remain integer. The original fractional trace is preserved; no equation, value,
+acceptance threshold or evidence outcome changes. Keep the failed audit log and
+recheck all exports against the corrected schema.

@@ -111,7 +111,7 @@ class CController:
         except OSError:
             self._close_captures()
             raise
-        self._log("process_started", process_pid=self.process.pid, command=command,
+        self._log("process_started", process_pid=self.process.pid, parent_process_pid=os.getpid(), command=command,
                   epoch=epoch, session_origin_us=session_origin_us)
         self._threads = [threading.Thread(target=self._read, args=(key,), daemon=True) for key in ("stdout", "stderr")]
         self._threads.append(threading.Thread(target=self._writer, daemon=True))

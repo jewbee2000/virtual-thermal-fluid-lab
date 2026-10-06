@@ -1,0 +1,17 @@
+nominal_heat_step: expectation=True containment=CONTAINED
+restriction: expectation=True containment=CONTAINED
+reduced_rejection: expectation=True containment=CONTAINED
+flow_dropout: expectation=True containment=CONTAINED
+frozen_temperature: expectation=True containment=CONTAINED
+biased_temperature: expectation=True containment=CONTAINED
+delayed_flow: expectation=True containment=CONTAINED
+reordered_flow: expectation=True containment=CONTAINED
+corrupt_flow: expectation=True containment=CONTAINED
+truncated_flow: expectation=True containment=CONTAINED
+dropped_command: expectation=True containment=CONTAINED
+delayed_command: expectation=True containment=CONTAINED
+dropped_ack: expectation=True containment=CONTAINED
+planned_restart: expectation=True containment=CONTAINED
+stuck_heat_lost_sink: expectation=True containment=FAILED
+near_tick_before: expectation=True containment=CONTAINED
+near_tick_after: expectation=True containment=CONTAINED
