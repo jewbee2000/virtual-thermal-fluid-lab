@@ -39,6 +39,12 @@ no claim that this alone bounds floating point error. Dense extrema may replace
 this with reviewed checks. Thermal/wire contracts precede corresponding work.
 Coordinator alone changes shared schemas and acceptance definitions.
 
+M2 thermal-model-v1.schema.json documents the immutable ThermalParameters fields.
+Thermal solver execution has seven state tolerances and records their names/units
+in thermal-solver-v1.schema.json. ThermalInputs holds normalized actuator commands
+and explicit nonnegative coefficient overrides for analytic limits or declared
+faults. This does not turn assumed coefficients into measured data.
+
 Machine-readable tank scenario, telemetry, model, solver, summary and manifest
 version1 schema files document exact fields. Runtime execution uses strict
 dataclass normalization and an independent raw-evidence evaluator without adding

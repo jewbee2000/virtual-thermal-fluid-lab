@@ -138,6 +138,16 @@ priority:separate_trip,wall_hot,liquid_hot,invalid_input,range_input,stale_input
 Retain first latched reason; invalid config prevents arming. Reset integrator on
 disarm/trip/reset; PI saturation uses conditional anti-windup.
 
+PI update order: compute raw=feedforward+kp*error+previous_integrator. Integrate
+ki*error*tick only if raw is in[0,1], or the error drives an out-of-range raw value
+toward that interval. Compute output using the updated integrator, bound the
+requested command to[0,1], and quantize nearest-half-up to ppm. This command
+saturation never clips a plant state. Configured control minima/maxima must be
+strictly ordered and contain target. Thermal control minimum is nonnegative;
+temperature minimum<trip limits<=temperature maximum. Tank temperature fields
+are zero. Invalid/missing observations immediately change quality while retaining
+the last-good sample timestamp for age diagnostics; they cannot refresh validity.
+
 Thermal DISARMED requests heat0,pump0,valve1; RUNNING explicit heat demand,
 flow PI/ff,normal valve; TRIPPED heat0,pump1,valve1. Tank DISARMED/TRIPPED requests
 heat0,pump0,configured gravity drain. Heat always0 for tank. Applied faults occur
