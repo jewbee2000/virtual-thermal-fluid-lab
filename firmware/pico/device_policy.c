@@ -93,7 +93,7 @@ bool fl_device_receive(fl_device *d,const fl_frame *f,uint64_t receipt,bool arm,
             d->observations[d->observation_count].frame=*f;
             d->observations[d->observation_count++].receipt_us=receipt; accepted=true;
         }
-    } else if(f->type=='U') accepted=fl_intent_accept(&d->intent,&d->core,f,receipt);
+    } else if(f->type=='U' && d->mode==1u) accepted=fl_intent_accept(&d->intent,&d->core,f,receipt);
     else if(f->type=='A' && d->core.bound && f->epoch==d->core.epoch &&
         (!d->ack_seen || fl_sequence_newer(f->sequence,d->ack_sequence))) {
         d->ack_seen=true; d->ack_sequence=f->sequence; accepted=true;

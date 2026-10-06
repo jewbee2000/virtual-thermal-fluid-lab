@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "method": "direct per-file equality against clean reproduction source; three existing CRLF working schema files aligned to committed LF bytes",
+  "paths": [
+    "schemas/thermal-campaign-v1.schema.json",
+    "schemas/thermal-controller-v1.schema.json",
+    "schemas/thermal-solver-input-v1.schema.json"
+  ],
+  "before_source_sha256": "921666af581e513d3d711daafeb571d7de3757bbe06a7e1d443f9c3ee5e7aa0b",
+  "after_source_sha256": "fa2a7a40d64fc2dad4022ed6f4642dfd7249912d36882f28a845d164e83babc9",
+  "no_git_content_change": true
+}

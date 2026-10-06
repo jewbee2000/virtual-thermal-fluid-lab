@@ -1,0 +1,20 @@
+Using CPython 3.12.2 interpreter at: C:\Users\Walt\AppData\Local\Programs\Python\Python312\python.exe
+Creating virtual environment at: .venv
+Resolved 13 packages in 1ms
+   Building virtual-fluid-lab @ file:///C:/Users/Walt/.codex/worktrees/thermal-lab-release-check/virtual-fluid-lab
+      Built virtual-fluid-lab @ file:///C:/Users/Walt/.codex/worktrees/thermal-lab-release-check/virtual-fluid-lab
+Prepared 1 package in 852ms
+Installed 13 packages in 923ms
+ + contourpy==1.4.0
+ + cycler==0.12.1
+ + fonttools==4.66.1
+ + kiwisolver==1.5.1
+ + matplotlib==3.10.8
+ + numpy==2.3.5
+ + packaging==26.3
+ + pillow==12.3.0
+ + pyparsing==3.3.3
+ + python-dateutil==2.9.0.post0
+ + scipy==1.17.0
+ + six==1.17.0
+ + virtual-fluid-lab==0.1.0 (from file:///C:/Users/Walt/.codex/worktrees/thermal-lab-release-check/virtual-fluid-lab)

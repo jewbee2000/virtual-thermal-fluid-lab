@@ -1,0 +1,22 @@
+Command: C:\Users\Walt\.local\bin\uv.exe run python -B -m unittest discover -s tests -p test_campaign.py -v
+test_closed_file_direct_normalization_immutable (test_campaign.CampaignContractTests.test_closed_file_direct_normalization_immutable) ... ok
+test_event_spans_order_overlap_and_nonfinite (test_campaign.CampaignContractTests.test_event_spans_order_overlap_and_nonfinite) ... ok
+test_expanded_hash_covers_firmware_and_build_bytes (test_campaign.CampaignContractTests.test_expanded_hash_covers_firmware_and_build_bytes) ... ok
+test_frozen_cases_and_schema_fieldsets (test_campaign.CampaignContractTests.test_frozen_cases_and_schema_fieldsets) ... ok
+test_independent_stale_oracles_all_tick_ladder (test_campaign.CampaignContractTests.test_independent_stale_oracles_all_tick_ladder) ... ok
+test_retained_parser_literal_crc_not_roundtrip (test_campaign.CampaignContractTests.test_retained_parser_literal_crc_not_roundtrip) ... ok
+test_actual_raw_corrupt_and_lf_truncated_recovery (test_campaign.RealCampaignTests.test_actual_raw_corrupt_and_lf_truncated_recovery) ... ok
+test_audit_rejects_raw_extra_output_config_and_malformed_events (test_campaign.RealCampaignTests.test_audit_rejects_raw_extra_output_config_and_malformed_events) ... ok
+test_coherent_final_tick_removal_and_forged_snapshot_cannot_pass (test_campaign.RealCampaignTests.test_coherent_final_tick_removal_and_forged_snapshot_cannot_pass) ... ok
+test_exact_near_tick_stale_trip_and_partial_evidence_rejection (test_campaign.RealCampaignTests.test_exact_near_tick_stale_trip_and_partial_evidence_rejection) ... ok
+test_export_executed_solver_and_exact_fieldsets (test_campaign.RealCampaignTests.test_export_executed_solver_and_exact_fieldsets) ... ok
+test_lease_expiry_between_ticks_and_fault_after_fallback (test_campaign.RealCampaignTests.test_lease_expiry_between_ticks_and_fault_after_fallback) ... ok
+test_no_lf_swallows_step_bounded_failure_last_reply_reaped (test_campaign.RealCampaignTests.test_no_lf_swallows_step_bounded_failure_last_reply_reaped) ... ok
+test_short_bad_link_variants_retain_actual_wire_audit (test_campaign.RealCampaignTests.test_short_bad_link_variants_retain_actual_wire_audit) ... ok
+test_unexpected_death_keeps_partial_trace_and_fails (test_campaign.RealCampaignTests.test_unexpected_death_keeps_partial_trace_and_fails) ... ok
+test_valid_explicit_reset_requires_subsequent_arm (test_campaign.RealCampaignTests.test_valid_explicit_reset_requires_subsequent_arm) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 4.432s
+
+OK

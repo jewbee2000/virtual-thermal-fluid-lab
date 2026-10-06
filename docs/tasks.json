@@ -281,8 +281,8 @@
         "docs/hardware/"
       ],
       "acceptance": "MCU-01 WIRE-01 LINK-01 BUILD-01; details in docs/REQUIREMENTS.md and revised plan",
-      "status": "in_progress",
-      "commit": null,
+      "status": "complete",
+      "commit": "e9306056115ad946f7966198d91654d4e28b49a5",
       "commands": [
         {
           "command": "scripts/build_pico.ps1 with pinned SDK2.3.1, ARM15.2.Rel1, picotool2.3.1, CMake4.4.4, Ninja1.13.2",
@@ -313,15 +313,27 @@
           "command": "Generate/decode stimuli and PowerShell AST capture parse, no COM access",
           "exit_code": 0,
           "outcome": "504 frames decode; capture script parsed only"
+        },
+        {
+          "command": "GitHub Actions run37440153815",
+          "exit_code": 0,
+          "outcome": "Windows/Linux full verification, native device tests, ASan/UBSan and Linux Pico/picotool builds all passed"
+        },
+        {
+          "command": "Release review independent peripheral U/O injection test; corrected fresh device CTest and both Pico builds atcc5a6fe",
+          "exit_code": 0,
+          "outcome": "Before repair serial ARM guard assertion FAILED; after repair213 policy+27 HAL+1000 USB queue passes; mode2 accepts physical GPIO arm/reset only. Both UF2 built; bin41628/41764B, RAM22716B+2048B reserved stack each; boardNOT_EXECUTED."
         }
       ],
       "artifacts": [
         "evidence/M4/",
         "firmware/pico/README.md",
-        "isolated worktree artifacts/pico-build/"
+        "isolated worktree artifacts/pico-build/",
+        "evidence/M4/windows-linux-pico-ci.json",
+        "evidence/M7/pre-release-review/",
+        "evidence/M7/fresh-windows/pico-build-evidence.json"
       ],
       "unresolved_limitations": [
-        "M4 Windows/Linux/device/sanitizer/Pico CI pending.",
         "Board execution NOT_EXECUTED; physical validation NOT_STARTED.",
         "Linked memory sections and structural software bounds do not establish runtime stack peak, device timing or watchdog reset.",
         "Linked toolchain/newlib binary notices audit remains M7."
@@ -329,7 +341,9 @@
       "writer": "c_core_writer in isolated managed worktree; M4 device contract frozen before changes",
       "issue": "https://github.com/jewbee2000/virtual-thermal-fluid-lab/issues/7",
       "implementation_commit": "874674fa37e27b55e441c935dc883b3272cd66e1",
-      "integrated_source_commit": "09f5858"
+      "integrated_source_commit": "09f5858",
+      "merge_commit": "75dbd9d5445648076be661c16f016391043c317a",
+      "pull_request": "https://github.com/jewbee2000/virtual-thermal-fluid-lab/pull/10"
     },
     {
       "id": "M5",
@@ -346,12 +360,47 @@
         "evidence/"
       ],
       "acceptance": "CAMP-01 NUM-01 PEAK-01 PERF-01 EVAL-01 PROV-01; details in docs/REQUIREMENTS.md and revised plan",
-      "status": "in_progress",
-      "commit": null,
-      "commands": [],
-      "artifacts": [],
+      "status": "complete",
+      "commit": "cc5a6feae95dc5888bf3041bc9dc3306dba667ba",
+      "commands": [
+        {
+          "command": "uv run python scripts/run_campaign.py --exe artifacts/host-build/Release/fluid_controller_host.exe --out artifacts/release/campaign --repeat",
+          "exit_code": 0,
+          "outcome": "Clean Windows full 17 thermal +7 C tank +identical nominal repeat PASS; wrapper175.7879163s"
+        },
+        {
+          "command": "uv run python scripts/refine_campaign.py --exe artifacts/host-build/Release/fluid_controller_host.exe --out artifacts/release/refinement",
+          "exit_code": 0,
+          "outcome": "36 runs; full_refinement_gate PASS; wrapper473.8995026s; fixed-tick solver and separate tick ladders"
+        },
+        {
+          "command": "uv run python scripts/benchmark_campaign.py --exe artifacts/host-build/Release/fluid_controller_host.exe --out artifacts/release/performance",
+          "exit_code": 0,
+          "outcome": "Selected frozen 240s demo PASS: 8.4256613s; observed peak sum487813120B; required launcher/Python/C PIDs observed"
+        },
+        {
+          "command": "uv run python scripts/benchmark_campaign.py --exe artifacts/host-build/Release/fluid_controller_host.exe --out artifacts/release/suite-performance --suite",
+          "exit_code": 0,
+          "outcome": "Whole-suite recorded separately: 198.0710594s; observed peak sum2089095168B; not evaluated against selected240s budget"
+        },
+        {
+          "command": "Independent retained-data/evaluator review and standards jsonschema4.25.1 export audit",
+          "exit_code": 0,
+          "outcome": "Prior campaign251 hashes/357885 frames/18 child reaps; refinement372 hashes reviewed. Final clean audit48 thermal runs/157182 rows/484 hashes PASS; negative overflow/collision/PID review ACCEPT"
+        }
+      ],
+      "artifacts": [
+        "evidence/M5/",
+        "evidence/M7/fresh-windows/",
+        "evidence/reviews/",
+        "docs/FAILURE_INVESTIGATION.md",
+        "release full-evidence ZIP"
+      ],
       "unresolved_limitations": [
-        "Final integrated campaign/refinement/performance gates await M4 merge; no outcomes claimed yet."
+        "All parameters assumed; physical validation NOT_STARTED; board NOT_EXECUTED.",
+        "Stuck heat/lost sink and tank stuck pump pass hazard expectations while containmentFAILED; retained-prefix evidence does not cover requested unfinished horizons.",
+        "Memory sum is conservative for observed lifetime peaks but discovery can miss short-lived descendants/final growth; no unseen-family upper-bound, real-time or WCET claim.",
+        "Historical dirty/mixed-source campaign/refinement retained separately; headline release dataset is clean homogeneouscc5a6fe/fa2a7a40."
       ],
       "issue": "https://github.com/jewbee2000/virtual-thermal-fluid-lab/issues/8",
       "writer": "m1_writer in root checkout; approved closed contracts before integrated outcomes"
@@ -369,13 +418,42 @@
         "docs/hardware/"
       ],
       "acceptance": "WEB-01 HW-01; details in docs/REQUIREMENTS.md and revised plan",
-      "status": "in_progress",
-      "commit": null,
-      "commands": [],
-      "artifacts": [],
+      "status": "complete",
+      "commit": "cc5a6feae95dc5888bf3041bc9dc3306dba667ba",
+      "commands": [
+        {
+          "command": "scripts/build_replay.py plain and --compress-raw final19-run exports",
+          "exit_code": 0,
+          "outcome": "19 runs,43873 full rows,205 original downloads; hosted99 deterministic gzip round trips; nominal first"
+        },
+        {
+          "command": "Independent stdlib original-byte/full-row/manifest/gzip audit",
+          "exit_code": 0,
+          "outcome": "Both237-file bundles verified; original manifest/source identity retained; document-only README staging follows under M7"
+        },
+        {
+          "command": "Codex in-app browser CUA static HTTP desktop/mobile/keyboard/playback/provenance/download QA",
+          "exit_code": 0,
+          "outcome": "Desktop1265px and mobile360px no page overflow; required faults/restart/fractional-prefix/status/gaps exercised; CSV and gzip downloads match original bytes"
+        },
+        {
+          "command": "Read-only mechanical/instrumentation packet consistency review",
+          "exit_code": 0,
+          "outcome": "Dimensioned SVG/SCAD/pin/clock/arm design consistent; no fabrication, CAD render/fit, or board result claimed"
+        }
+      ],
+      "artifacts": [
+        "evidence/M6/",
+        "web/",
+        "hardware/",
+        "docs/hardware/PACKET.md",
+        "evidence/reviews/M6-hardware-design-review.md",
+        "release plain replay ZIP and hosted replay"
+      ],
       "unresolved_limitations": [
-        "UI scaffolding proceeds against frozen data contract; final actual-C exports/browser QA await M5.",
-        "Hardware packet is planned; fixture NOT_FABRICATED, board NOT_EXECUTED."
+        "Direct file URL browser execution unavailable due to automation policy; final data tested through static HTTP, assets/data are local.",
+        "Fixture NOT_FABRICATED; board NOT_EXECUTED; physical validation NOT_STARTED.",
+        "Browser render times are four local first/reload observations excluding browser startup and including concurrent refinement, not universal startup guarantees."
       ],
       "writer": "replay_writer in isolated thermal-lab-replay checkout",
       "issue": "https://github.com/jewbee2000/virtual-thermal-fluid-lab/issues/9"
@@ -395,11 +473,25 @@
         "separate website checkout"
       ],
       "acceptance": "BUILD-01 RELEASE-01 SITE-01 CLAIM-01; details in docs/REQUIREMENTS.md and revised plan",
-      "status": "pending",
+      "status": "in_progress",
       "commit": null,
-      "commands": [],
-      "artifacts": [],
-      "unresolved_limitations": []
+      "commands": [
+        {
+          "command": "Fresh Windows cc5a6fe reproduction12 primary gates",
+          "exit_code": 0,
+          "outcome": "Clean before/after, unchanged lock;135 units/host/device/tests/campaign/refinement/independent audit/Pico PASS. Auxiliary report writer failed once and corrected without rerunning gates."
+        }
+      ],
+      "artifacts": [
+        "evidence/M7/fresh-windows/",
+        "docs/REPRODUCE.md",
+        "docs/ATTRIBUTION.md",
+        "docs/DEPLOYMENT.md"
+      ],
+      "unresolved_limitations": [
+        "Final doc/asset audit, tagged/public release, final website preview and actual Pages publication gates still pending."
+      ],
+      "issue": "https://github.com/jewbee2000/virtual-thermal-fluid-lab/issues/12"
     },
     {
       "id": "H1",

@@ -113,6 +113,27 @@ static int peripheral_and_edges(void) {
     CHECK(fl_device_tick(&d,900000u,1u,true,2010u,false,true,false,&o)); CHECK(o.state==FL_DISARMED);
     return 0;
 }
+static int peripheral_serial_intent_rejection(void) {
+    fl_device d; fl_output o; uint32_t rejected;
+    fl_device_init(&d,2u,false,false,false); CHECK(configure(&d,100000u,false));
+    rejected=d.rx_rejected;
+    CHECK(!intent(&d,0u,0u,0u,1u));
+    CHECK(!d.intent.present && d.intent.operation==0u && d.rx_rejected==rejected+1u);
+    CHECK(fl_device_tick(&d,100000u,1u,true,2010u,false,false,false,&o));
+    CHECK(o.state==FL_DISARMED && o.operation_result==0u);
+    CHECK(fl_device_tick(&d,200000u,1u,true,2010u,false,true,false,&o));
+    CHECK(o.state==FL_RUNNING); /* A newly sampled GPIO press can still arm. */
+    CHECK(fl_device_tick(&d,300000u,1u,true,2010u,true,false,false,&o));
+    CHECK(o.state==FL_TRIPPED && o.reason==FL_SEPARATE_TRIP);
+    rejected=d.rx_rejected;
+    CHECK(!intent(&d,1u,300000u,300000u,2u));
+    CHECK(!d.intent.present && d.intent.operation==0u && d.rx_rejected==rejected+1u);
+    CHECK(fl_device_tick(&d,400000u,1u,true,2010u,false,false,false,&o));
+    CHECK(o.state==FL_TRIPPED && o.operation_result==0u);
+    CHECK(fl_device_tick(&d,500000u,1u,true,2010u,false,false,true,&o));
+    CHECK(o.state==FL_DISARMED && o.operation_result==1u);
+    return 0;
+}
 static int bounded_queues_and_sources(void) {
     fl_device d; fl_frame f; fl_output o; size_t i; uint32_t rejected;
     fl_device_init(&d,1u,false,false,false); CHECK(!configure(&d,999u,false)); CHECK(!d.core.configured);
@@ -167,6 +188,7 @@ static int codec_literals(void) {
 }
 int main(void) {
     CHECK(clock_and_pi()==0); CHECK(intent_boundaries()==0); CHECK(peripheral_and_edges()==0);
+    CHECK(peripheral_serial_intent_rejection()==0);
     CHECK(bounded_queues_and_sources()==0); CHECK(codec_literals()==0);
     printf("%u device policy checks passed\n",checks); return 0;
 }

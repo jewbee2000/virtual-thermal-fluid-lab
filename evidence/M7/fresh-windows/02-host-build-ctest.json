@@ -1,0 +1,27 @@
+{
+  "name": "02-host-build-ctest",
+  "program": "C:/Users/Walt/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/powershell/pwsh.exe",
+  "arguments": [
+    "-NoProfile",
+    "-ExecutionPolicy",
+    "Bypass",
+    "-File",
+    "scripts/build_host.ps1",
+    "-CMake",
+    "C:/Users/Walt/Documents/Codex/fluid-lab-import/virtual-fluid-lab/artifacts/tools/cmake/cmake-4.4.4-windows-x86_64/bin/cmake.exe"
+  ],
+  "working_directory": "C:\\Users\\Walt\\.codex\\worktrees\\thermal-lab-release-check\\virtual-fluid-lab",
+  "started_utc": "2026-10-06T10:02:57.4244673Z",
+  "ended_utc": "2026-10-06T10:03:02.1372416Z",
+  "wall_elapsed_s": 4.6715346,
+  "exit_code": 0,
+  "invocation_error": null,
+  "git_revision": "cc5a6feae95dc5888bf3041bc9dc3306dba667ba",
+  "git_dirty_before": false,
+  "git_dirty_after": false,
+  "git_status_after": [],
+  "lock_sha256_before": "76472376ec629c6fb1da220501125f413dc2944f76e75139283ea2cb3ca7bcd0",
+  "lock_sha256_after": "76472376ec629c6fb1da220501125f413dc2944f76e75139283ea2cb3ca7bcd0",
+  "stdout": "C:\\Users\\Walt\\.codex\\worktrees\\thermal-lab-release-check\\virtual-fluid-lab\\artifacts\\release\\checks\\02-host-build-ctest.stdout.txt",
+  "stderr": "C:\\Users\\Walt\\.codex\\worktrees\\thermal-lab-release-check\\virtual-fluid-lab\\artifacts\\release\\checks\\02-host-build-ctest.stderr.txt"
+}

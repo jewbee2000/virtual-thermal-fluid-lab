@@ -1,0 +1,2294 @@
+{
+  "version": 1,
+  "contract": "docs/THERMAL_MODEL.md",
+  "parameter_pedigree": "assumed",
+  "physical_validation": "NOT_STARTED",
+  "device_execution": "NOT_EXECUTED",
+  "provenance": {
+    "source_sha256": "fa2a7a40d64fc2dad4022ed6f4642dfd7249912d36882f28a845d164e83babc9",
+    "source_files_sha256": {
+      "CMakeLists.txt": "93df455688fc72fb7c04b43de59d0940d99603b36ce1613b2053fb24c1988053",
+      "firmware/core/fl_core.c": "cd5e7a8f003cc843a72395bf733f86925e6966163ce73029fddd58f109f075d8",
+      "firmware/core/fl_core.h": "54e4c93d64a550a09a9a34013c01feedb24cd5f173aa2b4d7e49d3a841b2054b",
+      "firmware/core/fl_protocol.c": "b8ee5c41b3858d04248ac89ca3ae2688d7268aa4cf5f6b63177e81b9c4401cb7",
+      "firmware/core/fl_protocol.h": "d53eef76fedc773fe149361d302649857edb75e6d960dc13bf1c8c6144f1ac74",
+      "firmware/host/main.c": "a1107a28c4cb522c898f5996d200aedf7e4ce7a07eeff491cee6fe950d124e1c",
+      "firmware/pico/CMakeLists.txt": "ae2bfdda9aaba0fc36c55a78366dd297b2edbc964637085a1d5f81182add437c",
+      "firmware/pico/device_policy.c": "3a6d225bd1c113a264d9dec91e70cf6569cfabb969232c4936a3e3e47d71878f",
+      "firmware/pico/device_policy.h": "ef5706809efe38ced832a4298a4e64e216971dda2018d15c027a4e7feab01274",
+      "firmware/pico/fl_hal.c": "bad89ca27ae85cb4a883d0478f42a3949edf2796f9e5fc4a05aa213e342ac917",
+      "firmware/pico/fl_hal.h": "74c3d84cd02ff40a71c4a9d99112ad747765cbaf90dd6ca5ffc64a4acd731f3a",
+      "firmware/pico/main.c": "f4309bda3f3b4db84713656dde604ffdaf52c32bf04bf36b14fcdcb55036dac3",
+      "firmware/pico/tests/CMakeLists.txt": "0f438eb66c0254add0b1fd33dfc1249846ea1c06a80f450aadc83ba59d6c713e",
+      "firmware/pico/tests/hal_stub/hardware/adc.h": "7e1af2cc663741f3b7dc8b85ca40bd1cc66e8a02e6f82792753267449008297f",
+      "firmware/pico/tests/hal_stub/pico/stdlib.h": "b065f0abd92e30c222226ebe53a7506097a6cb47e8e651f85fa915c2712730cd",
+      "firmware/pico/tests/test_device.c": "ba80b501969764017b410e353969b3c3dc77b08ba90262fe005d231e1bd66546",
+      "firmware/pico/tests/test_hal.c": "bd7ae9fe63b2b0a304c38b0f367ebb117ea742206f0a7f8ad4bf1af25a24870c",
+      "firmware/pico/tests/test_usb_budget.c": "901749c55e191fe975a048a7bb84f6f36060e817f863392781539bbd8ef03ab5",
+      "firmware/pico/tests/usb_stub/tusb.h": "dd3d45ecf744d7f034248cddbb81862178dbe82d9c3df8d850ab8adc06461684",
+      "firmware/pico/tests/usb_stub/usbd.c": "ac641b4397cbb7c0d38dd62f1a6f0e8101cd88ed9614d4e13ce09c0f577d21b9",
+      "firmware/pico/tusb_config.h": "6a519c23e5272596e7d403a4deb0c6dcc1a064804782aba96495c47f9de80e37",
+      "firmware/pico/usb_descriptors.c": "ac3591ac67b84a0e07e8e8427723cd3ded1f9c8dd30a50960dc8f54e4ef2fbb5",
+      "firmware/pico/usb_task.c": "7d287e0d64f141d1874a343a2f79d30cc8f2adfca350ffe3bfd8cfb910c38005",
+      "firmware/tests/test_core.c": "a1bda95571b568d61fe7b3acf1d1f8c82192e0384ee6a7f80068dafe108997e4",
+      "pyproject.toml": "9b48979f9c0168aca7994a9ab0c513099e31c7a9eb5853a710ef08bf29b723ca",
+      "schemas/tank-manifest-v1.schema.json": "0bb96fb4e0ab3e1143439cda4033d30683c1f8152744f22e7b66acf5fbdb95a3",
+      "schemas/tank-model-v1.schema.json": "8db6727e02c9076c6539ea2674ef1ebe057b1bcc96f359998b65f9df8c76d21a",
+      "schemas/tank-scenario-v1.schema.json": "73bc16d99892a2ebb12b0f6f398196bc85454ea244ea227ee3ba2f9ec225b0e0",
+      "schemas/tank-solver-v1.schema.json": "f012c7765f8c86a6f36ddcdcc7c8843f6f25ffc66d672166978ef7ab97bc0dc6",
+      "schemas/tank-summary-v1.schema.json": "4d96d0fb4bbb89ed433a287a19573edb3a4b248093824cf1cff424fbdfb4aecb",
+      "schemas/tank-telemetry-v1.schema.json": "e6b5cecbc4642e53d3dc7a717573d47782a277baa2bf9ecccda8cc11eeecb51d",
+      "schemas/thermal-campaign-v1.schema.json": "e5b4efcc55ea0c9af568fcd0f202e11e2a23e059b945f0f80745090d18e08e79",
+      "schemas/thermal-controller-v1.schema.json": "0a25e65aa1fd00eee953040f92814ed039d33d317e0e235be102bc881b7d4513",
+      "schemas/thermal-manifest-v1.schema.json": "38a23d5c60ba12474aa60f5d8f58082280e0dbb530ceb847d8debe87f9ecdda8",
+      "schemas/thermal-model-v1.schema.json": "a2c59b86a42a5842add9172498439ac82d63263ec95d0d5736dd27a4add76391",
+      "schemas/thermal-solver-input-v1.schema.json": "2046ebbfb45846b88fe08971eb717c3d26daa693c26a586365dc106ea6984ce3",
+      "schemas/thermal-solver-v1.schema.json": "5b48ae2f57deb365fdc833666273242b3b6f1d924c86b9096d8282c65b1baef2",
+      "schemas/thermal-summary-v1.schema.json": "585406530443dfc95c62300175b6556d40b9ff90d4f3b5c907bd07d9558cd633",
+      "schemas/thermal-telemetry-row-v1.schema.json": "04225fdd9aad0f3a5a407215fc42b6a4e7f1ab42d05af203f7a650f9c209bbc2",
+      "scripts/audit_exports.py": "f64c4883d191118f23f9b7869b9b6a98bbcf02a59a55583933ed979500997a7d",
+      "scripts/benchmark_campaign.py": "2de4ead293b3bc2321de3de64a811eea5b88075be6c13afa0b537917d0d25308",
+      "scripts/build_host.ps1": "e641062a473838540f9155a85855e4130142dc9eb9d3f92f4b76ebde3f07555f",
+      "scripts/build_pico.ps1": "bd6006888e52e0eb3b987f3a826ba5064346c65d9f886b5746ab50710dccbf0a",
+      "scripts/build_replay.py": "ea06c1e5a935a6b1196bb870d9af90385a6d84d86a455e340c01e873d1d02f37",
+      "scripts/refine_campaign.py": "e7f2dec7202fa414839ff2bc7a2fd4f8cd06ea5ff2c7ac6044e31931d1987564",
+      "scripts/run_campaign.py": "72de7ec1b2f555218913e72ba178360a2bead5d4a6809f459d1d0c8c78bd8c98",
+      "scripts/run_suite.py": "ab33d251121241d8a6aa20d2b8e6b89454e1513e84cc3d7e0ab57ebc9830355b",
+      "scripts/verify_host.py": "153874ae68107a59a2af943aa444765f0a0f48baf077996ebc5d586829c357cc",
+      "scripts/verify_thermal.py": "b2a7acd2ccbf61814d8094ec4c8f29aa7b61a79090c787b82fae95bd36f8bdc1",
+      "src/fluidlab/__init__.py": "f8d23a932ec8175c50d317cb3367c0f6e81bdff7a9b20737bbd07eb760d14377",
+      "src/fluidlab/c_controller.py": "31f502c78f9137a7d50f883a301b4fd0288035da313f6c4a03a283f9814b959c",
+      "src/fluidlab/campaign.py": "3881133c4a5a554eb1f08c0c9ea07f1bd427f1ee648b46659fa992abe02680fe",
+      "src/fluidlab/campaign_evaluator.py": "aad00ecf48d518e1e55816e6f14c4af4c7a2ab39db67cef0984d62dfda74d8c8",
+      "src/fluidlab/cli.py": "6c67e549184fa4829c988ccbe554a1b86201bd38409eed34c32874069de46366",
+      "src/fluidlab/contracts.py": "ef9d5fda55b594d4ac4cded6ff7f9908a786d4902f19895dababc98f2e53a408",
+      "src/fluidlab/control.py": "45a80a9cb8eb95f71f2d2194bb256e26a161672cd9d03121f17ac5b20f84569a",
+      "src/fluidlab/evaluator.py": "542ec0950a761eef63497a027e767bff0229fd1a7df4e3b4d80e4d06870646b7",
+      "src/fluidlab/plant.py": "0463cddf9682ae6466fd510979a1b45842eb87ad6c7eeee5fa8bd1aeee3300ae",
+      "src/fluidlab/protocol.py": "8676845308c4a871f36015af7f781861a407f7fb9708b7a5a5f8ea4d8a071498",
+      "src/fluidlab/provenance.py": "e7a0ca0ac794de1c0eeab160ee0b50ee6fac87a4492b9e0a11726de27b189580",
+      "src/fluidlab/runner.py": "7947e732a50a3dd8f7963c89f986abe29fe2260126de52e020da2966799b50ac",
+      "src/fluidlab/thermal.py": "7becf06efd5a586b92078b7be5769d4692fb7c5bdd684d14fde183706db3ebf8",
+      "uv.lock": "76472376ec629c6fb1da220501125f413dc2944f76e75139283ea2cb3ca7bcd0"
+    },
+    "source_inclusion": [
+      "src/**/*.py",
+      "scripts/**/*.py",
+      "schemas/*.json",
+      "pyproject.toml",
+      "uv.lock",
+      "firmware/**/*.c",
+      "firmware/**/*.h",
+      "firmware/**/*.cmake",
+      "firmware/**/CMakeLists.txt",
+      "CMakeLists.txt",
+      "scripts/**/*.ps1"
+    ],
+    "source_exclusion": [
+      "firmware/**/artifacts/**",
+      "firmware/**/build/**",
+      "firmware/**/generated/**",
+      "firmware/**/out/**",
+      "firmware/**/third_party/**",
+      "firmware/**/vendor/**",
+      "firmware/**/cmake-build-*/**"
+    ],
+    "source_hash_framing": "POSIX UTF-8 path, NUL, uint64 BE raw-byte length, raw bytes",
+    "source_line_endings": "raw bytes; repository .gitattributes specifies LF",
+    "lock_sha256": "76472376ec629c6fb1da220501125f413dc2944f76e75139283ea2cb3ca7bcd0",
+    "controller_sha256": null,
+    "controller_implementation": "none_model_benchmarks",
+    "firmware_execution": "NOT_EXECUTED",
+    "python": "3.12.2",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "units": {
+      "wall_temperature_k": "K",
+      "hot_temperature_k": "K",
+      "cold_temperature_k": "K",
+      "pump_speed": "1",
+      "valve_opening": "1",
+      "heat_in_j": "J",
+      "heat_rejected_j": "J",
+      "time_s": "s",
+      "flow_m3_s": "m3/s",
+      "pump_pressure_pa": "Pa",
+      "energy_residual_j": "J"
+    },
+    "git_revision": "cc5a6feae95dc5888bf3041bc9dc3306dba667ba",
+    "git_dirty": false,
+    "git_root_matches": true
+  },
+  "thresholds": {
+    "analytic_temperature_error_k": 1e-05,
+    "equilibrium_error_k": 0.01,
+    "weighted_energy_error_j": 0.001,
+    "normalized_pressure_residual": 1e-08,
+    "tightest_solver_normalized_maximum": 1
+  },
+  "cases": {
+    "hydraulic_substitution": [
+      {
+        "speed": 0,
+        "opening": 0.65,
+        "flow_m3_s": 0.0,
+        "pump_pressure_pa": 0.0,
+        "branch": "zero_speed",
+        "independent_system_pressure_pa": 0.0,
+        "normalized_residual": 0.0
+      },
+      {
+        "speed": 0.5,
+        "opening": 0,
+        "flow_m3_s": 0.0,
+        "pump_pressure_pa": 25000.0,
+        "branch": "closed",
+        "independent_system_pressure_pa": null,
+        "normalized_residual": 0
+      },
+      {
+        "speed": 1,
+        "opening": 1,
+        "flow_m3_s": 0.0003015113445777637,
+        "pump_pressure_pa": 63636.36363636362,
+        "branch": "forward",
+        "independent_system_pressure_pa": 63636.36363636367,
+        "normalized_residual": 5.093170329928398e-16
+      },
+      {
+        "speed": 0.5274982823,
+        "opening": 0.65,
+        "flow_m3_s": 0.00014999999998911826,
+        "pump_pressure_pa": 18825.443784250852,
+        "branch": "forward",
+        "independent_system_pressure_pa": 18825.443784250867,
+        "normalized_residual": 1.4551915228366853e-16
+      },
+      {
+        "speed": 0.8,
+        "opening": 0.1,
+        "flow_m3_s": 7.627700713964742e-05,
+        "pump_pressure_pa": 61672.72727272727,
+        "branch": "forward",
+        "independent_system_pressure_pa": 61672.72727272732,
+        "normalized_residual": 3.637978807091713e-16
+      },
+      {
+        "speed": 0.1,
+        "opening": 0.01,
+        "flow_m3_s": 9.995003746877734e-07,
+        "pump_pressure_pa": 999.6003996003996,
+        "branch": "forward",
+        "independent_system_pressure_pa": 999.6003996003999,
+        "normalized_residual": 1.1368683772161604e-18
+      }
+    ],
+    "constant_heating": {
+      "model": {
+        "version": 1,
+        "topology": "thermal_circulation",
+        "parameter_pedigree": "assumed",
+        "parameters": {
+          "version": 1,
+          "density_kg_m3": 1000.0,
+          "specific_heat_j_kg_k": 4180.0,
+          "hot_mass_kg": 2.0,
+          "cold_mass_kg": 3.0,
+          "wall_capacity_j_k": 10000.0,
+          "max_heat_w": 5000.0,
+          "hot_conductance_w_k": 0.0,
+          "sink_conductance_w_k": 0.0,
+          "sink_temperature_k": 283.15,
+          "pump_shutoff_pa": 100000.0,
+          "pump_curve_pa_s2_m6": 400000000000.0,
+          "pipe_resistance_pa_s2_m6": 600000000000.0,
+          "valve_resistance_pa_s2_m6": 100000000000.0,
+          "pump_tau_s": 1.0,
+          "valve_tau_s": 0.5
+        },
+        "domain": {
+          "temperature_min_k": 273.15,
+          "temperature_max_k": 368.15
+        }
+      },
+      "initial_state": {
+        "record_type": "benchmark_sample",
+        "time_us": 0,
+        "time_s": 0.0,
+        "clock_id": "simulation",
+        "wall_temperature_k": 293.15,
+        "hot_temperature_k": 293.15,
+        "cold_temperature_k": 293.15,
+        "pump_speed": 0.0,
+        "valve_opening": 0.0,
+        "heat_in_j": 0.0,
+        "heat_rejected_j": 0.0,
+        "flow_m3_s": 0.0,
+        "pump_pressure_pa": 0.0,
+        "energy_residual_j": 0.0
+      },
+      "applied_inputs": {
+        "heat_command": 1.0,
+        "pump_command": 0.0,
+        "valve_command": 0.0,
+        "hot_conductance_w_k": null,
+        "sink_conductance_w_k": null,
+        "pipe_resistance_pa_s2_m6": null,
+        "valve_resistance_pa_s2_m6": null
+      },
+      "solver": {
+        "version": 1,
+        "method": "DOP853",
+        "rtol": 1e-11,
+        "requested_rtol": 1e-11,
+        "atol": [
+          1e-11,
+          1e-11,
+          1e-11,
+          1e-11,
+          1e-11,
+          1e-08,
+          1e-08
+        ],
+        "max_step_s": 0.05,
+        "effective_max_step_s": 0.05,
+        "state_order": [
+          "wall_temperature_k",
+          "hot_temperature_k",
+          "cold_temperature_k",
+          "pump_speed",
+          "valve_opening",
+          "heat_in_j",
+          "heat_rejected_j"
+        ],
+        "state_units": [
+          "K",
+          "K",
+          "K",
+          "1",
+          "1",
+          "J",
+          "J"
+        ]
+      },
+      "duration_s": 100,
+      "tick_s": 10,
+      "clock": "simulation integer microseconds",
+      "flow_mode": "coupled_hydraulic",
+      "imposed_flow_m3_s": null,
+      "complete_horizon": true,
+      "boundary": null,
+      "failure": null,
+      "diagnostics": {
+        "interval_count": 10,
+        "nfev": 24140,
+        "njev": 0,
+        "nlu": 0
+      },
+      "last_interval": {
+        "start_time_s": 90.0,
+        "requested_end_time_s": 100.0,
+        "solver": {
+          "version": 1,
+          "method": "DOP853",
+          "rtol": 1e-11,
+          "requested_rtol": 1e-11,
+          "atol": [
+            1e-11,
+            1e-11,
+            1e-11,
+            1e-11,
+            1e-11,
+            1e-08,
+            1e-08
+          ],
+          "max_step_s": 0.05,
+          "effective_max_step_s": 0.05,
+          "state_order": [
+            "wall_temperature_k",
+            "hot_temperature_k",
+            "cold_temperature_k",
+            "pump_speed",
+            "valve_opening",
+            "heat_in_j",
+            "heat_rejected_j"
+          ],
+          "state_units": [
+            "K",
+            "K",
+            "K",
+            "1",
+            "1",
+            "J",
+            "J"
+          ]
+        },
+        "applied_inputs": {
+          "heat_command": 1.0,
+          "pump_command": 0.0,
+          "valve_command": 0.0,
+          "hot_conductance_w_k": null,
+          "sink_conductance_w_k": null,
+          "pipe_resistance_pa_s2_m6": null,
+          "valve_resistance_pa_s2_m6": null
+        },
+        "effective_coefficients": {
+          "hot_conductance_w_k": 0.0,
+          "sink_conductance_w_k": 0.0,
+          "pipe_resistance_pa_s2_m6": 600000000000.0,
+          "valve_resistance_pa_s2_m6": 100000000000.0
+        },
+        "applied_heat_w": 5000.0,
+        "flow_mode": "coupled_hydraulic",
+        "imposed_flow_m3_s": null,
+        "upward_rate_bounds_k_s": [
+          0.5,
+          14.321788867443775,
+          9.547859244962517
+        ],
+        "rate_bound_meaning": "domain conservative upward rates; excludes numerical error",
+        "success": true,
+        "status": 0,
+        "message": "The solver successfully reached the end of the integration interval.",
+        "nfev": 2414,
+        "njev": 0,
+        "nlu": 0,
+        "accepted_time_s": 100.0
+      }
+    },
+    "exponential_cooling": {
+      "model": {
+        "version": 1,
+        "topology": "thermal_circulation",
+        "parameter_pedigree": "assumed",
+        "parameters": {
+          "version": 1,
+          "density_kg_m3": 1000.0,
+          "specific_heat_j_kg_k": 4180.0,
+          "hot_mass_kg": 2.0,
+          "cold_mass_kg": 3.0,
+          "wall_capacity_j_k": 10000.0,
+          "max_heat_w": 5000.0,
+          "hot_conductance_w_k": 0.0,
+          "sink_conductance_w_k": 500.0,
+          "sink_temperature_k": 283.15,
+          "pump_shutoff_pa": 100000.0,
+          "pump_curve_pa_s2_m6": 400000000000.0,
+          "pipe_resistance_pa_s2_m6": 600000000000.0,
+          "valve_resistance_pa_s2_m6": 100000000000.0,
+          "pump_tau_s": 1.0,
+          "valve_tau_s": 0.5
+        },
+        "domain": {
+          "temperature_min_k": 273.15,
+          "temperature_max_k": 368.15
+        }
+      },
+      "initial_state": {
+        "record_type": "benchmark_sample",
+        "time_us": 0,
+        "time_s": 0.0,
+        "clock_id": "simulation",
+        "wall_temperature_k": 293.15,
+        "hot_temperature_k": 293.15,
+        "cold_temperature_k": 330.0,
+        "pump_speed": 0.0,
+        "valve_opening": 0.0,
+        "heat_in_j": 0.0,
+        "heat_rejected_j": 0.0,
+        "flow_m3_s": 0.0,
+        "pump_pressure_pa": 0.0,
+        "energy_residual_j": 0.0
+      },
+      "applied_inputs": {
+        "heat_command": 0.0,
+        "pump_command": 0.0,
+        "valve_command": 0.0,
+        "hot_conductance_w_k": null,
+        "sink_conductance_w_k": null,
+        "pipe_resistance_pa_s2_m6": null,
+        "valve_resistance_pa_s2_m6": null
+      },
+      "solver": {
+        "version": 1,
+        "method": "DOP853",
+        "rtol": 1e-11,
+        "requested_rtol": 1e-11,
+        "atol": [
+          1e-11,
+          1e-11,
+          1e-11,
+          1e-11,
+          1e-11,
+          1e-08,
+          1e-08
+        ],
+        "max_step_s": 0.05,
+        "effective_max_step_s": 0.05,
+        "state_order": [
+          "wall_temperature_k",
+          "hot_temperature_k",
+          "cold_temperature_k",
+          "pump_speed",
+          "valve_opening",
+          "heat_in_j",
+          "heat_rejected_j"
+        ],
+        "state_units": [
+          "K",
+          "K",
+          "K",
+          "1",
+          "1",
+          "J",
+          "J"
+        ]
+      },
+      "duration_s": 100,
+      "tick_s": 10,
+      "clock": "simulation integer microseconds",
+      "flow_mode": "coupled_hydraulic",
+      "imposed_flow_m3_s": null,
+      "complete_horizon": true,
+      "boundary": null,
+      "failure": null,
+      "diagnostics": {
+        "interval_count": 10,
+        "nfev": 24140,
+        "njev": 0,
+        "nlu": 0
+      },
+      "last_interval": {
+        "start_time_s": 90.0,
+        "requested_end_time_s": 100.0,
+        "solver": {
+          "version": 1,
+          "method": "DOP853",
+          "rtol": 1e-11,
+          "requested_rtol": 1e-11,
+          "atol": [
+            1e-11,
+            1e-11,
+            1e-11,
+            1e-11,
+            1e-11,
+            1e-08,
+            1e-08
+          ],
+          "max_step_s": 0.05,
+          "effective_max_step_s": 0.05,
+          "state_order": [
+            "wall_temperature_k",
+            "hot_temperature_k",
+            "cold_temperature_k",
+            "pump_speed",
+            "valve_opening",
+            "heat_in_j",
+            "heat_rejected_j"
+          ],
+          "state_units": [
+            "K",
+            "K",
+            "K",
+            "1",
+            "1",
+            "J",
+            "J"
+          ]
+        },
+        "applied_inputs": {
+          "heat_command": 0.0,
+          "pump_command": 0.0,
+          "valve_command": 0.0,
+          "hot_conductance_w_k": null,
+          "sink_conductance_w_k": null,
+          "pipe_resistance_pa_s2_m6": null,
+          "valve_resistance_pa_s2_m6": null
+        },
+        "effective_coefficients": {
+          "hot_conductance_w_k": 0.0,
+          "sink_conductance_w_k": 500.0,
+          "pipe_resistance_pa_s2_m6": 600000000000.0,
+          "valve_resistance_pa_s2_m6": 100000000000.0
+        },
+        "applied_heat_w": 0.0,
+        "flow_mode": "coupled_hydraulic",
+        "imposed_flow_m3_s": null,
+        "upward_rate_bounds_k_s": [
+          0.0,
+          14.321788867443775,
+          9.946583327897127
+        ],
+        "rate_bound_meaning": "domain conservative upward rates; excludes numerical error",
+        "success": true,
+        "status": 0,
+        "message": "The solver successfully reached the end of the integration interval.",
+        "nfev": 2414,
+        "njev": 0,
+        "nlu": 0,
+        "accepted_time_s": 100.0
+      }
+    },
+    "imposed_flow_equilibrium": {
+      "model": {
+        "version": 1,
+        "topology": "thermal_circulation",
+        "parameter_pedigree": "assumed",
+        "parameters": {
+          "version": 1,
+          "density_kg_m3": 1000.0,
+          "specific_heat_j_kg_k": 4180.0,
+          "hot_mass_kg": 2.0,
+          "cold_mass_kg": 3.0,
+          "wall_capacity_j_k": 10000.0,
+          "max_heat_w": 5000.0,
+          "hot_conductance_w_k": 300.0,
+          "sink_conductance_w_k": 500.0,
+          "sink_temperature_k": 283.15,
+          "pump_shutoff_pa": 100000.0,
+          "pump_curve_pa_s2_m6": 400000000000.0,
+          "pipe_resistance_pa_s2_m6": 600000000000.0,
+          "valve_resistance_pa_s2_m6": 100000000000.0,
+          "pump_tau_s": 1.0,
+          "valve_tau_s": 0.5
+        },
+        "domain": {
+          "temperature_min_k": 273.15,
+          "temperature_max_k": 368.15
+        }
+      },
+      "initial_state": {
+        "record_type": "benchmark_sample",
+        "time_us": 0,
+        "time_s": 0.0,
+        "clock_id": "simulation",
+        "wall_temperature_k": 293.15,
+        "hot_temperature_k": 293.15,
+        "cold_temperature_k": 293.15,
+        "pump_speed": 0.0,
+        "valve_opening": 0.65,
+        "heat_in_j": 0.0,
+        "heat_rejected_j": 0.0,
+        "flow_m3_s": 0.00015,
+        "pump_pressure_pa": null,
+        "energy_residual_j": 0.0
+      },
+      "applied_inputs": {
+        "heat_command": 1.0,
+        "pump_command": 0.0,
+        "valve_command": 0.65,
+        "hot_conductance_w_k": null,
+        "sink_conductance_w_k": null,
+        "pipe_resistance_pa_s2_m6": null,
+        "valve_resistance_pa_s2_m6": null
+      },
+      "solver": {
+        "version": 1,
+        "method": "DOP853",
+        "rtol": 1e-11,
+        "requested_rtol": 1e-11,
+        "atol": [
+          1e-11,
+          1e-11,
+          1e-11,
+          1e-11,
+          1e-11,
+          1e-08,
+          1e-08
+        ],
+        "max_step_s": 0.05,
+        "effective_max_step_s": 0.05,
+        "state_order": [
+          "wall_temperature_k",
+          "hot_temperature_k",
+          "cold_temperature_k",
+          "pump_speed",
+          "valve_opening",
+          "heat_in_j",
+          "heat_rejected_j"
+        ],
+        "state_units": [
+          "K",
+          "K",
+          "K",
+          "1",
+          "1",
+          "J",
+          "J"
+        ]
+      },
+      "duration_s": 1200,
+      "tick_s": 20,
+      "clock": "simulation integer microseconds",
+      "flow_mode": "imposed_flow_benchmark",
+      "imposed_flow_m3_s": 0.00015,
+      "complete_horizon": true,
+      "boundary": null,
+      "failure": null,
+      "diagnostics": {
+        "interval_count": 60,
+        "nfev": 288684,
+        "njev": 0,
+        "nlu": 0
+      },
+      "last_interval": {
+        "start_time_s": 1180.0,
+        "requested_end_time_s": 1200.0,
+        "solver": {
+          "version": 1,
+          "method": "DOP853",
+          "rtol": 1e-11,
+          "requested_rtol": 1e-11,
+          "atol": [
+            1e-11,
+            1e-11,
+            1e-11,
+            1e-11,
+            1e-11,
+            1e-08,
+            1e-08
+          ],
+          "max_step_s": 0.05,
+          "effective_max_step_s": 0.05,
+          "state_order": [
+            "wall_temperature_k",
+            "hot_temperature_k",
+            "cold_temperature_k",
+            "pump_speed",
+            "valve_opening",
+            "heat_in_j",
+            "heat_rejected_j"
+          ],
+          "state_units": [
+            "K",
+            "K",
+            "K",
+            "1",
+            "1",
+            "J",
+            "J"
+          ]
+        },
+        "applied_inputs": {
+          "heat_command": 1.0,
+          "pump_command": 0.0,
+          "valve_command": 0.65,
+          "hot_conductance_w_k": null,
+          "sink_conductance_w_k": null,
+          "pipe_resistance_pa_s2_m6": null,
+          "valve_resistance_pa_s2_m6": null
+        },
+        "effective_coefficients": {
+          "hot_conductance_w_k": 300.0,
+          "sink_conductance_w_k": 500.0,
+          "pipe_resistance_pa_s2_m6": 600000000000.0,
+          "valve_resistance_pa_s2_m6": 100000000000.0
+        },
+        "applied_heat_w": 5000.0,
+        "flow_mode": "imposed_flow_benchmark",
+        "imposed_flow_m3_s": 0.00015,
+        "upward_rate_bounds_k_s": [
+          3.35,
+          10.534090909090908,
+          5.148724082934609
+        ],
+        "rate_bound_meaning": "domain conservative upward rates; excludes numerical error",
+        "success": true,
+        "status": 0,
+        "message": "The solver successfully reached the end of the integration interval.",
+        "nfev": 4814,
+        "njev": 0,
+        "nlu": 0,
+        "accepted_time_s": 1200.0
+      },
+      "independent_steady_temperatures_k": [
+        317.79114832535885,
+        301.12448165869216,
+        293.15
+      ],
+      "independent_matrix": [
+        [
+          -0.03,
+          0.03,
+          0.0
+        ],
+        [
+          0.03588516746411483,
+          -0.11088516746411484,
+          0.075
+        ],
+        [
+          0.0,
+          0.05,
+          -0.08987240829346092
+        ]
+      ],
+      "slowest_time_constant_s": 99.74953867195966
+    },
+    "internal_mixing": {
+      "model": {
+        "version": 1,
+        "topology": "thermal_circulation",
+        "parameter_pedigree": "assumed",
+        "parameters": {
+          "version": 1,
+          "density_kg_m3": 1000.0,
+          "specific_heat_j_kg_k": 4180.0,
+          "hot_mass_kg": 2.0,
+          "cold_mass_kg": 3.0,
+          "wall_capacity_j_k": 10000.0,
+          "max_heat_w": 5000.0,
+          "hot_conductance_w_k": 300.0,
+          "sink_conductance_w_k": 0.0,
+          "sink_temperature_k": 283.15,
+          "pump_shutoff_pa": 100000.0,
+          "pump_curve_pa_s2_m6": 400000000000.0,
+          "pipe_resistance_pa_s2_m6": 600000000000.0,
+          "valve_resistance_pa_s2_m6": 100000000000.0,
+          "pump_tau_s": 1.0,
+          "valve_tau_s": 0.5
+        },
+        "domain": {
+          "temperature_min_k": 273.15,
+          "temperature_max_k": 368.15
+        }
+      },
+      "initial_state": {
+        "record_type": "benchmark_sample",
+        "time_us": 0,
+        "time_s": 0.0,
+        "clock_id": "simulation",
+        "wall_temperature_k": 340.0,
+        "hot_temperature_k": 310.0,
+        "cold_temperature_k": 290.0,
+        "pump_speed": 0.0,
+        "valve_opening": 0.65,
+        "heat_in_j": 0.0,
+        "heat_rejected_j": 0.0,
+        "flow_m3_s": 0.00015,
+        "pump_pressure_pa": null,
+        "energy_residual_j": 0.0
+      },
+      "applied_inputs": {
+        "heat_command": 0.0,
+        "pump_command": 0.0,
+        "valve_command": 0.65,
+        "hot_conductance_w_k": null,
+        "sink_conductance_w_k": null,
+        "pipe_resistance_pa_s2_m6": null,
+        "valve_resistance_pa_s2_m6": null
+      },
+      "solver": {
+        "version": 1,
+        "method": "DOP853",
+        "rtol": 1e-11,
+        "requested_rtol": 1e-11,
+        "atol": [
+          1e-11,
+          1e-11,
+          1e-11,
+          1e-11,
+          1e-11,
+          1e-08,
+          1e-08
+        ],
+        "max_step_s": 0.05,
+        "effective_max_step_s": 0.05,
+        "state_order": [
+          "wall_temperature_k",
+          "hot_temperature_k",
+          "cold_temperature_k",
+          "pump_speed",
+          "valve_opening",
+          "heat_in_j",
+          "heat_rejected_j"
+        ],
+        "state_units": [
+          "K",
+          "K",
+          "K",
+          "1",
+          "1",
+          "J",
+          "J"
+        ]
+      },
+      "duration_s": 100,
+      "tick_s": 10,
+      "clock": "simulation integer microseconds",
+      "flow_mode": "imposed_flow_benchmark",
+      "imposed_flow_m3_s": 0.00015,
+      "complete_horizon": true,
+      "boundary": null,
+      "failure": null,
+      "diagnostics": {
+        "interval_count": 10,
+        "nfev": 24104,
+        "njev": 0,
+        "nlu": 0
+      },
+      "last_interval": {
+        "start_time_s": 90.0,
+        "requested_end_time_s": 100.0,
+        "solver": {
+          "version": 1,
+          "method": "DOP853",
+          "rtol": 1e-11,
+          "requested_rtol": 1e-11,
+          "atol": [
+            1e-11,
+            1e-11,
+            1e-11,
+            1e-11,
+            1e-11,
+            1e-08,
+            1e-08
+          ],
+          "max_step_s": 0.05,
+          "effective_max_step_s": 0.05,
+          "state_order": [
+            "wall_temperature_k",
+            "hot_temperature_k",
+            "cold_temperature_k",
+            "pump_speed",
+            "valve_opening",
+            "heat_in_j",
+            "heat_rejected_j"
+          ],
+          "state_units": [
+            "K",
+            "K",
+            "K",
+            "1",
+            "1",
+            "J",
+            "J"
+          ]
+        },
+        "applied_inputs": {
+          "heat_command": 0.0,
+          "pump_command": 0.0,
+          "valve_command": 0.65,
+          "hot_conductance_w_k": null,
+          "sink_conductance_w_k": null,
+          "pipe_resistance_pa_s2_m6": null,
+          "valve_resistance_pa_s2_m6": null
+        },
+        "effective_coefficients": {
+          "hot_conductance_w_k": 300.0,
+          "sink_conductance_w_k": 0.0,
+          "pipe_resistance_pa_s2_m6": 600000000000.0,
+          "valve_resistance_pa_s2_m6": 100000000000.0
+        },
+        "applied_heat_w": 0.0,
+        "flow_mode": "imposed_flow_benchmark",
+        "imposed_flow_m3_s": 0.00015,
+        "upward_rate_bounds_k_s": [
+          2.85,
+          10.534090909090908,
+          4.75
+        ],
+        "rate_bound_meaning": "domain conservative upward rates; excludes numerical error",
+        "success": true,
+        "status": 0,
+        "message": "The solver successfully reached the end of the integration interval.",
+        "nfev": 2414,
+        "njev": 0,
+        "nlu": 0,
+        "accepted_time_s": 100.0
+      }
+    },
+    "no_flow_wall_exchange": {
+      "model": {
+        "version": 1,
+        "topology": "thermal_circulation",
+        "parameter_pedigree": "assumed",
+        "parameters": {
+          "version": 1,
+          "density_kg_m3": 1000.0,
+          "specific_heat_j_kg_k": 4180.0,
+          "hot_mass_kg": 2.0,
+          "cold_mass_kg": 3.0,
+          "wall_capacity_j_k": 10000.0,
+          "max_heat_w": 5000.0,
+          "hot_conductance_w_k": 300.0,
+          "sink_conductance_w_k": 0.0,
+          "sink_temperature_k": 283.15,
+          "pump_shutoff_pa": 100000.0,
+          "pump_curve_pa_s2_m6": 400000000000.0,
+          "pipe_resistance_pa_s2_m6": 600000000000.0,
+          "valve_resistance_pa_s2_m6": 100000000000.0,
+          "pump_tau_s": 1.0,
+          "valve_tau_s": 0.5
+        },
+        "domain": {
+          "temperature_min_k": 273.15,
+          "temperature_max_k": 368.15
+        }
+      },
+      "initial_state": {
+        "record_type": "benchmark_sample",
+        "time_us": 0,
+        "time_s": 0.0,
+        "clock_id": "simulation",
+        "wall_temperature_k": 340.0,
+        "hot_temperature_k": 290.0,
+        "cold_temperature_k": 293.15,
+        "pump_speed": 0.0,
+        "valve_opening": 0.0,
+        "heat_in_j": 0.0,
+        "heat_rejected_j": 0.0,
+        "flow_m3_s": 0.0,
+        "pump_pressure_pa": 0.0,
+        "energy_residual_j": 0.0
+      },
+      "applied_inputs": {
+        "heat_command": 0.0,
+        "pump_command": 0.0,
+        "valve_command": 0.0,
+        "hot_conductance_w_k": null,
+        "sink_conductance_w_k": null,
+        "pipe_resistance_pa_s2_m6": null,
+        "valve_resistance_pa_s2_m6": null
+      },
+      "solver": {
+        "version": 1,
+        "method": "DOP853",
+        "rtol": 1e-11,
+        "requested_rtol": 1e-11,
+        "atol": [
+          1e-11,
+          1e-11,
+          1e-11,
+          1e-11,
+          1e-11,
+          1e-08,
+          1e-08
+        ],
+        "max_step_s": 0.05,
+        "effective_max_step_s": 0.05,
+        "state_order": [
+          "wall_temperature_k",
+          "hot_temperature_k",
+          "cold_temperature_k",
+          "pump_speed",
+          "valve_opening",
+          "heat_in_j",
+          "heat_rejected_j"
+        ],
+        "state_units": [
+          "K",
+          "K",
+          "K",
+          "1",
+          "1",
+          "J",
+          "J"
+        ]
+      },
+      "duration_s": 100,
+      "tick_s": 10,
+      "clock": "simulation integer microseconds",
+      "flow_mode": "coupled_hydraulic",
+      "imposed_flow_m3_s": null,
+      "complete_horizon": true,
+      "boundary": null,
+      "failure": null,
+      "diagnostics": {
+        "interval_count": 10,
+        "nfev": 24116,
+        "njev": 0,
+        "nlu": 0
+      },
+      "last_interval": {
+        "start_time_s": 90.0,
+        "requested_end_time_s": 100.0,
+        "solver": {
+          "version": 1,
+          "method": "DOP853",
+          "rtol": 1e-11,
+          "requested_rtol": 1e-11,
+          "atol": [
+            1e-11,
+            1e-11,
+            1e-11,
+            1e-11,
+            1e-11,
+            1e-08,
+            1e-08
+          ],
+          "max_step_s": 0.05,
+          "effective_max_step_s": 0.05,
+          "state_order": [
+            "wall_temperature_k",
+            "hot_temperature_k",
+            "cold_temperature_k",
+            "pump_speed",
+            "valve_opening",
+            "heat_in_j",
+            "heat_rejected_j"
+          ],
+          "state_units": [
+            "K",
+            "K",
+            "K",
+            "1",
+            "1",
+            "J",
+            "J"
+          ]
+        },
+        "applied_inputs": {
+          "heat_command": 0.0,
+          "pump_command": 0.0,
+          "valve_command": 0.0,
+          "hot_conductance_w_k": null,
+          "sink_conductance_w_k": null,
+          "pipe_resistance_pa_s2_m6": null,
+          "valve_resistance_pa_s2_m6": null
+        },
+        "effective_coefficients": {
+          "hot_conductance_w_k": 300.0,
+          "sink_conductance_w_k": 0.0,
+          "pipe_resistance_pa_s2_m6": 600000000000.0,
+          "valve_resistance_pa_s2_m6": 100000000000.0
+        },
+        "applied_heat_w": 0.0,
+        "flow_mode": "coupled_hydraulic",
+        "imposed_flow_m3_s": null,
+        "upward_rate_bounds_k_s": [
+          2.85,
+          17.73087977653468,
+          9.547859244962517
+        ],
+        "rate_bound_meaning": "domain conservative upward rates; excludes numerical error",
+        "success": true,
+        "status": 0,
+        "message": "The solver successfully reached the end of the integration interval.",
+        "nfev": 2414,
+        "njev": 0,
+        "nlu": 0,
+        "accepted_time_s": 100.0
+      }
+    },
+    "no_flow_steady_state": {
+      "status": "NOT_APPLICABLE",
+      "imposed_heat_w": 5000,
+      "flow_m3_s": 0,
+      "reason": "wall/hot subsystem has net positive heat with no flowing removal; no finite steady state"
+    },
+    "no_flow_heating": {
+      "model": {
+        "version": 1,
+        "topology": "thermal_circulation",
+        "parameter_pedigree": "assumed",
+        "parameters": {
+          "version": 1,
+          "density_kg_m3": 1000.0,
+          "specific_heat_j_kg_k": 4180.0,
+          "hot_mass_kg": 2.0,
+          "cold_mass_kg": 3.0,
+          "wall_capacity_j_k": 10000.0,
+          "max_heat_w": 5000.0,
+          "hot_conductance_w_k": 300.0,
+          "sink_conductance_w_k": 500.0,
+          "sink_temperature_k": 283.15,
+          "pump_shutoff_pa": 100000.0,
+          "pump_curve_pa_s2_m6": 400000000000.0,
+          "pipe_resistance_pa_s2_m6": 600000000000.0,
+          "valve_resistance_pa_s2_m6": 100000000000.0,
+          "pump_tau_s": 1.0,
+          "valve_tau_s": 0.5
+        },
+        "domain": {
+          "temperature_min_k": 273.15,
+          "temperature_max_k": 368.15
+        }
+      },
+      "initial_state": {
+        "record_type": "benchmark_sample",
+        "time_us": 0,
+        "time_s": 0.0,
+        "clock_id": "simulation",
+        "wall_temperature_k": 293.15,
+        "hot_temperature_k": 293.15,
+        "cold_temperature_k": 293.15,
+        "pump_speed": 0.0,
+        "valve_opening": 0.0,
+        "heat_in_j": 0.0,
+        "heat_rejected_j": 0.0,
+        "flow_m3_s": 0.0,
+        "pump_pressure_pa": 0.0,
+        "energy_residual_j": 0.0
+      },
+      "applied_inputs": {
+        "heat_command": 1.0,
+        "pump_command": 0.0,
+        "valve_command": 0.0,
+        "hot_conductance_w_k": null,
+        "sink_conductance_w_k": null,
+        "pipe_resistance_pa_s2_m6": null,
+        "valve_resistance_pa_s2_m6": null
+      },
+      "solver": {
+        "version": 1,
+        "method": "DOP853",
+        "rtol": 1e-11,
+        "requested_rtol": 1e-11,
+        "atol": [
+          1e-11,
+          1e-11,
+          1e-11,
+          1e-11,
+          1e-11,
+          1e-08,
+          1e-08
+        ],
+        "max_step_s": 0.05,
+        "effective_max_step_s": 0.05,
+        "state_order": [
+          "wall_temperature_k",
+          "hot_temperature_k",
+          "cold_temperature_k",
+          "pump_speed",
+          "valve_opening",
+          "heat_in_j",
+          "heat_rejected_j"
+        ],
+        "state_units": [
+          "K",
+          "K",
+          "K",
+          "1",
+          "1",
+          "J",
+          "J"
+        ]
+      },
+      "duration_s": 60,
+      "tick_s": 10,
+      "clock": "simulation integer microseconds",
+      "flow_mode": "coupled_hydraulic",
+      "imposed_flow_m3_s": null,
+      "complete_horizon": true,
+      "boundary": null,
+      "failure": null,
+      "diagnostics": {
+        "interval_count": 6,
+        "nfev": 14484,
+        "njev": 0,
+        "nlu": 0
+      },
+      "last_interval": {
+        "start_time_s": 50.0,
+        "requested_end_time_s": 60.0,
+        "solver": {
+          "version": 1,
+          "method": "DOP853",
+          "rtol": 1e-11,
+          "requested_rtol": 1e-11,
+          "atol": [
+            1e-11,
+            1e-11,
+            1e-11,
+            1e-11,
+            1e-11,
+            1e-08,
+            1e-08
+          ],
+          "max_step_s": 0.05,
+          "effective_max_step_s": 0.05,
+          "state_order": [
+            "wall_temperature_k",
+            "hot_temperature_k",
+            "cold_temperature_k",
+            "pump_speed",
+            "valve_opening",
+            "heat_in_j",
+            "heat_rejected_j"
+          ],
+          "state_units": [
+            "K",
+            "K",
+            "K",
+            "1",
+            "1",
+            "J",
+            "J"
+          ]
+        },
+        "applied_inputs": {
+          "heat_command": 1.0,
+          "pump_command": 0.0,
+          "valve_command": 0.0,
+          "hot_conductance_w_k": null,
+          "sink_conductance_w_k": null,
+          "pipe_resistance_pa_s2_m6": null,
+          "valve_resistance_pa_s2_m6": null
+        },
+        "effective_coefficients": {
+          "hot_conductance_w_k": 300.0,
+          "sink_conductance_w_k": 500.0,
+          "pipe_resistance_pa_s2_m6": 600000000000.0,
+          "valve_resistance_pa_s2_m6": 100000000000.0
+        },
+        "applied_heat_w": 5000.0,
+        "flow_mode": "coupled_hydraulic",
+        "imposed_flow_m3_s": null,
+        "upward_rate_bounds_k_s": [
+          3.35,
+          17.73087977653468,
+          9.946583327897127
+        ],
+        "rate_bound_meaning": "domain conservative upward rates; excludes numerical error",
+        "success": true,
+        "status": 0,
+        "message": "The solver successfully reached the end of the integration interval.",
+        "nfev": 2414,
+        "njev": 0,
+        "nlu": 0,
+        "accepted_time_s": 60.0
+      }
+    },
+    "upper_boundary": {
+      "model": {
+        "version": 1,
+        "topology": "thermal_circulation",
+        "parameter_pedigree": "assumed",
+        "parameters": {
+          "version": 1,
+          "density_kg_m3": 1000.0,
+          "specific_heat_j_kg_k": 4180.0,
+          "hot_mass_kg": 2.0,
+          "cold_mass_kg": 3.0,
+          "wall_capacity_j_k": 10000.0,
+          "max_heat_w": 5000.0,
+          "hot_conductance_w_k": 0.0,
+          "sink_conductance_w_k": 0.0,
+          "sink_temperature_k": 283.15,
+          "pump_shutoff_pa": 100000.0,
+          "pump_curve_pa_s2_m6": 400000000000.0,
+          "pipe_resistance_pa_s2_m6": 600000000000.0,
+          "valve_resistance_pa_s2_m6": 100000000000.0,
+          "pump_tau_s": 1.0,
+          "valve_tau_s": 0.5
+        },
+        "domain": {
+          "temperature_min_k": 273.15,
+          "temperature_max_k": 368.15
+        }
+      },
+      "initial_state": {
+        "record_type": "benchmark_sample",
+        "time_us": 0,
+        "time_s": 0.0,
+        "clock_id": "simulation",
+        "wall_temperature_k": 293.15,
+        "hot_temperature_k": 293.15,
+        "cold_temperature_k": 293.15,
+        "pump_speed": 0.0,
+        "valve_opening": 0.0,
+        "heat_in_j": 0.0,
+        "heat_rejected_j": 0.0,
+        "flow_m3_s": 0.0,
+        "pump_pressure_pa": 0.0,
+        "energy_residual_j": 0.0
+      },
+      "applied_inputs": {
+        "heat_command": 1.0,
+        "pump_command": 0.0,
+        "valve_command": 0.0,
+        "hot_conductance_w_k": null,
+        "sink_conductance_w_k": null,
+        "pipe_resistance_pa_s2_m6": null,
+        "valve_resistance_pa_s2_m6": null
+      },
+      "solver": {
+        "version": 1,
+        "method": "DOP853",
+        "rtol": 1e-11,
+        "requested_rtol": 1e-11,
+        "atol": [
+          1e-11,
+          1e-11,
+          1e-11,
+          1e-11,
+          1e-11,
+          1e-08,
+          1e-08
+        ],
+        "max_step_s": 0.05,
+        "effective_max_step_s": 0.05,
+        "state_order": [
+          "wall_temperature_k",
+          "hot_temperature_k",
+          "cold_temperature_k",
+          "pump_speed",
+          "valve_opening",
+          "heat_in_j",
+          "heat_rejected_j"
+        ],
+        "state_units": [
+          "K",
+          "K",
+          "K",
+          "1",
+          "1",
+          "J",
+          "J"
+        ]
+      },
+      "duration_s": 200,
+      "tick_s": 10,
+      "clock": "simulation integer microseconds",
+      "flow_mode": "coupled_hydraulic",
+      "imposed_flow_m3_s": null,
+      "complete_horizon": false,
+      "boundary": "wall_upper",
+      "failure": null,
+      "diagnostics": {
+        "interval_count": 16,
+        "nfev": 36227,
+        "njev": 0,
+        "nlu": 0
+      },
+      "last_interval": {
+        "start_time_s": 150.0,
+        "requested_end_time_s": 160.0,
+        "solver": {
+          "version": 1,
+          "method": "DOP853",
+          "rtol": 1e-11,
+          "requested_rtol": 1e-11,
+          "atol": [
+            1e-11,
+            1e-11,
+            1e-11,
+            1e-11,
+            1e-11,
+            1e-08,
+            1e-08
+          ],
+          "max_step_s": 0.05,
+          "effective_max_step_s": 0.05,
+          "state_order": [
+            "wall_temperature_k",
+            "hot_temperature_k",
+            "cold_temperature_k",
+            "pump_speed",
+            "valve_opening",
+            "heat_in_j",
+            "heat_rejected_j"
+          ],
+          "state_units": [
+            "K",
+            "K",
+            "K",
+            "1",
+            "1",
+            "J",
+            "J"
+          ]
+        },
+        "applied_inputs": {
+          "heat_command": 1.0,
+          "pump_command": 0.0,
+          "valve_command": 0.0,
+          "hot_conductance_w_k": null,
+          "sink_conductance_w_k": null,
+          "pipe_resistance_pa_s2_m6": null,
+          "valve_resistance_pa_s2_m6": null
+        },
+        "effective_coefficients": {
+          "hot_conductance_w_k": 0.0,
+          "sink_conductance_w_k": 0.0,
+          "pipe_resistance_pa_s2_m6": 600000000000.0,
+          "valve_resistance_pa_s2_m6": 100000000000.0
+        },
+        "applied_heat_w": 5000.0,
+        "flow_mode": "coupled_hydraulic",
+        "imposed_flow_m3_s": null,
+        "upward_rate_bounds_k_s": [
+          0.5,
+          14.321788867443775,
+          9.547859244962517
+        ],
+        "rate_bound_meaning": "domain conservative upward rates; excludes numerical error",
+        "success": true,
+        "status": 1,
+        "message": "A termination event occurred.",
+        "nfev": 17,
+        "njev": 0,
+        "nlu": 0,
+        "boundary_residuals_k": {
+          "wall_upper": 0.0
+        },
+        "boundary_root_tolerance_k": 3.637978807091713e-12,
+        "accepted_time_s": 150.00000000008527
+      },
+      "independent_event_time_s": 150,
+      "absolute_event_time_error_s": 8.526512829121202e-11
+    },
+    "solver_reference": {
+      "model": {
+        "version": 1,
+        "topology": "thermal_circulation",
+        "parameter_pedigree": "assumed",
+        "parameters": {
+          "version": 1,
+          "density_kg_m3": 1000.0,
+          "specific_heat_j_kg_k": 4180.0,
+          "hot_mass_kg": 2.0,
+          "cold_mass_kg": 3.0,
+          "wall_capacity_j_k": 10000.0,
+          "max_heat_w": 5000.0,
+          "hot_conductance_w_k": 300.0,
+          "sink_conductance_w_k": 500.0,
+          "sink_temperature_k": 283.15,
+          "pump_shutoff_pa": 100000.0,
+          "pump_curve_pa_s2_m6": 400000000000.0,
+          "pipe_resistance_pa_s2_m6": 600000000000.0,
+          "valve_resistance_pa_s2_m6": 100000000000.0,
+          "pump_tau_s": 1.0,
+          "valve_tau_s": 0.5
+        },
+        "domain": {
+          "temperature_min_k": 273.15,
+          "temperature_max_k": 368.15
+        }
+      },
+      "initial_state": {
+        "record_type": "benchmark_sample",
+        "time_us": 0,
+        "time_s": 0.0,
+        "clock_id": "simulation",
+        "wall_temperature_k": 293.15,
+        "hot_temperature_k": 293.15,
+        "cold_temperature_k": 293.15,
+        "pump_speed": 0.0,
+        "valve_opening": 0.65,
+        "heat_in_j": 0.0,
+        "heat_rejected_j": 0.0,
+        "flow_m3_s": 0.0,
+        "pump_pressure_pa": 0.0,
+        "energy_residual_j": 0.0
+      },
+      "applied_inputs": {
+        "heat_command": 1.0,
+        "pump_command": 0.5274982823382673,
+        "valve_command": 0.65,
+        "hot_conductance_w_k": null,
+        "sink_conductance_w_k": null,
+        "pipe_resistance_pa_s2_m6": null,
+        "valve_resistance_pa_s2_m6": null
+      },
+      "solver": {
+        "version": 1,
+        "method": "DOP853",
+        "rtol": 1e-11,
+        "requested_rtol": 1e-11,
+        "atol": [
+          1e-12,
+          1e-12,
+          1e-12,
+          1e-12,
+          1e-12,
+          1e-09,
+          1e-09
+        ],
+        "max_step_s": 0.05,
+        "effective_max_step_s": 0.05,
+        "state_order": [
+          "wall_temperature_k",
+          "hot_temperature_k",
+          "cold_temperature_k",
+          "pump_speed",
+          "valve_opening",
+          "heat_in_j",
+          "heat_rejected_j"
+        ],
+        "state_units": [
+          "K",
+          "K",
+          "K",
+          "1",
+          "1",
+          "J",
+          "J"
+        ]
+      },
+      "duration_s": 240,
+      "tick_s": 0.1,
+      "clock": "simulation integer microseconds",
+      "flow_mode": "coupled_hydraulic",
+      "imposed_flow_m3_s": null,
+      "complete_horizon": true,
+      "boundary": null,
+      "failure": null,
+      "diagnostics": {
+        "interval_count": 2400,
+        "nfev": 90276,
+        "njev": 0,
+        "nlu": 0
+      },
+      "last_interval": {
+        "start_time_s": 239.9,
+        "requested_end_time_s": 240.0,
+        "solver": {
+          "version": 1,
+          "method": "DOP853",
+          "rtol": 1e-11,
+          "requested_rtol": 1e-11,
+          "atol": [
+            1e-12,
+            1e-12,
+            1e-12,
+            1e-12,
+            1e-12,
+            1e-09,
+            1e-09
+          ],
+          "max_step_s": 0.05,
+          "effective_max_step_s": 0.05,
+          "state_order": [
+            "wall_temperature_k",
+            "hot_temperature_k",
+            "cold_temperature_k",
+            "pump_speed",
+            "valve_opening",
+            "heat_in_j",
+            "heat_rejected_j"
+          ],
+          "state_units": [
+            "K",
+            "K",
+            "K",
+            "1",
+            "1",
+            "J",
+            "J"
+          ]
+        },
+        "applied_inputs": {
+          "heat_command": 1.0,
+          "pump_command": 0.5274982823382673,
+          "valve_command": 0.65,
+          "hot_conductance_w_k": null,
+          "sink_conductance_w_k": null,
+          "pipe_resistance_pa_s2_m6": null,
+          "valve_resistance_pa_s2_m6": null
+        },
+        "effective_coefficients": {
+          "hot_conductance_w_k": 300.0,
+          "sink_conductance_w_k": 500.0,
+          "pipe_resistance_pa_s2_m6": 600000000000.0,
+          "valve_resistance_pa_s2_m6": 100000000000.0
+        },
+        "applied_heat_w": 5000.0,
+        "flow_mode": "coupled_hydraulic",
+        "imposed_flow_m3_s": null,
+        "upward_rate_bounds_k_s": [
+          3.35,
+          17.73087977653468,
+          9.946583327897127
+        ],
+        "rate_bound_meaning": "domain conservative upward rates; excludes numerical error",
+        "success": true,
+        "status": 0,
+        "message": "The solver successfully reached the end of the integration interval.",
+        "nfev": 26,
+        "njev": 0,
+        "nlu": 0,
+        "accepted_time_s": 240.0
+      }
+    },
+    "solver_rtol_1e-05": {
+      "model": {
+        "version": 1,
+        "topology": "thermal_circulation",
+        "parameter_pedigree": "assumed",
+        "parameters": {
+          "version": 1,
+          "density_kg_m3": 1000.0,
+          "specific_heat_j_kg_k": 4180.0,
+          "hot_mass_kg": 2.0,
+          "cold_mass_kg": 3.0,
+          "wall_capacity_j_k": 10000.0,
+          "max_heat_w": 5000.0,
+          "hot_conductance_w_k": 300.0,
+          "sink_conductance_w_k": 500.0,
+          "sink_temperature_k": 283.15,
+          "pump_shutoff_pa": 100000.0,
+          "pump_curve_pa_s2_m6": 400000000000.0,
+          "pipe_resistance_pa_s2_m6": 600000000000.0,
+          "valve_resistance_pa_s2_m6": 100000000000.0,
+          "pump_tau_s": 1.0,
+          "valve_tau_s": 0.5
+        },
+        "domain": {
+          "temperature_min_k": 273.15,
+          "temperature_max_k": 368.15
+        }
+      },
+      "initial_state": {
+        "record_type": "benchmark_sample",
+        "time_us": 0,
+        "time_s": 0.0,
+        "clock_id": "simulation",
+        "wall_temperature_k": 293.15,
+        "hot_temperature_k": 293.15,
+        "cold_temperature_k": 293.15,
+        "pump_speed": 0.0,
+        "valve_opening": 0.65,
+        "heat_in_j": 0.0,
+        "heat_rejected_j": 0.0,
+        "flow_m3_s": 0.0,
+        "pump_pressure_pa": 0.0,
+        "energy_residual_j": 0.0
+      },
+      "applied_inputs": {
+        "heat_command": 1.0,
+        "pump_command": 0.5274982823382673,
+        "valve_command": 0.65,
+        "hot_conductance_w_k": null,
+        "sink_conductance_w_k": null,
+        "pipe_resistance_pa_s2_m6": null,
+        "valve_resistance_pa_s2_m6": null
+      },
+      "solver": {
+        "version": 1,
+        "method": "RK45",
+        "rtol": 1e-05,
+        "requested_rtol": 1e-05,
+        "atol": [
+          1.0000000000000002e-06,
+          1.0000000000000002e-06,
+          1.0000000000000002e-06,
+          1.0000000000000002e-08,
+          1.0000000000000002e-08,
+          0.0010000000000000002,
+          0.0010000000000000002
+        ],
+        "max_step_s": 0.05,
+        "effective_max_step_s": 0.05,
+        "state_order": [
+          "wall_temperature_k",
+          "hot_temperature_k",
+          "cold_temperature_k",
+          "pump_speed",
+          "valve_opening",
+          "heat_in_j",
+          "heat_rejected_j"
+        ],
+        "state_units": [
+          "K",
+          "K",
+          "K",
+          "1",
+          "1",
+          "J",
+          "J"
+        ]
+      },
+      "duration_s": 240,
+      "tick_s": 0.1,
+      "clock": "simulation integer microseconds",
+      "flow_mode": "coupled_hydraulic",
+      "imposed_flow_m3_s": null,
+      "complete_horizon": true,
+      "boundary": null,
+      "failure": null,
+      "diagnostics": {
+        "interval_count": 2400,
+        "nfev": 36972,
+        "njev": 0,
+        "nlu": 0
+      },
+      "last_interval": {
+        "start_time_s": 239.9,
+        "requested_end_time_s": 240.0,
+        "solver": {
+          "version": 1,
+          "method": "RK45",
+          "rtol": 1e-05,
+          "requested_rtol": 1e-05,
+          "atol": [
+            1.0000000000000002e-06,
+            1.0000000000000002e-06,
+            1.0000000000000002e-06,
+            1.0000000000000002e-08,
+            1.0000000000000002e-08,
+            0.0010000000000000002,
+            0.0010000000000000002
+          ],
+          "max_step_s": 0.05,
+          "effective_max_step_s": 0.05,
+          "state_order": [
+            "wall_temperature_k",
+            "hot_temperature_k",
+            "cold_temperature_k",
+            "pump_speed",
+            "valve_opening",
+            "heat_in_j",
+            "heat_rejected_j"
+          ],
+          "state_units": [
+            "K",
+            "K",
+            "K",
+            "1",
+            "1",
+            "J",
+            "J"
+          ]
+        },
+        "applied_inputs": {
+          "heat_command": 1.0,
+          "pump_command": 0.5274982823382673,
+          "valve_command": 0.65,
+          "hot_conductance_w_k": null,
+          "sink_conductance_w_k": null,
+          "pipe_resistance_pa_s2_m6": null,
+          "valve_resistance_pa_s2_m6": null
+        },
+        "effective_coefficients": {
+          "hot_conductance_w_k": 300.0,
+          "sink_conductance_w_k": 500.0,
+          "pipe_resistance_pa_s2_m6": 600000000000.0,
+          "valve_resistance_pa_s2_m6": 100000000000.0
+        },
+        "applied_heat_w": 5000.0,
+        "flow_mode": "coupled_hydraulic",
+        "imposed_flow_m3_s": null,
+        "upward_rate_bounds_k_s": [
+          3.35,
+          17.73087977653468,
+          9.946583327897127
+        ],
+        "rate_bound_meaning": "domain conservative upward rates; excludes numerical error",
+        "success": true,
+        "status": 0,
+        "message": "The solver successfully reached the end of the integration interval.",
+        "nfev": 14,
+        "njev": 0,
+        "nlu": 0,
+        "accepted_time_s": 240.0
+      }
+    },
+    "solver_rtol_1e-07": {
+      "model": {
+        "version": 1,
+        "topology": "thermal_circulation",
+        "parameter_pedigree": "assumed",
+        "parameters": {
+          "version": 1,
+          "density_kg_m3": 1000.0,
+          "specific_heat_j_kg_k": 4180.0,
+          "hot_mass_kg": 2.0,
+          "cold_mass_kg": 3.0,
+          "wall_capacity_j_k": 10000.0,
+          "max_heat_w": 5000.0,
+          "hot_conductance_w_k": 300.0,
+          "sink_conductance_w_k": 500.0,
+          "sink_temperature_k": 283.15,
+          "pump_shutoff_pa": 100000.0,
+          "pump_curve_pa_s2_m6": 400000000000.0,
+          "pipe_resistance_pa_s2_m6": 600000000000.0,
+          "valve_resistance_pa_s2_m6": 100000000000.0,
+          "pump_tau_s": 1.0,
+          "valve_tau_s": 0.5
+        },
+        "domain": {
+          "temperature_min_k": 273.15,
+          "temperature_max_k": 368.15
+        }
+      },
+      "initial_state": {
+        "record_type": "benchmark_sample",
+        "time_us": 0,
+        "time_s": 0.0,
+        "clock_id": "simulation",
+        "wall_temperature_k": 293.15,
+        "hot_temperature_k": 293.15,
+        "cold_temperature_k": 293.15,
+        "pump_speed": 0.0,
+        "valve_opening": 0.65,
+        "heat_in_j": 0.0,
+        "heat_rejected_j": 0.0,
+        "flow_m3_s": 0.0,
+        "pump_pressure_pa": 0.0,
+        "energy_residual_j": 0.0
+      },
+      "applied_inputs": {
+        "heat_command": 1.0,
+        "pump_command": 0.5274982823382673,
+        "valve_command": 0.65,
+        "hot_conductance_w_k": null,
+        "sink_conductance_w_k": null,
+        "pipe_resistance_pa_s2_m6": null,
+        "valve_resistance_pa_s2_m6": null
+      },
+      "solver": {
+        "version": 1,
+        "method": "RK45",
+        "rtol": 1e-07,
+        "requested_rtol": 1e-07,
+        "atol": [
+          1e-08,
+          1e-08,
+          1e-08,
+          1e-10,
+          1e-10,
+          1e-05,
+          1e-05
+        ],
+        "max_step_s": 0.05,
+        "effective_max_step_s": 0.05,
+        "state_order": [
+          "wall_temperature_k",
+          "hot_temperature_k",
+          "cold_temperature_k",
+          "pump_speed",
+          "valve_opening",
+          "heat_in_j",
+          "heat_rejected_j"
+        ],
+        "state_units": [
+          "K",
+          "K",
+          "K",
+          "1",
+          "1",
+          "J",
+          "J"
+        ]
+      },
+      "duration_s": 240,
+      "tick_s": 0.1,
+      "clock": "simulation integer microseconds",
+      "flow_mode": "coupled_hydraulic",
+      "imposed_flow_m3_s": null,
+      "complete_horizon": true,
+      "boundary": null,
+      "failure": null,
+      "diagnostics": {
+        "interval_count": 2400,
+        "nfev": 44748,
+        "njev": 0,
+        "nlu": 0
+      },
+      "last_interval": {
+        "start_time_s": 239.9,
+        "requested_end_time_s": 240.0,
+        "solver": {
+          "version": 1,
+          "method": "RK45",
+          "rtol": 1e-07,
+          "requested_rtol": 1e-07,
+          "atol": [
+            1e-08,
+            1e-08,
+            1e-08,
+            1e-10,
+            1e-10,
+            1e-05,
+            1e-05
+          ],
+          "max_step_s": 0.05,
+          "effective_max_step_s": 0.05,
+          "state_order": [
+            "wall_temperature_k",
+            "hot_temperature_k",
+            "cold_temperature_k",
+            "pump_speed",
+            "valve_opening",
+            "heat_in_j",
+            "heat_rejected_j"
+          ],
+          "state_units": [
+            "K",
+            "K",
+            "K",
+            "1",
+            "1",
+            "J",
+            "J"
+          ]
+        },
+        "applied_inputs": {
+          "heat_command": 1.0,
+          "pump_command": 0.5274982823382673,
+          "valve_command": 0.65,
+          "hot_conductance_w_k": null,
+          "sink_conductance_w_k": null,
+          "pipe_resistance_pa_s2_m6": null,
+          "valve_resistance_pa_s2_m6": null
+        },
+        "effective_coefficients": {
+          "hot_conductance_w_k": 300.0,
+          "sink_conductance_w_k": 500.0,
+          "pipe_resistance_pa_s2_m6": 600000000000.0,
+          "valve_resistance_pa_s2_m6": 100000000000.0
+        },
+        "applied_heat_w": 5000.0,
+        "flow_mode": "coupled_hydraulic",
+        "imposed_flow_m3_s": null,
+        "upward_rate_bounds_k_s": [
+          3.35,
+          17.73087977653468,
+          9.946583327897127
+        ],
+        "rate_bound_meaning": "domain conservative upward rates; excludes numerical error",
+        "success": true,
+        "status": 0,
+        "message": "The solver successfully reached the end of the integration interval.",
+        "nfev": 14,
+        "njev": 0,
+        "nlu": 0,
+        "accepted_time_s": 240.0
+      }
+    },
+    "solver_rtol_1e-09": {
+      "model": {
+        "version": 1,
+        "topology": "thermal_circulation",
+        "parameter_pedigree": "assumed",
+        "parameters": {
+          "version": 1,
+          "density_kg_m3": 1000.0,
+          "specific_heat_j_kg_k": 4180.0,
+          "hot_mass_kg": 2.0,
+          "cold_mass_kg": 3.0,
+          "wall_capacity_j_k": 10000.0,
+          "max_heat_w": 5000.0,
+          "hot_conductance_w_k": 300.0,
+          "sink_conductance_w_k": 500.0,
+          "sink_temperature_k": 283.15,
+          "pump_shutoff_pa": 100000.0,
+          "pump_curve_pa_s2_m6": 400000000000.0,
+          "pipe_resistance_pa_s2_m6": 600000000000.0,
+          "valve_resistance_pa_s2_m6": 100000000000.0,
+          "pump_tau_s": 1.0,
+          "valve_tau_s": 0.5
+        },
+        "domain": {
+          "temperature_min_k": 273.15,
+          "temperature_max_k": 368.15
+        }
+      },
+      "initial_state": {
+        "record_type": "benchmark_sample",
+        "time_us": 0,
+        "time_s": 0.0,
+        "clock_id": "simulation",
+        "wall_temperature_k": 293.15,
+        "hot_temperature_k": 293.15,
+        "cold_temperature_k": 293.15,
+        "pump_speed": 0.0,
+        "valve_opening": 0.65,
+        "heat_in_j": 0.0,
+        "heat_rejected_j": 0.0,
+        "flow_m3_s": 0.0,
+        "pump_pressure_pa": 0.0,
+        "energy_residual_j": 0.0
+      },
+      "applied_inputs": {
+        "heat_command": 1.0,
+        "pump_command": 0.5274982823382673,
+        "valve_command": 0.65,
+        "hot_conductance_w_k": null,
+        "sink_conductance_w_k": null,
+        "pipe_resistance_pa_s2_m6": null,
+        "valve_resistance_pa_s2_m6": null
+      },
+      "solver": {
+        "version": 1,
+        "method": "RK45",
+        "rtol": 1e-09,
+        "requested_rtol": 1e-09,
+        "atol": [
+          1e-10,
+          1e-10,
+          1e-10,
+          1e-12,
+          1e-12,
+          1.0000000000000001e-07,
+          1.0000000000000001e-07
+        ],
+        "max_step_s": 0.05,
+        "effective_max_step_s": 0.05,
+        "state_order": [
+          "wall_temperature_k",
+          "hot_temperature_k",
+          "cold_temperature_k",
+          "pump_speed",
+          "valve_opening",
+          "heat_in_j",
+          "heat_rejected_j"
+        ],
+        "state_units": [
+          "K",
+          "K",
+          "K",
+          "1",
+          "1",
+          "J",
+          "J"
+        ]
+      },
+      "duration_s": 240,
+      "tick_s": 0.1,
+      "clock": "simulation integer microseconds",
+      "flow_mode": "coupled_hydraulic",
+      "imposed_flow_m3_s": null,
+      "complete_horizon": true,
+      "boundary": null,
+      "failure": null,
+      "diagnostics": {
+        "interval_count": 2400,
+        "nfev": 48018,
+        "njev": 0,
+        "nlu": 0
+      },
+      "last_interval": {
+        "start_time_s": 239.9,
+        "requested_end_time_s": 240.0,
+        "solver": {
+          "version": 1,
+          "method": "RK45",
+          "rtol": 1e-09,
+          "requested_rtol": 1e-09,
+          "atol": [
+            1e-10,
+            1e-10,
+            1e-10,
+            1e-12,
+            1e-12,
+            1.0000000000000001e-07,
+            1.0000000000000001e-07
+          ],
+          "max_step_s": 0.05,
+          "effective_max_step_s": 0.05,
+          "state_order": [
+            "wall_temperature_k",
+            "hot_temperature_k",
+            "cold_temperature_k",
+            "pump_speed",
+            "valve_opening",
+            "heat_in_j",
+            "heat_rejected_j"
+          ],
+          "state_units": [
+            "K",
+            "K",
+            "K",
+            "1",
+            "1",
+            "J",
+            "J"
+          ]
+        },
+        "applied_inputs": {
+          "heat_command": 1.0,
+          "pump_command": 0.5274982823382673,
+          "valve_command": 0.65,
+          "hot_conductance_w_k": null,
+          "sink_conductance_w_k": null,
+          "pipe_resistance_pa_s2_m6": null,
+          "valve_resistance_pa_s2_m6": null
+        },
+        "effective_coefficients": {
+          "hot_conductance_w_k": 300.0,
+          "sink_conductance_w_k": 500.0,
+          "pipe_resistance_pa_s2_m6": 600000000000.0,
+          "valve_resistance_pa_s2_m6": 100000000000.0
+        },
+        "applied_heat_w": 5000.0,
+        "flow_mode": "coupled_hydraulic",
+        "imposed_flow_m3_s": null,
+        "upward_rate_bounds_k_s": [
+          3.35,
+          17.73087977653468,
+          9.946583327897127
+        ],
+        "rate_bound_meaning": "domain conservative upward rates; excludes numerical error",
+        "success": true,
+        "status": 0,
+        "message": "The solver successfully reached the end of the integration interval.",
+        "nfev": 20,
+        "njev": 0,
+        "nlu": 0,
+        "accepted_time_s": 240.0
+      }
+    }
+  },
+  "checks": {
+    "hydraulic_pressure_substitution": {
+      "status": "PASS",
+      "actual": 5.093170329928398e-16,
+      "threshold": 1e-08,
+      "comparison": "<"
+    },
+    "constant_heating_max_sampled_error_k": {
+      "status": "PASS",
+      "actual": 4.32578417530749e-11,
+      "threshold": 1e-05,
+      "comparison": "<"
+    },
+    "exponential_cooling_max_sampled_error_k": {
+      "status": "PASS",
+      "actual": 3.979039320256561e-13,
+      "threshold": 1e-05,
+      "comparison": "<"
+    },
+    "matrix_exponential_max_sampled_error_k": {
+      "status": "PASS",
+      "actual": 9.094947017729282e-13,
+      "threshold": 1e-05,
+      "comparison": "<"
+    },
+    "1200s_equilibrium_error_k": {
+      "status": "PASS",
+      "actual": 0.00010913299064441162,
+      "threshold": 0.01,
+      "comparison": "<"
+    },
+    "internal_mixing_weighted_energy_error_j": {
+      "status": "PASS",
+      "actual": 9.313225746154785e-09,
+      "threshold": 0.001,
+      "comparison": "<"
+    },
+    "no_flow_wall_hot_energy_error_j": {
+      "status": "PASS",
+      "actual": 1.30385160446167e-08,
+      "threshold": 0.001,
+      "comparison": "<"
+    },
+    "no_flow_heating_wall_hot_energy_error_j": {
+      "status": "PASS",
+      "actual": 6.05359673500061e-09,
+      "threshold": 0.001,
+      "comparison": "<"
+    },
+    "upper_boundary_stopped": {
+      "status": "PASS",
+      "meaning": "terminal boundary; raw root retained; no continuing run"
+    },
+    "tightest_solver_normalized_maximum": {
+      "status": "PASS",
+      "actual": 0.00012342737942816484,
+      "threshold": 1,
+      "comparison": "<="
+    }
+  },
+  "scope": "plant equation/numerical verification; no controller, measurements or physical validation",
+  "solver_refinement": {
+    "tick_s": 0.1,
+    "horizon_s": 240,
+    "noise": "none",
+    "state_order": [
+      "wall_temperature_k",
+      "hot_temperature_k",
+      "cold_temperature_k",
+      "pump_speed",
+      "valve_opening",
+      "heat_in_j",
+      "heat_rejected_j"
+    ],
+    "comparison_scales": [
+      0.0001,
+      0.0001,
+      0.0001,
+      1e-07,
+      1e-07,
+      0.01,
+      0.01
+    ],
+    "state_units": [
+      "K",
+      "K",
+      "K",
+      "1",
+      "1",
+      "J",
+      "J"
+    ],
+    "cases": [
+      {
+        "rtol": 1e-05,
+        "status": "ASSESSED",
+        "maximum_error_per_state": [
+          1.6484591469634324e-12,
+          1.5347723092418164e-12,
+          1.1937117960769683e-12,
+          1.144884187453954e-11,
+          0.0,
+          1.7113052308559418e-08,
+          4.4819898903369904e-08
+        ],
+        "normalized_error_per_state": [
+          1.6484591469634324e-08,
+          1.5347723092418164e-08,
+          1.1937117960769683e-08,
+          0.00011448841874539539,
+          0.0,
+          1.7113052308559418e-06,
+          4.48198989033699e-06
+        ],
+        "normalized_maximum": 0.00011448841874539539
+      },
+      {
+        "rtol": 1e-07,
+        "status": "ASSESSED",
+        "maximum_error_per_state": [
+          1.2505552149377763e-12,
+          1.0231815394945443e-12,
+          1.0800249583553523e-12,
+          1.0339007427973002e-11,
+          0.0,
+          1.0011717677116394e-08,
+          3.306195139884949e-08
+        ],
+        "normalized_error_per_state": [
+          1.2505552149377763e-08,
+          1.0231815394945443e-08,
+          1.0800249583553523e-08,
+          0.00010339007427973002,
+          0.0,
+          1.0011717677116394e-06,
+          3.3061951398849487e-06
+        ],
+        "normalized_maximum": 0.00010339007427973002
+      },
+      {
+        "rtol": 1e-09,
+        "status": "ASSESSED",
+        "maximum_error_per_state": [
+          1.3073986337985843e-12,
+          1.1368683772161603e-12,
+          1.3642420526593924e-12,
+          1.2342737942816484e-11,
+          0.0,
+          6.28642737865448e-09,
+          1.3620592653751373e-08
+        ],
+        "normalized_error_per_state": [
+          1.3073986337985843e-08,
+          1.1368683772161603e-08,
+          1.3642420526593924e-08,
+          0.00012342737942816484,
+          0.0,
+          6.28642737865448e-07,
+          1.3620592653751373e-06
+        ],
+        "normalized_maximum": 0.00012342737942816484
+      }
+    ],
+    "convergence_behavior": "NON_MONOTONIC",
+    "convergence_note": "The 0.05 s step cap already resolves this smooth case; tiny errors may not shrink monotonically. No monotonic convergence claim.",
+    "interpretation": "integration refinement at fixed held-input tick; controller-tick refinement remains M5"
+  },
+  "all_checks_pass": true,
+  "host_wall_elapsed_s": 12.698505100001057
+}

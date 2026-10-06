@@ -111,6 +111,8 @@ class CController:
         except OSError:
             self._close_captures()
             raise
+        self._log("process_started", process_pid=self.process.pid, parent_process_pid=os.getpid(), command=command,
+                  epoch=epoch, session_origin_us=session_origin_us)
         self._threads = [threading.Thread(target=self._read, args=(key,), daemon=True) for key in ("stdout", "stderr")]
         self._threads.append(threading.Thread(target=self._writer, daemon=True))
         for thread in self._threads:
@@ -205,8 +207,15 @@ class CController:
 
     def _write(self, frame, deadline=None):
         deadline = time.monotonic()+self.step_timeout_s if deadline is None else deadline
-        raw, done, errors = frame.encode(), threading.Event(), []
+        raw = frame.encode()
         self._log("send_attempt", frame=asdict(frame), absolute_time_us=self.origin_us+frame.time_us)
+        self._write_bytes(raw, deadline)
+        self._log("sent", frame=asdict(frame), absolute_time_us=self.origin_us+frame.time_us)
+
+    def _write_bytes(self, raw, deadline):
+        # Both encoded and deliberately malformed O records share the whole
+        # transaction deadline and the existing bounded pipe writer.
+        done, errors = threading.Event(), []
         try:
             self._writes.put_nowait((raw, done, errors))
         except queue.Full:
@@ -216,7 +225,6 @@ class CController:
             self._fail("controller stdin wall timeout")
         if errors:
             self._fail("controller stdin failed: "+errors[0])
-        self._log("sent", frame=asdict(frame), absolute_time_us=self.origin_us+frame.time_us)
 
     def _fail(self, message):
         self.failed = True
@@ -230,7 +238,7 @@ class CController:
         return accepted
 
     def step(self, now_us, observations=(), *, operation=0, heat_demand_ppm=0,
-             command_filter=None, acknowledge=True):
+             command_filter=None, acknowledge=True, raw_observations=()):
         if self.closed:
             raise RuntimeError("controller already closed; no fallback is available")
         deadline = time.monotonic()+self.step_timeout_s
@@ -252,11 +260,20 @@ class CController:
                     raise ValueError("pre-session samples must be reacquired, never refreshed")
                 frame = Frame("O", self.epoch, sequence, "V", sample_us-self.origin_us, (channel, quality, value))
             frames.append(frame)
-        if len(frames) > 32:
+        raw_observations = tuple(raw_observations)
+        if len(frames)+len(raw_observations) > 32:
             raise ValueError("at most32 staged observations per STEP")
+        for raw in raw_observations:
+            if (not isinstance(raw, bytes) or not raw.startswith(b"F|1|O|")
+                    or not 1 <= len(raw) <= 257):
+                raise ValueError("raw observation injection requires <=257 O-prefix bytes")
         step = Frame("S", self.epoch, self.sequence & UINT32_MAX, "V", wire_now, (operation, heat_demand_ppm))
         for frame in frames:
             self._write(frame, deadline)
+        for raw in raw_observations:
+            self._log("raw_observation_attempt", raw_hex=raw.hex(), absolute_time_us=now_us)
+            self._write_bytes(raw, deadline)
+            self._log("raw_observation_sent", raw_hex=raw.hex(), absolute_time_us=now_us)
         self._write(step, deadline)
         raw_command, status = None, None
         while status is None:

@@ -123,3 +123,43 @@ scripts/**/*.ps1 to Python/schema/dependency inputs. Exclude generated artifacts
 and external SDK/tools, recording their actual revisions/hashes separately.
 Tank APIs remain compatible. Physical validation NOT_STARTED and board execution
 NOT_EXECUTED remain until actual evidence changes those categories.
+
+Standalone execution also records frozen_default_case_match and
+configuration_scope='FROZEN_DEFAULT'/'VARIANT'. The complete release runner
+requires exact normalized case_config defaults; refinement wrappers identify
+their predeclared tick/solver overrides. A custom same-case_id result can describe
+its experiment but cannot close the frozen baseline release gate. This labeling
+clarification precedes campaign outcomes.
+
+Export requires each retained session trace at out/wire/epoch-{epoch}; reject
+external layout explicitly before silently losing raw proof. Retain whatever
+partial diagnostics actually exist on failure, without claiming completeness.
+Session metadata includes the actual Popen process PID for performance coverage.
+
+An off-tick heat_demand event records the new demand immediately; the C core
+receives it at the next reliable STEP. Previous leased physical inputs stay held
+until that STEP produces a delivered command. Exogenous actuator/coefficient/
+sensor faults change their declared path at the exact event time. The default20s
+demand step remains tick-aligned.
+
+Within firmware, exclude directory components vendor, third_party, generated,
+build, artifacts, out and names starting cmake-build-. Record these conventions
+as source_exclusion metadata. Project wrappers/tests remain covered. This
+explicit future-layout convention precedes final source hashing/outcomes.
+
+`metrics.peak_bound_coverage` is a closed object with `start_time_us`,
+`end_time_us`, `requested_end_time_us`, `retained_samples`, `discarded_rows` and
+`scope` (`FULL_RETAINED_HORIZON`, `RETAINED_PREFIX` or `UNAVAILABLE`). Start/end
+are nullable numeric microseconds; a terminal root may be fractional. Requested
+end and counts are nonnegative integers. Any discarded/nonfinite/unsorted records
+invalidate the bound. Valid terminal hazard evidence covers only its retained
+prefix. Display the coverage window alongside the bound in the replay.
+
+The standards-based export audit found a metadata type mismatch after the first
+full campaign: terminal time and derived per-channel age can be fractional
+microseconds, while the schema declared the latter integer. Correct the five
+`*_age_us` export properties to nonnegative nullable numbers. Retained controller
+`max_age_us`, wire acquisition/receipt times, sequences and scheduled STEP times
+remain integer. The original fractional trace is preserved; no equation, value,
+acceptance threshold or evidence outcome changes. Keep the failed audit log and
+recheck all exports against the corrected schema.

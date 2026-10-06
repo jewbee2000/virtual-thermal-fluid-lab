@@ -1,0 +1,32 @@
+{
+  "name": "11-independent-export-audit",
+  "program": "C:/Users/Walt/.local/bin/uv.exe",
+  "arguments": [
+    "run",
+    "--no-project",
+    "--python",
+    "3.12",
+    "--with",
+    "jsonschema==4.25.1",
+    "python",
+    "scripts/audit_exports.py",
+    "--run",
+    "artifacts/release/campaign",
+    "--run",
+    "artifacts/release/refinement"
+  ],
+  "working_directory": "C:\\Users\\Walt\\.codex\\worktrees\\thermal-lab-release-check\\virtual-fluid-lab",
+  "started_utc": "2026-10-06T10:17:07.0928733Z",
+  "ended_utc": "2026-10-06T10:21:45.1491748Z",
+  "wall_elapsed_s": 278.0164181,
+  "exit_code": 0,
+  "invocation_error": null,
+  "git_revision": "cc5a6feae95dc5888bf3041bc9dc3306dba667ba",
+  "git_dirty_before": false,
+  "git_dirty_after": false,
+  "git_status_after": [],
+  "lock_sha256_before": "76472376ec629c6fb1da220501125f413dc2944f76e75139283ea2cb3ca7bcd0",
+  "lock_sha256_after": "76472376ec629c6fb1da220501125f413dc2944f76e75139283ea2cb3ca7bcd0",
+  "stdout": "C:\\Users\\Walt\\.codex\\worktrees\\thermal-lab-release-check\\virtual-fluid-lab\\artifacts\\release\\checks\\11-independent-export-audit.stdout.txt",
+  "stderr": "C:\\Users\\Walt\\.codex\\worktrees\\thermal-lab-release-check\\virtual-fluid-lab\\artifacts\\release\\checks\\11-independent-export-audit.stderr.txt"
+}

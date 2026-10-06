@@ -1,0 +1,867 @@
+{
+  "schema_version": 1,
+  "scope": "clean native Windows reproduction; actual freshly built portable C host; assumed parameters",
+  "git_revision": "cc5a6feae95dc5888bf3041bc9dc3306dba667ba",
+  "git_dirty": false,
+  "source_sha256": "fa2a7a40d64fc2dad4022ed6f4642dfd7249912d36882f28a845d164e83babc9",
+  "source_files_sha256": {
+    "CMakeLists.txt": "93df455688fc72fb7c04b43de59d0940d99603b36ce1613b2053fb24c1988053",
+    "firmware/core/fl_core.c": "cd5e7a8f003cc843a72395bf733f86925e6966163ce73029fddd58f109f075d8",
+    "firmware/core/fl_core.h": "54e4c93d64a550a09a9a34013c01feedb24cd5f173aa2b4d7e49d3a841b2054b",
+    "firmware/core/fl_protocol.c": "b8ee5c41b3858d04248ac89ca3ae2688d7268aa4cf5f6b63177e81b9c4401cb7",
+    "firmware/core/fl_protocol.h": "d53eef76fedc773fe149361d302649857edb75e6d960dc13bf1c8c6144f1ac74",
+    "firmware/host/main.c": "a1107a28c4cb522c898f5996d200aedf7e4ce7a07eeff491cee6fe950d124e1c",
+    "firmware/pico/CMakeLists.txt": "ae2bfdda9aaba0fc36c55a78366dd297b2edbc964637085a1d5f81182add437c",
+    "firmware/pico/device_policy.c": "3a6d225bd1c113a264d9dec91e70cf6569cfabb969232c4936a3e3e47d71878f",
+    "firmware/pico/device_policy.h": "ef5706809efe38ced832a4298a4e64e216971dda2018d15c027a4e7feab01274",
+    "firmware/pico/fl_hal.c": "bad89ca27ae85cb4a883d0478f42a3949edf2796f9e5fc4a05aa213e342ac917",
+    "firmware/pico/fl_hal.h": "74c3d84cd02ff40a71c4a9d99112ad747765cbaf90dd6ca5ffc64a4acd731f3a",
+    "firmware/pico/main.c": "f4309bda3f3b4db84713656dde604ffdaf52c32bf04bf36b14fcdcb55036dac3",
+    "firmware/pico/tests/CMakeLists.txt": "0f438eb66c0254add0b1fd33dfc1249846ea1c06a80f450aadc83ba59d6c713e",
+    "firmware/pico/tests/hal_stub/hardware/adc.h": "7e1af2cc663741f3b7dc8b85ca40bd1cc66e8a02e6f82792753267449008297f",
+    "firmware/pico/tests/hal_stub/pico/stdlib.h": "b065f0abd92e30c222226ebe53a7506097a6cb47e8e651f85fa915c2712730cd",
+    "firmware/pico/tests/test_device.c": "ba80b501969764017b410e353969b3c3dc77b08ba90262fe005d231e1bd66546",
+    "firmware/pico/tests/test_hal.c": "bd7ae9fe63b2b0a304c38b0f367ebb117ea742206f0a7f8ad4bf1af25a24870c",
+    "firmware/pico/tests/test_usb_budget.c": "901749c55e191fe975a048a7bb84f6f36060e817f863392781539bbd8ef03ab5",
+    "firmware/pico/tests/usb_stub/tusb.h": "dd3d45ecf744d7f034248cddbb81862178dbe82d9c3df8d850ab8adc06461684",
+    "firmware/pico/tests/usb_stub/usbd.c": "ac641b4397cbb7c0d38dd62f1a6f0e8101cd88ed9614d4e13ce09c0f577d21b9",
+    "firmware/pico/tusb_config.h": "6a519c23e5272596e7d403a4deb0c6dcc1a064804782aba96495c47f9de80e37",
+    "firmware/pico/usb_descriptors.c": "ac3591ac67b84a0e07e8e8427723cd3ded1f9c8dd30a50960dc8f54e4ef2fbb5",
+    "firmware/pico/usb_task.c": "7d287e0d64f141d1874a343a2f79d30cc8f2adfca350ffe3bfd8cfb910c38005",
+    "firmware/tests/test_core.c": "a1bda95571b568d61fe7b3acf1d1f8c82192e0384ee6a7f80068dafe108997e4",
+    "pyproject.toml": "9b48979f9c0168aca7994a9ab0c513099e31c7a9eb5853a710ef08bf29b723ca",
+    "schemas/tank-manifest-v1.schema.json": "0bb96fb4e0ab3e1143439cda4033d30683c1f8152744f22e7b66acf5fbdb95a3",
+    "schemas/tank-model-v1.schema.json": "8db6727e02c9076c6539ea2674ef1ebe057b1bcc96f359998b65f9df8c76d21a",
+    "schemas/tank-scenario-v1.schema.json": "73bc16d99892a2ebb12b0f6f398196bc85454ea244ea227ee3ba2f9ec225b0e0",
+    "schemas/tank-solver-v1.schema.json": "f012c7765f8c86a6f36ddcdcc7c8843f6f25ffc66d672166978ef7ab97bc0dc6",
+    "schemas/tank-summary-v1.schema.json": "4d96d0fb4bbb89ed433a287a19573edb3a4b248093824cf1cff424fbdfb4aecb",
+    "schemas/tank-telemetry-v1.schema.json": "e6b5cecbc4642e53d3dc7a717573d47782a277baa2bf9ecccda8cc11eeecb51d",
+    "schemas/thermal-campaign-v1.schema.json": "e5b4efcc55ea0c9af568fcd0f202e11e2a23e059b945f0f80745090d18e08e79",
+    "schemas/thermal-controller-v1.schema.json": "0a25e65aa1fd00eee953040f92814ed039d33d317e0e235be102bc881b7d4513",
+    "schemas/thermal-manifest-v1.schema.json": "38a23d5c60ba12474aa60f5d8f58082280e0dbb530ceb847d8debe87f9ecdda8",
+    "schemas/thermal-model-v1.schema.json": "a2c59b86a42a5842add9172498439ac82d63263ec95d0d5736dd27a4add76391",
+    "schemas/thermal-solver-input-v1.schema.json": "2046ebbfb45846b88fe08971eb717c3d26daa693c26a586365dc106ea6984ce3",
+    "schemas/thermal-solver-v1.schema.json": "5b48ae2f57deb365fdc833666273242b3b6f1d924c86b9096d8282c65b1baef2",
+    "schemas/thermal-summary-v1.schema.json": "585406530443dfc95c62300175b6556d40b9ff90d4f3b5c907bd07d9558cd633",
+    "schemas/thermal-telemetry-row-v1.schema.json": "04225fdd9aad0f3a5a407215fc42b6a4e7f1ab42d05af203f7a650f9c209bbc2",
+    "scripts/audit_exports.py": "f64c4883d191118f23f9b7869b9b6a98bbcf02a59a55583933ed979500997a7d",
+    "scripts/benchmark_campaign.py": "2de4ead293b3bc2321de3de64a811eea5b88075be6c13afa0b537917d0d25308",
+    "scripts/build_host.ps1": "e641062a473838540f9155a85855e4130142dc9eb9d3f92f4b76ebde3f07555f",
+    "scripts/build_pico.ps1": "bd6006888e52e0eb3b987f3a826ba5064346c65d9f886b5746ab50710dccbf0a",
+    "scripts/build_replay.py": "ea06c1e5a935a6b1196bb870d9af90385a6d84d86a455e340c01e873d1d02f37",
+    "scripts/refine_campaign.py": "e7f2dec7202fa414839ff2bc7a2fd4f8cd06ea5ff2c7ac6044e31931d1987564",
+    "scripts/run_campaign.py": "72de7ec1b2f555218913e72ba178360a2bead5d4a6809f459d1d0c8c78bd8c98",
+    "scripts/run_suite.py": "ab33d251121241d8a6aa20d2b8e6b89454e1513e84cc3d7e0ab57ebc9830355b",
+    "scripts/verify_host.py": "153874ae68107a59a2af943aa444765f0a0f48baf077996ebc5d586829c357cc",
+    "scripts/verify_thermal.py": "b2a7acd2ccbf61814d8094ec4c8f29aa7b61a79090c787b82fae95bd36f8bdc1",
+    "src/fluidlab/__init__.py": "f8d23a932ec8175c50d317cb3367c0f6e81bdff7a9b20737bbd07eb760d14377",
+    "src/fluidlab/c_controller.py": "31f502c78f9137a7d50f883a301b4fd0288035da313f6c4a03a283f9814b959c",
+    "src/fluidlab/campaign.py": "3881133c4a5a554eb1f08c0c9ea07f1bd427f1ee648b46659fa992abe02680fe",
+    "src/fluidlab/campaign_evaluator.py": "aad00ecf48d518e1e55816e6f14c4af4c7a2ab39db67cef0984d62dfda74d8c8",
+    "src/fluidlab/cli.py": "6c67e549184fa4829c988ccbe554a1b86201bd38409eed34c32874069de46366",
+    "src/fluidlab/contracts.py": "ef9d5fda55b594d4ac4cded6ff7f9908a786d4902f19895dababc98f2e53a408",
+    "src/fluidlab/control.py": "45a80a9cb8eb95f71f2d2194bb256e26a161672cd9d03121f17ac5b20f84569a",
+    "src/fluidlab/evaluator.py": "542ec0950a761eef63497a027e767bff0229fd1a7df4e3b4d80e4d06870646b7",
+    "src/fluidlab/plant.py": "0463cddf9682ae6466fd510979a1b45842eb87ad6c7eeee5fa8bd1aeee3300ae",
+    "src/fluidlab/protocol.py": "8676845308c4a871f36015af7f781861a407f7fb9708b7a5a5f8ea4d8a071498",
+    "src/fluidlab/provenance.py": "e7a0ca0ac794de1c0eeab160ee0b50ee6fac87a4492b9e0a11726de27b189580",
+    "src/fluidlab/runner.py": "7947e732a50a3dd8f7963c89f986abe29fe2260126de52e020da2966799b50ac",
+    "src/fluidlab/thermal.py": "7becf06efd5a586b92078b7be5769d4692fb7c5bdd684d14fde183706db3ebf8",
+    "uv.lock": "76472376ec629c6fb1da220501125f413dc2944f76e75139283ea2cb3ca7bcd0"
+  },
+  "source_inclusion": [
+    "src/**/*.py",
+    "scripts/**/*.py",
+    "schemas/*.json",
+    "pyproject.toml",
+    "uv.lock",
+    "firmware/**/*.c",
+    "firmware/**/*.h",
+    "firmware/**/*.cmake",
+    "firmware/**/CMakeLists.txt",
+    "CMakeLists.txt",
+    "scripts/**/*.ps1"
+  ],
+  "source_exclusion": [
+    "firmware/**/artifacts/**",
+    "firmware/**/build/**",
+    "firmware/**/generated/**",
+    "firmware/**/out/**",
+    "firmware/**/third_party/**",
+    "firmware/**/vendor/**",
+    "firmware/**/cmake-build-*/**"
+  ],
+  "lock_sha256": "76472376ec629c6fb1da220501125f413dc2944f76e75139283ea2cb3ca7bcd0",
+  "controller_sha256": "7304c58ebb75fad60d2e4f7107a4b65b6dbae047b010158a8aaaf4d2181eff6a",
+  "compiler_build_metadata": {
+    "status": "RECORDED",
+    "files": {
+      "CMakeCache.txt": {
+        "sha256": "2d5ff4d11186116b1dcb50b2f7151be11011079cbe250d47a580303d19aac412",
+        "identity_lines": [
+          "CMAKE_GENERATOR:INTERNAL=Visual Studio 17 2022"
+        ]
+      },
+      "CMakeFiles/4.4.4/CMakeCCompiler.cmake": {
+        "sha256": "68000c0e6de921b90921063fb99987b3d7725fcbe6053a583c54ade9c49bc82a",
+        "identity_lines": [
+          "set(CMAKE_C_COMPILER_ID \"MSVC\")",
+          "set(CMAKE_C_COMPILER_VERSION \"19.44.35229.0\")",
+          "set(CMAKE_C_COMPILER_VERSION_INTERNAL \"\")",
+          "set(CMAKE_C_COMPILER_ID_RUN 1)"
+        ]
+      }
+    }
+  },
+  "python": "3.12.2",
+  "numpy": "2.3.5",
+  "scipy": "1.17.0",
+  "commands": [
+    {
+      "name": "01-uv-sync",
+      "program": "C:/Users/Walt/.local/bin/uv.exe",
+      "arguments": [
+        "sync",
+        "--locked"
+      ],
+      "working_directory": "C:\\Users\\Walt\\.codex\\worktrees\\thermal-lab-release-check\\virtual-fluid-lab",
+      "started_utc": "2026-10-06T10:02:38.7089983Z",
+      "ended_utc": "2026-10-06T10:02:40.9004885Z",
+      "wall_elapsed_s": 2.1492491,
+      "exit_code": 0,
+      "invocation_error": null,
+      "git_revision": "cc5a6feae95dc5888bf3041bc9dc3306dba667ba",
+      "git_dirty_before": false,
+      "git_dirty_after": false,
+      "git_status_after": [],
+      "lock_sha256_before": "76472376ec629c6fb1da220501125f413dc2944f76e75139283ea2cb3ca7bcd0",
+      "lock_sha256_after": "76472376ec629c6fb1da220501125f413dc2944f76e75139283ea2cb3ca7bcd0",
+      "stdout": "C:\\Users\\Walt\\.codex\\worktrees\\thermal-lab-release-check\\virtual-fluid-lab\\artifacts\\release\\checks\\01-uv-sync.stdout.txt",
+      "stderr": "C:\\Users\\Walt\\.codex\\worktrees\\thermal-lab-release-check\\virtual-fluid-lab\\artifacts\\release\\checks\\01-uv-sync.stderr.txt"
+    },
+    {
+      "name": "02-host-build-ctest",
+      "program": "C:/Users/Walt/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/powershell/pwsh.exe",
+      "arguments": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "scripts/build_host.ps1",
+        "-CMake",
+        "C:/Users/Walt/Documents/Codex/fluid-lab-import/virtual-fluid-lab/artifacts/tools/cmake/cmake-4.4.4-windows-x86_64/bin/cmake.exe"
+      ],
+      "working_directory": "C:\\Users\\Walt\\.codex\\worktrees\\thermal-lab-release-check\\virtual-fluid-lab",
+      "started_utc": "2026-10-06T10:02:57.4244673Z",
+      "ended_utc": "2026-10-06T10:03:02.1372416Z",
+      "wall_elapsed_s": 4.6715346,
+      "exit_code": 0,
+      "invocation_error": null,
+      "git_revision": "cc5a6feae95dc5888bf3041bc9dc3306dba667ba",
+      "git_dirty_before": false,
+      "git_dirty_after": false,
+      "git_status_after": [],
+      "lock_sha256_before": "76472376ec629c6fb1da220501125f413dc2944f76e75139283ea2cb3ca7bcd0",
+      "lock_sha256_after": "76472376ec629c6fb1da220501125f413dc2944f76e75139283ea2cb3ca7bcd0",
+      "stdout": "C:\\Users\\Walt\\.codex\\worktrees\\thermal-lab-release-check\\virtual-fluid-lab\\artifacts\\release\\checks\\02-host-build-ctest.stdout.txt",
+      "stderr": "C:\\Users\\Walt\\.codex\\worktrees\\thermal-lab-release-check\\virtual-fluid-lab\\artifacts\\release\\checks\\02-host-build-ctest.stderr.txt"
+    },
+    {
+      "name": "03-device-configure",
+      "program": "C:/Users/Walt/Documents/Codex/fluid-lab-import/virtual-fluid-lab/artifacts/tools/cmake/cmake-4.4.4-windows-x86_64/bin/cmake.exe",
+      "arguments": [
+        "-S",
+        "firmware/pico/tests",
+        "-B",
+        "artifacts/release/device-native",
+        "-G",
+        "Visual Studio 17 2022",
+        "-A",
+        "x64"
+      ],
+      "working_directory": "C:\\Users\\Walt\\.codex\\worktrees\\thermal-lab-release-check\\virtual-fluid-lab",
+      "started_utc": "2026-10-06T10:03:10.5520155Z",
+      "ended_utc": "2026-10-06T10:03:12.4251593Z",
+      "wall_elapsed_s": 1.8337212,
+      "exit_code": 0,
+      "invocation_error": null,
+      "git_revision": "cc5a6feae95dc5888bf3041bc9dc3306dba667ba",
+      "git_dirty_before": false,
+      "git_dirty_after": false,
+      "git_status_after": [],
+      "lock_sha256_before": "76472376ec629c6fb1da220501125f413dc2944f76e75139283ea2cb3ca7bcd0",
+      "lock_sha256_after": "76472376ec629c6fb1da220501125f413dc2944f76e75139283ea2cb3ca7bcd0",
+      "stdout": "C:\\Users\\Walt\\.codex\\worktrees\\thermal-lab-release-check\\virtual-fluid-lab\\artifacts\\release\\checks\\03-device-configure.stdout.txt",
+      "stderr": "C:\\Users\\Walt\\.codex\\worktrees\\thermal-lab-release-check\\virtual-fluid-lab\\artifacts\\release\\checks\\03-device-configure.stderr.txt"
+    },
+    {
+      "name": "04-device-build",
+      "program": "C:/Users/Walt/Documents/Codex/fluid-lab-import/virtual-fluid-lab/artifacts/tools/cmake/cmake-4.4.4-windows-x86_64/bin/cmake.exe",
+      "arguments": [
+        "--build",
+        "artifacts/release/device-native",
+        "--config",
+        "Release"
+      ],
+      "working_directory": "C:\\Users\\Walt\\.codex\\worktrees\\thermal-lab-release-check\\virtual-fluid-lab",
+      "started_utc": "2026-10-06T10:03:13.1052330Z",
+      "ended_utc": "2026-10-06T10:03:14.9663826Z",
+      "wall_elapsed_s": 1.8227551,
+      "exit_code": 0,
+      "invocation_error": null,
+      "git_revision": "cc5a6feae95dc5888bf3041bc9dc3306dba667ba",
+      "git_dirty_before": false,
+      "git_dirty_after": false,
+      "git_status_after": [],
+      "lock_sha256_before": "76472376ec629c6fb1da220501125f413dc2944f76e75139283ea2cb3ca7bcd0",
+      "lock_sha256_after": "76472376ec629c6fb1da220501125f413dc2944f76e75139283ea2cb3ca7bcd0",
+      "stdout": "C:\\Users\\Walt\\.codex\\worktrees\\thermal-lab-release-check\\virtual-fluid-lab\\artifacts\\release\\checks\\04-device-build.stdout.txt",
+      "stderr": "C:\\Users\\Walt\\.codex\\worktrees\\thermal-lab-release-check\\virtual-fluid-lab\\artifacts\\release\\checks\\04-device-build.stderr.txt"
+    },
+    {
+      "name": "05-device-ctest",
+      "program": "C:/Users/Walt/Documents/Codex/fluid-lab-import/virtual-fluid-lab/artifacts/tools/cmake/cmake-4.4.4-windows-x86_64/bin/ctest.exe",
+      "arguments": [
+        "--test-dir",
+        "artifacts/release/device-native",
+        "-C",
+        "Release",
+        "--output-on-failure"
+      ],
+      "working_directory": "C:\\Users\\Walt\\.codex\\worktrees\\thermal-lab-release-check\\virtual-fluid-lab",
+      "started_utc": "2026-10-06T10:03:15.6334250Z",
+      "ended_utc": "2026-10-06T10:03:15.9077494Z",
+      "wall_elapsed_s": 0.2355058,
+      "exit_code": 0,
+      "invocation_error": null,
+      "git_revision": "cc5a6feae95dc5888bf3041bc9dc3306dba667ba",
+      "git_dirty_before": false,
+      "git_dirty_after": false,
+      "git_status_after": [],
+      "lock_sha256_before": "76472376ec629c6fb1da220501125f413dc2944f76e75139283ea2cb3ca7bcd0",
+      "lock_sha256_after": "76472376ec629c6fb1da220501125f413dc2944f76e75139283ea2cb3ca7bcd0",
+      "stdout": "C:\\Users\\Walt\\.codex\\worktrees\\thermal-lab-release-check\\virtual-fluid-lab\\artifacts\\release\\checks\\05-device-ctest.stdout.txt",
+      "stderr": "C:\\Users\\Walt\\.codex\\worktrees\\thermal-lab-release-check\\virtual-fluid-lab\\artifacts\\release\\checks\\05-device-ctest.stderr.txt"
+    },
+    {
+      "name": "06-full-unit",
+      "program": "C:/Users/Walt/.local/bin/uv.exe",
+      "arguments": [
+        "run",
+        "python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "working_directory": "C:\\Users\\Walt\\.codex\\worktrees\\thermal-lab-release-check\\virtual-fluid-lab",
+      "started_utc": "2026-10-06T10:03:26.6031500Z",
+      "ended_utc": "2026-10-06T10:03:55.5392376Z",
+      "wall_elapsed_s": 28.8947891,
+      "exit_code": 0,
+      "invocation_error": null,
+      "git_revision": "cc5a6feae95dc5888bf3041bc9dc3306dba667ba",
+      "git_dirty_before": false,
+      "git_dirty_after": false,
+      "git_status_after": [],
+      "lock_sha256_before": "76472376ec629c6fb1da220501125f413dc2944f76e75139283ea2cb3ca7bcd0",
+      "lock_sha256_after": "76472376ec629c6fb1da220501125f413dc2944f76e75139283ea2cb3ca7bcd0",
+      "stdout": "C:\\Users\\Walt\\.codex\\worktrees\\thermal-lab-release-check\\virtual-fluid-lab\\artifacts\\release\\checks\\06-full-unit.stdout.txt",
+      "stderr": "C:\\Users\\Walt\\.codex\\worktrees\\thermal-lab-release-check\\virtual-fluid-lab\\artifacts\\release\\checks\\06-full-unit.stderr.txt"
+    },
+    {
+      "name": "07-python-tank-suite",
+      "program": "C:/Users/Walt/.local/bin/uv.exe",
+      "arguments": [
+        "run",
+        "python",
+        "scripts/run_suite.py",
+        "--out",
+        "artifacts/release/tank"
+      ],
+      "working_directory": "C:\\Users\\Walt\\.codex\\worktrees\\thermal-lab-release-check\\virtual-fluid-lab",
+      "started_utc": "2026-10-06T10:04:17.4106715Z",
+      "ended_utc": "2026-10-06T10:04:23.9590779Z",
+      "wall_elapsed_s": 6.5081473,
+      "exit_code": 0,
+      "invocation_error": null,
+      "git_revision": "cc5a6feae95dc5888bf3041bc9dc3306dba667ba",
+      "git_dirty_before": false,
+      "git_dirty_after": false,
+      "git_status_after": [],
+      "lock_sha256_before": "76472376ec629c6fb1da220501125f413dc2944f76e75139283ea2cb3ca7bcd0",
+      "lock_sha256_after": "76472376ec629c6fb1da220501125f413dc2944f76e75139283ea2cb3ca7bcd0",
+      "stdout": "C:\\Users\\Walt\\.codex\\worktrees\\thermal-lab-release-check\\virtual-fluid-lab\\artifacts\\release\\checks\\07-python-tank-suite.stdout.txt",
+      "stderr": "C:\\Users\\Walt\\.codex\\worktrees\\thermal-lab-release-check\\virtual-fluid-lab\\artifacts\\release\\checks\\07-python-tank-suite.stderr.txt"
+    },
+    {
+      "name": "08-thermal-benchmarks",
+      "program": "C:/Users/Walt/.local/bin/uv.exe",
+      "arguments": [
+        "run",
+        "python",
+        "scripts/verify_thermal.py",
+        "--out",
+        "artifacts/release/thermal"
+      ],
+      "working_directory": "C:\\Users\\Walt\\.codex\\worktrees\\thermal-lab-release-check\\virtual-fluid-lab",
+      "started_utc": "2026-10-06T10:04:38.6038094Z",
+      "ended_utc": "2026-10-06T10:04:52.2286489Z",
+      "wall_elapsed_s": 13.5856606,
+      "exit_code": 0,
+      "invocation_error": null,
+      "git_revision": "cc5a6feae95dc5888bf3041bc9dc3306dba667ba",
+      "git_dirty_before": false,
+      "git_dirty_after": false,
+      "git_status_after": [],
+      "lock_sha256_before": "76472376ec629c6fb1da220501125f413dc2944f76e75139283ea2cb3ca7bcd0",
+      "lock_sha256_after": "76472376ec629c6fb1da220501125f413dc2944f76e75139283ea2cb3ca7bcd0",
+      "stdout": "C:\\Users\\Walt\\.codex\\worktrees\\thermal-lab-release-check\\virtual-fluid-lab\\artifacts\\release\\checks\\08-thermal-benchmarks.stdout.txt",
+      "stderr": "C:\\Users\\Walt\\.codex\\worktrees\\thermal-lab-release-check\\virtual-fluid-lab\\artifacts\\release\\checks\\08-thermal-benchmarks.stderr.txt"
+    },
+    {
+      "name": "09-full-campaign",
+      "program": "C:/Users/Walt/.local/bin/uv.exe",
+      "arguments": [
+        "run",
+        "python",
+        "scripts/run_campaign.py",
+        "--exe",
+        "artifacts/host-build/Release/fluid_controller_host.exe",
+        "--out",
+        "artifacts/release/campaign",
+        "--repeat"
+      ],
+      "working_directory": "C:\\Users\\Walt\\.codex\\worktrees\\thermal-lab-release-check\\virtual-fluid-lab",
+      "started_utc": "2026-10-06T10:05:04.3721530Z",
+      "ended_utc": "2026-10-06T10:08:00.2003924Z",
+      "wall_elapsed_s": 175.7879163,
+      "exit_code": 0,
+      "invocation_error": null,
+      "git_revision": "cc5a6feae95dc5888bf3041bc9dc3306dba667ba",
+      "git_dirty_before": false,
+      "git_dirty_after": false,
+      "git_status_after": [],
+      "lock_sha256_before": "76472376ec629c6fb1da220501125f413dc2944f76e75139283ea2cb3ca7bcd0",
+      "lock_sha256_after": "76472376ec629c6fb1da220501125f413dc2944f76e75139283ea2cb3ca7bcd0",
+      "stdout": "C:\\Users\\Walt\\.codex\\worktrees\\thermal-lab-release-check\\virtual-fluid-lab\\artifacts\\release\\checks\\09-full-campaign.stdout.txt",
+      "stderr": "C:\\Users\\Walt\\.codex\\worktrees\\thermal-lab-release-check\\virtual-fluid-lab\\artifacts\\release\\checks\\09-full-campaign.stderr.txt"
+    },
+    {
+      "name": "10-full-refinement",
+      "program": "C:/Users/Walt/.local/bin/uv.exe",
+      "arguments": [
+        "run",
+        "python",
+        "scripts/refine_campaign.py",
+        "--exe",
+        "artifacts/host-build/Release/fluid_controller_host.exe",
+        "--out",
+        "artifacts/release/refinement"
+      ],
+      "working_directory": "C:\\Users\\Walt\\.codex\\worktrees\\thermal-lab-release-check\\virtual-fluid-lab",
+      "started_utc": "2026-10-06T10:08:28.3415650Z",
+      "ended_utc": "2026-10-06T10:16:22.2802118Z",
+      "wall_elapsed_s": 473.8995026,
+      "exit_code": 0,
+      "invocation_error": null,
+      "git_revision": "cc5a6feae95dc5888bf3041bc9dc3306dba667ba",
+      "git_dirty_before": false,
+      "git_dirty_after": false,
+      "git_status_after": [],
+      "lock_sha256_before": "76472376ec629c6fb1da220501125f413dc2944f76e75139283ea2cb3ca7bcd0",
+      "lock_sha256_after": "76472376ec629c6fb1da220501125f413dc2944f76e75139283ea2cb3ca7bcd0",
+      "stdout": "C:\\Users\\Walt\\.codex\\worktrees\\thermal-lab-release-check\\virtual-fluid-lab\\artifacts\\release\\checks\\10-full-refinement.stdout.txt",
+      "stderr": "C:\\Users\\Walt\\.codex\\worktrees\\thermal-lab-release-check\\virtual-fluid-lab\\artifacts\\release\\checks\\10-full-refinement.stderr.txt"
+    },
+    {
+      "name": "11-independent-export-audit",
+      "program": "C:/Users/Walt/.local/bin/uv.exe",
+      "arguments": [
+        "run",
+        "--no-project",
+        "--python",
+        "3.12",
+        "--with",
+        "jsonschema==4.25.1",
+        "python",
+        "scripts/audit_exports.py",
+        "--run",
+        "artifacts/release/campaign",
+        "--run",
+        "artifacts/release/refinement"
+      ],
+      "working_directory": "C:\\Users\\Walt\\.codex\\worktrees\\thermal-lab-release-check\\virtual-fluid-lab",
+      "started_utc": "2026-10-06T10:17:07.0928733Z",
+      "ended_utc": "2026-10-06T10:21:45.1491748Z",
+      "wall_elapsed_s": 278.0164181,
+      "exit_code": 0,
+      "invocation_error": null,
+      "git_revision": "cc5a6feae95dc5888bf3041bc9dc3306dba667ba",
+      "git_dirty_before": false,
+      "git_dirty_after": false,
+      "git_status_after": [],
+      "lock_sha256_before": "76472376ec629c6fb1da220501125f413dc2944f76e75139283ea2cb3ca7bcd0",
+      "lock_sha256_after": "76472376ec629c6fb1da220501125f413dc2944f76e75139283ea2cb3ca7bcd0",
+      "stdout": "C:\\Users\\Walt\\.codex\\worktrees\\thermal-lab-release-check\\virtual-fluid-lab\\artifacts\\release\\checks\\11-independent-export-audit.stdout.txt",
+      "stderr": "C:\\Users\\Walt\\.codex\\worktrees\\thermal-lab-release-check\\virtual-fluid-lab\\artifacts\\release\\checks\\11-independent-export-audit.stderr.txt"
+    },
+    {
+      "name": "12-pico-cross-build",
+      "program": "C:/Users/Walt/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/powershell/pwsh.exe",
+      "arguments": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "scripts/build_pico.ps1",
+        "-BuildDir",
+        "artifacts/release/pico",
+        "-SdkPath",
+        "C:/Users/Walt/Documents/Codex/fluid-lab-import/virtual-fluid-lab/artifacts/tools/pico-sdk-2.3.1",
+        "-ToolchainPath",
+        "C:/Users/Walt/Documents/Codex/fluid-lab-import/virtual-fluid-lab/artifacts/tools/arm-15.2.rel1",
+        "-Picotool",
+        "C:/Users/Walt/Documents/Codex/fluid-lab-import/virtual-fluid-lab/artifacts/tools/picotool-build/picotool.exe",
+        "-CMake",
+        "C:/Users/Walt/Documents/Codex/fluid-lab-import/virtual-fluid-lab/artifacts/tools/cmake/cmake-4.4.4-windows-x86_64/bin/cmake.exe",
+        "-Ninja",
+        "C:/Users/Walt/Documents/Codex/fluid-lab-import/virtual-fluid-lab/artifacts/tools/ninja/ninja.exe"
+      ],
+      "working_directory": "C:\\Users\\Walt\\.codex\\worktrees\\thermal-lab-release-check\\virtual-fluid-lab",
+      "started_utc": "2026-10-06T10:23:06.4979454Z",
+      "ended_utc": "2026-10-06T10:23:20.6311402Z",
+      "wall_elapsed_s": 14.0868761,
+      "exit_code": 0,
+      "invocation_error": null,
+      "git_revision": "cc5a6feae95dc5888bf3041bc9dc3306dba667ba",
+      "git_dirty_before": false,
+      "git_dirty_after": false,
+      "git_status_after": [],
+      "lock_sha256_before": "76472376ec629c6fb1da220501125f413dc2944f76e75139283ea2cb3ca7bcd0",
+      "lock_sha256_after": "76472376ec629c6fb1da220501125f413dc2944f76e75139283ea2cb3ca7bcd0",
+      "stdout": "C:\\Users\\Walt\\.codex\\worktrees\\thermal-lab-release-check\\virtual-fluid-lab\\artifacts\\release\\checks\\12-pico-cross-build.stdout.txt",
+      "stderr": "C:\\Users\\Walt\\.codex\\worktrees\\thermal-lab-release-check\\virtual-fluid-lab\\artifacts\\release\\checks\\12-pico-cross-build.stderr.txt"
+    }
+  ],
+  "all_gates_exit_zero": true,
+  "failures": [],
+  "diagnostic_report_write_failure": {
+    "name": "13-report-write",
+    "program": "C:/Users/Walt/.local/bin/uv.exe",
+    "arguments": [
+      "run",
+      "python",
+      "artifacts/release/checks/write-report.py"
+    ],
+    "working_directory": "C:\\Users\\Walt\\.codex\\worktrees\\thermal-lab-release-check\\virtual-fluid-lab",
+    "started_utc": "2026-10-06T10:26:55.5371093Z",
+    "ended_utc": "2026-10-06T10:26:55.8008045Z",
+    "wall_elapsed_s": 0.2230939,
+    "exit_code": 1,
+    "invocation_error": null,
+    "git_revision": "cc5a6feae95dc5888bf3041bc9dc3306dba667ba",
+    "git_dirty_before": false,
+    "git_dirty_after": false,
+    "git_status_after": [],
+    "lock_sha256_before": "76472376ec629c6fb1da220501125f413dc2944f76e75139283ea2cb3ca7bcd0",
+    "lock_sha256_after": "76472376ec629c6fb1da220501125f413dc2944f76e75139283ea2cb3ca7bcd0",
+    "stdout": "C:\\Users\\Walt\\.codex\\worktrees\\thermal-lab-release-check\\virtual-fluid-lab\\artifacts\\release\\checks\\13-report-write.stdout.txt",
+    "stderr": "C:\\Users\\Walt\\.codex\\worktrees\\thermal-lab-release-check\\virtual-fluid-lab\\artifacts\\release\\checks\\13-report-write.stderr.txt"
+  },
+  "units": {
+    "count": 135,
+    "test_elapsed_s": 26.369,
+    "status": "PASS"
+  },
+  "campaign": {
+    "full_release_campaign": true,
+    "expectation_pass": true,
+    "thermal_cases": 17,
+    "c_tank_cases": 7,
+    "seeded_repeat": {
+      "status": "PASS",
+      "seed": 1,
+      "telemetry_sha256": "6224feea692366cf2e8e20e3313adfbccd2f257362d3059f37fe45c679cb2943",
+      "comparison": "identical raw telemetry bytes on same machine; wall/provenance excluded"
+    },
+    "wall_elapsed_s": 174.8752803999996,
+    "expected_failed_containment": [
+      "stuck_heat_lost_sink"
+    ]
+  },
+  "refinement": {
+    "status": "PASS",
+    "full_refinement_gate": true,
+    "solver_cases": {
+      "nominal_heat_step": "PASS",
+      "frozen_temperature": "PASS",
+      "stuck_heat_lost_sink": "PASS"
+    },
+    "thermal_tick_cases": {
+      "nominal_heat_step": "PASS",
+      "restriction": "PASS",
+      "frozen_temperature": "PASS",
+      "near_tick_before": "PASS",
+      "near_tick_after": "PASS",
+      "stuck_heat_lost_sink": "PASS"
+    },
+    "tank_tick_cases": {
+      "nominal": "PASS",
+      "pump_stuck_on": "PASS"
+    },
+    "thresholds": {
+      "tightest_max_normalized": 1,
+      "thermal_peak_delta_k": 0.1,
+      "thermal_trip_delta_s": 0.1,
+      "tank_peak_delta_m": 0.002,
+      "tank_trip_delta_s": 0.1,
+      "terminated_boundary_time_delta_s": 0.1
+    }
+  },
+  "independent_audit": {
+    "jsonschema": "4.25.1",
+    "schemas": 14,
+    "scenarios": 17,
+    "thermal_runs": 48,
+    "telemetry_rows": 157182,
+    "artifact_hashes": 484,
+    "row_scope": "ALL_ROWS",
+    "status": "PASS"
+  },
+  "pico": {
+    "source_revision": "cc5a6feae95dc5888bf3041bc9dc3306dba667ba",
+    "source_dirty": false,
+    "sdk_revision": "079c6f39023649b154152db30f1d781e884879bc",
+    "tinyusb_revision": "86ad6e56c1700e85f1c5678607a762cfe3aa2f47",
+    "compiler": "arm-none-eabi-gcc.exe (Arm GNU Toolchain 15.2.Rel1 (Build arm-15.86)) 15.2.1 20251203\r\nCopyright (C) 2025 Free Software Foundation, Inc.\r\nThis is free software; see the source for copying conditions.  There is NO\r\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.",
+    "cmake": "cmake version 4.4.4\r\n\r\nCMake suite maintained and supported by Kitware (kitware.com/cmake).",
+    "ninja": "1.13.2",
+    "outputs": [
+      {
+        "main_ram_allocated_sections_bytes": 22716,
+        "berkeley_data_plus_bss_bytes": 16772,
+        "memory_meaning": "RAM VMA sections include read-only RAM code/data and reserved heap/stack; Berkeley text/data classification differs. Stack/runtime peak and board measurements not established",
+        "data_bytes": 0,
+        "bss_bytes": 16772,
+        "text_bytes": 45724,
+        "target": "fluid_controller_pico_link",
+        "mode": 1,
+        "scratch_ram_allocated_sections_bytes": 2048,
+        "artifact_sha256": {
+          "fluid_controller_pico_link.uf2": "998cb868e13cccb6151bcce6284839ef767d0fb48089921588fabed59f904789",
+          "fluid_controller_pico_link.bin": "f81366ba025f7c1da12ef21cb09cd7af36641016047331ba2df86f6fbe403834",
+          "fluid_controller_pico_link.elf.map": "2017af6555bfe11409fbdc25a152febfafc4ca9f8cb658186747ec6ed4418e9a",
+          "fluid_controller_pico_link.elf": "8743fb8196b4beea1f43cfd6a528def0fc4e821a0d4a1f43083aaf283f8d366b"
+        },
+        "allocated_sections": [
+          {
+            "name": ".boot2",
+            "vma": 268435456,
+            "size_bytes": 256
+          },
+          {
+            "name": ".text",
+            "vma": 268435712,
+            "size_bytes": 35952
+          },
+          {
+            "name": ".rodata",
+            "vma": 268471664,
+            "size_bytes": 1492
+          },
+          {
+            "name": ".binary_info",
+            "vma": 268473156,
+            "size_bytes": 32
+          },
+          {
+            "name": ".xip_ram",
+            "vma": 352321536,
+            "size_bytes": 0
+          },
+          {
+            "name": ".ram_vector_table",
+            "vma": 536870912,
+            "size_bytes": 192
+          },
+          {
+            "name": ".uninitialized_data",
+            "vma": 536871104,
+            "size_bytes": 0
+          },
+          {
+            "name": ".data",
+            "vma": 536871104,
+            "size_bytes": 3896
+          },
+          {
+            "name": ".tdata",
+            "vma": 536875000,
+            "size_bytes": 0
+          },
+          {
+            "name": ".tbss",
+            "vma": 536875000,
+            "size_bytes": 0
+          },
+          {
+            "name": ".tbss_space",
+            "vma": 536875000,
+            "size_bytes": 0
+          },
+          {
+            "name": ".bss",
+            "vma": 536875000,
+            "size_bytes": 16580
+          },
+          {
+            "name": ".tls0",
+            "vma": 536891580,
+            "size_bytes": 0
+          },
+          {
+            "name": ".tls1",
+            "vma": 536891580,
+            "size_bytes": 0
+          },
+          {
+            "name": ".persistent_data",
+            "vma": 536891580,
+            "size_bytes": 0
+          },
+          {
+            "name": ".dummy_pre_heap",
+            "vma": 536891580,
+            "size_bytes": 0
+          },
+          {
+            "name": ".heap",
+            "vma": 536891580,
+            "size_bytes": 2048
+          },
+          {
+            "name": ".scratch_x",
+            "vma": 537133056,
+            "size_bytes": 0
+          },
+          {
+            "name": ".scratch_y",
+            "vma": 537137152,
+            "size_bytes": 0
+          },
+          {
+            "name": ".stack_dummy",
+            "vma": 537137152,
+            "size_bytes": 2048
+          }
+        ],
+        "flash_image_bin_bytes": 41628,
+        "linked_text_plus_data_bytes": 45724
+      },
+      {
+        "main_ram_allocated_sections_bytes": 22716,
+        "berkeley_data_plus_bss_bytes": 16772,
+        "memory_meaning": "RAM VMA sections include read-only RAM code/data and reserved heap/stack; Berkeley text/data classification differs. Stack/runtime peak and board measurements not established",
+        "data_bytes": 0,
+        "bss_bytes": 16772,
+        "text_bytes": 45860,
+        "target": "fluid_controller_pico_peripheral",
+        "mode": 2,
+        "scratch_ram_allocated_sections_bytes": 2048,
+        "artifact_sha256": {
+          "fluid_controller_pico_peripheral.elf.map": "9bffd76fff6be54f44b016054efb539402799ffa547d0584ca61f22534a2d6ae",
+          "fluid_controller_pico_peripheral.bin": "5f1d37731f82149b0d3ba6a8e093a1514a4f3e47dd63e6e635bcf6b1440b666d",
+          "fluid_controller_pico_peripheral.uf2": "8eb99f2598bc21a3aaa93678f146850417c7699f99655bf1d407135caf749fa8",
+          "fluid_controller_pico_peripheral.elf": "3d6b492de692d73363c26e923a9b977eb332ceba5e57c42334f4639e65196e7e"
+        },
+        "allocated_sections": [
+          {
+            "name": ".boot2",
+            "vma": 268435456,
+            "size_bytes": 256
+          },
+          {
+            "name": ".text",
+            "vma": 268435712,
+            "size_bytes": 36088
+          },
+          {
+            "name": ".rodata",
+            "vma": 268471800,
+            "size_bytes": 1492
+          },
+          {
+            "name": ".binary_info",
+            "vma": 268473292,
+            "size_bytes": 32
+          },
+          {
+            "name": ".xip_ram",
+            "vma": 352321536,
+            "size_bytes": 0
+          },
+          {
+            "name": ".ram_vector_table",
+            "vma": 536870912,
+            "size_bytes": 192
+          },
+          {
+            "name": ".uninitialized_data",
+            "vma": 536871104,
+            "size_bytes": 0
+          },
+          {
+            "name": ".data",
+            "vma": 536871104,
+            "size_bytes": 3896
+          },
+          {
+            "name": ".tdata",
+            "vma": 536875000,
+            "size_bytes": 0
+          },
+          {
+            "name": ".tbss",
+            "vma": 536875000,
+            "size_bytes": 0
+          },
+          {
+            "name": ".tbss_space",
+            "vma": 536875000,
+            "size_bytes": 0
+          },
+          {
+            "name": ".bss",
+            "vma": 536875000,
+            "size_bytes": 16580
+          },
+          {
+            "name": ".tls0",
+            "vma": 536891580,
+            "size_bytes": 0
+          },
+          {
+            "name": ".tls1",
+            "vma": 536891580,
+            "size_bytes": 0
+          },
+          {
+            "name": ".persistent_data",
+            "vma": 536891580,
+            "size_bytes": 0
+          },
+          {
+            "name": ".dummy_pre_heap",
+            "vma": 536891580,
+            "size_bytes": 0
+          },
+          {
+            "name": ".heap",
+            "vma": 536891580,
+            "size_bytes": 2048
+          },
+          {
+            "name": ".scratch_x",
+            "vma": 537133056,
+            "size_bytes": 0
+          },
+          {
+            "name": ".scratch_y",
+            "vma": 537137152,
+            "size_bytes": 0
+          },
+          {
+            "name": ".stack_dummy",
+            "vma": 537137152,
+            "size_bytes": 2048
+          }
+        ],
+        "flash_image_bin_bytes": 41764,
+        "linked_text_plus_data_bytes": 45860
+      }
+    ]
+  },
+  "artifact_manifest_sha256": {
+    "campaign/biased_temperature/manifest.json": "deff0e3b4d49a4d66f3986bf27499e55b1bc75cba35583a9e2377b3f178c4d9d",
+    "campaign/corrupt_flow/manifest.json": "2d4fe52e055aebafa580e37aa555e69dc49c0eb91d9fa4132b9f612a014f8135",
+    "campaign/delayed_command/manifest.json": "7f7c227d956c03cdd48c21e2cf8c10fb7398a31f52560342a2cc78d6e259d8f8",
+    "campaign/delayed_flow/manifest.json": "409679447a609513ca06cdb1486065fc1cdb1d53ddc999b6e574da5fbe151efd",
+    "campaign/dropped_ack/manifest.json": "5040ce45a3c5671836391d26dc24f1b3ead102d8ae7a5584413680e9edfe3321",
+    "campaign/dropped_command/manifest.json": "37b10123f7400563746ba5bd1981a7c09f1dfe709227955619c118599d4f8ae6",
+    "campaign/flow_dropout/manifest.json": "0e504eda20faa03c98c4d7c04ec81486185b41b704721b0aa71571afa9f5ca21",
+    "campaign/frozen_temperature/manifest.json": "bd5d3c69844c48b50bf351ab669d18950787d384b5de5f7a19fa41ac0ffe441b",
+    "campaign/near_tick_after/manifest.json": "9717e69ca4a446f01e74c73af30f8028fdb49d232dde3b91d65338cf6dcdd65c",
+    "campaign/near_tick_before/manifest.json": "892e3faed1afd389adf595c93348802c5c1d17596c8f9918b88415a59f857d5f",
+    "campaign/nominal_heat_step/manifest.json": "3269850ee46b52cc411033dd8c62c912db549470bc324d68ff9d743b0a4a77dc",
+    "campaign/planned_restart/manifest.json": "302a539ef1768b963644a87c49e4e278a0296d2f5d89c4f090d286092cc68a47",
+    "campaign/reduced_rejection/manifest.json": "60a50b0412df80745c1868b05122d345efb499b6f9abc588e39cf357804ab2f1",
+    "campaign/reordered_flow/manifest.json": "82917ff6216682dfd2abe8e9f61b85916b08491fd02770605df94443c680c587",
+    "campaign/restriction/manifest.json": "01606f74d6f80eef1d353b0d2f4b72468631d6fc1c90bbfa11a08e6e1ebdbed0",
+    "campaign/seeded-repeat/manifest.json": "51021eab079af396ef1e6c2e6cd76042bbe8b402d5f085250ce1cc666ff29f29",
+    "campaign/stuck_heat_lost_sink/manifest.json": "eaa37cdd880405fed09481b78f2113a9242f65578f38bdb73c887457d7e5690e",
+    "campaign/tank/blocked_outlet/manifest.json": "8428b74698e8375720a7ffdf4046e32fc605c77a6c98840591b39fcc7cea3ac2",
+    "campaign/tank/nominal/manifest.json": "6f144fe02dcb5cf47fb0b61ef76b4295695aab22302509048bf74ff00dbbc57e",
+    "campaign/tank/pump_failed_off/manifest.json": "d620132c49e13672261618bcfe90a98d091404d37680efea38fe08067ef7f66c",
+    "campaign/tank/pump_stuck_on/manifest.json": "4ff3b7bced2d6de59a20f9be094f8068e7163d3ecbc2f3d7512b56fa6eacd865",
+    "campaign/tank/sensor_bias_ramp/manifest.json": "c866ba0cb4dbdea84dfeaffb53139c0947517d65cad13a011704a5d960b3e2a7",
+    "campaign/tank/sensor_dropout/manifest.json": "b32000742deca15c3f1feac3d3d72131e795e05326b8d8ac187e8caa5c21bd2a",
+    "campaign/tank/sensor_stuck/manifest.json": "1e31e862cefafdfba15faa5b172fb61d6fd6c87814a4cb4ef9b8a794beb13ad6",
+    "campaign/truncated_flow/manifest.json": "223f71cc8e56628f0d8473293416111cd05993de61aa45dcbc46b952d1c54025",
+    "refinement/solver/frozen_temperature/1e-05/manifest.json": "9a90e1454e69b22f24d4815bc43968e54ea022a29b70c6de9da48096b208cc87",
+    "refinement/solver/frozen_temperature/1e-07/manifest.json": "3b289141c9c4d4c7723d9e4ded739cd5d7d02715868a92834e0d67369a803fcd",
+    "refinement/solver/frozen_temperature/1e-09/manifest.json": "e2126917c862d300cb9a744f516f08a2640de2fd09ac133ff729d161a552a38c",
+    "refinement/solver/frozen_temperature/reference/manifest.json": "ac9e350c7ebf815272df8c345922fd8e42f646b6ab17ff27eaf2acd194c40fe0",
+    "refinement/solver/nominal_heat_step/1e-05/manifest.json": "860b1f4eaa3b5aca3b8243085b5a112a5b7f0bf5af4ffab0f460c0f4f6d02329",
+    "refinement/solver/nominal_heat_step/1e-07/manifest.json": "99a81eacd92f85259c25c9d8598d108844bcebfb686a80953c1aeb814ab9f10b",
+    "refinement/solver/nominal_heat_step/1e-09/manifest.json": "dfb8218c1ecbc3358ead5d9bcdb718f6c67bb63dc45a7fa08e5169aa554d4a1c",
+    "refinement/solver/nominal_heat_step/reference/manifest.json": "67e562e06843ea5bb5f51c1f3bb01cd6ff56cd08351d8135f4a8eda962721481",
+    "refinement/solver/stuck_heat_lost_sink/1e-05/manifest.json": "40a78c5e762bd8914ea5dad90edd4d6ba50722d05e4bc4bdabbbfd04fac931da",
+    "refinement/solver/stuck_heat_lost_sink/1e-07/manifest.json": "5124e3e5b8574357bcfc4b9260a9d589b02471ac3d2f22d51a88f4fc142e8512",
+    "refinement/solver/stuck_heat_lost_sink/1e-09/manifest.json": "4c462ac977ce568d672da80a7307bf5e03090acacea787831dbd49d0691f12d8",
+    "refinement/solver/stuck_heat_lost_sink/reference/manifest.json": "b0905d853cd74b96c44895e3e90668a57802933e4fbf6799b0920ecf9e64fc9c",
+    "refinement/tank-tick/nominal/0.05/manifest.json": "8fcaa74f789a8ba431e9c26557c99e6460157af9f286f7b2f264bbc825cd94dc",
+    "refinement/tank-tick/nominal/0.1/manifest.json": "6266c617f5dccef68bda996ca747871d42932b3f9e4ea10879823532aac776f9",
+    "refinement/tank-tick/nominal/0.2/manifest.json": "229442598756da3bfb922ad42d1b7b160dbee4ce04159b3760704551704b157a",
+    "refinement/tank-tick/pump_stuck_on/0.05/manifest.json": "020a6e44f89c05f6c011b0e1ae927d84dfbdaad348ecb6701f8a34202fb702d7",
+    "refinement/tank-tick/pump_stuck_on/0.1/manifest.json": "3381d3cc95e9974411bc421dd7822b701eed1d11cdd120c6a60a66e9ac30f759",
+    "refinement/tank-tick/pump_stuck_on/0.2/manifest.json": "a32243db960da2e48cbb33066eb4cf0de26dc2373cc3268ccc6edd4100f64767",
+    "refinement/tick/frozen_temperature/100000/manifest.json": "14d0382b9c7dc6e6ca6b4a2508791dc91a3d820aaba5f99d4fa85b6a76c73d02",
+    "refinement/tick/frozen_temperature/200000/manifest.json": "8d6d8528a005771e5b09adeaeca7f7874c630c5fe6a15b95a3e5bf559e5f4d01",
+    "refinement/tick/frozen_temperature/50000/manifest.json": "0d451a905f434bd6fe25290d7e9c7112ba3d157b93e286c76fcc3e81f664d90c",
+    "refinement/tick/near_tick_after/100000/manifest.json": "a41af25b9e57bacdc5ab3da44d3c24b394664e61071ef2587fa4e5b25d80c64e",
+    "refinement/tick/near_tick_after/200000/manifest.json": "8d8255c1948171527de13e273cf2f08e3d3c0eba7f7de434a3d972671a6a4e1c",
+    "refinement/tick/near_tick_after/50000/manifest.json": "4d2ac0b0d22fbbbc6f588fbc41c7b56eed48015ce0a31da8863abc0913621bfc",
+    "refinement/tick/near_tick_before/100000/manifest.json": "609d58428225bcff991871637009d1e0012ddb84bed4aa4f0c30325a491a91d9",
+    "refinement/tick/near_tick_before/200000/manifest.json": "e4483038e0c73e10299438045024602a5410a74c377555ca7584855f337ed16e",
+    "refinement/tick/near_tick_before/50000/manifest.json": "c5f1e0bcb19d0006dbdd198490f2e494f8f1bc29104385c4d7c637de9eba77ee",
+    "refinement/tick/nominal_heat_step/100000/manifest.json": "e1a384e55bb4319c2235f77a7f605ff10ac6f0b25bf822e1826e4031cc2d40f1",
+    "refinement/tick/nominal_heat_step/200000/manifest.json": "1e975e0fa4e5c88773d7c90c376913c1bec2e771568b1c973a438638fff46aae",
+    "refinement/tick/nominal_heat_step/50000/manifest.json": "36842b05781c132f346c0e673efe9237d2fe4d483076308b5b83b277d692a83e",
+    "refinement/tick/restriction/100000/manifest.json": "6167c25511322f21b063fff667077d91c88bbfc38297bf1507ca5fb8d3facbc1",
+    "refinement/tick/restriction/200000/manifest.json": "d7f8eb3ce419c067bea92366354ac3b17c47ed3a8b4e1baa6651304e204d882b",
+    "refinement/tick/restriction/50000/manifest.json": "4df2e59ce650997334c5f09a550949a9352cbdef04cb88e86b1057705bcbd906",
+    "refinement/tick/stuck_heat_lost_sink/100000/manifest.json": "b3dc40793f714040a991d2de4146e00c98203337634a84383b8d7b311762b5f1",
+    "refinement/tick/stuck_heat_lost_sink/200000/manifest.json": "533df25c72bf6d418deaba9ca76260bbb0ba9ec763251c474d814c451667a59d",
+    "refinement/tick/stuck_heat_lost_sink/50000/manifest.json": "9d3083e8ade6b9f1da796c77a9a1979f391d03b704ba6a7220f3c8022db8f544",
+    "thermal/manifest.json": "eed5b6d4bdda109ebfddad493a2b7e70d370329dff398ae006a419adb477f11e",
+    "tank/blocked_outlet/manifest.json": "93843959797e3104d87230d7a5167bd83cc76d56b4224452082e73f6b1380148",
+    "tank/nominal/manifest.json": "fd0ae9882be72b9e8d38c226758498a83ad76aa62ad3c90f76590cf5fb8a9a12",
+    "tank/pump_failed_off/manifest.json": "c3c3a55357236ff65a8f2223b12a3a8021564a84ddb818ab956ed61b4303d0ea",
+    "tank/pump_stuck_on/manifest.json": "b8279f083334cc28ae4b695aa9c6ffa657fef6ee277603e54ed90574bc68ec8d",
+    "tank/sensor_bias_ramp/manifest.json": "a13a59dd372996172329c70cb7ba059ced29e60cef4312183237c9d247ad7750",
+    "tank/sensor_dropout/manifest.json": "bf0128d16153f2105d3c3959cdb1fc358c275058310ba79953c8eab4ff9eccc1",
+    "tank/sensor_stuck/manifest.json": "18745e21a9f8629f44dbbbdea42c28ff328bbc57571019e57afa4720bd612115"
+  },
+  "report_inputs_sha256": {
+    "campaign/campaign.json": "556d71a1ca4cc42c3cd86e7da7d97e39f85be0193a2ffbfad502f20a395770a6",
+    "refinement/refinement.json": "4023cc0e5c7b9b7fc238ae412c032f441491ed2b85f15ca7528e2a6a0772cdfc",
+    "thermal/verification.json": "97fbdd803e69b2e29a8c8c2b9be087a2576420f441bb29858cb021f109505afb",
+    "pico/build-evidence.json": "d32dca5dd6a53bb1c9dea683beb40c10a82a83c4c903e784e3228bd4a4e0d6e5"
+  },
+  "performance": "NOT_EXECUTED_BY_THIS_TASK",
+  "board_execution": "NOT_EXECUTED",
+  "physical_validation": "NOT_STARTED"
+}

@@ -1,0 +1,307 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Executed integrated thermal manifest v1",
+  "$comment": "Frozen before M5 full campaign outcomes. Runtime independently audits wire/rows/schedule/leases and finite values. Wire dispositions and solver diagnostic maps contain explicitly retained diagnostic fields, not adjustable criteria.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "scenario": {
+      "$ref": "thermal-campaign-v1.schema.json"
+    },
+    "model": {
+      "$ref": "thermal-model-v1.schema.json"
+    },
+    "solver": {
+      "$ref": "thermal-solver-v1.schema.json"
+    },
+    "controller": {
+      "$ref": "thermal-controller-v1.schema.json"
+    },
+    "execution": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "source_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "source_files_sha256": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        },
+        "source_inclusion": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "source_exclusion": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "source_hash_framing": {
+          "type": "string"
+        },
+        "source_line_endings": {
+          "type": "string"
+        },
+        "lock_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "controller_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "controller_implementation": {
+          "const": "portable_c11_host"
+        },
+        "firmware_execution": {
+          "const": "NOT_EXECUTED"
+        },
+        "python": {
+          "type": "string"
+        },
+        "numpy": {
+          "type": "string"
+        },
+        "scipy": {
+          "type": "string"
+        },
+        "units": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "git_revision": {
+          "type": "string"
+        },
+        "git_dirty": {
+          "type": "boolean"
+        },
+        "git_root_matches": {
+          "type": "boolean"
+        },
+        "git_diagnostic": {
+          "type": "string"
+        },
+        "executable_path": {
+          "type": "string"
+        },
+        "controller_execution": {
+          "const": "HOST_SIL"
+        },
+        "firmware_core_sha256": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        },
+        "physical_validation": {
+          "const": "NOT_STARTED"
+        },
+        "board_execution": {
+          "const": "NOT_EXECUTED"
+        },
+        "parameter_pedigree": {
+          "const": "assumed"
+        },
+        "compiler_build_metadata": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "status": {
+                  "const": "RECORDED"
+                },
+                "files": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "sha256": {
+                        "type": "string",
+                        "pattern": "^[0-9a-f]{64}$"
+                      },
+                      "identity_lines": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "required": [
+                      "sha256",
+                      "identity_lines"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "status",
+                "files"
+              ]
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "status": {
+                  "const": "UNAVAILABLE"
+                },
+                "reason": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "status",
+                "reason"
+              ]
+            }
+          ]
+        },
+        "configuration_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "scenario_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "frozen_default_case_match": {
+          "type": "boolean"
+        },
+        "configuration_scope": {
+          "enum": [
+            "FROZEN_DEFAULT",
+            "VARIANT"
+          ]
+        }
+      },
+      "required": [
+        "source_sha256",
+        "source_files_sha256",
+        "source_inclusion",
+        "source_exclusion",
+        "source_hash_framing",
+        "source_line_endings",
+        "lock_sha256",
+        "controller_sha256",
+        "controller_implementation",
+        "firmware_execution",
+        "python",
+        "numpy",
+        "scipy",
+        "units",
+        "git_revision",
+        "git_dirty",
+        "git_root_matches",
+        "executable_path",
+        "controller_execution",
+        "firmware_core_sha256",
+        "physical_validation",
+        "board_execution",
+        "parameter_pedigree",
+        "compiler_build_metadata",
+        "configuration_sha256",
+        "scenario_sha256",
+        "frozen_default_case_match",
+        "configuration_scope"
+      ]
+    },
+    "clocks": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "absolute": {
+          "type": "string"
+        },
+        "wire": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        },
+        "receipt": {
+          "type": "string"
+        },
+        "host": {
+          "type": "string"
+        },
+        "device": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "absolute",
+        "wire",
+        "source",
+        "receipt",
+        "host",
+        "device"
+      ]
+    },
+    "quantization": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "command_ppm": {
+          "const": 1000000
+        },
+        "temperature_mk": {
+          "const": 1000
+        },
+        "flow_ul_s": {
+          "const": 1000000000
+        },
+        "command_rounding_max_ppm": {
+          "const": 0.5
+        },
+        "temperature_rounding_max_mk": {
+          "const": 0.5
+        },
+        "flow_rounding_max_ul_s": {
+          "const": 0.5
+        }
+      },
+      "required": [
+        "command_ppm",
+        "temperature_mk",
+        "flow_ul_s",
+        "command_rounding_max_ppm",
+        "temperature_rounding_max_mk",
+        "flow_rounding_max_ul_s"
+      ]
+    },
+    "artifacts": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{64}$"
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "scenario",
+    "model",
+    "solver",
+    "controller",
+    "execution",
+    "clocks",
+    "quantization",
+    "artifacts"
+  ]
+}

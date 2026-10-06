@@ -9,7 +9,11 @@ import scipy
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
-SOURCE_INCLUSION = ("src/**/*.py", "scripts/**/*.py", "schemas/*.json", "pyproject.toml", "uv.lock")
+SOURCE_INCLUSION = ("src/**/*.py", "scripts/**/*.py", "schemas/*.json", "pyproject.toml", "uv.lock",
+                    "firmware/**/*.c", "firmware/**/*.h", "firmware/**/*.cmake",
+                    "firmware/**/CMakeLists.txt", "CMakeLists.txt", "scripts/**/*.ps1")
+FIRMWARE_EXCLUDED_DIRECTORIES = frozenset(("vendor", "third_party", "generated", "build", "artifacts", "out"))
+SOURCE_EXCLUSION = tuple(f"firmware/**/{name}/**" for name in sorted(FIRMWARE_EXCLUDED_DIRECTORIES)) + ("firmware/**/cmake-build-*/**",)
 UNITS = dict(time_s="s", sample_time_s="s", receipt_time_s="s", measurement_age_s="s",
              level_m="m", measured_level_m="m", target_m="m", flow_m3_s="m3/s",
              volume_residual_m3="m3", pump_command="1", requested_valve_command="1",
@@ -30,6 +34,7 @@ def source_hash(root=PROJECT_ROOT, paths=None):
     root = Path(root).resolve()
     if paths is None:
         paths = {path for pattern in SOURCE_INCLUSION for path in root.glob(pattern) if path.is_file()}
+        paths = {path for path in paths if not _excluded_firmware_path(path.relative_to(root))}
     entries = sorted((Path(path).relative_to(root).as_posix(), Path(path)) for path in paths)
     digest = hashlib.sha256()
     hashes = {}
@@ -41,6 +46,14 @@ def source_hash(root=PROJECT_ROOT, paths=None):
         digest.update(raw)
         hashes[relative] = hashlib.sha256(raw).hexdigest()
     return digest.hexdigest(), hashes
+
+
+def _excluded_firmware_path(relative):
+    # Only directory components under firmware are excluded. A project source
+    # file named vendor.c or build.h remains part of the canonical digest.
+    return relative.parts[0] == "firmware" and any(
+        component in FIRMWARE_EXCLUDED_DIRECTORIES or component.startswith("cmake-build-")
+        for component in relative.parts[1:-1])
 
 
 def git_metadata(root=PROJECT_ROOT):
@@ -68,6 +81,7 @@ def execution_provenance(root=PROJECT_ROOT):
     controller = root / "src/fluidlab/control.py"
     return dict(source_sha256=digest, source_files_sha256=hashes,
                 source_inclusion=list(SOURCE_INCLUSION),
+                source_exclusion=list(SOURCE_EXCLUSION),
                 source_hash_framing="POSIX UTF-8 path, NUL, uint64 BE raw-byte length, raw bytes",
                 source_line_endings="raw bytes; repository .gitattributes specifies LF",
                 lock_sha256=file_sha256(lock) if lock.is_file() else None,

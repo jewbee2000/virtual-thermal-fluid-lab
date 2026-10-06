@@ -1,0 +1,32 @@
+test_closed_file_direct_normalization_immutable (test_campaign.CampaignContractTests.test_closed_file_direct_normalization_immutable) ... ok
+test_event_spans_order_overlap_and_nonfinite (test_campaign.CampaignContractTests.test_event_spans_order_overlap_and_nonfinite) ... ok
+test_expanded_hash_covers_firmware_and_build_bytes (test_campaign.CampaignContractTests.test_expanded_hash_covers_firmware_and_build_bytes) ... ok
+test_frozen_cases_and_schema_fieldsets (test_campaign.CampaignContractTests.test_frozen_cases_and_schema_fieldsets) ... ok
+test_independent_stale_oracles_all_tick_ladder (test_campaign.CampaignContractTests.test_independent_stale_oracles_all_tick_ladder) ... FAIL
+test_retained_parser_literal_crc_not_roundtrip (test_campaign.CampaignContractTests.test_retained_parser_literal_crc_not_roundtrip) ... ok
+test_actual_raw_corrupt_and_lf_truncated_recovery (test_campaign.RealCampaignTests.test_actual_raw_corrupt_and_lf_truncated_recovery) ... ok
+test_exact_near_tick_stale_trip_and_partial_evidence_rejection (test_campaign.RealCampaignTests.test_exact_near_tick_stale_trip_and_partial_evidence_rejection) ... ok
+test_export_executed_solver_and_exact_fieldsets (test_campaign.RealCampaignTests.test_export_executed_solver_and_exact_fieldsets) ... ok
+test_lease_expiry_between_ticks_and_fault_after_fallback (test_campaign.RealCampaignTests.test_lease_expiry_between_ticks_and_fault_after_fallback) ... ok
+test_no_lf_swallows_step_bounded_failure_last_reply_reaped (test_campaign.RealCampaignTests.test_no_lf_swallows_step_bounded_failure_last_reply_reaped) ... ok
+test_unexpected_death_keeps_partial_trace_and_fails (test_campaign.RealCampaignTests.test_unexpected_death_keeps_partial_trace_and_fails) ... ok
+
+======================================================================
+FAIL: test_independent_stale_oracles_all_tick_ladder (test_campaign.CampaignContractTests.test_independent_stale_oracles_all_tick_ladder)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Walt\Documents\Codex\fluid-lab-import\virtual-fluid-lab\tests\test_campaign.py", line 92, in test_independent_stale_oracles_all_tick_ladder
+    self.assertEqual(tuple(dropout_oracle_us(at,tick,300000) for at in (60000000,60099000,60101000)),values)
+AssertionError: Tuples differ: (60200000, 60400000, 60400000) != (60400000, 60400000, 60400000)
+
+First differing element 0:
+60200000
+60400000
+
+- (60200000, 60400000, 60400000)
++ (60400000, 60400000, 60400000)
+
+----------------------------------------------------------------------
+Ran 12 tests in 2.193s
+
+FAILED (failures=1)

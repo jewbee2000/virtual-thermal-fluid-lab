@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "scope": "complete frozen nominal240s C SIL demo",
+  "command": [
+    "C:\\Users\\Walt\\Documents\\Codex\\fluid-lab-import\\virtual-fluid-lab\\.venv\\Scripts\\python.exe",
+    "C:\\Users\\Walt\\Documents\\Codex\\fluid-lab-import\\virtual-fluid-lab\\scripts\\benchmark_campaign.py",
+    "--worker",
+    "--exe",
+    "C:\\Users\\Walt\\Documents\\Codex\\fluid-lab-import\\virtual-fluid-lab\\artifacts\\host-build\\Release\\fluid_controller_host.exe",
+    "--out",
+    "C:\\Users\\Walt\\Documents\\Codex\\fluid-lab-import\\virtual-fluid-lab\\artifacts\\M5-isolated-performance\\run"
+  ],
+  "returncode": 0,
+  "complete": true,
+  "wall_elapsed_s": 8.611114600000292,
+  "simulation_to_wall_ratio": 27.87095644970186,
+  "observed_process_family_peak_sum_bytes": 485867520,
+  "individual_os_peak_working_sets_bytes": {
+    "7208": 442040320,
+    "27164": 4640768,
+    "26592": 2428928,
+    "20188": 6713344,
+    "8304": 6713344,
+    "27528": 2490368,
+    "29340": 9740288,
+    "2340": 6713344,
+    "27204": 4386816
+  },
+  "required_process_pids": [
+    27164,
+    27204
+  ],
+  "required_process_pids_observed": true,
+  "retained_pid_capture_issues": [],
+  "required_pid_scope": "worker and every retained actual C startup in all recursive thermal/tank wire sessions",
+  "memory_method": "sum of individual OS lifetime peak working sets/HWM of observed descendants;5ms discovery",
+  "memory_scope_limitations": "sum is conservative for recorded peaks of observed processes; discovery may miss short-lived descendants/final growth; no strict unseen-family upper bound",
+  "monitor_errors": [],
+  "monitoring_overhead": "included in wall time; monitor process itself excluded from selected family",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "machine": "AMD64",
+  "processor": "Intel64 Family 6 Model 141 Stepping 1, GenuineIntel",
+  "compiler_build_metadata": {
+    "status": "RECORDED",
+    "files": {
+      "CMakeCache.txt": {
+        "sha256": "d97d8662733467c7798e0d34f69aace56c7d629b4a40e425147d629f657df846",
+        "identity_lines": [
+          "CMAKE_GENERATOR:INTERNAL=Visual Studio 17 2022"
+        ]
+      },
+      "CMakeFiles/4.4.4/CMakeCCompiler.cmake": {
+        "sha256": "68000c0e6de921b90921063fb99987b3d7725fcbe6053a583c54ade9c49bc82a",
+        "identity_lines": [
+          "set(CMAKE_C_COMPILER_ID \"MSVC\")",
+          "set(CMAKE_C_COMPILER_VERSION \"19.44.35229.0\")",
+          "set(CMAKE_C_COMPILER_VERSION_INTERNAL \"\")",
+          "set(CMAKE_C_COMPILER_ID_RUN 1)"
+        ]
+      }
+    }
+  },
+  "protocol_latency_s": {
+    "count": 2401,
+    "minimum": 0.0006018000003678026,
+    "median": 0.0009245000001101289,
+    "p95": 0.0014831000007689,
+    "maximum": 0.009185299999444396
+  },
+  "status": "PASS",
+  "thresholds": {
+    "wall_s": 60,
+    "memory_bytes": 536870912
+  },
+  "qualification": "observed laptop software performance; no hard-real-time or WCET claim"
+}

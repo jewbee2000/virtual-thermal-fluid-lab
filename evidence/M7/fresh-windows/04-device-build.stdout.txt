@@ -1,0 +1,21 @@
+MSBuild version 17.14.60+43b635718 for .NET Framework
+
+  1>Checking Build System
+  Building Custom Rule C:/Users/Walt/.codex/worktrees/thermal-lab-release-check/virtual-fluid-lab/firmware/pico/tests/CMakeLists.txt
+  test_device.c
+  device_policy.c
+  fl_core.c
+  fl_protocol.c
+  Generating Code...
+  fluid_device_policy_tests.vcxproj -> C:\Users\Walt\.codex\worktrees\thermal-lab-release-check\virtual-fluid-lab\artifacts\release\device-native\Release\fluid_device_policy_tests.exe
+  Building Custom Rule C:/Users/Walt/.codex/worktrees/thermal-lab-release-check/virtual-fluid-lab/firmware/pico/tests/CMakeLists.txt
+  test_hal.c
+  fl_hal.c
+  Generating Code...
+  fluid_hal_tests.vcxproj -> C:\Users\Walt\.codex\worktrees\thermal-lab-release-check\virtual-fluid-lab\artifacts\release\device-native\Release\fluid_hal_tests.exe
+  Building Custom Rule C:/Users/Walt/.codex/worktrees/thermal-lab-release-check/virtual-fluid-lab/firmware/pico/tests/CMakeLists.txt
+  test_usb_budget.c
+  usb_task.c
+  Generating Code...
+  fluid_usb_budget_tests.vcxproj -> C:\Users\Walt\.codex\worktrees\thermal-lab-release-check\virtual-fluid-lab\artifacts\release\device-native\Release\fluid_usb_budget_tests.exe
+  Building Custom Rule C:/Users/Walt/.codex/worktrees/thermal-lab-release-check/virtual-fluid-lab/firmware/pico/tests/CMakeLists.txt

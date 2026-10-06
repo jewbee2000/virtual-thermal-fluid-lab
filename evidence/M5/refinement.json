@@ -1,0 +1,2411 @@
+{
+  "schema_version": 1,
+  "contract": "docs/CAMPAIGN.md",
+  "state_order": [
+    "wall_temperature_k",
+    "hot_temperature_k",
+    "cold_temperature_k",
+    "pump_speed",
+    "valve_opening",
+    "heat_in_j",
+    "heat_rejected_j"
+  ],
+  "state_scales": [
+    0.0001,
+    0.0001,
+    0.0001,
+    1e-07,
+    1e-07,
+    0.01,
+    0.01
+  ],
+  "solver": {
+    "nominal_heat_step": {
+      "status": "PASS",
+      "reference_solver": {
+        "version": 1,
+        "method": "DOP853",
+        "rtol": 1e-11,
+        "requested_rtol": 1e-11,
+        "atol": [
+          1e-12,
+          1e-12,
+          1e-12,
+          1.0000000000000002e-14,
+          1.0000000000000002e-14,
+          1e-09,
+          1e-09
+        ],
+        "max_step_s": 0.05,
+        "effective_max_step_s": 0.05,
+        "state_order": [
+          "wall_temperature_k",
+          "hot_temperature_k",
+          "cold_temperature_k",
+          "pump_speed",
+          "valve_opening",
+          "heat_in_j",
+          "heat_rejected_j"
+        ],
+        "state_units": [
+          "K",
+          "K",
+          "K",
+          "1",
+          "1",
+          "J",
+          "J"
+        ]
+      },
+      "comparisons": [
+        {
+          "matching_samples": 2404,
+          "per_state_absolute_max": [
+            1.0800249583553523e-12,
+            1.8189894035458565e-12,
+            1.0800249583553523e-12,
+            1.4176604334892318e-11,
+            0.0,
+            2.3050233721733093e-08,
+            2.0605511963367462e-08
+          ],
+          "per_state_normalized_max": [
+            1.0800249583553523e-08,
+            1.8189894035458565e-08,
+            1.0800249583553523e-08,
+            0.00014176604334892318,
+            0.0,
+            2.3050233721733093e-06,
+            2.0605511963367462e-06
+          ],
+          "max_normalized": 0.00014176604334892318,
+          "last_matching_time_us": 240000000,
+          "meaning": "matching absolute scheduled/event samples before terminal roots; terminal event times compared separately",
+          "rtol": 1e-05,
+          "solver": {
+            "version": 1,
+            "method": "RK45",
+            "rtol": 1e-05,
+            "requested_rtol": 1e-05,
+            "atol": [
+              1.0000000000000002e-06,
+              1.0000000000000002e-06,
+              1.0000000000000002e-06,
+              1.0000000000000002e-08,
+              1.0000000000000002e-08,
+              0.0010000000000000002,
+              0.0010000000000000002
+            ],
+            "max_step_s": 0.05,
+            "effective_max_step_s": 0.05,
+            "state_order": [
+              "wall_temperature_k",
+              "hot_temperature_k",
+              "cold_temperature_k",
+              "pump_speed",
+              "valve_opening",
+              "heat_in_j",
+              "heat_rejected_j"
+            ],
+            "state_units": [
+              "K",
+              "K",
+              "K",
+              "1",
+              "1",
+              "J",
+              "J"
+            ]
+          },
+          "expectation_pass": true,
+          "trip_time_delta_us": null,
+          "terminal_time_delta_us": null,
+          "global_peak_bound_delta_k": 6.821210263296962e-13
+        },
+        {
+          "matching_samples": 2404,
+          "per_state_absolute_max": [
+            1.1368683772161603e-12,
+            1.5916157281026244e-12,
+            1.0231815394945443e-12,
+            1.2857659381637632e-11,
+            0.0,
+            1.0244548320770264e-08,
+            1.8801074475049973e-08
+          ],
+          "per_state_normalized_max": [
+            1.1368683772161603e-08,
+            1.5916157281026244e-08,
+            1.0231815394945443e-08,
+            0.00012857659381637632,
+            0.0,
+            1.0244548320770264e-06,
+            1.8801074475049973e-06
+          ],
+          "max_normalized": 0.00012857659381637632,
+          "last_matching_time_us": 240000000,
+          "meaning": "matching absolute scheduled/event samples before terminal roots; terminal event times compared separately",
+          "rtol": 1e-07,
+          "solver": {
+            "version": 1,
+            "method": "RK45",
+            "rtol": 1e-07,
+            "requested_rtol": 1e-07,
+            "atol": [
+              1e-08,
+              1e-08,
+              1e-08,
+              1e-10,
+              1e-10,
+              1e-05,
+              1e-05
+            ],
+            "max_step_s": 0.05,
+            "effective_max_step_s": 0.05,
+            "state_order": [
+              "wall_temperature_k",
+              "hot_temperature_k",
+              "cold_temperature_k",
+              "pump_speed",
+              "valve_opening",
+              "heat_in_j",
+              "heat_rejected_j"
+            ],
+            "state_units": [
+              "K",
+              "K",
+              "K",
+              "1",
+              "1",
+              "J",
+              "J"
+            ]
+          },
+          "expectation_pass": true,
+          "trip_time_delta_us": null,
+          "terminal_time_delta_us": null,
+          "global_peak_bound_delta_k": 3.410605131648481e-13
+        },
+        {
+          "matching_samples": 2404,
+          "per_state_absolute_max": [
+            1.0800249583553523e-12,
+            1.7053025658242404e-12,
+            9.663381206337363e-13,
+            1.501748725374341e-11,
+            0.0,
+            3.958120942115784e-09,
+            1.8510036170482635e-08
+          ],
+          "per_state_normalized_max": [
+            1.0800249583553523e-08,
+            1.7053025658242404e-08,
+            9.663381206337363e-09,
+            0.0001501748725374341,
+            0.0,
+            3.9581209421157837e-07,
+            1.8510036170482635e-06
+          ],
+          "max_normalized": 0.0001501748725374341,
+          "last_matching_time_us": 240000000,
+          "meaning": "matching absolute scheduled/event samples before terminal roots; terminal event times compared separately",
+          "rtol": 1e-09,
+          "solver": {
+            "version": 1,
+            "method": "RK45",
+            "rtol": 1e-09,
+            "requested_rtol": 1e-09,
+            "atol": [
+              1e-10,
+              1e-10,
+              1e-10,
+              1e-12,
+              1e-12,
+              1.0000000000000001e-07,
+              1.0000000000000001e-07
+            ],
+            "max_step_s": 0.05,
+            "effective_max_step_s": 0.05,
+            "state_order": [
+              "wall_temperature_k",
+              "hot_temperature_k",
+              "cold_temperature_k",
+              "pump_speed",
+              "valve_opening",
+              "heat_in_j",
+              "heat_rejected_j"
+            ],
+            "state_units": [
+              "K",
+              "K",
+              "K",
+              "1",
+              "1",
+              "J",
+              "J"
+            ]
+          },
+          "expectation_pass": true,
+          "trip_time_delta_us": null,
+          "terminal_time_delta_us": null,
+          "global_peak_bound_delta_k": 1.1368683772161603e-13
+        }
+      ]
+    },
+    "frozen_temperature": {
+      "status": "PASS",
+      "reference_solver": {
+        "version": 1,
+        "method": "DOP853",
+        "rtol": 1e-11,
+        "requested_rtol": 1e-11,
+        "atol": [
+          1e-12,
+          1e-12,
+          1e-12,
+          1.0000000000000002e-14,
+          1.0000000000000002e-14,
+          1e-09,
+          1e-09
+        ],
+        "max_step_s": 0.05,
+        "effective_max_step_s": 0.05,
+        "state_order": [
+          "wall_temperature_k",
+          "hot_temperature_k",
+          "cold_temperature_k",
+          "pump_speed",
+          "valve_opening",
+          "heat_in_j",
+          "heat_rejected_j"
+        ],
+        "state_units": [
+          "K",
+          "K",
+          "K",
+          "1",
+          "1",
+          "J",
+          "J"
+        ]
+      },
+      "comparisons": [
+        {
+          "matching_samples": 6004,
+          "per_state_absolute_max": [
+            9.094947017729282e-13,
+            2.2112089936854318e-11,
+            1.5063505998114124e-11,
+            1.4821810445653227e-11,
+            3.440000506671481e-10,
+            1.5832483768463135e-08,
+            2.5029294192790985e-09
+          ],
+          "per_state_normalized_max": [
+            9.094947017729282e-09,
+            2.2112089936854318e-07,
+            1.5063505998114124e-07,
+            0.00014821810445653227,
+            0.003440000506671481,
+            1.5832483768463135e-06,
+            2.5029294192790985e-07
+          ],
+          "max_normalized": 0.003440000506671481,
+          "last_matching_time_us": 600000000,
+          "meaning": "matching absolute scheduled/event samples before terminal roots; terminal event times compared separately",
+          "rtol": 1e-05,
+          "solver": {
+            "version": 1,
+            "method": "RK45",
+            "rtol": 1e-05,
+            "requested_rtol": 1e-05,
+            "atol": [
+              1.0000000000000002e-06,
+              1.0000000000000002e-06,
+              1.0000000000000002e-06,
+              1.0000000000000002e-08,
+              1.0000000000000002e-08,
+              0.0010000000000000002,
+              0.0010000000000000002
+            ],
+            "max_step_s": 0.05,
+            "effective_max_step_s": 0.05,
+            "state_order": [
+              "wall_temperature_k",
+              "hot_temperature_k",
+              "cold_temperature_k",
+              "pump_speed",
+              "valve_opening",
+              "heat_in_j",
+              "heat_rejected_j"
+            ],
+            "state_units": [
+              "K",
+              "K",
+              "K",
+              "1",
+              "1",
+              "J",
+              "J"
+            ]
+          },
+          "expectation_pass": true,
+          "trip_time_delta_us": 0,
+          "terminal_time_delta_us": null,
+          "global_peak_bound_delta_k": 3.410605131648481e-13
+        },
+        {
+          "matching_samples": 6004,
+          "per_state_absolute_max": [
+            8.526512829121202e-13,
+            1.48929757415317e-11,
+            1.0231815394945443e-11,
+            8.65041371866937e-12,
+            2.259530340609217e-10,
+            5.005858838558197e-09,
+            8.207280188798904e-09
+          ],
+          "per_state_normalized_max": [
+            8.526512829121202e-09,
+            1.48929757415317e-07,
+            1.0231815394945443e-07,
+            8.65041371866937e-05,
+            0.002259530340609217,
+            5.005858838558197e-07,
+            8.207280188798904e-07
+          ],
+          "max_normalized": 0.002259530340609217,
+          "last_matching_time_us": 600000000,
+          "meaning": "matching absolute scheduled/event samples before terminal roots; terminal event times compared separately",
+          "rtol": 1e-07,
+          "solver": {
+            "version": 1,
+            "method": "RK45",
+            "rtol": 1e-07,
+            "requested_rtol": 1e-07,
+            "atol": [
+              1e-08,
+              1e-08,
+              1e-08,
+              1e-10,
+              1e-10,
+              1e-05,
+              1e-05
+            ],
+            "max_step_s": 0.05,
+            "effective_max_step_s": 0.05,
+            "state_order": [
+              "wall_temperature_k",
+              "hot_temperature_k",
+              "cold_temperature_k",
+              "pump_speed",
+              "valve_opening",
+              "heat_in_j",
+              "heat_rejected_j"
+            ],
+            "state_units": [
+              "K",
+              "K",
+              "K",
+              "1",
+              "1",
+              "J",
+              "J"
+            ]
+          },
+          "expectation_pass": true,
+          "trip_time_delta_us": 0,
+          "terminal_time_delta_us": null,
+          "global_peak_bound_delta_k": 2.8421709430404007e-13
+        },
+        {
+          "matching_samples": 6004,
+          "per_state_absolute_max": [
+            1.3073986337985843e-12,
+            1.3983481039758772e-11,
+            9.265477274311706e-12,
+            9.64650581636306e-12,
+            2.2444679448341276e-10,
+            2.7706846594810486e-08,
+            2.8230715543031693e-09
+          ],
+          "per_state_normalized_max": [
+            1.3073986337985843e-08,
+            1.3983481039758772e-07,
+            9.265477274311706e-08,
+            9.64650581636306e-05,
+            0.0022444679448341276,
+            2.7706846594810486e-06,
+            2.823071554303169e-07
+          ],
+          "max_normalized": 0.0022444679448341276,
+          "last_matching_time_us": 600000000,
+          "meaning": "matching absolute scheduled/event samples before terminal roots; terminal event times compared separately",
+          "rtol": 1e-09,
+          "solver": {
+            "version": 1,
+            "method": "RK45",
+            "rtol": 1e-09,
+            "requested_rtol": 1e-09,
+            "atol": [
+              1e-10,
+              1e-10,
+              1e-10,
+              1e-12,
+              1e-12,
+              1.0000000000000001e-07,
+              1.0000000000000001e-07
+            ],
+            "max_step_s": 0.05,
+            "effective_max_step_s": 0.05,
+            "state_order": [
+              "wall_temperature_k",
+              "hot_temperature_k",
+              "cold_temperature_k",
+              "pump_speed",
+              "valve_opening",
+              "heat_in_j",
+              "heat_rejected_j"
+            ],
+            "state_units": [
+              "K",
+              "K",
+              "K",
+              "1",
+              "1",
+              "J",
+              "J"
+            ]
+          },
+          "expectation_pass": true,
+          "trip_time_delta_us": 0,
+          "terminal_time_delta_us": null,
+          "global_peak_bound_delta_k": 3.979039320256561e-13
+        }
+      ]
+    },
+    "stuck_heat_lost_sink": {
+      "status": "PASS",
+      "reference_solver": {
+        "version": 1,
+        "method": "DOP853",
+        "rtol": 1e-11,
+        "requested_rtol": 1e-11,
+        "atol": [
+          1e-12,
+          1e-12,
+          1e-12,
+          1.0000000000000002e-14,
+          1.0000000000000002e-14,
+          1e-09,
+          1e-09
+        ],
+        "max_step_s": 0.05,
+        "effective_max_step_s": 0.05,
+        "state_order": [
+          "wall_temperature_k",
+          "hot_temperature_k",
+          "cold_temperature_k",
+          "pump_speed",
+          "valve_opening",
+          "heat_in_j",
+          "heat_rejected_j"
+        ],
+        "state_units": [
+          "K",
+          "K",
+          "K",
+          "1",
+          "1",
+          "J",
+          "J"
+        ]
+      },
+      "comparisons": [
+        {
+          "matching_samples": 4668,
+          "per_state_absolute_max": [
+            1.9326762412674725e-12,
+            2.376054908381775e-11,
+            1.3358203432289883e-11,
+            1.4822254534863077e-11,
+            3.440000506671481e-10,
+            1.0011717677116394e-08,
+            2.764863893389702e-09
+          ],
+          "per_state_normalized_max": [
+            1.9326762412674725e-08,
+            2.376054908381775e-07,
+            1.3358203432289883e-07,
+            0.00014822254534863077,
+            0.003440000506671481,
+            1.0011717677116394e-06,
+            2.764863893389702e-07
+          ],
+          "max_normalized": 0.003440000506671481,
+          "last_matching_time_us": 466200000,
+          "meaning": "matching absolute scheduled/event samples before terminal roots; terminal event times compared separately",
+          "rtol": 1e-05,
+          "solver": {
+            "version": 1,
+            "method": "RK45",
+            "rtol": 1e-05,
+            "requested_rtol": 1e-05,
+            "atol": [
+              1.0000000000000002e-06,
+              1.0000000000000002e-06,
+              1.0000000000000002e-06,
+              1.0000000000000002e-08,
+              1.0000000000000002e-08,
+              0.0010000000000000002,
+              0.0010000000000000002
+            ],
+            "max_step_s": 0.05,
+            "effective_max_step_s": 0.05,
+            "state_order": [
+              "wall_temperature_k",
+              "hot_temperature_k",
+              "cold_temperature_k",
+              "pump_speed",
+              "valve_opening",
+              "heat_in_j",
+              "heat_rejected_j"
+            ],
+            "state_units": [
+              "K",
+              "K",
+              "K",
+              "1",
+              "1",
+              "J",
+              "J"
+            ]
+          },
+          "expectation_pass": true,
+          "trip_time_delta_us": 0,
+          "terminal_time_delta_us": 8.821487426757812e-06,
+          "global_peak_bound_delta_k": 0.0
+        },
+        {
+          "matching_samples": 4668,
+          "per_state_absolute_max": [
+            2.6147972675971687e-12,
+            1.722355591482483e-11,
+            7.73070496506989e-12,
+            1.2857659381637632e-11,
+            2.2595292303861925e-10,
+            9.080395102500916e-09,
+            1.04482751339674e-08
+          ],
+          "per_state_normalized_max": [
+            2.6147972675971687e-08,
+            1.7223555914824829e-07,
+            7.73070496506989e-08,
+            0.00012857659381637632,
+            0.0022595292303861925,
+            9.080395102500916e-07,
+            1.04482751339674e-06
+          ],
+          "max_normalized": 0.0022595292303861925,
+          "last_matching_time_us": 466200000,
+          "meaning": "matching absolute scheduled/event samples before terminal roots; terminal event times compared separately",
+          "rtol": 1e-07,
+          "solver": {
+            "version": 1,
+            "method": "RK45",
+            "rtol": 1e-07,
+            "requested_rtol": 1e-07,
+            "atol": [
+              1e-08,
+              1e-08,
+              1e-08,
+              1e-10,
+              1e-10,
+              1e-05,
+              1e-05
+            ],
+            "max_step_s": 0.05,
+            "effective_max_step_s": 0.05,
+            "state_order": [
+              "wall_temperature_k",
+              "hot_temperature_k",
+              "cold_temperature_k",
+              "pump_speed",
+              "valve_opening",
+              "heat_in_j",
+              "heat_rejected_j"
+            ],
+            "state_units": [
+              "K",
+              "K",
+              "K",
+              "1",
+              "1",
+              "J",
+              "J"
+            ]
+          },
+          "expectation_pass": true,
+          "trip_time_delta_us": 0,
+          "terminal_time_delta_us": 1.4781951904296875e-05,
+          "global_peak_bound_delta_k": 0.0
+        },
+        {
+          "matching_samples": 4668,
+          "per_state_absolute_max": [
+            2.8421709430404007e-12,
+            1.6370904631912708e-11,
+            6.423306331271306e-12,
+            1.501748725374341e-11,
+            2.2444657243880783e-10,
+            1.1175870895385742e-07,
+            3.230525180697441e-09
+          ],
+          "per_state_normalized_max": [
+            2.8421709430404007e-08,
+            1.6370904631912708e-07,
+            6.423306331271306e-08,
+            0.0001501748725374341,
+            0.0022444657243880783,
+            1.1175870895385742e-05,
+            3.230525180697441e-07
+          ],
+          "max_normalized": 0.0022444657243880783,
+          "last_matching_time_us": 466200000,
+          "meaning": "matching absolute scheduled/event samples before terminal roots; terminal event times compared separately",
+          "rtol": 1e-09,
+          "solver": {
+            "version": 1,
+            "method": "RK45",
+            "rtol": 1e-09,
+            "requested_rtol": 1e-09,
+            "atol": [
+              1e-10,
+              1e-10,
+              1e-10,
+              1e-12,
+              1e-12,
+              1.0000000000000001e-07,
+              1.0000000000000001e-07
+            ],
+            "max_step_s": 0.05,
+            "effective_max_step_s": 0.05,
+            "state_order": [
+              "wall_temperature_k",
+              "hot_temperature_k",
+              "cold_temperature_k",
+              "pump_speed",
+              "valve_opening",
+              "heat_in_j",
+              "heat_rejected_j"
+            ],
+            "state_units": [
+              "K",
+              "K",
+              "K",
+              "1",
+              "1",
+              "J",
+              "J"
+            ]
+          },
+          "expectation_pass": true,
+          "trip_time_delta_us": 0,
+          "terminal_time_delta_us": 1.6987323760986328e-05,
+          "global_peak_bound_delta_k": 0.0
+        }
+      ]
+    }
+  },
+  "thermal_tick": {
+    "nominal_heat_step": {
+      "status": "PASS",
+      "peak_bound_delta_100_50_k": 0.024939197583194073,
+      "trip_delta_100_50_us": null,
+      "peak_comparison_scope": "FULL_RECOVERABLE_RUN",
+      "common_prefix_peak_comparison": null,
+      "full_run_peak_bound_delta_k": 0.024939197583194073,
+      "full_run_peak_meaning": "recoverable continuous bound",
+      "boundary_comparison": {
+        "status": "NOT_APPLICABLE",
+        "presence": [
+          false,
+          false
+        ],
+        "boundary_kinds": [
+          null,
+          null
+        ],
+        "boundary_times_s": [
+          null,
+          null
+        ],
+        "boundary_time_delta_s": null,
+        "presence_and_kind_match": true,
+        "limit_s": 0.1,
+        "rationale": "predeclared educational timer-resolution criterion; not a physical standard or derived from peak limits"
+      },
+      "terminal_delta_100_50_us": null,
+      "trajectories_100_50": {
+        "matching_samples": 2404,
+        "per_state_absolute_max": [
+          0.00025762463411638237,
+          0.0003635075733541271,
+          0.0002190959984318397,
+          0.003349346602797343,
+          0.0,
+          1.5436671674251556e-07,
+          4.4276016505027656
+        ],
+        "per_state_normalized_max": [
+          2.5762463411638237,
+          3.635075733541271,
+          2.190959984318397,
+          33493.46602797343,
+          0.0,
+          1.5436671674251556e-05,
+          442.76016505027656
+        ],
+        "max_normalized": 33493.46602797343,
+        "last_matching_time_us": 240000000,
+        "meaning": "matching absolute scheduled/event samples before terminal roots; terminal event times compared separately"
+      },
+      "metrics": {
+        "200000": {
+          "sampled_peaks_k": {
+            "wall_temperature_k": 315.509483882001,
+            "hot_temperature_k": 299.6053273951088,
+            "cold_temperature_k": 293.15
+          },
+          "global_sampled_peak_k": 315.509483882001,
+          "largest_sample_gap_s": 0.20000000000001705,
+          "global_peak_upper_bound_k": 315.60948388200103,
+          "peak_bound_coverage": {
+            "start_time_us": 0,
+            "end_time_us": 240000000,
+            "requested_end_time_us": 240000000,
+            "retained_samples": 1204,
+            "discarded_rows": 0,
+            "scope": "FULL_RETAINED_HORIZON"
+          },
+          "peak_bound_meaning": "sample max+.5 K/s largest actual event/terminal gap; excludes numerical error",
+          "energy_residual_max_j": 5.9138983488082886e-08,
+          "tracking_true_max_error_m3_s": 1.6599349659293227e-09,
+          "tracking_observed_max_error_m3_s": 2.0000000000043854e-09,
+          "integral_flow_error_m3": 0.00018270000809172433,
+          "first_trip_time_us": null,
+          "first_trip_reason": null,
+          "terminal_time_us": null,
+          "trip_expected_time_us": null,
+          "prefault_temperatures_k": null,
+          "final30_mean_temperatures_k": {
+            "wall_temperature_k": 315.1290539363202,
+            "hot_temperature_k": 299.3520910075781,
+            "cold_temperature_k": 292.04023231251284
+          },
+          "wall_elapsed_s": 3.211350300000049,
+          "protocol_latency_s": {
+            "count": 1201,
+            "minimum": 0.0006269000004976988,
+            "median": 0.0009805999998206971,
+            "p95": 0.0014241999997466337,
+            "maximum": 0.0023636000005353708
+          }
+        },
+        "100000": {
+          "sampled_peaks_k": {
+            "wall_temperature_k": 315.5096081228418,
+            "hot_temperature_k": 299.60541024478937,
+            "cold_temperature_k": 293.15
+          },
+          "global_sampled_peak_k": 315.5096081228418,
+          "largest_sample_gap_s": 0.10000000000002274,
+          "global_peak_upper_bound_k": 315.55960812284184,
+          "peak_bound_coverage": {
+            "start_time_us": 0,
+            "end_time_us": 240000000,
+            "requested_end_time_us": 240000000,
+            "retained_samples": 2404,
+            "discarded_rows": 0,
+            "scope": "FULL_RETAINED_HORIZON"
+          },
+          "peak_bound_meaning": "sample max+.5 K/s largest actual event/terminal gap; excludes numerical error",
+          "energy_residual_max_j": 4.547473508864641e-08,
+          "tracking_true_max_error_m3_s": 1.5388495658134622e-09,
+          "tracking_observed_max_error_m3_s": 2.0000000000043854e-09,
+          "integral_flow_error_m3": 0.00018043571757946972,
+          "first_trip_time_us": null,
+          "first_trip_reason": null,
+          "terminal_time_us": null,
+          "trip_expected_time_us": null,
+          "prefault_temperatures_k": null,
+          "final30_mean_temperatures_k": {
+            "wall_temperature_k": 315.12926553481276,
+            "hot_temperature_k": 299.3522321397197,
+            "cold_temperature_k": 292.0403186902791
+          },
+          "wall_elapsed_s": 4.63350360000004,
+          "protocol_latency_s": {
+            "count": 2401,
+            "minimum": 0.0006123000002844492,
+            "median": 0.0008153999988280702,
+            "p95": 0.0012597000004461734,
+            "maximum": 0.0022773999990022276
+          }
+        },
+        "50000": {
+          "sampled_peaks_k": {
+            "wall_temperature_k": 315.5096689252586,
+            "hot_temperature_k": 299.6054506336297,
+            "cold_temperature_k": 293.15
+          },
+          "global_sampled_peak_k": 315.5096689252586,
+          "largest_sample_gap_s": 0.05000000000001137,
+          "global_peak_upper_bound_k": 315.53466892525864,
+          "peak_bound_coverage": {
+            "start_time_us": 0,
+            "end_time_us": 240000000,
+            "requested_end_time_us": 240000000,
+            "retained_samples": 4804,
+            "discarded_rows": 0,
+            "scope": "FULL_RETAINED_HORIZON"
+          },
+          "peak_bound_meaning": "sample max+.5 K/s largest actual event/terminal gap; excludes numerical error",
+          "energy_residual_max_j": 2.5960616767406464e-08,
+          "tracking_true_max_error_m3_s": 1.5176705834446004e-09,
+          "tracking_observed_max_error_m3_s": 2.0000000000043854e-09,
+          "integral_flow_error_m3": 0.00017946054199791922,
+          "first_trip_time_us": null,
+          "first_trip_reason": null,
+          "terminal_time_us": null,
+          "trip_expected_time_us": null,
+          "prefault_temperatures_k": null,
+          "final30_mean_temperatures_k": {
+            "wall_temperature_k": 315.1293697723627,
+            "hot_temperature_k": 299.3523017227227,
+            "cold_temperature_k": 292.0403611658543
+          },
+          "wall_elapsed_s": 8.601110300000073,
+          "protocol_latency_s": {
+            "count": 4801,
+            "minimum": 0.0006101000017224578,
+            "median": 0.0008046000002650544,
+            "p95": 0.0011706999994203215,
+            "maximum": 0.0020965999992768047
+          }
+        }
+      },
+      "expectation_by_tick": {
+        "200000": true,
+        "100000": true,
+        "50000": true
+      }
+    },
+    "restriction": {
+      "status": "PASS",
+      "peak_bound_delta_100_50_k": 0.024401567663460355,
+      "trip_delta_100_50_us": null,
+      "peak_comparison_scope": "FULL_RECOVERABLE_RUN",
+      "common_prefix_peak_comparison": null,
+      "full_run_peak_bound_delta_k": 0.024401567663460355,
+      "full_run_peak_meaning": "recoverable continuous bound",
+      "boundary_comparison": {
+        "status": "NOT_APPLICABLE",
+        "presence": [
+          false,
+          false
+        ],
+        "boundary_kinds": [
+          null,
+          null
+        ],
+        "boundary_times_s": [
+          null,
+          null
+        ],
+        "boundary_time_delta_s": null,
+        "presence_and_kind_match": true,
+        "limit_s": 0.1,
+        "rationale": "predeclared educational timer-resolution criterion; not a physical standard or derived from peak limits"
+      },
+      "terminal_delta_100_50_us": null,
+      "trajectories_100_50": {
+        "matching_samples": 2404,
+        "per_state_absolute_max": [
+          0.0006039364868684061,
+          0.0010353260303190837,
+          0.0006406350825614027,
+          0.00043493761793589325,
+          0.0,
+          1.0780058801174164e-07,
+          10.048682809108868
+        ],
+        "per_state_normalized_max": [
+          6.039364868684061,
+          10.353260303190837,
+          6.406350825614027,
+          4349.376179358933,
+          0.0,
+          1.0780058801174164e-05,
+          1004.8682809108868
+        ],
+        "max_normalized": 4349.376179358933,
+        "last_matching_time_us": 240000000,
+        "meaning": "matching absolute scheduled/event samples before terminal roots; terminal event times compared separately"
+      },
+      "metrics": {
+        "200000": {
+          "sampled_peaks_k": {
+            "wall_temperature_k": 318.3160858761422,
+            "hot_temperature_k": 301.9625775332951,
+            "cold_temperature_k": 293.2493390597245
+          },
+          "global_sampled_peak_k": 318.3160858761422,
+          "largest_sample_gap_s": 0.20000000000001705,
+          "global_peak_upper_bound_k": 318.41608587614223,
+          "peak_bound_coverage": {
+            "start_time_us": 0,
+            "end_time_us": 240000000,
+            "requested_end_time_us": 240000000,
+            "retained_samples": 1204,
+            "discarded_rows": 0,
+            "scope": "FULL_RETAINED_HORIZON"
+          },
+          "peak_bound_meaning": "sample max+.5 K/s largest actual event/terminal gap; excludes numerical error",
+          "energy_residual_max_j": 6.738082447554916e-08,
+          "tracking_true_max_error_m3_s": 6.84222926353818e-07,
+          "tracking_observed_max_error_m3_s": 6.839999999999819e-07,
+          "integral_flow_error_m3": 0.0014788845784989614,
+          "first_trip_time_us": null,
+          "first_trip_reason": null,
+          "terminal_time_us": null,
+          "trip_expected_time_us": null,
+          "prefault_temperatures_k": {
+            "wall_temperature_k": 317.7911502575062,
+            "hot_temperature_k": 301.1244844019629,
+            "cold_temperature_k": 293.14999905756594
+          },
+          "final30_mean_temperatures_k": {
+            "wall_temperature_k": 318.03732571026234,
+            "hot_temperature_k": 301.29491799467036,
+            "cold_temperature_k": 293.2364670583592
+          },
+          "wall_elapsed_s": 2.4094351999992796,
+          "protocol_latency_s": {
+            "count": 1201,
+            "minimum": 0.0006260999998630723,
+            "median": 0.0008314000006066635,
+            "p95": 0.0012153000006946968,
+            "maximum": 0.0017573000004631467
+          }
+        },
+        "100000": {
+          "sampled_peaks_k": {
+            "wall_temperature_k": 318.31730474687447,
+            "hot_temperature_k": 301.9646632567553,
+            "cold_temperature_k": 293.24957820994274
+          },
+          "global_sampled_peak_k": 318.31730474687447,
+          "largest_sample_gap_s": 0.10000000000002274,
+          "global_peak_upper_bound_k": 318.3673047468745,
+          "peak_bound_coverage": {
+            "start_time_us": 0,
+            "end_time_us": 240000000,
+            "requested_end_time_us": 240000000,
+            "retained_samples": 2404,
+            "discarded_rows": 0,
+            "scope": "FULL_RETAINED_HORIZON"
+          },
+          "peak_bound_meaning": "sample max+.5 K/s largest actual event/terminal gap; excludes numerical error",
+          "energy_residual_max_j": 5.515539669431746e-08,
+          "tracking_true_max_error_m3_s": 6.8476186601416e-07,
+          "tracking_observed_max_error_m3_s": 6.849999999999977e-07,
+          "integral_flow_error_m3": 0.001481600850687798,
+          "first_trip_time_us": null,
+          "first_trip_reason": null,
+          "terminal_time_us": null,
+          "trip_expected_time_us": null,
+          "prefault_temperatures_k": {
+            "wall_temperature_k": 317.7911502575065,
+            "hot_temperature_k": 301.12448440196295,
+            "cold_temperature_k": 293.14999905756594
+          },
+          "final30_mean_temperatures_k": {
+            "wall_temperature_k": 318.0378139381606,
+            "hot_temperature_k": 301.2952448888678,
+            "cold_temperature_k": 293.23665785475697
+          },
+          "wall_elapsed_s": 4.893589400000565,
+          "protocol_latency_s": {
+            "count": 2401,
+            "minimum": 0.0005946000001131324,
+            "median": 0.0008352999993803678,
+            "p95": 0.0013039999994362006,
+            "maximum": 0.002765900000667898
+          }
+        },
+        "50000": {
+          "sampled_peaks_k": {
+            "wall_temperature_k": 318.31790317921104,
+            "hot_temperature_k": 301.9656925713552,
+            "cold_temperature_k": 293.24969641303204
+          },
+          "global_sampled_peak_k": 318.31790317921104,
+          "largest_sample_gap_s": 0.05000000000001137,
+          "global_peak_upper_bound_k": 318.342903179211,
+          "peak_bound_coverage": {
+            "start_time_us": 0,
+            "end_time_us": 240000000,
+            "requested_end_time_us": 240000000,
+            "retained_samples": 4804,
+            "discarded_rows": 0,
+            "scope": "FULL_RETAINED_HORIZON"
+          },
+          "peak_bound_meaning": "sample max+.5 K/s largest actual event/terminal gap; excludes numerical error",
+          "energy_residual_max_j": 1.2406962923705578e-07,
+          "tracking_true_max_error_m3_s": 6.850223952593914e-07,
+          "tracking_observed_max_error_m3_s": 6.849999999999977e-07,
+          "integral_flow_error_m3": 0.0014829570910438576,
+          "first_trip_time_us": null,
+          "first_trip_reason": null,
+          "terminal_time_us": null,
+          "trip_expected_time_us": null,
+          "prefault_temperatures_k": {
+            "wall_temperature_k": 317.79115025750684,
+            "hot_temperature_k": 301.12448440196397,
+            "cold_temperature_k": 293.14999905756673
+          },
+          "final30_mean_temperatures_k": {
+            "wall_temperature_k": 318.0380507692595,
+            "hot_temperature_k": 301.29540318742755,
+            "cold_temperature_k": 293.2367510547875
+          },
+          "wall_elapsed_s": 9.4500551000001,
+          "protocol_latency_s": {
+            "count": 4801,
+            "minimum": 0.0006083000007492956,
+            "median": 0.0008369000006496208,
+            "p95": 0.0012231999990035547,
+            "maximum": 0.002449499999784166
+          }
+        }
+      },
+      "expectation_by_tick": {
+        "200000": true,
+        "100000": true,
+        "50000": true
+      }
+    },
+    "frozen_temperature": {
+      "status": "PASS",
+      "peak_bound_delta_100_50_k": 0.033090201732647984,
+      "trip_delta_100_50_us": 50000,
+      "peak_comparison_scope": "FULL_RECOVERABLE_RUN",
+      "common_prefix_peak_comparison": null,
+      "full_run_peak_bound_delta_k": 0.033090201732647984,
+      "full_run_peak_meaning": "recoverable continuous bound",
+      "boundary_comparison": {
+        "status": "NOT_APPLICABLE",
+        "presence": [
+          false,
+          false
+        ],
+        "boundary_kinds": [
+          null,
+          null
+        ],
+        "boundary_times_s": [
+          null,
+          null
+        ],
+        "boundary_time_delta_s": null,
+        "presence_and_kind_match": true,
+        "limit_s": 0.1,
+        "rationale": "predeclared educational timer-resolution criterion; not a physical standard or derived from peak limits"
+      },
+      "terminal_delta_100_50_us": null,
+      "trajectories_100_50": {
+        "matching_samples": 6004,
+        "per_state_absolute_max": [
+          0.02498143457404467,
+          0.008955999089096167,
+          0.008090268476792062,
+          0.023044194464371115,
+          0.03330690367799827,
+          249.99999992735684,
+          7.275957614183426e-09
+        ],
+        "per_state_normalized_max": [
+          249.8143457404467,
+          89.55999089096167,
+          80.90268476792062,
+          230441.94464371115,
+          333069.0367799827,
+          24999.999992735684,
+          7.275957614183426e-07
+        ],
+        "max_normalized": 333069.0367799827,
+        "last_matching_time_us": 600000000,
+        "meaning": "matching absolute scheduled/event samples before terminal roots; terminal event times compared separately"
+      },
+      "metrics": {
+        "200000": {
+          "sampled_peaks_k": {
+            "wall_temperature_k": 358.1749818374346,
+            "hot_temperature_k": 349.2365687768462,
+            "cold_temperature_k": 349.23649949428614
+          },
+          "global_sampled_peak_k": 358.1749818374346,
+          "largest_sample_gap_s": 0.20000000000004547,
+          "global_peak_upper_bound_k": 358.2749818374346,
+          "peak_bound_coverage": {
+            "start_time_us": 0,
+            "end_time_us": 600000000,
+            "requested_end_time_us": 600000000,
+            "retained_samples": 3004,
+            "discarded_rows": 0,
+            "scope": "FULL_RETAINED_HORIZON"
+          },
+          "peak_bound_meaning": "sample max+.5 K/s largest actual event/terminal gap; excludes numerical error",
+          "energy_residual_max_j": 1.8649734556674957e-07,
+          "tracking_true_max_error_m3_s": 0.00015151134457776333,
+          "tracking_observed_max_error_m3_s": 0.00015151100000000003,
+          "integral_flow_error_m3": 0.03863966031901068,
+          "first_trip_time_us": 344000000,
+          "first_trip_reason": "separate_trip",
+          "terminal_time_us": null,
+          "trip_expected_time_us": null,
+          "prefault_temperatures_k": {
+            "wall_temperature_k": 317.7911502575062,
+            "hot_temperature_k": 301.1244844019629,
+            "cold_temperature_k": 293.14999905756594
+          },
+          "final30_mean_temperatures_k": {
+            "wall_temperature_k": 349.2372627037753,
+            "hot_temperature_k": 349.2364709040651,
+            "cold_temperature_k": 349.2363362489286
+          },
+          "wall_elapsed_s": 6.004369599999336,
+          "protocol_latency_s": {
+            "count": 3001,
+            "minimum": 0.0005803999993077014,
+            "median": 0.0008801000003586523,
+            "p95": 0.0013806999995722435,
+            "maximum": 0.0025091999996220693
+          }
+        },
+        "100000": {
+          "sampled_peaks_k": {
+            "wall_temperature_k": 358.15880143174934,
+            "hot_temperature_k": 349.2203879637,
+            "cold_temperature_k": 349.22031895941734
+          },
+          "global_sampled_peak_k": 358.15880143174934,
+          "largest_sample_gap_s": 0.10000000000002274,
+          "global_peak_upper_bound_k": 358.20880143174935,
+          "peak_bound_coverage": {
+            "start_time_us": 0,
+            "end_time_us": 600000000,
+            "requested_end_time_us": 600000000,
+            "retained_samples": 6004,
+            "discarded_rows": 0,
+            "scope": "FULL_RETAINED_HORIZON"
+          },
+          "peak_bound_meaning": "sample max+.5 K/s largest actual event/terminal gap; excludes numerical error",
+          "energy_residual_max_j": 1.73225998878479e-07,
+          "tracking_true_max_error_m3_s": 0.00015151134457776333,
+          "tracking_observed_max_error_m3_s": 0.00015151100000000003,
+          "integral_flow_error_m3": 0.03865522354634817,
+          "first_trip_time_us": 343900000,
+          "first_trip_reason": "separate_trip",
+          "terminal_time_us": null,
+          "trip_expected_time_us": null,
+          "prefault_temperatures_k": {
+            "wall_temperature_k": 317.7911502575065,
+            "hot_temperature_k": 301.12448440196295,
+            "cold_temperature_k": 293.14999905756594
+          },
+          "final30_mean_temperatures_k": {
+            "wall_temperature_k": 349.2210788711052,
+            "hot_temperature_k": 349.220290563389,
+            "cold_temperature_k": 349.22015650210835
+          },
+          "wall_elapsed_s": 12.845556899999792,
+          "protocol_latency_s": {
+            "count": 6001,
+            "minimum": 0.000568899999052519,
+            "median": 0.0009309999986726325,
+            "p95": 0.0014484999992419034,
+            "maximum": 0.002755200001047342
+          }
+        },
+        "50000": {
+          "sampled_peaks_k": {
+            "wall_temperature_k": 358.15071123001667,
+            "hot_temperature_k": 349.21229755650427,
+            "cold_temperature_k": 349.21222869094055
+          },
+          "global_sampled_peak_k": 358.15071123001667,
+          "largest_sample_gap_s": 0.05000000000006821,
+          "global_peak_upper_bound_k": 358.1757112300167,
+          "peak_bound_coverage": {
+            "start_time_us": 0,
+            "end_time_us": 600000000,
+            "requested_end_time_us": 600000000,
+            "retained_samples": 12004,
+            "discarded_rows": 0,
+            "scope": "FULL_RETAINED_HORIZON"
+          },
+          "peak_bound_meaning": "sample max+.5 K/s largest actual event/terminal gap; excludes numerical error",
+          "energy_residual_max_j": 3.1082890927791595e-07,
+          "tracking_true_max_error_m3_s": 0.00015151134457776333,
+          "tracking_observed_max_error_m3_s": 0.00015151100000000003,
+          "integral_flow_error_m3": 0.03866290233438082,
+          "first_trip_time_us": 343850000,
+          "first_trip_reason": "separate_trip",
+          "terminal_time_us": null,
+          "trip_expected_time_us": null,
+          "prefault_temperatures_k": {
+            "wall_temperature_k": 317.79115025750684,
+            "hot_temperature_k": 301.12448440196397,
+            "cold_temperature_k": 293.14999905756673
+          },
+          "final30_mean_temperatures_k": {
+            "wall_temperature_k": 349.21298695906256,
+            "hot_temperature_k": 349.21220039159147,
+            "cold_temperature_k": 349.21206662626065
+          },
+          "wall_elapsed_s": 22.512379699999656,
+          "protocol_latency_s": {
+            "count": 12001,
+            "minimum": 0.0005791000003227964,
+            "median": 0.0008859999998094281,
+            "p95": 0.0012752000002365094,
+            "maximum": 0.0024890999993658625
+          }
+        }
+      },
+      "expectation_by_tick": {
+        "200000": true,
+        "100000": true,
+        "50000": true
+      }
+    },
+    "near_tick_before": {
+      "status": "PASS",
+      "peak_bound_delta_100_50_k": 0.02499999999957936,
+      "trip_delta_100_50_us": 0,
+      "peak_comparison_scope": "FULL_RECOVERABLE_RUN",
+      "common_prefix_peak_comparison": null,
+      "full_run_peak_bound_delta_k": 0.02499999999957936,
+      "full_run_peak_meaning": "recoverable continuous bound",
+      "boundary_comparison": {
+        "status": "NOT_APPLICABLE",
+        "presence": [
+          false,
+          false
+        ],
+        "boundary_kinds": [
+          null,
+          null
+        ],
+        "boundary_times_s": [
+          null,
+          null
+        ],
+        "boundary_time_delta_s": null,
+        "presence_and_kind_match": true,
+        "limit_s": 0.1,
+        "rationale": "predeclared educational timer-resolution criterion; not a physical standard or derived from peak limits"
+      },
+      "terminal_delta_100_50_us": null,
+      "trajectories_100_50": {
+        "matching_samples": 1206,
+        "per_state_absolute_max": [
+          2.1032064978498966e-12,
+          3.47313289239537e-11,
+          2.1827872842550278e-11,
+          7.790101896887336e-12,
+          1.9825274755191913e-10,
+          1.2514647096395493e-08,
+          9.255018085241318e-09
+        ],
+        "per_state_normalized_max": [
+          2.1032064978498966e-08,
+          3.4731328923953697e-07,
+          2.1827872842550278e-07,
+          7.790101896887336e-05,
+          0.0019825274755191913,
+          1.2514647096395493e-06,
+          9.255018085241318e-07
+        ],
+        "max_normalized": 0.0019825274755191913,
+        "last_matching_time_us": 120000000,
+        "meaning": "matching absolute scheduled/event samples before terminal roots; terminal event times compared separately"
+      },
+      "metrics": {
+        "200000": {
+          "sampled_peaks_k": {
+            "wall_temperature_k": 317.7911502672163,
+            "hot_temperature_k": 301.1244844077879,
+            "cold_temperature_k": 294.2779146095849
+          },
+          "global_sampled_peak_k": 317.7911502672163,
+          "largest_sample_gap_s": 0.20000000000000284,
+          "global_peak_upper_bound_k": 317.89115026721635,
+          "peak_bound_coverage": {
+            "start_time_us": 0,
+            "end_time_us": 120000000,
+            "requested_end_time_us": 120000000,
+            "retained_samples": 606,
+            "discarded_rows": 0,
+            "scope": "FULL_RETAINED_HORIZON"
+          },
+          "peak_bound_meaning": "sample max+.5 K/s largest actual event/terminal gap; excludes numerical error",
+          "energy_residual_max_j": 2.5960616767406464e-08,
+          "tracking_true_max_error_m3_s": 0.00015151134457776333,
+          "tracking_observed_max_error_m3_s": 0.00015151100000000003,
+          "integral_flow_error_m3": 0.008882810124969102,
+          "first_trip_time_us": 60400000,
+          "first_trip_reason": "stale_input",
+          "terminal_time_us": null,
+          "trip_expected_time_us": 60400000,
+          "prefault_temperatures_k": null,
+          "final30_mean_temperatures_k": {
+            "wall_temperature_k": 302.29800231435667,
+            "hot_temperature_k": 294.4828226577711,
+            "cold_temperature_k": 291.856835878742
+          },
+          "wall_elapsed_s": 1.2451514000003954,
+          "protocol_latency_s": {
+            "count": 601,
+            "minimum": 0.0006302000001596753,
+            "median": 0.0007920999996713363,
+            "p95": 0.0011872999984916532,
+            "maximum": 0.0023003999995125923
+          }
+        },
+        "100000": {
+          "sampled_peaks_k": {
+            "wall_temperature_k": 317.7911502672166,
+            "hot_temperature_k": 301.124484407788,
+            "cold_temperature_k": 294.2779570928292
+          },
+          "global_sampled_peak_k": 317.7911502672166,
+          "largest_sample_gap_s": 0.10000000000000853,
+          "global_peak_upper_bound_k": 317.8411502672166,
+          "peak_bound_coverage": {
+            "start_time_us": 0,
+            "end_time_us": 120000000,
+            "requested_end_time_us": 120000000,
+            "retained_samples": 1206,
+            "discarded_rows": 0,
+            "scope": "FULL_RETAINED_HORIZON"
+          },
+          "peak_bound_meaning": "sample max+.5 K/s largest actual event/terminal gap; excludes numerical error",
+          "energy_residual_max_j": 1.9774233805947006e-08,
+          "tracking_true_max_error_m3_s": 0.00015151134457776333,
+          "tracking_observed_max_error_m3_s": 0.00015151100000000003,
+          "integral_flow_error_m3": 0.008883221579055918,
+          "first_trip_time_us": 60400000,
+          "first_trip_reason": "stale_input",
+          "terminal_time_us": null,
+          "trip_expected_time_us": 60400000,
+          "prefault_temperatures_k": null,
+          "final30_mean_temperatures_k": {
+            "wall_temperature_k": 302.2971229935293,
+            "hot_temperature_k": 294.4826685175275,
+            "cold_temperature_k": 291.8568035707138
+          },
+          "wall_elapsed_s": 2.34305779999886,
+          "protocol_latency_s": {
+            "count": 1201,
+            "minimum": 0.0005880999997316394,
+            "median": 0.0008729000001039822,
+            "p95": 0.0013630000012199162,
+            "maximum": 0.0022903999997652136
+          }
+        },
+        "50000": {
+          "sampled_peaks_k": {
+            "wall_temperature_k": 317.79115026721706,
+            "hot_temperature_k": 301.124484407789,
+            "cold_temperature_k": 294.2779570928288
+          },
+          "global_sampled_peak_k": 317.79115026721706,
+          "largest_sample_gap_s": 0.05000000000001137,
+          "global_peak_upper_bound_k": 317.81615026721704,
+          "peak_bound_coverage": {
+            "start_time_us": 0,
+            "end_time_us": 120000000,
+            "requested_end_time_us": 120000000,
+            "retained_samples": 2406,
+            "discarded_rows": 0,
+            "scope": "FULL_RETAINED_HORIZON"
+          },
+          "peak_bound_meaning": "sample max+.5 K/s largest actual event/terminal gap; excludes numerical error",
+          "energy_residual_max_j": 2.773595042526722e-08,
+          "tracking_true_max_error_m3_s": 0.00015151134457776333,
+          "tracking_observed_max_error_m3_s": 0.00015151100000000003,
+          "integral_flow_error_m3": 0.008883324801357357,
+          "first_trip_time_us": 60400000,
+          "first_trip_reason": "stale_input",
+          "terminal_time_us": null,
+          "trip_expected_time_us": 60400000,
+          "prefault_temperatures_k": null,
+          "final30_mean_temperatures_k": {
+            "wall_temperature_k": 302.2966833653171,
+            "hot_temperature_k": 294.48259142658327,
+            "cold_temperature_k": 291.85678738915897
+          },
+          "wall_elapsed_s": 4.9796559999995225,
+          "protocol_latency_s": {
+            "count": 2401,
+            "minimum": 0.0005839999994350364,
+            "median": 0.0008063000004767673,
+            "p95": 0.0012178000015410362,
+            "maximum": 0.0022250999991229037
+          }
+        }
+      },
+      "expectation_by_tick": {
+        "200000": true,
+        "100000": true,
+        "50000": true
+      }
+    },
+    "near_tick_after": {
+      "status": "PASS",
+      "peak_bound_delta_100_50_k": 0.025000001209434686,
+      "trip_delta_100_50_us": 50000,
+      "peak_comparison_scope": "FULL_RECOVERABLE_RUN",
+      "common_prefix_peak_comparison": null,
+      "full_run_peak_bound_delta_k": 0.025000001209434686,
+      "full_run_peak_meaning": "recoverable continuous bound",
+      "boundary_comparison": {
+        "status": "NOT_APPLICABLE",
+        "presence": [
+          false,
+          false
+        ],
+        "boundary_kinds": [
+          null,
+          null
+        ],
+        "boundary_times_s": [
+          null,
+          null
+        ],
+        "boundary_time_delta_s": null,
+        "presence_and_kind_match": true,
+        "limit_s": 0.1,
+        "rationale": "predeclared educational timer-resolution criterion; not a physical standard or derived from peak limits"
+      },
+      "terminal_delta_100_50_us": null,
+      "trajectories_100_50": {
+        "matching_samples": 1206,
+        "per_state_absolute_max": [
+          0.024981674708044466,
+          0.02008477297238187,
+          0.012356240078077008,
+          0.02304419446436501,
+          0.033306903677989164,
+          250.00000001257285,
+          63.163520244299434
+        ],
+        "per_state_normalized_max": [
+          249.81674708044466,
+          200.8477297238187,
+          123.56240078077008,
+          230441.9446436501,
+          333069.03677989164,
+          25000.000001257285,
+          6316.352024429943
+        ],
+        "max_normalized": 333069.03677989164,
+        "last_matching_time_us": 120000000,
+        "meaning": "matching absolute scheduled/event samples before terminal roots; terminal event times compared separately"
+      },
+      "metrics": {
+        "200000": {
+          "sampled_peaks_k": {
+            "wall_temperature_k": 317.79115026721627,
+            "hot_temperature_k": 301.1244844077879,
+            "cold_temperature_k": 294.27791460958485
+          },
+          "global_sampled_peak_k": 317.79115026721627,
+          "largest_sample_gap_s": 0.20000000000000284,
+          "global_peak_upper_bound_k": 317.8911502672163,
+          "peak_bound_coverage": {
+            "start_time_us": 0,
+            "end_time_us": 120000000,
+            "requested_end_time_us": 120000000,
+            "retained_samples": 606,
+            "discarded_rows": 0,
+            "scope": "FULL_RETAINED_HORIZON"
+          },
+          "peak_bound_meaning": "sample max+.5 K/s largest actual event/terminal gap; excludes numerical error",
+          "energy_residual_max_j": 2.8463546186685562e-08,
+          "tracking_true_max_error_m3_s": 0.00015151134457776333,
+          "tracking_observed_max_error_m3_s": 0.00015151100000000003,
+          "integral_flow_error_m3": 0.00888281012453492,
+          "first_trip_time_us": 60400000,
+          "first_trip_reason": "stale_input",
+          "terminal_time_us": null,
+          "trip_expected_time_us": 60400000,
+          "prefault_temperatures_k": null,
+          "final30_mean_temperatures_k": {
+            "wall_temperature_k": 302.2980023143566,
+            "hot_temperature_k": 294.4828226577711,
+            "cold_temperature_k": 291.856835878742
+          },
+          "wall_elapsed_s": 1.3189406999990752,
+          "protocol_latency_s": {
+            "count": 601,
+            "minimum": 0.0006264000003284309,
+            "median": 0.0008287999989988748,
+            "p95": 0.0014443000000028405,
+            "maximum": 0.0018799999998009298
+          }
+        },
+        "100000": {
+          "sampled_peaks_k": {
+            "wall_temperature_k": 317.7911502696369,
+            "hot_temperature_k": 301.1244844092415,
+            "cold_temperature_k": 294.27795709372094
+          },
+          "global_sampled_peak_k": 317.7911502696369,
+          "largest_sample_gap_s": 0.10000000000000853,
+          "global_peak_upper_bound_k": 317.8411502696369,
+          "peak_bound_coverage": {
+            "start_time_us": 0,
+            "end_time_us": 120000000,
+            "requested_end_time_us": 120000000,
+            "retained_samples": 1206,
+            "discarded_rows": 0,
+            "scope": "FULL_RETAINED_HORIZON"
+          },
+          "peak_bound_meaning": "sample max+.5 K/s largest actual event/terminal gap; excludes numerical error",
+          "energy_residual_max_j": 1.994612830458209e-08,
+          "tracking_true_max_error_m3_s": 0.00015151134457776333,
+          "tracking_observed_max_error_m3_s": 0.00015151100000000003,
+          "integral_flow_error_m3": 0.008868070452737463,
+          "first_trip_time_us": 60500000,
+          "first_trip_reason": "stale_input",
+          "terminal_time_us": null,
+          "trip_expected_time_us": 60500000,
+          "prefault_temperatures_k": null,
+          "final30_mean_temperatures_k": {
+            "wall_temperature_k": 302.3205842221993,
+            "hot_temperature_k": 294.49421552895075,
+            "cold_temperature_k": 291.8651291721672
+          },
+          "wall_elapsed_s": 2.261842300000353,
+          "protocol_latency_s": {
+            "count": 1201,
+            "minimum": 0.0006059999996068655,
+            "median": 0.0008436000007350231,
+            "p95": 0.0013624999992316589,
+            "maximum": 0.002507200000763987
+          }
+        },
+        "50000": {
+          "sampled_peaks_k": {
+            "wall_temperature_k": 317.7911502684275,
+            "hot_temperature_k": 301.12448440851585,
+            "cold_temperature_k": 294.2779570932753
+          },
+          "global_sampled_peak_k": 317.7911502684275,
+          "largest_sample_gap_s": 0.05000000000001137,
+          "global_peak_upper_bound_k": 317.81615026842746,
+          "peak_bound_coverage": {
+            "start_time_us": 0,
+            "end_time_us": 120000000,
+            "requested_end_time_us": 120000000,
+            "retained_samples": 2406,
+            "discarded_rows": 0,
+            "scope": "FULL_RETAINED_HORIZON"
+          },
+          "peak_bound_meaning": "sample max+.5 K/s largest actual event/terminal gap; excludes numerical error",
+          "energy_residual_max_j": 3.1461240723729134e-08,
+          "tracking_true_max_error_m3_s": 0.00015151134457776333,
+          "tracking_observed_max_error_m3_s": 0.00015151100000000003,
+          "integral_flow_error_m3": 0.008875749238155855,
+          "first_trip_time_us": 60450000,
+          "first_trip_reason": "stale_input",
+          "terminal_time_us": null,
+          "trip_expected_time_us": 60450000,
+          "prefault_temperatures_k": null,
+          "final30_mean_temperatures_k": {
+            "wall_temperature_k": 302.30840896746366,
+            "hot_temperature_k": 294.4883643977302,
+            "cold_temperature_k": 291.860950361713
+          },
+          "wall_elapsed_s": 3.9652051999983087,
+          "protocol_latency_s": {
+            "count": 2401,
+            "minimum": 0.000602699999944889,
+            "median": 0.0008252999996329891,
+            "p95": 0.0012323000009928364,
+            "maximum": 0.0022176999991643243
+          }
+        }
+      },
+      "expectation_by_tick": {
+        "200000": true,
+        "100000": true,
+        "50000": true
+      }
+    },
+    "stuck_heat_lost_sink": {
+      "status": "PASS",
+      "peak_bound_delta_100_50_k": 0.00012495567722226042,
+      "trip_delta_100_50_us": 50000,
+      "peak_comparison_scope": "COMMON_PRETERMINAL_PREFIX",
+      "common_prefix_peak_comparison": {
+        "status": "ASSESSED",
+        "comparison_scope": "identical matching absolute preterminal sample keys; roots excluded",
+        "matching_samples": 4668,
+        "distinct_shared_times": 4663,
+        "first_time_s": 0.0,
+        "last_time_s": 466.2,
+        "largest_common_gap_s": 0.10000000000002274,
+        "rate_bound_per_s": 0.5,
+        "per_state_sampled_peaks": [
+          {
+            "wall_temperature_k": 368.1339111353117,
+            "hot_temperature_k": 356.8522536585357,
+            "cold_temperature_k": 355.2407562902837
+          },
+          {
+            "wall_temperature_k": 368.1340360909889,
+            "hot_temperature_k": 356.8523961720325,
+            "cold_temperature_k": 355.24090178970033
+          }
+        ],
+        "common_prefix_peak_upper_bounds": [
+          368.1839111353117,
+          368.1840360909889
+        ],
+        "peak_bound_delta": 0.00012495567722226042,
+        "numerical_error": "not included in rate bound"
+      },
+      "full_run_peak_bound_delta_k": 0.025000000000034106,
+      "full_run_peak_meaning": "fixed95C cutoff peaks are hazard evidence only, excluded from terminal peak convergence gate",
+      "boundary_comparison": {
+        "status": "PASS",
+        "presence": [
+          true,
+          true
+        ],
+        "boundary_kinds": [
+          "wall_upper",
+          "wall_upper"
+        ],
+        "boundary_times_s": [
+          466.29959012692245,
+          466.29881633179644
+        ],
+        "boundary_time_delta_s": 0.0007737951260082809,
+        "presence_and_kind_match": true,
+        "limit_s": 0.1,
+        "rationale": "predeclared educational timer-resolution criterion; not a physical standard or derived from peak limits"
+      },
+      "terminal_delta_100_50_us": 773.7951259613037,
+      "trajectories_100_50": {
+        "matching_samples": 4668,
+        "per_state_absolute_max": [
+          0.0008130907140753152,
+          0.007461206540597232,
+          0.005428744183120671,
+          0.023044096923220292,
+          0.03330690367799827,
+          1.073349267244339e-07,
+          4.2655321418715175
+        ],
+        "per_state_normalized_max": [
+          8.130907140753152,
+          74.61206540597232,
+          54.287441831206706,
+          230440.96923220292,
+          333069.0367799827,
+          1.073349267244339e-05,
+          426.55321418715175
+        ],
+        "max_normalized": 333069.0367799827,
+        "last_matching_time_us": 466200000,
+        "meaning": "matching absolute scheduled/event samples before terminal roots; terminal event times compared separately"
+      },
+      "metrics": {
+        "200000": {
+          "sampled_peaks_k": {
+            "wall_temperature_k": 368.15,
+            "hot_temperature_k": 356.86837807318653,
+            "cold_temperature_k": 355.2568867506364
+          },
+          "global_sampled_peak_k": 368.15,
+          "largest_sample_gap_s": 0.20000000000004547,
+          "global_peak_upper_bound_k": 368.25,
+          "peak_bound_coverage": {
+            "start_time_us": 0,
+            "end_time_us": 466301335.7887922,
+            "requested_end_time_us": 1200000000,
+            "retained_samples": 2338,
+            "discarded_rows": 0,
+            "scope": "RETAINED_PREFIX"
+          },
+          "peak_bound_meaning": "sample max+.5 K/s largest actual event/terminal gap; excludes numerical error",
+          "energy_residual_max_j": 1.962762326002121e-07,
+          "tracking_true_max_error_m3_s": null,
+          "tracking_observed_max_error_m3_s": null,
+          "integral_flow_error_m3": 0.018171591471577892,
+          "first_trip_time_us": 346600000,
+          "first_trip_reason": "liquid_hot",
+          "terminal_time_us": 466301335.7887922,
+          "trip_expected_time_us": null,
+          "prefault_temperatures_k": {
+            "wall_temperature_k": 303.4241671969277,
+            "hot_temperature_k": 292.2886783492585,
+            "cold_temperature_k": 287.9233890456061
+          },
+          "final30_mean_temperatures_k": null,
+          "wall_elapsed_s": 5.179724800000258,
+          "protocol_latency_s": {
+            "count": 2332,
+            "minimum": 0.0005909999999857973,
+            "median": 0.000804700000117009,
+            "p95": 0.001174524999623827,
+            "maximum": 0.0024296999999933178
+          }
+        },
+        "100000": {
+          "sampled_peaks_k": {
+            "wall_temperature_k": 368.15,
+            "hot_temperature_k": 356.8683774613759,
+            "cold_temperature_k": 355.2568860347801
+          },
+          "global_sampled_peak_k": 368.15,
+          "largest_sample_gap_s": 0.10000000000002274,
+          "global_peak_upper_bound_k": 368.2,
+          "peak_bound_coverage": {
+            "start_time_us": 0,
+            "end_time_us": 466299590.1269224,
+            "requested_end_time_us": 1200000000,
+            "retained_samples": 4669,
+            "discarded_rows": 0,
+            "scope": "RETAINED_PREFIX"
+          },
+          "peak_bound_meaning": "sample max+.5 K/s largest actual event/terminal gap; excludes numerical error",
+          "energy_residual_max_j": 3.050081431865692e-07,
+          "tracking_true_max_error_m3_s": null,
+          "tracking_observed_max_error_m3_s": null,
+          "integral_flow_error_m3": 0.01816947484405705,
+          "first_trip_time_us": 346600000,
+          "first_trip_reason": "liquid_hot",
+          "terminal_time_us": 466299590.1269224,
+          "trip_expected_time_us": null,
+          "prefault_temperatures_k": {
+            "wall_temperature_k": 303.4246919938755,
+            "hot_temperature_k": 292.28922801922806,
+            "cold_temperature_k": 287.92329901426814
+          },
+          "final30_mean_temperatures_k": null,
+          "wall_elapsed_s": 8.445653399998264,
+          "protocol_latency_s": {
+            "count": 4663,
+            "minimum": 0.000540700000783545,
+            "median": 0.0008225000001402805,
+            "p95": 0.001185269998859439,
+            "maximum": 0.0023208000002341578
+          }
+        },
+        "50000": {
+          "sampled_peaks_k": {
+            "wall_temperature_k": 368.15,
+            "hot_temperature_k": 356.86839467858215,
+            "cold_temperature_k": 355.2569061799808
+          },
+          "global_sampled_peak_k": 368.15,
+          "largest_sample_gap_s": 0.05000000000001137,
+          "global_peak_upper_bound_k": 368.17499999999995,
+          "peak_bound_coverage": {
+            "start_time_us": 0,
+            "end_time_us": 466298816.33179647,
+            "requested_end_time_us": 1200000000,
+            "retained_samples": 9332,
+            "discarded_rows": 0,
+            "scope": "RETAINED_PREFIX"
+          },
+          "peak_bound_meaning": "sample max+.5 K/s largest actual event/terminal gap; excludes numerical error",
+          "energy_residual_max_j": 3.46451997756958e-07,
+          "tracking_true_max_error_m3_s": null,
+          "tracking_observed_max_error_m3_s": null,
+          "integral_flow_error_m3": 0.01817606129112537,
+          "first_trip_time_us": 346550000,
+          "first_trip_reason": "liquid_hot",
+          "terminal_time_us": 466298816.33179647,
+          "trip_expected_time_us": null,
+          "prefault_temperatures_k": {
+            "wall_temperature_k": 303.42494888827923,
+            "hot_temperature_k": 292.28949696273463,
+            "cold_temperature_k": 287.9232550127043
+          },
+          "final30_mean_temperatures_k": null,
+          "wall_elapsed_s": 17.187076899999738,
+          "protocol_latency_s": {
+            "count": 9326,
+            "minimum": 0.0005754000012530014,
+            "median": 0.0008153999988280702,
+            "p95": 0.0012140750013713841,
+            "maximum": 0.7631507000005513
+          }
+        }
+      },
+      "expectation_by_tick": {
+        "200000": true,
+        "100000": true,
+        "50000": true
+      }
+    }
+  },
+  "tank_tick": {
+    "nominal": {
+      "status": "PASS",
+      "peak_bound_delta_m": 0.00034419514653993843,
+      "trip_delta_s": null,
+      "peak_comparison_scope": "FULL_RECOVERABLE_RUN",
+      "common_prefix_peak_comparison": null,
+      "full_run_peak_bound_delta_m": 0.00034419514653993843,
+      "boundary_comparison": {
+        "status": "NOT_APPLICABLE",
+        "presence": [
+          false,
+          false
+        ],
+        "boundary_kinds": [
+          null,
+          null
+        ],
+        "boundary_times_s": [
+          null,
+          null
+        ],
+        "boundary_time_delta_s": null,
+        "presence_and_kind_match": true,
+        "limit_s": 0.1,
+        "rationale": "predeclared educational timer-resolution criterion; not a physical standard or derived from peak limits"
+      },
+      "max_matching_level_delta_m": 6.026615119203438e-05,
+      "metrics": {
+        "0.2": {
+          "rule_results": {
+            "R02_volume_balance": {
+              "status": "PASS",
+              "rationale": "augmented ODE volume consistency residual < 1e-9 m3"
+            },
+            "R01_tracking": {
+              "status": "PASS",
+              "rationale": "all last-30-second level errors < 0.02 m"
+            },
+            "R03_no_trip": {
+              "status": "PASS",
+              "rationale": "nominal horizon must complete with no trip"
+            },
+            "R04_no_boundary": {
+              "status": "PASS",
+              "rationale": "nominal horizon must complete without domain exit"
+            },
+            "R10_latched_command_stop": {
+              "status": "NOT_APPLICABLE",
+              "rationale": "no observed trip; no latch behavior exercised"
+            }
+          },
+          "checks": {
+            "R02_volume_balance": true,
+            "R01_tracking": true,
+            "R03_no_trip": true,
+            "R04_no_boundary": true,
+            "R10_latched_command_stop": null
+          },
+          "all_checks_pass": true,
+          "evidence_valid": true,
+          "complete_horizon": true,
+          "containment": "PASSED",
+          "peak_level_m": 0.5562614753271228,
+          "continuous_peak_bound_m": 0.5578614753271229,
+          "largest_sample_gap_s": 0.20000000000001705,
+          "final_level_m": 0.4986828960678177,
+          "max_volume_residual_m3": 2.6020852139652106e-16,
+          "name": "nominal",
+          "controller": "portable C11 host (actual subprocess)",
+          "trip_reason": null,
+          "trip_time_s": null,
+          "boundary": null,
+          "run_failure": null,
+          "wall_time_s": 2.135340200000428,
+          "physical_validation": "NOT_STARTED",
+          "board_execution": "NOT_EXECUTED",
+          "python_baseline_max_matching_tick_level_delta_m": 5.024568727751699e-08,
+          "python_baseline_trip_time_s": null,
+          "python_baseline_boundary": null,
+          "comparison_meaning": "separate Python baseline; quantized C commands and observations may differ"
+        },
+        "0.1": {
+          "rule_results": {
+            "R02_volume_balance": {
+              "status": "PASS",
+              "rationale": "augmented ODE volume consistency residual < 1e-9 m3"
+            },
+            "R01_tracking": {
+              "status": "PASS",
+              "rationale": "all last-30-second level errors < 0.02 m"
+            },
+            "R03_no_trip": {
+              "status": "PASS",
+              "rationale": "nominal horizon must complete with no trip"
+            },
+            "R04_no_boundary": {
+              "status": "PASS",
+              "rationale": "nominal horizon must complete without domain exit"
+            },
+            "R10_latched_command_stop": {
+              "status": "NOT_APPLICABLE",
+              "rationale": "no observed trip; no latch behavior exercised"
+            }
+          },
+          "checks": {
+            "R02_volume_balance": true,
+            "R01_tracking": true,
+            "R03_no_trip": true,
+            "R04_no_boundary": true,
+            "R10_latched_command_stop": null
+          },
+          "all_checks_pass": true,
+          "evidence_valid": true,
+          "complete_horizon": true,
+          "containment": "PASSED",
+          "peak_level_m": 0.5563729740911147,
+          "continuous_peak_bound_m": 0.5571729740911149,
+          "largest_sample_gap_s": 0.10000000000002274,
+          "final_level_m": 0.4986868031085908,
+          "max_volume_residual_m3": 1.4224732503009818e-16,
+          "name": "nominal",
+          "controller": "portable C11 host (actual subprocess)",
+          "trip_reason": null,
+          "trip_time_s": null,
+          "boundary": null,
+          "run_failure": null,
+          "wall_time_s": 3.3213970999986486,
+          "physical_validation": "NOT_STARTED",
+          "board_execution": "NOT_EXECUTED",
+          "python_baseline_max_matching_tick_level_delta_m": 2.614094052333371e-08,
+          "python_baseline_trip_time_s": null,
+          "python_baseline_boundary": null,
+          "comparison_meaning": "separate Python baseline; quantized C commands and observations may differ"
+        },
+        "0.05": {
+          "rule_results": {
+            "R02_volume_balance": {
+              "status": "PASS",
+              "rationale": "augmented ODE volume consistency residual < 1e-9 m3"
+            },
+            "R01_tracking": {
+              "status": "PASS",
+              "rationale": "all last-30-second level errors < 0.02 m"
+            },
+            "R03_no_trip": {
+              "status": "PASS",
+              "rationale": "nominal horizon must complete with no trip"
+            },
+            "R04_no_boundary": {
+              "status": "PASS",
+              "rationale": "nominal horizon must complete without domain exit"
+            },
+            "R10_latched_command_stop": {
+              "status": "NOT_APPLICABLE",
+              "rationale": "no observed trip; no latch behavior exercised"
+            }
+          },
+          "checks": {
+            "R02_volume_balance": true,
+            "R01_tracking": true,
+            "R03_no_trip": true,
+            "R04_no_boundary": true,
+            "R10_latched_command_stop": null
+          },
+          "all_checks_pass": true,
+          "evidence_valid": true,
+          "complete_horizon": true,
+          "containment": "PASSED",
+          "peak_level_m": 0.5564287789445749,
+          "continuous_peak_bound_m": 0.5568287789445749,
+          "largest_sample_gap_s": 0.05000000000001137,
+          "final_level_m": 0.49868874023037224,
+          "max_volume_residual_m3": 1.8041124150158794e-16,
+          "name": "nominal",
+          "controller": "portable C11 host (actual subprocess)",
+          "trip_reason": null,
+          "trip_time_s": null,
+          "boundary": null,
+          "run_failure": null,
+          "wall_time_s": 5.650989499999923,
+          "physical_validation": "NOT_STARTED",
+          "board_execution": "NOT_EXECUTED",
+          "python_baseline_max_matching_tick_level_delta_m": 2.77658994685126e-08,
+          "python_baseline_trip_time_s": null,
+          "python_baseline_boundary": null,
+          "comparison_meaning": "separate Python baseline; quantized C commands and observations may differ"
+        }
+      }
+    },
+    "pump_stuck_on": {
+      "status": "PASS",
+      "peak_bound_delta_m": 1.2655460025712273e-05,
+      "trip_delta_s": 0.05000000000001137,
+      "peak_comparison_scope": "COMMON_PRETERMINAL_PREFIX",
+      "common_prefix_peak_comparison": {
+        "status": "ASSESSED",
+        "comparison_scope": "identical matching absolute preterminal sample keys; roots excluded",
+        "matching_samples": 1612,
+        "distinct_shared_times": 1612,
+        "first_time_s": 0.0,
+        "last_time_s": 161.1,
+        "largest_common_gap_s": 0.10000000000002274,
+        "rate_bound_per_s": 0.008,
+        "per_state_sampled_peaks": [
+          {
+            "level_m": 0.9996423988679439
+          },
+          {
+            "level_m": 0.9996550543279696
+          }
+        ],
+        "common_prefix_peak_upper_bounds": [
+          1.000442398867944,
+          1.0004550543279698
+        ],
+        "peak_bound_delta": 1.2655460025712273e-05,
+        "numerical_error": "not included in rate bound"
+      },
+      "full_run_peak_bound_delta_m": 0.00039999999999995595,
+      "boundary_comparison": {
+        "status": "PASS",
+        "presence": [
+          true,
+          true
+        ],
+        "boundary_kinds": [
+          "full",
+          "full"
+        ],
+        "boundary_times_s": [
+          161.18070812775218,
+          161.17785207549835
+        ],
+        "boundary_time_delta_s": 0.002856052253832786,
+        "presence_and_kind_match": true,
+        "limit_s": 0.1,
+        "rationale": "predeclared educational timer-resolution criterion; not a physical standard or derived from peak limits"
+      },
+      "max_matching_level_delta_m": 1.544513702778083e-05,
+      "metrics": {
+        "0.2": {
+          "rule_results": {
+            "R02_volume_balance": {
+              "status": "PASS",
+              "rationale": "augmented ODE volume consistency residual < 1e-9 m3"
+            },
+            "R08_hazard_exposed": {
+              "status": "PASS",
+              "rationale": "high-switch trip followed by full-tank terminal event; containment failed"
+            },
+            "R10_latched_command_stop": {
+              "status": "PASS",
+              "rationale": "all records at/after trip retain reason and request zero pump"
+            }
+          },
+          "checks": {
+            "R02_volume_balance": true,
+            "R08_hazard_exposed": true,
+            "R10_latched_command_stop": true
+          },
+          "all_checks_pass": true,
+          "evidence_valid": true,
+          "complete_horizon": false,
+          "containment": "FAILED",
+          "peak_level_m": 1.0,
+          "continuous_peak_bound_m": 1.0016,
+          "largest_sample_gap_s": 0.20000000000001705,
+          "final_level_m": 1.0,
+          "max_volume_residual_m3": 1.304512053934559e-15,
+          "name": "pump_stuck_on",
+          "controller": "portable C11 host (actual subprocess)",
+          "trip_reason": "high_high",
+          "trip_time_s": 118.0,
+          "boundary": "full",
+          "run_failure": null,
+          "wall_time_s": 1.6104032999992342,
+          "physical_validation": "NOT_STARTED",
+          "board_execution": "NOT_EXECUTED",
+          "python_baseline_max_matching_tick_level_delta_m": 4.906512396374296e-08,
+          "python_baseline_trip_time_s": 118.0,
+          "python_baseline_boundary": "full",
+          "comparison_meaning": "separate Python baseline; quantized C commands and observations may differ"
+        },
+        "0.1": {
+          "rule_results": {
+            "R02_volume_balance": {
+              "status": "PASS",
+              "rationale": "augmented ODE volume consistency residual < 1e-9 m3"
+            },
+            "R08_hazard_exposed": {
+              "status": "PASS",
+              "rationale": "high-switch trip followed by full-tank terminal event; containment failed"
+            },
+            "R10_latched_command_stop": {
+              "status": "PASS",
+              "rationale": "all records at/after trip retain reason and request zero pump"
+            }
+          },
+          "checks": {
+            "R02_volume_balance": true,
+            "R08_hazard_exposed": true,
+            "R10_latched_command_stop": true
+          },
+          "all_checks_pass": true,
+          "evidence_valid": true,
+          "complete_horizon": false,
+          "containment": "FAILED",
+          "peak_level_m": 0.9999999999999999,
+          "continuous_peak_bound_m": 1.0008000000000001,
+          "largest_sample_gap_s": 0.10000000000002274,
+          "final_level_m": 0.9999999999999999,
+          "max_volume_residual_m3": 6.175615574477433e-16,
+          "name": "pump_stuck_on",
+          "controller": "portable C11 host (actual subprocess)",
+          "trip_reason": "high_high",
+          "trip_time_s": 117.9,
+          "boundary": "full",
+          "run_failure": null,
+          "wall_time_s": 2.3881349000002956,
+          "physical_validation": "NOT_STARTED",
+          "board_execution": "NOT_EXECUTED",
+          "python_baseline_max_matching_tick_level_delta_m": 7.898499132519277e-09,
+          "python_baseline_trip_time_s": 117.9,
+          "python_baseline_boundary": "full",
+          "comparison_meaning": "separate Python baseline; quantized C commands and observations may differ"
+        },
+        "0.05": {
+          "rule_results": {
+            "R02_volume_balance": {
+              "status": "PASS",
+              "rationale": "augmented ODE volume consistency residual < 1e-9 m3"
+            },
+            "R08_hazard_exposed": {
+              "status": "PASS",
+              "rationale": "high-switch trip followed by full-tank terminal event; containment failed"
+            },
+            "R10_latched_command_stop": {
+              "status": "PASS",
+              "rationale": "all records at/after trip retain reason and request zero pump"
+            }
+          },
+          "checks": {
+            "R02_volume_balance": true,
+            "R08_hazard_exposed": true,
+            "R10_latched_command_stop": true
+          },
+          "all_checks_pass": true,
+          "evidence_valid": true,
+          "complete_horizon": false,
+          "containment": "FAILED",
+          "peak_level_m": 1.0,
+          "continuous_peak_bound_m": 1.0004000000000002,
+          "largest_sample_gap_s": 0.05000000000001137,
+          "final_level_m": 1.0,
+          "max_volume_residual_m3": 2.636779683484747e-16,
+          "name": "pump_stuck_on",
+          "controller": "portable C11 host (actual subprocess)",
+          "trip_reason": "high_high",
+          "trip_time_s": 117.85,
+          "boundary": "full",
+          "run_failure": null,
+          "wall_time_s": 4.0519358000001375,
+          "physical_validation": "NOT_STARTED",
+          "board_execution": "NOT_EXECUTED",
+          "python_baseline_max_matching_tick_level_delta_m": 1.989767023369282e-08,
+          "python_baseline_trip_time_s": 117.85,
+          "python_baseline_boundary": "full",
+          "comparison_meaning": "separate Python baseline; quantized C commands and observations may differ"
+        }
+      }
+    }
+  },
+  "execution": {
+    "source_sha256": "12993d92d41685959d4ec07db7ffeca396eda6a7d922ae123712ff453045df85",
+    "source_files_sha256": {
+      "CMakeLists.txt": "93df455688fc72fb7c04b43de59d0940d99603b36ce1613b2053fb24c1988053",
+      "firmware/core/fl_core.c": "cd5e7a8f003cc843a72395bf733f86925e6966163ce73029fddd58f109f075d8",
+      "firmware/core/fl_core.h": "54e4c93d64a550a09a9a34013c01feedb24cd5f173aa2b4d7e49d3a841b2054b",
+      "firmware/core/fl_protocol.c": "b8ee5c41b3858d04248ac89ca3ae2688d7268aa4cf5f6b63177e81b9c4401cb7",
+      "firmware/core/fl_protocol.h": "d53eef76fedc773fe149361d302649857edb75e6d960dc13bf1c8c6144f1ac74",
+      "firmware/host/main.c": "a1107a28c4cb522c898f5996d200aedf7e4ce7a07eeff491cee6fe950d124e1c",
+      "firmware/pico/CMakeLists.txt": "ae2bfdda9aaba0fc36c55a78366dd297b2edbc964637085a1d5f81182add437c",
+      "firmware/pico/device_policy.c": "6e5a8098566faf2a2bfed32422760f5d8f388fabe416ceabbf8ce705104f86cf",
+      "firmware/pico/device_policy.h": "ef5706809efe38ced832a4298a4e64e216971dda2018d15c027a4e7feab01274",
+      "firmware/pico/fl_hal.c": "bad89ca27ae85cb4a883d0478f42a3949edf2796f9e5fc4a05aa213e342ac917",
+      "firmware/pico/fl_hal.h": "74c3d84cd02ff40a71c4a9d99112ad747765cbaf90dd6ca5ffc64a4acd731f3a",
+      "firmware/pico/main.c": "f4309bda3f3b4db84713656dde604ffdaf52c32bf04bf36b14fcdcb55036dac3",
+      "firmware/pico/tests/CMakeLists.txt": "0f438eb66c0254add0b1fd33dfc1249846ea1c06a80f450aadc83ba59d6c713e",
+      "firmware/pico/tests/hal_stub/hardware/adc.h": "7e1af2cc663741f3b7dc8b85ca40bd1cc66e8a02e6f82792753267449008297f",
+      "firmware/pico/tests/hal_stub/pico/stdlib.h": "b065f0abd92e30c222226ebe53a7506097a6cb47e8e651f85fa915c2712730cd",
+      "firmware/pico/tests/test_device.c": "cb7bd4a77a2fd70f881f6d5d19d5718933705b253cec0f45e8bd1fb4880d1d33",
+      "firmware/pico/tests/test_hal.c": "bd7ae9fe63b2b0a304c38b0f367ebb117ea742206f0a7f8ad4bf1af25a24870c",
+      "firmware/pico/tests/test_usb_budget.c": "901749c55e191fe975a048a7bb84f6f36060e817f863392781539bbd8ef03ab5",
+      "firmware/pico/tests/usb_stub/tusb.h": "dd3d45ecf744d7f034248cddbb81862178dbe82d9c3df8d850ab8adc06461684",
+      "firmware/pico/tests/usb_stub/usbd.c": "ac641b4397cbb7c0d38dd62f1a6f0e8101cd88ed9614d4e13ce09c0f577d21b9",
+      "firmware/pico/tusb_config.h": "6a519c23e5272596e7d403a4deb0c6dcc1a064804782aba96495c47f9de80e37",
+      "firmware/pico/usb_descriptors.c": "ac3591ac67b84a0e07e8e8427723cd3ded1f9c8dd30a50960dc8f54e4ef2fbb5",
+      "firmware/pico/usb_task.c": "7d287e0d64f141d1874a343a2f79d30cc8f2adfca350ffe3bfd8cfb910c38005",
+      "firmware/tests/test_core.c": "a1bda95571b568d61fe7b3acf1d1f8c82192e0384ee6a7f80068dafe108997e4",
+      "pyproject.toml": "9b48979f9c0168aca7994a9ab0c513099e31c7a9eb5853a710ef08bf29b723ca",
+      "schemas/tank-manifest-v1.schema.json": "0bb96fb4e0ab3e1143439cda4033d30683c1f8152744f22e7b66acf5fbdb95a3",
+      "schemas/tank-model-v1.schema.json": "8db6727e02c9076c6539ea2674ef1ebe057b1bcc96f359998b65f9df8c76d21a",
+      "schemas/tank-scenario-v1.schema.json": "73bc16d99892a2ebb12b0f6f398196bc85454ea244ea227ee3ba2f9ec225b0e0",
+      "schemas/tank-solver-v1.schema.json": "f012c7765f8c86a6f36ddcdcc7c8843f6f25ffc66d672166978ef7ab97bc0dc6",
+      "schemas/tank-summary-v1.schema.json": "4d96d0fb4bbb89ed433a287a19573edb3a4b248093824cf1cff424fbdfb4aecb",
+      "schemas/tank-telemetry-v1.schema.json": "e6b5cecbc4642e53d3dc7a717573d47782a277baa2bf9ecccda8cc11eeecb51d",
+      "schemas/thermal-campaign-v1.schema.json": "52691f878c2688d90fab2128f6e0b79840c64628012584489f6b09d3a425ea6c",
+      "schemas/thermal-controller-v1.schema.json": "c61cae028031e0c7818252459e843e111eceeb794fdb511f5cd98f5b4b91aadf",
+      "schemas/thermal-manifest-v1.schema.json": "38a23d5c60ba12474aa60f5d8f58082280e0dbb530ceb847d8debe87f9ecdda8",
+      "schemas/thermal-model-v1.schema.json": "a2c59b86a42a5842add9172498439ac82d63263ec95d0d5736dd27a4add76391",
+      "schemas/thermal-solver-input-v1.schema.json": "ee47459edeef3e0c4651248fb502b0cd052c9eb90ebf76b7ea5b9c744fdaff75",
+      "schemas/thermal-solver-v1.schema.json": "5b48ae2f57deb365fdc833666273242b3b6f1d924c86b9096d8282c65b1baef2",
+      "schemas/thermal-summary-v1.schema.json": "585406530443dfc95c62300175b6556d40b9ff90d4f3b5c907bd07d9558cd633",
+      "schemas/thermal-telemetry-row-v1.schema.json": "9c8e65108d5eff1ba4f50cd8cb8435ee4ad7d470803c6296b57644f72c86231f",
+      "scripts/benchmark_campaign.py": "9749e10836b7f3057519682ae6b7b67058bc1087faf5578828e5ce3916387ffc",
+      "scripts/build_host.ps1": "e641062a473838540f9155a85855e4130142dc9eb9d3f92f4b76ebde3f07555f",
+      "scripts/build_pico.ps1": "bd6006888e52e0eb3b987f3a826ba5064346c65d9f886b5746ab50710dccbf0a",
+      "scripts/build_replay.py": "22acfa7a298a5bfc0270334172508b2d30a02f730fc8316a413b783c9a6955fc",
+      "scripts/refine_campaign.py": "e7f2dec7202fa414839ff2bc7a2fd4f8cd06ea5ff2c7ac6044e31931d1987564",
+      "scripts/run_campaign.py": "72de7ec1b2f555218913e72ba178360a2bead5d4a6809f459d1d0c8c78bd8c98",
+      "scripts/run_suite.py": "ab33d251121241d8a6aa20d2b8e6b89454e1513e84cc3d7e0ab57ebc9830355b",
+      "scripts/verify_host.py": "153874ae68107a59a2af943aa444765f0a0f48baf077996ebc5d586829c357cc",
+      "scripts/verify_thermal.py": "b2a7acd2ccbf61814d8094ec4c8f29aa7b61a79090c787b82fae95bd36f8bdc1",
+      "src/fluidlab/__init__.py": "f8d23a932ec8175c50d317cb3367c0f6e81bdff7a9b20737bbd07eb760d14377",
+      "src/fluidlab/c_controller.py": "9998e5cb69c83bd6776625daa56ba730f449e426327dd3858d1cf637e752d519",
+      "src/fluidlab/campaign.py": "3881133c4a5a554eb1f08c0c9ea07f1bd427f1ee648b46659fa992abe02680fe",
+      "src/fluidlab/campaign_evaluator.py": "aad00ecf48d518e1e55816e6f14c4af4c7a2ab39db67cef0984d62dfda74d8c8",
+      "src/fluidlab/cli.py": "6c67e549184fa4829c988ccbe554a1b86201bd38409eed34c32874069de46366",
+      "src/fluidlab/contracts.py": "ef9d5fda55b594d4ac4cded6ff7f9908a786d4902f19895dababc98f2e53a408",
+      "src/fluidlab/control.py": "45a80a9cb8eb95f71f2d2194bb256e26a161672cd9d03121f17ac5b20f84569a",
+      "src/fluidlab/evaluator.py": "542ec0950a761eef63497a027e767bff0229fd1a7df4e3b4d80e4d06870646b7",
+      "src/fluidlab/plant.py": "0463cddf9682ae6466fd510979a1b45842eb87ad6c7eeee5fa8bd1aeee3300ae",
+      "src/fluidlab/protocol.py": "8676845308c4a871f36015af7f781861a407f7fb9708b7a5a5f8ea4d8a071498",
+      "src/fluidlab/provenance.py": "e7a0ca0ac794de1c0eeab160ee0b50ee6fac87a4492b9e0a11726de27b189580",
+      "src/fluidlab/runner.py": "7947e732a50a3dd8f7963c89f986abe29fe2260126de52e020da2966799b50ac",
+      "src/fluidlab/thermal.py": "7becf06efd5a586b92078b7be5769d4692fb7c5bdd684d14fde183706db3ebf8",
+      "uv.lock": "76472376ec629c6fb1da220501125f413dc2944f76e75139283ea2cb3ca7bcd0"
+    },
+    "source_inclusion": [
+      "src/**/*.py",
+      "scripts/**/*.py",
+      "schemas/*.json",
+      "pyproject.toml",
+      "uv.lock",
+      "firmware/**/*.c",
+      "firmware/**/*.h",
+      "firmware/**/*.cmake",
+      "firmware/**/CMakeLists.txt",
+      "CMakeLists.txt",
+      "scripts/**/*.ps1"
+    ],
+    "source_exclusion": [
+      "firmware/**/artifacts/**",
+      "firmware/**/build/**",
+      "firmware/**/generated/**",
+      "firmware/**/out/**",
+      "firmware/**/third_party/**",
+      "firmware/**/vendor/**",
+      "firmware/**/cmake-build-*/**"
+    ],
+    "source_hash_framing": "POSIX UTF-8 path, NUL, uint64 BE raw-byte length, raw bytes",
+    "source_line_endings": "raw bytes; repository .gitattributes specifies LF",
+    "lock_sha256": "76472376ec629c6fb1da220501125f413dc2944f76e75139283ea2cb3ca7bcd0",
+    "controller_sha256": "8152e818f72869d201f64389367621b255fc1619d56caacbab5f5d38caa552ef",
+    "controller_implementation": "portable_c11_host",
+    "firmware_execution": "NOT_EXECUTED",
+    "python": "3.12.2",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "units": {
+      "time_s": "s",
+      "sample_time_s": "s",
+      "receipt_time_s": "s",
+      "measurement_age_s": "s",
+      "level_m": "m",
+      "measured_level_m": "m",
+      "target_m": "m",
+      "flow_m3_s": "m3/s",
+      "volume_residual_m3": "m3",
+      "pump_command": "1",
+      "requested_valve_command": "1",
+      "applied_pump_command": "1",
+      "applied_valve_command": "1",
+      "valve_opening": "1"
+    },
+    "git_revision": "b858360b3eed2ba0a192a179e5567cdbd77f9cd5",
+    "git_dirty": true,
+    "git_root_matches": true,
+    "controller_execution": "HOST_SIL"
+  },
+  "baseline": "exact frozen case_config; only recorded solver or tick overrides; noise-free",
+  "thresholds": {
+    "tightest_max_normalized": 1,
+    "thermal_peak_delta_k": 0.1,
+    "thermal_trip_delta_s": 0.1,
+    "tank_peak_delta_m": 0.002,
+    "tank_trip_delta_s": 0.1,
+    "terminated_boundary_time_delta_s": 0.1
+  },
+  "status": "PASS",
+  "full_refinement_gate": true,
+  "artifact_manifest_sha256": {
+    "solver/frozen_temperature/1e-05/manifest.json": "25dbf61b6375d34788c90e051a827acea4e3eaadaf71a3822dd649b52fdb7e0e",
+    "solver/frozen_temperature/1e-07/manifest.json": "4cf236eba92558439d1237ef3e75194077c6d489df90f8e9a60717c633c7c4d6",
+    "solver/frozen_temperature/1e-09/manifest.json": "681de1707dc3ca1f0782b3f442042b49f5682f5d9bbb1a280e93dcf5cfdfdd48",
+    "solver/frozen_temperature/reference/manifest.json": "46979172a6a37e48361ec2e203b232f9ca10931266c0a9c4c145c94eeb3f6fe3",
+    "solver/nominal_heat_step/1e-05/manifest.json": "06a150800b7cbc19499f42d74ea5e9755624a12bcdf69d6eb487024f01be2c53",
+    "solver/nominal_heat_step/1e-07/manifest.json": "102e152a85eb3170d04d470c87f7c3e67d18c1e1a4583ad757e4e5cf033470bb",
+    "solver/nominal_heat_step/1e-09/manifest.json": "86c994674ab61fa697bc9fd87d83b2a262593a7cd9653e8007d6cd0415c71e93",
+    "solver/nominal_heat_step/reference/manifest.json": "b4389735ad5fc936f30f7cb44172dcb78d51242b79f20cf55b29b3546667938d",
+    "solver/stuck_heat_lost_sink/1e-05/manifest.json": "6c6034dee063dd2c161a34b2b2da48ce6293b88cd25149523419e5fb339ad340",
+    "solver/stuck_heat_lost_sink/1e-07/manifest.json": "a776c13baf981741faef3f3f12cfb67fe2e9ac54b0f1b3979fef7385ec4c0836",
+    "solver/stuck_heat_lost_sink/1e-09/manifest.json": "81d5ced82ec0b440e4ca70203285365491bbcc2e9a7aec5e5df1acb97f95f388",
+    "solver/stuck_heat_lost_sink/reference/manifest.json": "9ca6ad57fd3d88885ebbe5269262729b4e09d3018ff989f99529aff16e1a4ba9",
+    "tank-tick/nominal/0.05/manifest.json": "0f0c42d16efa481bd4e354f7428901b3a81ca129f4ece589714c016755c6f3b4",
+    "tank-tick/nominal/0.1/manifest.json": "07f8a66cffb685c6093a48d92a99416627df55de82a959100b1339f10e033f3a",
+    "tank-tick/nominal/0.2/manifest.json": "98406eb1249af702954f02eafcdfdcfbce524c09d98effc56c85dbd71bff0d6c",
+    "tank-tick/pump_stuck_on/0.05/manifest.json": "96179b8937b4ebb687777f64a872efa59e8f94839c02a4a28e83d577e0800533",
+    "tank-tick/pump_stuck_on/0.1/manifest.json": "5ead2b196ec51ff434f41b12982bda6e96889b804ac43fdf7a2ef01ecc51ddb9",
+    "tank-tick/pump_stuck_on/0.2/manifest.json": "f8512cbda7f5e9a0598beaf0c5e5b1b98345e4b5efb126260260bfafe42c0a05",
+    "tick/frozen_temperature/100000/manifest.json": "d0e60979431eba971f6d333b459ae2bccc7e3df1f6c60b95b8a7025828ef86d5",
+    "tick/frozen_temperature/200000/manifest.json": "5b7d83e33e46ee4f7d098333fc12cfac5dc59520529f1e7bf6e686e153e363e3",
+    "tick/frozen_temperature/50000/manifest.json": "f80e4491a94437de250ab8aba767360f830e420d4a3e13ad603abbb04e815c9e",
+    "tick/near_tick_after/100000/manifest.json": "f938bcc867f7b4c3157ddc6653ab53154297b303e1193b52a72697bd4f38aecc",
+    "tick/near_tick_after/200000/manifest.json": "cef683224d874db9d8400823f32b3883e944352d37ae13a51ade61d4b00d035b",
+    "tick/near_tick_after/50000/manifest.json": "60c85b0e4dfe50cec8750b488fb6619abe6b932fe56705e7ac0895f2271733f1",
+    "tick/near_tick_before/100000/manifest.json": "8def8d0963aba085263630c9bab71317b89d042814569143187965c316458a2e",
+    "tick/near_tick_before/200000/manifest.json": "944fe34e2a03145e332b16da076731df58250a0d23bc36a06e979e40d924d0d1",
+    "tick/near_tick_before/50000/manifest.json": "e13b4231922ed1c14722b4a101d453270552ba11c37d23e360c711caf641281b",
+    "tick/nominal_heat_step/100000/manifest.json": "5259dd97d20403ed39674fa5c5b37ad90d72212ad7b97f850d1d7b82da076be9",
+    "tick/nominal_heat_step/200000/manifest.json": "657e37a43996125296661be4efd7e1792694a3ebbb3cd7391683ceb6a914156e",
+    "tick/nominal_heat_step/50000/manifest.json": "7d9209f25e0e96b5a889f0a7c7e521066732c578a5c5ef445eb4d1cc64017a33",
+    "tick/restriction/100000/manifest.json": "58cc58f0294b63cf74d02ba166ea881f74a4c9833465465be92c2f4ba146dd39",
+    "tick/restriction/200000/manifest.json": "790b1497f2a2501b774167b318256b3b3d7f8efd47921f2b51ac1f333d7c6a6d",
+    "tick/restriction/50000/manifest.json": "baa969c9e8b995785fc44fd09ca30952834460669e228ef42bd2d4afb6b7a96e",
+    "tick/stuck_heat_lost_sink/100000/manifest.json": "cdaa07e3405a653edcf7e1600b780688819a7245d3496621f1abc50f353efa63",
+    "tick/stuck_heat_lost_sink/200000/manifest.json": "901d1e22c5ab010c523280392dd7cbbdf3f1529555465f3b1b50c2e63da9b8d2",
+    "tick/stuck_heat_lost_sink/50000/manifest.json": "82e04846a47efcad462ae2f89c3200f0d8f87dfb43a06ac94cc4782858673763"
+  }
+}

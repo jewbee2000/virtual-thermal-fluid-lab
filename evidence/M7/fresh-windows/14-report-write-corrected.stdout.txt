@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "checks": 12,
+  "unit_tests": 135,
+  "source_sha256": "fa2a7a40d64fc2dad4022ed6f4642dfd7249912d36882f28a845d164e83babc9",
+  "controller_sha256": "7304c58ebb75fad60d2e4f7107a4b65b6dbae047b010158a8aaaf4d2181eff6a",
+  "manifest_hashes": 69,
+  "report": "C:\\Users\\Walt\\.codex\\worktrees\\thermal-lab-release-check\\virtual-fluid-lab\\artifacts\\release\\checks\\reproduction.json"
+}

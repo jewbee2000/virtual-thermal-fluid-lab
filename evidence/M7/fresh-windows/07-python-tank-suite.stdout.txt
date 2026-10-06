@@ -1,0 +1,7 @@
+blocked_outlet PASS None None
+nominal PASS None None
+pump_failed_off PASS None None
+pump_stuck_on PASS high_high full
+sensor_bias_ramp PASS high_high None
+sensor_dropout PASS stale_sensor None
+sensor_stuck PASS None None

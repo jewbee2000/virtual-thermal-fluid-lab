@@ -39,15 +39,34 @@ Independent numerical benchmarks in `tests/test_science.py`:
 - Empty time: t_empty=2A sqrt(h0)/k, agreement within 0.01 s using tightened tolerances.
 - Pump step: q(t)=Qmax u[1-exp(-t/tau_p)]; integrated inlet volume=Qmax u[t-tau_p(1-exp(-t/tau_p))].
 - Full time under constant fill: t_full=A(H-h0)/Q; verify event time rather than clipping.
-- RK45 vs DOP853 at tighter tolerances: state difference <1e-7 in the current test. Because states have mixed units, this simple cross-check must later become per-state normalized tolerances.
+- Historical raw RK45/DOP853 regression remains; M1 also added the per-state
+  normalized comparison described above to avoid interpreting mixed units as one
+  dimensional tolerance.
 - Nominal controller tick refinement 0.10→0.05 s: compare matching timestamps, maximum level difference <0.002 m. This changes the digital controller as well as communication timing; it is separate from numerical solver refinement.
 - Anti-windup recovery, deterministic seeded replay, bad timestamps, invalid samples and latched stop behavior.
 
-## Next verification gate
+## Executed integrated verification gate
 
-T02 adds a solver tolerance ladder (rtol 1e-5, 1e-7, 1e-9 with corresponding scaled atols) at fixed controller tick, and a separate communication/tick ladder (0.20, 0.10, 0.05 s). Compare peak level, integral absolute error, trip time and boundary time. At minimum, require 0.10 vs 0.05 s peak differences <0.002 m and trip differences ≤0.10 s for chosen scenarios; justify tighter thresholds from hazard margins. Do not demand every difference shrink monotonically near discontinuities.
+M5 executed the solver tolerance ladder (rtol1e-5/1e-7/1e-9 against a tighter
+DOP853 reference) at fixed controller tick and a separate .20/.10/.05s tick
+ladder. All36 final clean runs passed the frozen thermal .1K/tank .002m and
+.10s trip/boundary criteria. Compare matching preterminal keys as specified in
+REQUIREMENTS.md; equal boundary caps alone cannot prove convergence. Retained
+reports are under evidence/M7/fresh-windows; exact commands are in REPRODUCE.md.
+No criterion was loosened to pass a failure.
 
-Add single and combined faults, setpoint changes, threshold equality, and faults just before/after a tick. Start with pairwise fault combinations, then target combinations suggested by hazards. Keep classification of detection, stop command, containment, and physical safety separate.
+The full17-case thermal campaign and seven C tank cases include single/combined
+faults, threshold equality, near-tick injections and restart. The stuck heat/lost
+sink and stuck pump cases pass hazard expectations while containment remains
+FAILED and completion fails at a model boundary. The135-unit suite retains
+independent analytic oracles and actual C transport/termination checks. A separate
+jsonschema4.25.1 audit checked48 thermal exports,157182 rows and484 hashes.
+
+The selected240s demo meets the frozen <60s/<512MiB laptop budget at8.4256613s
+and487813120B of observed process peaks. Required owning Python and C PIDs were
+observed. Discovery limits are documented in evidence/M5/final-performance.json;
+this is no hard-real-time/WCET or strict unseen-family memory bound. Whole-suite
+performance is recorded separately without applying the selected-demo budget.
 
 ## Physical validation experiment (not performed)
 

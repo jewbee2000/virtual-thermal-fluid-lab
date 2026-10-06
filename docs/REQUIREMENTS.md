@@ -73,3 +73,10 @@ thresholds. A required expectation that is unassessable fails the overall gate.
 Review assistance is not physical validation. `tasks.json` is the execution record;
 this document and revised plan define acceptance. Missing equipment or credentials
 may block dependent gates while independent implementation continues.
+
+M5 NUM-01 clarification frozen before integrated outcomes: terminal tick runs
+compare peaks on identical matching preterminal keys/common gap, excluding roots.
+Require matching boundary presence/kind and fractional boundary-time delta<=.10s
+as an additional educational timing target. Keep full95C/1m peaks as hazard data;
+their equality cannot by itself establish convergence. Existing .1K/.002m peak
+and .10s trip limits are unchanged. See CAMPAIGN.md for review rationale.

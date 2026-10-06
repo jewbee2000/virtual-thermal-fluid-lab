@@ -1,0 +1,8 @@
+{
+  "jsonschema": "4.25.1",
+  "schemas": 14,
+  "scenarios": 17,
+  "thermal_runs": 18,
+  "telemetry_rows": 42263,
+  "status": "PASS"
+}

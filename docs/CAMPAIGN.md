@@ -127,10 +127,39 @@ stuck-pump cases. Record tracking, per-state trajectory differences and boundary
 time differences; identical95 C terminal peaks alone are not convergence evidence.
 No monotonic convergence requirement is invented near discontinuities.
 
+Before any integrated outcomes, physics review found that identical terminal
+95 C/1 m caps could automatically pass a whole-run peak comparison. For terminated
+thermal and tank tick comparisons, use identical matching absolute preterminal
+sample keys, exclude numerical roots, and compute both peaks/bounds on the same
+shared grid/largest gap. Preserve full-run terminal peaks as hazard evidence.
+Require matching terminal presence and boundary kind, and raw fractional boundary
+time delta<=.10s in addition to the unchanged peak/trip criteria. Missing a
+boundary in one run is not an empty pass. This additional .10s gate is a newly
+frozen educational event-time resolution target, consistent with the existing
+trip-time target; it is not derived from the peak tolerance or a physical standard.
+It strengthens a previously incomplete terminal convergence check before its
+execution. Record common-prefix coverage and per-state trajectory errors.
+
 The selected performance gate is the complete nominal240 s C-controller demo:
-under60 wall seconds and under512 MiB conservative process-family peak memory.
+under60 wall seconds and under512 MiB observed process-family memory, measured
+as the sum of OS lifetime peak working sets/high-water marks for observed
+descendants. The sum is conservative for those observed individual peaks, not a
+strict bound for undiscovered processes or growth after the final poll. Use5 ms
+discovery, retain individual PIDs/peaks and monitor errors, and require the actual
+worker plus every retained long-lived C controller PID to be observed; missing
+required PID makes the memory gate unassessable/failing. This measurement-method
+clarification was frozen before any performance outcome, after read-only review
+found that polling alone could miss a child. The60s/512MiB budgets are unchanged.
 Record laptop/OS/compiler identity, simulation/wall ratio and protocol latency
 distribution. Also record the entire fault suite's elapsed time and memory; it
 has longer, differing horizons and is not silently compared to the240 s budget.
 Run the isolated performance measurement after profiling/corrections, without
 concurrent test loads. No hard-real-time or worst-case execution-time claim.
+
+Every reported thermal peak bound records `peak_bound_coverage`: actual start/end
+microseconds, requested end, retained sample count, discarded row count and scope.
+A valid model-boundary stop covers the retained prefix through its fractional root,
+not the unexecuted requested horizon. Discarded, nonfinite or unsorted records make
+the bound unavailable. Refinement comparisons require at least two distinct shared
+times and report the last shared preterminal time. These reporting clarifications
+were frozen before integrated campaign outcomes; they change no acceptance budget.

@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "topology": "thermal_loop",
+  "name": "frozen_temperature",
+  "case_id": "frozen_temperature",
+  "duration_us": 600000000,
+  "tick_us": 100000,
+  "seed": 1,
+  "initial": {
+    "wall_temperature_k": 317.7911483254,
+    "hot_temperature_k": 301.1244816587,
+    "cold_temperature_k": 293.15,
+    "pump_speed": 0.5274982823,
+    "valve_opening": 0.65
+  },
+  "model": {
+    "version": 1,
+    "density_kg_m3": 1000.0,
+    "specific_heat_j_kg_k": 4180.0,
+    "hot_mass_kg": 2.0,
+    "cold_mass_kg": 3.0,
+    "wall_capacity_j_k": 10000.0,
+    "max_heat_w": 5000.0,
+    "hot_conductance_w_k": 300.0,
+    "sink_conductance_w_k": 500.0,
+    "sink_temperature_k": 283.15,
+    "pump_shutoff_pa": 100000.0,
+    "pump_curve_pa_s2_m6": 400000000000.0,
+    "pipe_resistance_pa_s2_m6": 600000000000.0,
+    "valve_resistance_pa_s2_m6": 100000000000.0,
+    "pump_tau_s": 1.0,
+    "valve_tau_s": 0.5
+  },
+  "controller": {
+    "profile": 2,
+    "version": 1,
+    "config_id": 2,
+    "tick_us": 100000,
+    "stale_us": 300000,
+    "lease_us": 300000,
+    "kp_scaled": 2000000000,
+    "ki_scaled": 200000000,
+    "ff_ppm": 527498,
+    "normal_valve_ppm": 650000,
+    "target_i": 150000,
+    "min_control_i": 0,
+    "max_control_i": 500000,
+    "min_temp_mK": 273150,
+    "max_temp_mK": 368150,
+    "hot_trip_mK": 338150,
+    "wall_trip_mK": 358150
+  },
+  "sensor_adapter": {
+    "separate_wall_trip_k": 358.15
+  },
+  "initial_heat_demand": 1.0,
+  "events": [
+    {
+      "event_id": "arm_initial",
+      "type": "operation",
+      "time_us": 0,
+      "operation": "ARM"
+    },
+    {
+      "event_id": "frozen_primary",
+      "type": "observation_override",
+      "time_us": 60000000,
+      "channels": [
+        3,
+        5
+      ],
+      "mode": "freeze",
+      "value_i": [
+        301124,
+        317791
+      ]
+    },
+    {
+      "event_id": "lost_sink",
+      "type": "model_coefficients",
+      "time_us": 60000000,
+      "sink_conductance_w_k": 0.0
+    }
+  ],
+  "solver": {
+    "version": 1,
+    "method": "RK45",
+    "rtol": 1e-07,
+    "atol": [
+      1e-08,
+      1e-08,
+      1e-08,
+      1e-10,
+      1e-10,
+      1e-05,
+      1e-05
+    ],
+    "max_step_s": 0.05
+  }
+}

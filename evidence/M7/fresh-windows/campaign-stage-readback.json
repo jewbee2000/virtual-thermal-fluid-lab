@@ -1,0 +1,39 @@
+{
+  "full_release_campaign": true,
+  "expectation_pass": true,
+  "thermal_cases": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "tank_cases": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "repeat_status": "PASS",
+  "repeat_sha256": "6224feea692366cf2e8e20e3313adfbccd2f257362d3059f37fe45c679cb2943",
+  "campaign_wall_s": 174.8752803999996,
+  "source_sha256": "fa2a7a40d64fc2dad4022ed6f4642dfd7249912d36882f28a845d164e83babc9",
+  "controller_sha256": "7304c58ebb75fad60d2e4f7107a4b65b6dbae047b010158a8aaaf4d2181eff6a",
+  "git_revision": "cc5a6feae95dc5888bf3041bc9dc3306dba667ba",
+  "git_dirty": false
+}

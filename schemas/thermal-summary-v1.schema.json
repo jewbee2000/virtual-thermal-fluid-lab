@@ -1,0 +1,969 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Executed integrated thermal summary v1",
+  "$comment": "Frozen before M5 full campaign outcomes. Runtime independently audits wire/rows/schedule/leases and finite values. Wire dispositions and solver diagnostic maps contain explicitly retained diagnostic fields, not adjustable criteria.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "name": {
+      "type": "string"
+    },
+    "topology": {
+      "const": "thermal_loop"
+    },
+    "case_id": {
+      "type": "string"
+    },
+    "requested_duration_us": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "last_time_us": {
+      "anyOf": [
+        {
+          "type": "number",
+          "minimum": 0
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "completed_horizon": {
+      "type": "boolean"
+    },
+    "terminal_boundary": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "run_failure": {
+      "anyOf": [
+        {
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "solver": {
+      "$ref": "thermal-solver-v1.schema.json"
+    },
+    "model": {
+      "$ref": "thermal-model-v1.schema.json"
+    },
+    "controller": {
+      "$ref": "thermal-controller-v1.schema.json"
+    },
+    "scenario": {
+      "$ref": "thermal-campaign-v1.schema.json"
+    },
+    "metrics": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "sampled_peaks_k": {
+          "anyOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "wall_temperature_k": {
+                  "type": "number"
+                },
+                "hot_temperature_k": {
+                  "type": "number"
+                },
+                "cold_temperature_k": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "wall_temperature_k",
+                "hot_temperature_k",
+                "cold_temperature_k"
+              ]
+            },
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "maxProperties": 0
+            }
+          ]
+        },
+        "global_sampled_peak_k": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "largest_sample_gap_s": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "global_peak_upper_bound_k": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "peak_bound_meaning": {
+          "type": "string"
+        },
+        "peak_bound_coverage": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "start_time_us": { "type": ["number", "null"], "minimum": 0 },
+            "end_time_us": { "type": ["number", "null"], "minimum": 0 },
+            "requested_end_time_us": { "type": "integer", "minimum": 0 },
+            "retained_samples": { "type": "integer", "minimum": 0 },
+            "discarded_rows": { "type": "integer", "minimum": 0 },
+            "scope": { "enum": ["FULL_RETAINED_HORIZON", "RETAINED_PREFIX", "UNAVAILABLE"] }
+          },
+          "required": ["start_time_us", "end_time_us", "requested_end_time_us", "retained_samples", "discarded_rows", "scope"]
+        },
+        "energy_residual_max_j": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "tracking_true_max_error_m3_s": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "tracking_observed_max_error_m3_s": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "integral_flow_error_m3": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "first_trip_time_us": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "first_trip_reason": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "terminal_time_us": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "trip_expected_time_us": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "prefault_temperatures_k": {
+          "anyOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "wall_temperature_k": {
+                  "type": "number"
+                },
+                "hot_temperature_k": {
+                  "type": "number"
+                },
+                "cold_temperature_k": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "wall_temperature_k",
+                "hot_temperature_k",
+                "cold_temperature_k"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "final30_mean_temperatures_k": {
+          "anyOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "wall_temperature_k": {
+                  "type": "number"
+                },
+                "hot_temperature_k": {
+                  "type": "number"
+                },
+                "cold_temperature_k": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "wall_temperature_k",
+                "hot_temperature_k",
+                "cold_temperature_k"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "wall_elapsed_s": {
+          "type": "number",
+          "minimum": 0
+        },
+        "protocol_latency_s": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "count": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "minimum": {
+              "anyOf": [
+                {
+                  "type": "number",
+                  "minimum": 0
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "median": {
+              "anyOf": [
+                {
+                  "type": "number",
+                  "minimum": 0
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "p95": {
+              "anyOf": [
+                {
+                  "type": "number",
+                  "minimum": 0
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "maximum": {
+              "anyOf": [
+                {
+                  "type": "number",
+                  "minimum": 0
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "count",
+            "minimum",
+            "median",
+            "p95",
+            "maximum"
+          ]
+        }
+      },
+      "required": [
+        "sampled_peaks_k",
+        "global_sampled_peak_k",
+        "largest_sample_gap_s",
+        "global_peak_upper_bound_k",
+        "peak_bound_meaning",
+        "peak_bound_coverage",
+        "energy_residual_max_j",
+        "tracking_true_max_error_m3_s",
+        "tracking_observed_max_error_m3_s",
+        "integral_flow_error_m3",
+        "first_trip_time_us",
+        "first_trip_reason",
+        "terminal_time_us",
+        "trip_expected_time_us",
+        "prefault_temperatures_k",
+        "final30_mean_temperatures_k",
+        "wall_elapsed_s",
+        "protocol_latency_s"
+      ]
+    },
+    "evaluation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "rules": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "TH01": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "status": {
+                  "enum": [
+                    "PASS",
+                    "FAIL",
+                    "NOT_APPLICABLE",
+                    "UNASSESSABLE"
+                  ]
+                },
+                "evidence": {}
+              },
+              "required": [
+                "status",
+                "evidence"
+              ]
+            },
+            "TH02": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "status": {
+                  "enum": [
+                    "PASS",
+                    "FAIL",
+                    "NOT_APPLICABLE",
+                    "UNASSESSABLE"
+                  ]
+                },
+                "evidence": {}
+              },
+              "required": [
+                "status",
+                "evidence"
+              ]
+            },
+            "TH03": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "status": {
+                  "enum": [
+                    "PASS",
+                    "FAIL",
+                    "NOT_APPLICABLE",
+                    "UNASSESSABLE"
+                  ]
+                },
+                "evidence": {}
+              },
+              "required": [
+                "status",
+                "evidence"
+              ]
+            },
+            "TH04": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "status": {
+                  "enum": [
+                    "PASS",
+                    "FAIL",
+                    "NOT_APPLICABLE",
+                    "UNASSESSABLE"
+                  ]
+                },
+                "evidence": {}
+              },
+              "required": [
+                "status",
+                "evidence"
+              ]
+            },
+            "TH05": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "status": {
+                  "enum": [
+                    "PASS",
+                    "FAIL",
+                    "NOT_APPLICABLE",
+                    "UNASSESSABLE"
+                  ]
+                },
+                "evidence": {}
+              },
+              "required": [
+                "status",
+                "evidence"
+              ]
+            },
+            "TH06": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "status": {
+                  "enum": [
+                    "PASS",
+                    "FAIL",
+                    "NOT_APPLICABLE",
+                    "UNASSESSABLE"
+                  ]
+                },
+                "evidence": {}
+              },
+              "required": [
+                "status",
+                "evidence"
+              ]
+            },
+            "TH07": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "status": {
+                  "enum": [
+                    "PASS",
+                    "FAIL",
+                    "NOT_APPLICABLE",
+                    "UNASSESSABLE"
+                  ]
+                },
+                "evidence": {}
+              },
+              "required": [
+                "status",
+                "evidence"
+              ]
+            },
+            "TH08": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "status": {
+                  "enum": [
+                    "PASS",
+                    "FAIL",
+                    "NOT_APPLICABLE",
+                    "UNASSESSABLE"
+                  ]
+                },
+                "evidence": {}
+              },
+              "required": [
+                "status",
+                "evidence"
+              ]
+            },
+            "TH09": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "status": {
+                  "enum": [
+                    "PASS",
+                    "FAIL",
+                    "NOT_APPLICABLE",
+                    "UNASSESSABLE"
+                  ]
+                },
+                "evidence": {}
+              },
+              "required": [
+                "status",
+                "evidence"
+              ]
+            },
+            "TH10": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "status": {
+                  "enum": [
+                    "PASS",
+                    "FAIL",
+                    "NOT_APPLICABLE",
+                    "UNASSESSABLE"
+                  ]
+                },
+                "evidence": {}
+              },
+              "required": [
+                "status",
+                "evidence"
+              ]
+            },
+            "TH11": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "status": {
+                  "enum": [
+                    "PASS",
+                    "FAIL",
+                    "NOT_APPLICABLE",
+                    "UNASSESSABLE"
+                  ]
+                },
+                "evidence": {}
+              },
+              "required": [
+                "status",
+                "evidence"
+              ]
+            },
+            "TH12": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "status": {
+                  "enum": [
+                    "PASS",
+                    "FAIL",
+                    "NOT_APPLICABLE",
+                    "UNASSESSABLE"
+                  ]
+                },
+                "evidence": {}
+              },
+              "required": [
+                "status",
+                "evidence"
+              ]
+            }
+          },
+          "required": [
+            "TH01",
+            "TH02",
+            "TH03",
+            "TH04",
+            "TH05",
+            "TH06",
+            "TH07",
+            "TH08",
+            "TH09",
+            "TH10",
+            "TH11",
+            "TH12"
+          ]
+        },
+        "expectation_pass": {
+          "type": "boolean"
+        },
+        "completion_status": {
+          "enum": [
+            "PASS",
+            "FAIL",
+            "UNASSESSABLE"
+          ]
+        },
+        "containment_status": {
+          "enum": [
+            "CONTAINED",
+            "FAILED",
+            "UNASSESSABLE"
+          ]
+        },
+        "evidence_errors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "rules",
+        "expectation_pass",
+        "completion_status",
+        "containment_status",
+        "evidence_errors"
+      ]
+    },
+    "solver_diagnostics": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "wire_evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "enum": [
+            "PASS",
+            "FAIL",
+            "UNASSESSABLE"
+          ]
+        },
+        "issues": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "sessions": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "observation_dispositions": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "command_dispositions": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "invalid_input_records": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "ticks": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "events": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "stderr_rejection_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "ack_records": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        }
+      },
+      "required": [
+        "status",
+        "issues",
+        "sessions",
+        "observation_dispositions",
+        "command_dispositions",
+        "invalid_input_records",
+        "ticks",
+        "events",
+        "stderr_rejection_count",
+        "ack_records"
+      ]
+    },
+    "execution": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "source_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "source_files_sha256": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        },
+        "source_inclusion": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "source_exclusion": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "source_hash_framing": {
+          "type": "string"
+        },
+        "source_line_endings": {
+          "type": "string"
+        },
+        "lock_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "controller_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "controller_implementation": {
+          "const": "portable_c11_host"
+        },
+        "firmware_execution": {
+          "const": "NOT_EXECUTED"
+        },
+        "python": {
+          "type": "string"
+        },
+        "numpy": {
+          "type": "string"
+        },
+        "scipy": {
+          "type": "string"
+        },
+        "units": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "git_revision": {
+          "type": "string"
+        },
+        "git_dirty": {
+          "type": "boolean"
+        },
+        "git_root_matches": {
+          "type": "boolean"
+        },
+        "git_diagnostic": {
+          "type": "string"
+        },
+        "executable_path": {
+          "type": "string"
+        },
+        "controller_execution": {
+          "const": "HOST_SIL"
+        },
+        "firmware_core_sha256": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        },
+        "physical_validation": {
+          "const": "NOT_STARTED"
+        },
+        "board_execution": {
+          "const": "NOT_EXECUTED"
+        },
+        "parameter_pedigree": {
+          "const": "assumed"
+        },
+        "compiler_build_metadata": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "status": {
+                  "const": "RECORDED"
+                },
+                "files": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "sha256": {
+                        "type": "string",
+                        "pattern": "^[0-9a-f]{64}$"
+                      },
+                      "identity_lines": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "required": [
+                      "sha256",
+                      "identity_lines"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "status",
+                "files"
+              ]
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "status": {
+                  "const": "UNAVAILABLE"
+                },
+                "reason": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "status",
+                "reason"
+              ]
+            }
+          ]
+        },
+        "configuration_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "scenario_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "frozen_default_case_match": {
+          "type": "boolean"
+        },
+        "configuration_scope": {
+          "enum": [
+            "FROZEN_DEFAULT",
+            "VARIANT"
+          ]
+        }
+      },
+      "required": [
+        "source_sha256",
+        "source_files_sha256",
+        "source_inclusion",
+        "source_exclusion",
+        "source_hash_framing",
+        "source_line_endings",
+        "lock_sha256",
+        "controller_sha256",
+        "controller_implementation",
+        "firmware_execution",
+        "python",
+        "numpy",
+        "scipy",
+        "units",
+        "git_revision",
+        "git_dirty",
+        "git_root_matches",
+        "executable_path",
+        "controller_execution",
+        "firmware_core_sha256",
+        "physical_validation",
+        "board_execution",
+        "parameter_pedigree",
+        "compiler_build_metadata",
+        "configuration_sha256",
+        "scenario_sha256",
+        "frozen_default_case_match",
+        "configuration_scope"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "name",
+    "topology",
+    "case_id",
+    "requested_duration_us",
+    "last_time_us",
+    "completed_horizon",
+    "terminal_boundary",
+    "run_failure",
+    "solver",
+    "model",
+    "controller",
+    "scenario",
+    "metrics",
+    "evaluation",
+    "solver_diagnostics",
+    "wire_evidence",
+    "execution"
+  ]
+}

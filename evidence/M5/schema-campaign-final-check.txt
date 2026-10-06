@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "C:\Users\Walt\Documents\Codex\fluid-lab-import\virtual-fluid-lab\artifacts\audit_json_schemas.py", line 56, in <module>
+    raise ValueError(f'{name}: non-integral {value}')
+ValueError: flow_age_us: non-integral 99590.12692242861

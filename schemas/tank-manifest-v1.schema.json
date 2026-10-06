@@ -167,7 +167,13 @@
         "type": "string",
         "pattern": "^[0-9a-f]{64}$"
       }
+    },
+    "source_exclusion": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
     }
   },
-  "$comment": "Runtime export uses executed immutable run configuration and startup source provenance, not caller solver labels. Artifact hashes are exact bytes. Manifest itself excluded from self-hash."
+  "$comment": "source_exclusion is additive metadata, optional for historical v1 manifests; current M5+ execution always records it."
 }
