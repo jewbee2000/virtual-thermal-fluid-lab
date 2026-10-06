@@ -139,17 +139,19 @@
       ],
       "owned_paths": [
         "src/fluidlab/thermal.py",
-        "tests/",
-        "docs/"
+        "tests/test_thermal.py",
+        "scripts/verify_thermal.py"
       ],
       "acceptance": "MODEL-01 PHYS-01 NUM-01 DOMAIN-01; details in docs/REQUIREMENTS.md and revised plan",
-      "status": "ready",
+      "status": "in_progress",
       "commit": null,
       "commands": [],
       "artifacts": [],
       "unresolved_limitations": [
-        "Thermal contract and independent oracle reviewed before coding:docs/THERMAL_MODEL.md."
-      ]
+        "Implementation/thermal benchmark not yet executed; frozen derivation accepted before coding."
+      ],
+      "issue": "https://github.com/jewbee2000/virtual-thermal-fluid-lab/issues/3",
+      "writer": "m1_writer (continued bounded M2 ticket)"
     },
     {
       "id": "M3",
@@ -164,13 +166,15 @@
         "tests/"
       ],
       "acceptance": "CORE-01 CTRL-01 WIRE-01 LINK-01 BUILD-01; details in docs/REQUIREMENTS.md and revised plan",
-      "status": "ready",
+      "status": "in_progress",
       "commit": null,
       "commands": [],
       "artifacts": [],
       "unresolved_limitations": [
         "Wire/core defaults frozen before coding:schemas/protocol.md; flow150000uL/s equals1.5e-4m3/s."
-      ]
+      ],
+      "issue": "https://github.com/jewbee2000/virtual-thermal-fluid-lab/issues/4",
+      "writer": "c_core_writer in isolated managed worktree thermal-lab-c-core"
     },
     {
       "id": "M4",
