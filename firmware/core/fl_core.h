@@ -8,7 +8,8 @@
 #define FL_PPM 1000000u
 typedef enum { FL_DISARMED=0, FL_RUNNING=1, FL_TRIPPED=2 } fl_state;
 typedef enum { FL_NONE=0, FL_SEPARATE_TRIP=1, FL_WALL_HOT=2,
-    FL_LIQUID_HOT=3, FL_INVALID_INPUT=4, FL_RANGE_INPUT=5, FL_STALE_INPUT=6 } fl_reason;
+    FL_LIQUID_HOT=3, FL_INVALID_INPUT=4, FL_RANGE_INPUT=5, FL_STALE_INPUT=6,
+    FL_INTENT_EXPIRED=7 } fl_reason;
 typedef struct {
     uint32_t profile, version, id, tick_us, stale_us, lease_us;
     uint64_t kp_scaled, ki_scaled;
@@ -19,9 +20,10 @@ typedef struct {
 typedef struct {
     bool present, sequence_seen, good_seen;
     uint8_t quality;
+    char source_clock;
     int32_t value_i;
     uint32_t sequence;
-    uint64_t source_us, receipt_us, good_source_us;
+    uint64_t source_us, receipt_us, good_freshness_us;
 } fl_channel;
 typedef struct {
     uint32_t heat_ppm, pump_ppm, valve_ppm, command_seq;
@@ -34,6 +36,7 @@ typedef struct {
     uint32_t epoch, profile, last_step_seq, command_seq;
     uint64_t last_step_us;
     bool bound, configured, step_seen;
+    char execution_clock;
     fl_config config;
     fl_channel channels[FL_CHANNELS];
     fl_state state;
@@ -49,6 +52,12 @@ bool fl_config_valid(const fl_config *config);
 bool fl_core_configure(fl_core *core, const fl_config *config);
 bool fl_core_observe(fl_core *core, uint32_t epoch, uint32_t sequence,
     uint64_t sample_us, uint64_t receipt_us, uint32_t channel, uint32_t quality, int32_t value_i);
+bool fl_core_observe_device(fl_core *core, uint32_t epoch, uint32_t sequence,
+    char source_clock, uint64_t source_us, uint64_t local_receipt_us,
+    uint32_t channel, uint32_t quality, int32_t value_i);
 bool fl_core_step(fl_core *core, uint32_t epoch, uint32_t sequence,
     uint64_t now_us, uint32_t operation, uint32_t heat_demand_ppm, fl_output *output);
+bool fl_core_step_device(fl_core *core, uint32_t epoch, uint32_t sequence,
+    uint64_t local_now_us, uint32_t operation, uint32_t heat_demand_ppm,
+    bool intent_fresh, fl_output *output);
 #endif

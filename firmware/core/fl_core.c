@@ -46,18 +46,30 @@ bool fl_core_configure(fl_core *c, const fl_config *p) {
     if (c->step_seen || c->state != FL_DISARMED) return false;
     c->config=*p; c->configured=true; return true;
 }
-bool fl_core_observe(fl_core *c, uint32_t epoch, uint32_t seq, uint64_t sample,
-                    uint64_t receipt, uint32_t channel, uint32_t quality, int32_t value) {
+static bool observe(fl_core *c, uint32_t epoch, uint32_t seq, char clock, uint64_t sample,
+                    uint64_t receipt, uint32_t channel, uint32_t quality, int32_t value, bool device) {
     fl_channel *p;
+    char execution=device ? 'D' : 'V';
     if (!c->bound || epoch != c->epoch || channel < 1u || channel > FL_CHANNELS ||
-        quality > 2u || sample > receipt || (quality==2u && value!=0) ||
+        quality > 2u || (!device && sample > receipt) || (clock!='V' && clock!='D') ||
+        (c->execution_clock!='\0' && c->execution_clock!=execution) || (quality==2u && value!=0) ||
         (channel==6u && value!=0 && value!=1)) return false;
     p=&c->channels[channel-1u];
-    if (p->sequence_seen && (!fl_sequence_newer(seq,p->sequence) || sample < p->source_us)) return false;
+    if (p->sequence_seen && (!fl_sequence_newer(seq,p->sequence) || sample < p->source_us ||
+        clock!=p->source_clock || receipt<p->receipt_us)) return false;
+    c->execution_clock=execution;
     p->present=true; p->sequence_seen=true; p->sequence=seq; p->quality=(uint8_t)quality;
-    p->value_i=value; p->source_us=sample; p->receipt_us=receipt;
-    if (quality==1u) { p->good_seen=true; p->good_source_us=sample; }
+    p->value_i=value; p->source_clock=clock; p->source_us=sample; p->receipt_us=receipt;
+    if (quality==1u) { p->good_seen=true; p->good_freshness_us=device ? receipt : sample; }
     return true;
+}
+bool fl_core_observe(fl_core *c,uint32_t epoch,uint32_t seq,uint64_t sample,uint64_t receipt,
+                     uint32_t channel,uint32_t quality,int32_t value) {
+    return observe(c,epoch,seq,'V',sample,receipt,channel,quality,value,false);
+}
+bool fl_core_observe_device(fl_core *c,uint32_t epoch,uint32_t seq,char clock,uint64_t source,uint64_t receipt,
+                            uint32_t channel,uint32_t quality,int32_t value) {
+    return observe(c,epoch,seq,clock,source,receipt,channel,quality,value,true);
 }
 static fl_reason inspect(const fl_core *c, uint64_t now, fl_output *o) {
     uint32_t required=c->profile==1u ? 33u : 62u;
@@ -67,7 +79,7 @@ static fl_reason inspect(const fl_core *c, uint64_t now, fl_output *o) {
     for (i=0u;i<FL_CHANNELS;i++) {
         const fl_channel *p=&c->channels[i];
         uint32_t bit=UINT32_C(1) << i;
-        uint64_t age=p->good_seen && p->good_source_us<=now ? now-p->good_source_us : UINT64_MAX;
+        uint64_t age=p->good_seen && p->good_freshness_us<=now ? now-p->good_freshness_us : UINT64_MAX;
         if (p->present && p->quality==1u) o->valid_mask |= bit;
         if (age>c->config.stale_us) o->stale_mask |= bit;
         if ((required & bit)==0u) continue;
@@ -91,16 +103,24 @@ static fl_reason inspect(const fl_core *c, uint64_t now, fl_output *o) {
     }
     return invalid ? FL_INVALID_INPUT : range ? FL_RANGE_INPUT : stale ? FL_STALE_INPUT : FL_NONE;
 }
-bool fl_core_step(fl_core *c, uint32_t epoch, uint32_t seq, uint64_t now,
-                  uint32_t op, uint32_t heat, fl_output *o) {
+static bool step(fl_core *c, uint32_t epoch, uint32_t seq, uint64_t now,
+                 uint32_t op, uint32_t heat, bool device, bool intent_fresh, fl_output *o) {
     fl_reason detected;
+    uint64_t elapsed_us=c->config.tick_us;
+    char execution=device ? 'D' : 'V';
     if (!c->bound || !c->configured || epoch!=c->epoch || op>2u || heat>FL_PPM ||
+        (c->execution_clock!='\0' && c->execution_clock!=execution) ||
         (c->profile==1u && heat!=0u)) return false;
-    if (!c->step_seen) { if (seq!=0u || now!=0u) return false; }
-    else if (seq!=c->last_step_seq+1u || UINT64_MAX-c->last_step_us<c->config.tick_us ||
-             now!=c->last_step_us+c->config.tick_us) return false;
+    if (!c->step_seen) { if (seq!=0u || (!device && now!=0u)) return false; }
+    else {
+        if (seq!=c->last_step_seq+1u) return false;
+        if (device) { if (now<=c->last_step_us) return false; elapsed_us=now-c->last_step_us; }
+        else if (UINT64_MAX-c->last_step_us<c->config.tick_us || now!=c->last_step_us+c->config.tick_us) return false;
+    }
     memset(o,0,sizeof(*o));
     detected=inspect(c,now,o);
+    if (device && !intent_fresh && detected==FL_NONE) detected=FL_INTENT_EXPIRED;
+    c->execution_clock=execution;
     if (c->state==FL_RUNNING && detected!=FL_NONE) { c->state=FL_TRIPPED; c->reason=detected; c->integral=0.0; }
     if (op!=0u) {
         o->operation_result=2u;
@@ -116,7 +136,7 @@ bool fl_core_step(fl_core *c, uint32_t epoch, uint32_t seq, uint64_t now,
         double kp=(double)c->config.kp_scaled/1e6, ki=(double)c->config.ki_scaled/1e6;
         double raw=(double)c->config.ff_ppm/1e6+kp*error+c->integral;
         if ((raw>=0.0 && raw<=1.0) || (raw>1.0 && error<0.0) || (raw<0.0 && error>0.0))
-            c->integral += ki*error*((double)c->config.tick_us/1e6);
+            c->integral += ki*error*((double)elapsed_us/1e6);
         raw=(double)c->config.ff_ppm/1e6+kp*error+c->integral;
         o->pump_ppm=raw<=0.0 ? 0u : raw>=1.0 ? FL_PPM : (uint32_t)floor(raw*1e6+0.5);
         o->valve_ppm=c->config.normal_valve_ppm;
@@ -128,4 +148,11 @@ bool fl_core_step(fl_core *c, uint32_t epoch, uint32_t seq, uint64_t now,
     o->state=c->state; o->reason=c->reason; o->command_seq=c->command_seq++;
     c->last_step_seq=seq; c->last_step_us=now; c->step_seen=true;
     return true;
+}
+bool fl_core_step(fl_core *c,uint32_t epoch,uint32_t seq,uint64_t now,uint32_t op,uint32_t heat,fl_output *out) {
+    return step(c,epoch,seq,now,op,heat,false,true,out);
+}
+bool fl_core_step_device(fl_core *c,uint32_t epoch,uint32_t seq,uint64_t now,uint32_t op,uint32_t heat,
+                         bool intent_fresh,fl_output *out) {
+    return step(c,epoch,seq,now,op,heat,true,intent_fresh,out);
 }
