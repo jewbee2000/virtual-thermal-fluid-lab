@@ -1,0 +1,43 @@
+{
+  "rule_results": {
+    "R02_volume_balance": {
+      "status": "PASS",
+      "rationale": "augmented ODE volume consistency residual < 1e-9 m3"
+    },
+    "R05_stale_trip": {
+      "status": "PASS",
+      "rationale": "stale-sensor trip within 0.5 s of fault"
+    },
+    "R10_latched_command_stop": {
+      "status": "PASS",
+      "rationale": "all records at/after trip retain reason and request zero pump"
+    }
+  },
+  "checks": {
+    "R02_volume_balance": true,
+    "R05_stale_trip": true,
+    "R10_latched_command_stop": true
+  },
+  "all_checks_pass": true,
+  "evidence_valid": true,
+  "complete_horizon": true,
+  "containment": "PASSED",
+  "peak_level_m": 0.5086289017631282,
+  "continuous_peak_bound_m": 0.5094289017631284,
+  "largest_sample_gap_s": 0.10000000000002274,
+  "final_level_m": 0.15633670751020265,
+  "max_volume_residual_m3": 1.3118846287074604e-16,
+  "name": "sensor_dropout",
+  "controller": "portable C11 host (actual subprocess)",
+  "trip_reason": "stale_sensor",
+  "trip_time_s": 60.3,
+  "boundary": null,
+  "run_failure": null,
+  "wall_time_s": 3.7216030999989016,
+  "physical_validation": "NOT_STARTED",
+  "board_execution": "NOT_EXECUTED",
+  "python_baseline_max_matching_tick_level_delta_m": 7.898499132519277e-09,
+  "python_baseline_trip_time_s": 60.3,
+  "python_baseline_boundary": null,
+  "comparison_meaning": "separate Python baseline; quantized C commands and observations may differ"
+}

@@ -4,6 +4,10 @@ Educational SIL/peripheral demonstration. No hardware execution or hard-real-tim
 claim. Same bounded C codec/core on host and Pico; Python implements a matching
 codec using an independent standard-library checksum oracle.
 
+M4's unreleased device-clock/intent/diagnostic extension is frozen separately in
+docs/MCU_CONTRACT.md before target implementation. M3 host support remains the
+base records below; target execution and extension gates are tracked in tasks.json.
+
 ```
 F|1|TYPE|epoch|seq|clock|time_us|PAYLOAD*CCCC\n
 ```

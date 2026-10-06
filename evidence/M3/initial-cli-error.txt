@@ -1,0 +1,2 @@
+usage: verify_host.py [-h] --exe EXE [--out OUT] [--scenario SCENARIO]
+verify_host.py: error: the following arguments are required: --exe

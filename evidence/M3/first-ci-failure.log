@@ -1,0 +1,83 @@
+sanitizers	Run cmake -S . -B artifacts/sanitize -DCMAKE_BUILD_TYPE=Debug -DFL_SANITIZE=ON	﻿2026-10-06T08:28:27.4605986Z ##[group]Run cmake -S . -B artifacts/sanitize -DCMAKE_BUILD_TYPE=Debug -DFL_SANITIZE=ON
+sanitizers	Run cmake -S . -B artifacts/sanitize -DCMAKE_BUILD_TYPE=Debug -DFL_SANITIZE=ON	2026-10-06T08:28:27.4607646Z ^[[36;1mcmake -S . -B artifacts/sanitize -DCMAKE_BUILD_TYPE=Debug -DFL_SANITIZE=ON^[[0m
+sanitizers	Run cmake -S . -B artifacts/sanitize -DCMAKE_BUILD_TYPE=Debug -DFL_SANITIZE=ON	2026-10-06T08:28:27.4608805Z ^[[36;1mcmake --build artifacts/sanitize^[[0m
+sanitizers	Run cmake -S . -B artifacts/sanitize -DCMAKE_BUILD_TYPE=Debug -DFL_SANITIZE=ON	2026-10-06T08:28:27.4609758Z ^[[36;1mctest --test-dir artifacts/sanitize --output-on-failure^[[0m
+sanitizers	Run cmake -S . -B artifacts/sanitize -DCMAKE_BUILD_TYPE=Debug -DFL_SANITIZE=ON	2026-10-06T08:28:27.4885310Z shell: /usr/bin/bash -e {0}
+sanitizers	Run cmake -S . -B artifacts/sanitize -DCMAKE_BUILD_TYPE=Debug -DFL_SANITIZE=ON	2026-10-06T08:28:27.4886087Z env:
+sanitizers	Run cmake -S . -B artifacts/sanitize -DCMAKE_BUILD_TYPE=Debug -DFL_SANITIZE=ON	2026-10-06T08:28:27.4886726Z   ASAN_OPTIONS: detect_leaks=1:halt_on_error=1
+sanitizers	Run cmake -S . -B artifacts/sanitize -DCMAKE_BUILD_TYPE=Debug -DFL_SANITIZE=ON	2026-10-06T08:28:27.4887703Z   UBSAN_OPTIONS: halt_on_error=1:print_stacktrace=1
+sanitizers	Run cmake -S . -B artifacts/sanitize -DCMAKE_BUILD_TYPE=Debug -DFL_SANITIZE=ON	2026-10-06T08:28:27.4888576Z ##[endgroup]
+sanitizers	Run cmake -S . -B artifacts/sanitize -DCMAKE_BUILD_TYPE=Debug -DFL_SANITIZE=ON	2026-10-06T08:28:29.3334011Z -- The C compiler identification is GNU 13.3.0
+sanitizers	Run cmake -S . -B artifacts/sanitize -DCMAKE_BUILD_TYPE=Debug -DFL_SANITIZE=ON	2026-10-06T08:28:29.5815841Z -- Detecting C compiler ABI info
+sanitizers	Run cmake -S . -B artifacts/sanitize -DCMAKE_BUILD_TYPE=Debug -DFL_SANITIZE=ON	2026-10-06T08:28:30.1219287Z -- Detecting C compiler ABI info - done
+sanitizers	Run cmake -S . -B artifacts/sanitize -DCMAKE_BUILD_TYPE=Debug -DFL_SANITIZE=ON	2026-10-06T08:28:30.1400056Z -- Check for working C compiler: /usr/bin/cc - skipped
+sanitizers	Run cmake -S . -B artifacts/sanitize -DCMAKE_BUILD_TYPE=Debug -DFL_SANITIZE=ON	2026-10-06T08:28:30.1446859Z -- Detecting C compile features
+sanitizers	Run cmake -S . -B artifacts/sanitize -DCMAKE_BUILD_TYPE=Debug -DFL_SANITIZE=ON	2026-10-06T08:28:30.1512113Z -- Detecting C compile features - done
+sanitizers	Run cmake -S . -B artifacts/sanitize -DCMAKE_BUILD_TYPE=Debug -DFL_SANITIZE=ON	2026-10-06T08:28:30.1924661Z -- Configuring done (1.7s)
+sanitizers	Run cmake -S . -B artifacts/sanitize -DCMAKE_BUILD_TYPE=Debug -DFL_SANITIZE=ON	2026-10-06T08:28:30.2213774Z -- Generating done (0.0s)
+sanitizers	Run cmake -S . -B artifacts/sanitize -DCMAKE_BUILD_TYPE=Debug -DFL_SANITIZE=ON	2026-10-06T08:28:30.2223324Z -- Build files have been written to: /home/runner/work/virtual-thermal-fluid-lab/virtual-thermal-fluid-lab/artifacts/sanitize
+sanitizers	Run cmake -S . -B artifacts/sanitize -DCMAKE_BUILD_TYPE=Debug -DFL_SANITIZE=ON	2026-10-06T08:28:30.2477087Z [ 14%] Building C object CMakeFiles/fl_core.dir/firmware/core/fl_core.c.o
+sanitizers	Run cmake -S . -B artifacts/sanitize -DCMAKE_BUILD_TYPE=Debug -DFL_SANITIZE=ON	2026-10-06T08:28:30.7042752Z [ 28%] Building C object CMakeFiles/fl_core.dir/firmware/core/fl_protocol.c.o
+sanitizers	Run cmake -S . -B artifacts/sanitize -DCMAKE_BUILD_TYPE=Debug -DFL_SANITIZE=ON	2026-10-06T08:28:30.7467010Z /home/runner/work/virtual-thermal-fluid-lab/virtual-thermal-fluid-lab/firmware/core/fl_protocol.c: In function ‘fl_crc16’:
+sanitizers	Run cmake -S . -B artifacts/sanitize -DCMAKE_BUILD_TYPE=Debug -DFL_SANITIZE=ON	2026-10-06T08:28:30.7470919Z /home/runner/work/virtual-thermal-fluid-lab/virtual-thermal-fluid-lab/firmware/core/fl_protocol.c:9:85: error: operand of ‘?:’ changes signedness from ‘int’ to ‘unsigned int’ due to unsignedness of other operand [-Werror=sign-compare]
+sanitizers	Run cmake -S . -B artifacts/sanitize -DCMAKE_BUILD_TYPE=Debug -DFL_SANITIZE=ON	2026-10-06T08:28:30.7474765Z     9 |         for(j=0u;j<8u;j++) crc=(uint16_t)((crc & 0x8000u)!=0u ? (crc<<1u)^0x1021u : crc<<1u);
+sanitizers	Run cmake -S . -B artifacts/sanitize -DCMAKE_BUILD_TYPE=Debug -DFL_SANITIZE=ON	2026-10-06T08:28:30.7476242Z       |                                                                                     ^~~~~~~
+sanitizers	Run cmake -S . -B artifacts/sanitize -DCMAKE_BUILD_TYPE=Debug -DFL_SANITIZE=ON	2026-10-06T08:28:31.2373803Z cc1: all warnings being treated as errors
+sanitizers	Run cmake -S . -B artifacts/sanitize -DCMAKE_BUILD_TYPE=Debug -DFL_SANITIZE=ON	2026-10-06T08:28:31.2380805Z gmake[2]: *** [CMakeFiles/fl_core.dir/build.make:93: CMakeFiles/fl_core.dir/firmware/core/fl_protocol.c.o] Error 1
+sanitizers	Run cmake -S . -B artifacts/sanitize -DCMAKE_BUILD_TYPE=Debug -DFL_SANITIZE=ON	2026-10-06T08:28:31.2400175Z gmake[1]: *** [CMakeFiles/Makefile2:121: CMakeFiles/fl_core.dir/all] Error 2
+sanitizers	Run cmake -S . -B artifacts/sanitize -DCMAKE_BUILD_TYPE=Debug -DFL_SANITIZE=ON	2026-10-06T08:28:31.2401447Z gmake: *** [Makefile:101: all] Error 2
+sanitizers	Run cmake -S . -B artifacts/sanitize -DCMAKE_BUILD_TYPE=Debug -DFL_SANITIZE=ON	2026-10-06T08:28:31.2436101Z ##[error]Process completed with exit code 2.
+verification (windows-2025)	Native Windows C host and CTest	﻿2026-10-06T08:28:46.8519155Z ##[group]Run ./scripts/build_host.ps1
+verification (windows-2025)	Native Windows C host and CTest	2026-10-06T08:28:46.8519619Z ^[[36;1m./scripts/build_host.ps1^[[0m
+verification (windows-2025)	Native Windows C host and CTest	2026-10-06T08:28:46.8578790Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+verification (windows-2025)	Native Windows C host and CTest	2026-10-06T08:28:46.8579074Z env:
+verification (windows-2025)	Native Windows C host and CTest	2026-10-06T08:28:46.8579251Z   UV_TOOL_BIN_DIR: D:\a\_temp\uv-tool-bin-dir
+verification (windows-2025)	Native Windows C host and CTest	2026-10-06T08:28:46.8579486Z   UV_TOOL_DIR: D:\a\_temp\uv-tool-dir
+verification (windows-2025)	Native Windows C host and CTest	2026-10-06T08:28:46.8579718Z   UV_PYTHON_INSTALL_DIR: D:\a\_temp\uv-python-dir
+verification (windows-2025)	Native Windows C host and CTest	2026-10-06T08:28:46.8579952Z   UV_CACHE_DIR: D:\a\_temp\setup-uv-cache
+verification (windows-2025)	Native Windows C host and CTest	2026-10-06T08:28:46.8580157Z ##[endgroup]
+verification (windows-2025)	Native Windows C host and CTest	2026-10-06T08:28:49.2632318Z CMake Error at CMakeLists.txt:2 (project):
+verification (windows-2025)	Native Windows C host and CTest	2026-10-06T08:28:49.2632889Z   Generator
+verification (windows-2025)	Native Windows C host and CTest	2026-10-06T08:28:49.2633035Z 
+verification (windows-2025)	Native Windows C host and CTest	2026-10-06T08:28:49.2633145Z     Visual Studio 17 2022
+verification (windows-2025)	Native Windows C host and CTest	2026-10-06T08:28:49.2633323Z 
+verification (windows-2025)	Native Windows C host and CTest	2026-10-06T08:28:49.2633472Z   could not find any instance of Visual Studio.
+verification (windows-2025)	Native Windows C host and CTest	2026-10-06T08:28:49.2633732Z 
+verification (windows-2025)	Native Windows C host and CTest	2026-10-06T08:28:49.2633739Z 
+verification (windows-2025)	Native Windows C host and CTest	2026-10-06T08:28:49.2633794Z 
+verification (windows-2025)	Native Windows C host and CTest	2026-10-06T08:28:49.2637555Z -- Configuring incomplete, errors occurred!
+verification (windows-2025)	Native Windows C host and CTest	2026-10-06T08:28:49.8850464Z ^[[31;1mException: ^[[0mD:\a\virtual-thermal-fluid-lab\virtual-thermal-fluid-lab\scripts\build_host.ps1:7^[[0m
+verification (windows-2025)	Native Windows C host and CTest	2026-10-06T08:28:49.8851278Z ^[[31;1m^[[0m^[[36;1mLine |^[[0m
+verification (windows-2025)	Native Windows C host and CTest	2026-10-06T08:28:49.8851991Z ^[[31;1m^[[0m^[[36;1m^[[36;1m   7 | ^[[0m … ASTEXITCODE -ne 0) { ^[[36;1mthrow "CMake configure failed ($LASTEXITCODE)"^[[0m }^[[0m
+verification (windows-2025)	Native Windows C host and CTest	2026-10-06T08:28:49.8852938Z ^[[31;1m^[[0m^[[36;1m^[[36;1m^[[0m^[[36;1m^[[0m^[[36;1m     | ^[[31;1m                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^[[0m
+verification (windows-2025)	Native Windows C host and CTest	2026-10-06T08:28:49.8853694Z ^[[31;1m^[[0m^[[36;1m^[[36;1m^[[0m^[[36;1m^[[0m^[[36;1m^[[31;1m^[[31;1m^[[36;1m     | ^[[31;1mCMake configure failed (1)^[[0m
+verification (windows-2025)	Native Windows C host and CTest	2026-10-06T08:28:49.9316959Z ##[error]Process completed with exit code 1.
+verification (ubuntu-24.04)	Native Linux C host and CTest	﻿2026-10-06T08:28:33.1975491Z ##[group]Run cmake -S . -B artifacts/host-build -DCMAKE_BUILD_TYPE=Release
+verification (ubuntu-24.04)	Native Linux C host and CTest	2026-10-06T08:28:33.1976081Z ^[[36;1mcmake -S . -B artifacts/host-build -DCMAKE_BUILD_TYPE=Release^[[0m
+verification (ubuntu-24.04)	Native Linux C host and CTest	2026-10-06T08:28:33.1976496Z ^[[36;1mcmake --build artifacts/host-build^[[0m
+verification (ubuntu-24.04)	Native Linux C host and CTest	2026-10-06T08:28:33.1976908Z ^[[36;1mctest --test-dir artifacts/host-build --output-on-failure^[[0m
+verification (ubuntu-24.04)	Native Linux C host and CTest	2026-10-06T08:28:33.2040895Z shell: /usr/bin/bash -e {0}
+verification (ubuntu-24.04)	Native Linux C host and CTest	2026-10-06T08:28:33.2041166Z env:
+verification (ubuntu-24.04)	Native Linux C host and CTest	2026-10-06T08:28:33.2041468Z   UV_PYTHON_INSTALL_DIR: /home/runner/work/_temp/uv-python-dir
+verification (ubuntu-24.04)	Native Linux C host and CTest	2026-10-06T08:28:33.2042159Z   UV_CACHE_DIR: /home/runner/work/_temp/setup-uv-cache
+verification (ubuntu-24.04)	Native Linux C host and CTest	2026-10-06T08:28:33.2042556Z ##[endgroup]
+verification (ubuntu-24.04)	Native Linux C host and CTest	2026-10-06T08:28:34.9724856Z -- The C compiler identification is GNU 13.3.0
+verification (ubuntu-24.04)	Native Linux C host and CTest	2026-10-06T08:28:35.1872072Z -- Detecting C compiler ABI info
+verification (ubuntu-24.04)	Native Linux C host and CTest	2026-10-06T08:28:35.5359675Z -- Detecting C compiler ABI info - done
+verification (ubuntu-24.04)	Native Linux C host and CTest	2026-10-06T08:28:35.5533718Z -- Check for working C compiler: /usr/bin/cc - skipped
+verification (ubuntu-24.04)	Native Linux C host and CTest	2026-10-06T08:28:35.5626293Z -- Detecting C compile features
+verification (ubuntu-24.04)	Native Linux C host and CTest	2026-10-06T08:28:35.5692128Z -- Detecting C compile features - done
+verification (ubuntu-24.04)	Native Linux C host and CTest	2026-10-06T08:28:35.6161693Z -- Configuring done (1.1s)
+verification (ubuntu-24.04)	Native Linux C host and CTest	2026-10-06T08:28:35.6449127Z -- Generating done (0.0s)
+verification (ubuntu-24.04)	Native Linux C host and CTest	2026-10-06T08:28:35.6453386Z -- Build files have been written to: /home/runner/work/virtual-thermal-fluid-lab/virtual-thermal-fluid-lab/artifacts/host-build
+verification (ubuntu-24.04)	Native Linux C host and CTest	2026-10-06T08:28:35.6684781Z [ 14%] Building C object CMakeFiles/fl_core.dir/firmware/core/fl_core.c.o
+verification (ubuntu-24.04)	Native Linux C host and CTest	2026-10-06T08:28:35.8224110Z [ 28%] Building C object CMakeFiles/fl_core.dir/firmware/core/fl_protocol.c.o
+verification (ubuntu-24.04)	Native Linux C host and CTest	2026-10-06T08:28:35.8423477Z /home/runner/work/virtual-thermal-fluid-lab/virtual-thermal-fluid-lab/firmware/core/fl_protocol.c: In function ‘fl_crc16’:
+verification (ubuntu-24.04)	Native Linux C host and CTest	2026-10-06T08:28:35.8426826Z /home/runner/work/virtual-thermal-fluid-lab/virtual-thermal-fluid-lab/firmware/core/fl_protocol.c:9:85: error: operand of ‘?:’ changes signedness from ‘int’ to ‘unsigned int’ due to unsignedness of other operand [-Werror=sign-compare]
+verification (ubuntu-24.04)	Native Linux C host and CTest	2026-10-06T08:28:35.8429581Z     9 |         for(j=0u;j<8u;j++) crc=(uint16_t)((crc & 0x8000u)!=0u ? (crc<<1u)^0x1021u : crc<<1u);
+verification (ubuntu-24.04)	Native Linux C host and CTest	2026-10-06T08:28:35.8430796Z       |                                                                                     ^~~~~~~
+verification (ubuntu-24.04)	Native Linux C host and CTest	2026-10-06T08:28:35.9792096Z cc1: all warnings being treated as errors
+verification (ubuntu-24.04)	Native Linux C host and CTest	2026-10-06T08:28:35.9810121Z gmake[2]: *** [CMakeFiles/fl_core.dir/build.make:93: CMakeFiles/fl_core.dir/firmware/core/fl_protocol.c.o] Error 1
+verification (ubuntu-24.04)	Native Linux C host and CTest	2026-10-06T08:28:35.9812244Z gmake[1]: *** [CMakeFiles/Makefile2:121: CMakeFiles/fl_core.dir/all] Error 2
+verification (ubuntu-24.04)	Native Linux C host and CTest	2026-10-06T08:28:35.9814708Z gmake: *** [Makefile:101: all] Error 2
+verification (ubuntu-24.04)	Native Linux C host and CTest	2026-10-06T08:28:35.9837757Z ##[error]Process completed with exit code 2.

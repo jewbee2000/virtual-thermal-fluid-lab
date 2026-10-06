@@ -1,0 +1,48 @@
+{
+  "rule_results": {
+    "R02_volume_balance": {
+      "status": "PASS",
+      "rationale": "augmented ODE volume consistency residual < 1e-9 m3"
+    },
+    "R06_high_trip": {
+      "status": "PASS",
+      "rationale": "independent high switch causes trip"
+    },
+    "R07_containment": {
+      "status": "PASS",
+      "rationale": "complete horizon, no boundary and conservative continuous peak < 0.95 m"
+    },
+    "R10_latched_command_stop": {
+      "status": "PASS",
+      "rationale": "all records at/after trip retain reason and request zero pump"
+    }
+  },
+  "checks": {
+    "R02_volume_balance": true,
+    "R06_high_trip": true,
+    "R07_containment": true,
+    "R10_latched_command_stop": true
+  },
+  "all_checks_pass": true,
+  "evidence_valid": true,
+  "complete_horizon": true,
+  "containment": "PASSED",
+  "peak_level_m": 0.8018976274588283,
+  "continuous_peak_bound_m": 0.8026976274588284,
+  "largest_sample_gap_s": 0.10000000000002274,
+  "final_level_m": 0.47647654989768917,
+  "max_volume_residual_m3": 1.4224732503009818e-16,
+  "name": "sensor_bias_ramp",
+  "controller": "portable C11 host (actual subprocess)",
+  "trip_reason": "high_high",
+  "trip_time_s": 123.1,
+  "boundary": null,
+  "run_failure": null,
+  "wall_time_s": 3.9472167000003537,
+  "physical_validation": "NOT_STARTED",
+  "board_execution": "NOT_EXECUTED",
+  "python_baseline_max_matching_tick_level_delta_m": 1.9949005336528103e-08,
+  "python_baseline_trip_time_s": 123.1,
+  "python_baseline_boundary": null,
+  "comparison_meaning": "separate Python baseline; quantized C commands and observations may differ"
+}

@@ -1,0 +1,72 @@
+[
+  {
+    "name": "blocked_outlet",
+    "all_checks_pass": true,
+    "trip_reason": null,
+    "trip_time_s": null,
+    "boundary": null,
+    "containment": "PASSED",
+    "wall_time_s": 3.9787836000014067,
+    "python_baseline_max_matching_tick_level_delta_m": 1.9046846988501898e-08
+  },
+  {
+    "name": "nominal",
+    "all_checks_pass": true,
+    "trip_reason": null,
+    "trip_time_s": null,
+    "boundary": null,
+    "containment": "PASSED",
+    "wall_time_s": 3.7063631000000896,
+    "python_baseline_max_matching_tick_level_delta_m": 2.614094052333371e-08
+  },
+  {
+    "name": "pump_failed_off",
+    "all_checks_pass": true,
+    "trip_reason": null,
+    "trip_time_s": null,
+    "boundary": null,
+    "containment": "PASSED",
+    "wall_time_s": 4.168798299999253,
+    "python_baseline_max_matching_tick_level_delta_m": 7.898499132519277e-09
+  },
+  {
+    "name": "pump_stuck_on",
+    "all_checks_pass": true,
+    "trip_reason": "high_high",
+    "trip_time_s": 117.9,
+    "boundary": "full",
+    "containment": "FAILED",
+    "wall_time_s": 2.6020416999999725,
+    "python_baseline_max_matching_tick_level_delta_m": 7.898499132519277e-09
+  },
+  {
+    "name": "sensor_bias_ramp",
+    "all_checks_pass": true,
+    "trip_reason": "high_high",
+    "trip_time_s": 123.1,
+    "boundary": null,
+    "containment": "PASSED",
+    "wall_time_s": 3.9472167000003537,
+    "python_baseline_max_matching_tick_level_delta_m": 1.9949005336528103e-08
+  },
+  {
+    "name": "sensor_dropout",
+    "all_checks_pass": true,
+    "trip_reason": "stale_sensor",
+    "trip_time_s": 60.3,
+    "boundary": null,
+    "containment": "PASSED",
+    "wall_time_s": 3.7216030999989016,
+    "python_baseline_max_matching_tick_level_delta_m": 7.898499132519277e-09
+  },
+  {
+    "name": "sensor_stuck",
+    "all_checks_pass": true,
+    "trip_reason": null,
+    "trip_time_s": null,
+    "boundary": null,
+    "containment": "PASSED",
+    "wall_time_s": 3.7844112000002497,
+    "python_baseline_max_matching_tick_level_delta_m": 1.212414102669257e-06
+  }
+]

@@ -1,0 +1,318 @@
+[
+  {
+    "rule_results": {
+      "R02_volume_balance": {
+        "status": "PASS",
+        "rationale": "augmented ODE volume consistency residual < 1e-9 m3"
+      },
+      "R11_blockage_contained": {
+        "status": "PASS",
+        "rationale": "complete horizon, no boundary and conservative continuous peak < 0.65 m"
+      },
+      "R10_latched_command_stop": {
+        "status": "NOT_APPLICABLE",
+        "rationale": "no observed trip; no latch behavior exercised"
+      }
+    },
+    "checks": {
+      "R02_volume_balance": true,
+      "R11_blockage_contained": true,
+      "R10_latched_command_stop": null
+    },
+    "all_checks_pass": true,
+    "evidence_valid": true,
+    "complete_horizon": true,
+    "containment": "PASSED",
+    "peak_level_m": 0.6204717779251036,
+    "continuous_peak_bound_m": 0.6212717779251037,
+    "largest_sample_gap_s": 0.10000000000002274,
+    "final_level_m": 0.6204717779251036,
+    "max_volume_residual_m3": 8.326672684688674e-17,
+    "name": "blocked_outlet",
+    "controller": "portable C11 host (actual subprocess)",
+    "trip_reason": null,
+    "trip_time_s": null,
+    "boundary": null,
+    "run_failure": null,
+    "wall_time_s": 3.9787836000014067,
+    "physical_validation": "NOT_STARTED",
+    "board_execution": "NOT_EXECUTED",
+    "python_baseline_max_matching_tick_level_delta_m": 1.9046846988501898e-08,
+    "python_baseline_trip_time_s": null,
+    "python_baseline_boundary": null,
+    "comparison_meaning": "separate Python baseline; quantized C commands and observations may differ"
+  },
+  {
+    "rule_results": {
+      "R02_volume_balance": {
+        "status": "PASS",
+        "rationale": "augmented ODE volume consistency residual < 1e-9 m3"
+      },
+      "R01_tracking": {
+        "status": "PASS",
+        "rationale": "all last-30-second level errors < 0.02 m"
+      },
+      "R03_no_trip": {
+        "status": "PASS",
+        "rationale": "nominal horizon must complete with no trip"
+      },
+      "R04_no_boundary": {
+        "status": "PASS",
+        "rationale": "nominal horizon must complete without domain exit"
+      },
+      "R10_latched_command_stop": {
+        "status": "NOT_APPLICABLE",
+        "rationale": "no observed trip; no latch behavior exercised"
+      }
+    },
+    "checks": {
+      "R02_volume_balance": true,
+      "R01_tracking": true,
+      "R03_no_trip": true,
+      "R04_no_boundary": true,
+      "R10_latched_command_stop": null
+    },
+    "all_checks_pass": true,
+    "evidence_valid": true,
+    "complete_horizon": true,
+    "containment": "PASSED",
+    "peak_level_m": 0.5563729740911147,
+    "continuous_peak_bound_m": 0.5571729740911149,
+    "largest_sample_gap_s": 0.10000000000002274,
+    "final_level_m": 0.4986868031085908,
+    "max_volume_residual_m3": 1.4224732503009818e-16,
+    "name": "nominal",
+    "controller": "portable C11 host (actual subprocess)",
+    "trip_reason": null,
+    "trip_time_s": null,
+    "boundary": null,
+    "run_failure": null,
+    "wall_time_s": 3.7063631000000896,
+    "physical_validation": "NOT_STARTED",
+    "board_execution": "NOT_EXECUTED",
+    "python_baseline_max_matching_tick_level_delta_m": 2.614094052333371e-08,
+    "python_baseline_trip_time_s": null,
+    "python_baseline_boundary": null,
+    "comparison_meaning": "separate Python baseline; quantized C commands and observations may differ"
+  },
+  {
+    "rule_results": {
+      "R02_volume_balance": {
+        "status": "PASS",
+        "rationale": "augmented ODE volume consistency residual < 1e-9 m3"
+      },
+      "R09_characterization_complete": {
+        "status": "PASS",
+        "rationale": "characterization requires the complete configured horizon"
+      },
+      "R10_latched_command_stop": {
+        "status": "NOT_APPLICABLE",
+        "rationale": "no observed trip; no latch behavior exercised"
+      }
+    },
+    "checks": {
+      "R02_volume_balance": true,
+      "R09_characterization_complete": true,
+      "R10_latched_command_stop": null
+    },
+    "all_checks_pass": true,
+    "evidence_valid": true,
+    "complete_horizon": true,
+    "containment": "PASSED",
+    "peak_level_m": 0.5079465834047522,
+    "continuous_peak_bound_m": 0.5087465834047523,
+    "largest_sample_gap_s": 0.10000000000002274,
+    "final_level_m": 0.15554140536538047,
+    "max_volume_residual_m3": 1.682681771697503e-16,
+    "name": "pump_failed_off",
+    "controller": "portable C11 host (actual subprocess)",
+    "trip_reason": null,
+    "trip_time_s": null,
+    "boundary": null,
+    "run_failure": null,
+    "wall_time_s": 4.168798299999253,
+    "physical_validation": "NOT_STARTED",
+    "board_execution": "NOT_EXECUTED",
+    "python_baseline_max_matching_tick_level_delta_m": 7.898499132519277e-09,
+    "python_baseline_trip_time_s": null,
+    "python_baseline_boundary": null,
+    "comparison_meaning": "separate Python baseline; quantized C commands and observations may differ"
+  },
+  {
+    "rule_results": {
+      "R02_volume_balance": {
+        "status": "PASS",
+        "rationale": "augmented ODE volume consistency residual < 1e-9 m3"
+      },
+      "R08_hazard_exposed": {
+        "status": "PASS",
+        "rationale": "high-switch trip followed by full-tank terminal event; containment failed"
+      },
+      "R10_latched_command_stop": {
+        "status": "PASS",
+        "rationale": "all records at/after trip retain reason and request zero pump"
+      }
+    },
+    "checks": {
+      "R02_volume_balance": true,
+      "R08_hazard_exposed": true,
+      "R10_latched_command_stop": true
+    },
+    "all_checks_pass": true,
+    "evidence_valid": true,
+    "complete_horizon": false,
+    "containment": "FAILED",
+    "peak_level_m": 0.9999999999999999,
+    "continuous_peak_bound_m": 1.0008000000000001,
+    "largest_sample_gap_s": 0.10000000000002274,
+    "final_level_m": 0.9999999999999999,
+    "max_volume_residual_m3": 6.175615574477433e-16,
+    "name": "pump_stuck_on",
+    "controller": "portable C11 host (actual subprocess)",
+    "trip_reason": "high_high",
+    "trip_time_s": 117.9,
+    "boundary": "full",
+    "run_failure": null,
+    "wall_time_s": 2.6020416999999725,
+    "physical_validation": "NOT_STARTED",
+    "board_execution": "NOT_EXECUTED",
+    "python_baseline_max_matching_tick_level_delta_m": 7.898499132519277e-09,
+    "python_baseline_trip_time_s": 117.9,
+    "python_baseline_boundary": "full",
+    "comparison_meaning": "separate Python baseline; quantized C commands and observations may differ"
+  },
+  {
+    "rule_results": {
+      "R02_volume_balance": {
+        "status": "PASS",
+        "rationale": "augmented ODE volume consistency residual < 1e-9 m3"
+      },
+      "R06_high_trip": {
+        "status": "PASS",
+        "rationale": "independent high switch causes trip"
+      },
+      "R07_containment": {
+        "status": "PASS",
+        "rationale": "complete horizon, no boundary and conservative continuous peak < 0.95 m"
+      },
+      "R10_latched_command_stop": {
+        "status": "PASS",
+        "rationale": "all records at/after trip retain reason and request zero pump"
+      }
+    },
+    "checks": {
+      "R02_volume_balance": true,
+      "R06_high_trip": true,
+      "R07_containment": true,
+      "R10_latched_command_stop": true
+    },
+    "all_checks_pass": true,
+    "evidence_valid": true,
+    "complete_horizon": true,
+    "containment": "PASSED",
+    "peak_level_m": 0.8018976274588283,
+    "continuous_peak_bound_m": 0.8026976274588284,
+    "largest_sample_gap_s": 0.10000000000002274,
+    "final_level_m": 0.47647654989768917,
+    "max_volume_residual_m3": 1.4224732503009818e-16,
+    "name": "sensor_bias_ramp",
+    "controller": "portable C11 host (actual subprocess)",
+    "trip_reason": "high_high",
+    "trip_time_s": 123.1,
+    "boundary": null,
+    "run_failure": null,
+    "wall_time_s": 3.9472167000003537,
+    "physical_validation": "NOT_STARTED",
+    "board_execution": "NOT_EXECUTED",
+    "python_baseline_max_matching_tick_level_delta_m": 1.9949005336528103e-08,
+    "python_baseline_trip_time_s": 123.1,
+    "python_baseline_boundary": null,
+    "comparison_meaning": "separate Python baseline; quantized C commands and observations may differ"
+  },
+  {
+    "rule_results": {
+      "R02_volume_balance": {
+        "status": "PASS",
+        "rationale": "augmented ODE volume consistency residual < 1e-9 m3"
+      },
+      "R05_stale_trip": {
+        "status": "PASS",
+        "rationale": "stale-sensor trip within 0.5 s of fault"
+      },
+      "R10_latched_command_stop": {
+        "status": "PASS",
+        "rationale": "all records at/after trip retain reason and request zero pump"
+      }
+    },
+    "checks": {
+      "R02_volume_balance": true,
+      "R05_stale_trip": true,
+      "R10_latched_command_stop": true
+    },
+    "all_checks_pass": true,
+    "evidence_valid": true,
+    "complete_horizon": true,
+    "containment": "PASSED",
+    "peak_level_m": 0.5086289017631282,
+    "continuous_peak_bound_m": 0.5094289017631284,
+    "largest_sample_gap_s": 0.10000000000002274,
+    "final_level_m": 0.15633670751020265,
+    "max_volume_residual_m3": 1.3118846287074604e-16,
+    "name": "sensor_dropout",
+    "controller": "portable C11 host (actual subprocess)",
+    "trip_reason": "stale_sensor",
+    "trip_time_s": 60.3,
+    "boundary": null,
+    "run_failure": null,
+    "wall_time_s": 3.7216030999989016,
+    "physical_validation": "NOT_STARTED",
+    "board_execution": "NOT_EXECUTED",
+    "python_baseline_max_matching_tick_level_delta_m": 7.898499132519277e-09,
+    "python_baseline_trip_time_s": 60.3,
+    "python_baseline_boundary": null,
+    "comparison_meaning": "separate Python baseline; quantized C commands and observations may differ"
+  },
+  {
+    "rule_results": {
+      "R02_volume_balance": {
+        "status": "PASS",
+        "rationale": "augmented ODE volume consistency residual < 1e-9 m3"
+      },
+      "R09_characterization_complete": {
+        "status": "PASS",
+        "rationale": "characterization requires the complete configured horizon"
+      },
+      "R10_latched_command_stop": {
+        "status": "NOT_APPLICABLE",
+        "rationale": "no observed trip; no latch behavior exercised"
+      }
+    },
+    "checks": {
+      "R02_volume_balance": true,
+      "R09_characterization_complete": true,
+      "R10_latched_command_stop": null
+    },
+    "all_checks_pass": true,
+    "evidence_valid": true,
+    "complete_horizon": true,
+    "containment": "PASSED",
+    "peak_level_m": 0.7895290060309701,
+    "continuous_peak_bound_m": 0.7903290060309702,
+    "largest_sample_gap_s": 0.10000000000002274,
+    "final_level_m": 0.7895290060309701,
+    "max_volume_residual_m3": 1.942890293094024e-16,
+    "name": "sensor_stuck",
+    "controller": "portable C11 host (actual subprocess)",
+    "trip_reason": null,
+    "trip_time_s": null,
+    "boundary": null,
+    "run_failure": null,
+    "wall_time_s": 3.7844112000002497,
+    "physical_validation": "NOT_STARTED",
+    "board_execution": "NOT_EXECUTED",
+    "python_baseline_max_matching_tick_level_delta_m": 1.212414102669257e-06,
+    "python_baseline_trip_time_s": null,
+    "python_baseline_boundary": null,
+    "comparison_meaning": "separate Python baseline; quantized C commands and observations may differ"
+  }
+]
