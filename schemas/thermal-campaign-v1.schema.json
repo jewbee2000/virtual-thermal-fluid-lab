@@ -1,0 +1,725 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Normalized integrated thermal campaign v1",
+  "$comment": "Frozen before M5 outcomes. Runtime adds finite-number, duplicate-key, ordering, span, tick and cross-field validation. This schema describes normalized exports.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "topology": {
+      "const": "thermal_loop"
+    },
+    "name": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]{0,95}$"
+    },
+    "case_id": {
+      "enum": [
+        "nominal_heat_step",
+        "restriction",
+        "reduced_rejection",
+        "flow_dropout",
+        "frozen_temperature",
+        "biased_temperature",
+        "delayed_flow",
+        "reordered_flow",
+        "corrupt_flow",
+        "truncated_flow",
+        "dropped_command",
+        "delayed_command",
+        "dropped_ack",
+        "planned_restart",
+        "stuck_heat_lost_sink",
+        "near_tick_before",
+        "near_tick_after"
+      ]
+    },
+    "duration_us": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 1200000000
+    },
+    "tick_us": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 1000000
+    },
+    "seed": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295
+    },
+    "initial": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "wall_temperature_k": {
+          "type": "number",
+          "exclusiveMinimum": 273.15,
+          "exclusiveMaximum": 368.15
+        },
+        "hot_temperature_k": {
+          "type": "number",
+          "exclusiveMinimum": 273.15,
+          "exclusiveMaximum": 368.15
+        },
+        "cold_temperature_k": {
+          "type": "number",
+          "exclusiveMinimum": 273.15,
+          "exclusiveMaximum": 368.15
+        },
+        "pump_speed": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "valve_opening": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      },
+      "required": [
+        "wall_temperature_k",
+        "hot_temperature_k",
+        "cold_temperature_k",
+        "pump_speed",
+        "valve_opening"
+      ]
+    },
+    "model": {
+      "$ref": "thermal-model-v1.schema.json"
+    },
+    "controller": {
+      "$ref": "thermal-controller-v1.schema.json"
+    },
+    "sensor_adapter": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "separate_wall_trip_k": {
+          "type": "number",
+          "minimum": 273.15,
+          "maximum": 368.15
+        }
+      },
+      "required": [
+        "separate_wall_trip_k"
+      ]
+    },
+    "initial_heat_demand": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "events": {
+      "type": "array",
+      "maxItems": 64,
+      "items": {
+        "oneOf": [
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "event_id": {
+                "type": "string",
+                "pattern": "^[a-z][a-z0-9_]{0,63}$"
+              },
+              "time_us": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 1199999999
+              },
+              "type": {
+                "const": "heat_demand"
+              },
+              "command": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              }
+            },
+            "required": [
+              "event_id",
+              "time_us",
+              "type",
+              "command"
+            ]
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "event_id": {
+                "type": "string",
+                "pattern": "^[a-z][a-z0-9_]{0,63}$"
+              },
+              "time_us": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 1199999999
+              },
+              "type": {
+                "const": "model_coefficients"
+              },
+              "hot_conductance_w_k": {
+                "type": "number",
+                "minimum": 0
+              },
+              "sink_conductance_w_k": {
+                "type": "number",
+                "minimum": 0
+              },
+              "pipe_resistance_pa_s2_m6": {
+                "type": "number",
+                "minimum": 0
+              },
+              "valve_resistance_pa_s2_m6": {
+                "type": "number",
+                "minimum": 0
+              }
+            },
+            "required": [
+              "event_id",
+              "time_us",
+              "type"
+            ],
+            "anyOf": [
+              {
+                "required": [
+                  "hot_conductance_w_k"
+                ]
+              },
+              {
+                "required": [
+                  "sink_conductance_w_k"
+                ]
+              },
+              {
+                "required": [
+                  "pipe_resistance_pa_s2_m6"
+                ]
+              },
+              {
+                "required": [
+                  "valve_resistance_pa_s2_m6"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "event_id": {
+                "type": "string",
+                "pattern": "^[a-z][a-z0-9_]{0,63}$"
+              },
+              "time_us": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 1199999999
+              },
+              "type": {
+                "const": "observation_link"
+              },
+              "channel": {
+                "const": 2
+              },
+              "mode": {
+                "const": "drop"
+              },
+              "end_us": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 1200000000
+              }
+            },
+            "required": [
+              "event_id",
+              "time_us",
+              "type",
+              "channel",
+              "mode",
+              "end_us"
+            ]
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "event_id": {
+                "type": "string",
+                "pattern": "^[a-z][a-z0-9_]{0,63}$"
+              },
+              "time_us": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 1199999999
+              },
+              "type": {
+                "const": "observation_link"
+              },
+              "channel": {
+                "const": 2
+              },
+              "mode": {
+                "const": "delay"
+              },
+              "end_us": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 1200000000
+              },
+              "delay_us": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 10000000
+              }
+            },
+            "required": [
+              "event_id",
+              "time_us",
+              "type",
+              "channel",
+              "mode",
+              "end_us",
+              "delay_us"
+            ]
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "event_id": {
+                "type": "string",
+                "pattern": "^[a-z][a-z0-9_]{0,63}$"
+              },
+              "time_us": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 1199999999
+              },
+              "type": {
+                "const": "observation_link"
+              },
+              "channel": {
+                "const": 2
+              },
+              "mode": {
+                "const": "reorder"
+              }
+            },
+            "required": [
+              "event_id",
+              "time_us",
+              "type",
+              "channel",
+              "mode"
+            ]
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "event_id": {
+                "type": "string",
+                "pattern": "^[a-z][a-z0-9_]{0,63}$"
+              },
+              "time_us": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 1199999999
+              },
+              "type": {
+                "const": "observation_link"
+              },
+              "channel": {
+                "const": 2
+              },
+              "mode": {
+                "const": "corrupt"
+              }
+            },
+            "required": [
+              "event_id",
+              "time_us",
+              "type",
+              "channel",
+              "mode"
+            ]
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "event_id": {
+                "type": "string",
+                "pattern": "^[a-z][a-z0-9_]{0,63}$"
+              },
+              "time_us": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 1199999999
+              },
+              "type": {
+                "const": "observation_link"
+              },
+              "channel": {
+                "const": 2
+              },
+              "mode": {
+                "const": "truncate"
+              }
+            },
+            "required": [
+              "event_id",
+              "time_us",
+              "type",
+              "channel",
+              "mode"
+            ]
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "event_id": {
+                "type": "string",
+                "pattern": "^[a-z][a-z0-9_]{0,63}$"
+              },
+              "time_us": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 1199999999
+              },
+              "type": {
+                "const": "observation_override"
+              },
+              "channels": {
+                "const": [
+                  3,
+                  5
+                ]
+              },
+              "mode": {
+                "const": "freeze"
+              },
+              "end_us": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 1200000000
+              },
+              "value_i": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 2,
+                "items": {
+                  "type": "integer",
+                  "minimum": 273150,
+                  "maximum": 368150
+                }
+              }
+            },
+            "required": [
+              "event_id",
+              "time_us",
+              "type",
+              "channels",
+              "mode",
+              "value_i"
+            ]
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "event_id": {
+                "type": "string",
+                "pattern": "^[a-z][a-z0-9_]{0,63}$"
+              },
+              "time_us": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 1199999999
+              },
+              "type": {
+                "const": "observation_override"
+              },
+              "channels": {
+                "const": [
+                  3,
+                  5
+                ]
+              },
+              "mode": {
+                "const": "bias"
+              },
+              "end_us": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 1200000000
+              },
+              "bias_k": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "event_id",
+              "time_us",
+              "type",
+              "channels",
+              "mode",
+              "bias_k"
+            ]
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "event_id": {
+                "type": "string",
+                "pattern": "^[a-z][a-z0-9_]{0,63}$"
+              },
+              "time_us": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 1199999999
+              },
+              "type": {
+                "const": "command_link"
+              },
+              "mode": {
+                "const": "drop"
+              },
+              "end_us": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 1200000000
+              }
+            },
+            "required": [
+              "event_id",
+              "time_us",
+              "type",
+              "mode",
+              "end_us"
+            ]
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "event_id": {
+                "type": "string",
+                "pattern": "^[a-z][a-z0-9_]{0,63}$"
+              },
+              "time_us": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 1199999999
+              },
+              "type": {
+                "const": "command_link"
+              },
+              "mode": {
+                "const": "delay"
+              },
+              "end_us": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 1200000000
+              },
+              "delay_us": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 10000000
+              }
+            },
+            "required": [
+              "event_id",
+              "time_us",
+              "type",
+              "mode",
+              "end_us",
+              "delay_us"
+            ]
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "event_id": {
+                "type": "string",
+                "pattern": "^[a-z][a-z0-9_]{0,63}$"
+              },
+              "time_us": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 1199999999
+              },
+              "type": {
+                "const": "command_link"
+              },
+              "mode": {
+                "const": "drop_ack"
+              },
+              "end_us": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 1200000000
+              }
+            },
+            "required": [
+              "event_id",
+              "time_us",
+              "type",
+              "mode",
+              "end_us"
+            ]
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "event_id": {
+                "type": "string",
+                "pattern": "^[a-z][a-z0-9_]{0,63}$"
+              },
+              "time_us": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 1199999999
+              },
+              "type": {
+                "const": "actuator_override"
+              },
+              "heat_command": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "pump_command": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "valve_command": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "end_us": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 1200000000
+              }
+            },
+            "required": [
+              "event_id",
+              "time_us",
+              "type"
+            ],
+            "anyOf": [
+              {
+                "required": [
+                  "heat_command"
+                ]
+              },
+              {
+                "required": [
+                  "pump_command"
+                ]
+              },
+              {
+                "required": [
+                  "valve_command"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "event_id": {
+                "type": "string",
+                "pattern": "^[a-z][a-z0-9_]{0,63}$"
+              },
+              "time_us": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 1199999999
+              },
+              "type": {
+                "const": "restart"
+              },
+              "epoch": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 4294967295
+              }
+            },
+            "required": [
+              "event_id",
+              "time_us",
+              "type",
+              "epoch"
+            ]
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "event_id": {
+                "type": "string",
+                "pattern": "^[a-z][a-z0-9_]{0,63}$"
+              },
+              "time_us": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 1199999999
+              },
+              "type": {
+                "const": "operation"
+              },
+              "operation": {
+                "enum": [
+                  "ARM",
+                  "RESET"
+                ]
+              }
+            },
+            "required": [
+              "event_id",
+              "time_us",
+              "type",
+              "operation"
+            ]
+          }
+        ]
+      }
+    },
+    "solver": {
+      "$ref": "thermal-solver-input-v1.schema.json"
+    }
+  },
+  "required": [
+    "schema_version",
+    "topology",
+    "name",
+    "case_id",
+    "duration_us",
+    "tick_us",
+    "seed",
+    "initial",
+    "model",
+    "controller",
+    "sensor_adapter",
+    "initial_heat_demand",
+    "events",
+    "solver"
+  ]
+}

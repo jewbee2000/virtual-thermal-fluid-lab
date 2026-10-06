@@ -10,7 +10,7 @@ MAX_FRAME_BYTES = 256
 UINT32_MAX = 2**32 - 1
 UINT64_MAX = 2**64 - 1
 PPM = 1_000_000
-COUNTS = dict(B=2, H=1, C=17, O=3, S=2, Q=6, A=2, R=7)
+COUNTS = dict(B=2, H=1, C=17, O=3, S=2, U=2, Q=6, A=2, R=7, X=6, N=7)
 
 
 def _integer(value, minimum, maximum, name):
@@ -121,7 +121,8 @@ class Frame:
             raise ValueError("wrong payload field count")
         for i, value in enumerate(self.payload):
             signed = self.type == "O" and i == 2 or self.type == "C" and i == 11
-            hi = UINT64_MAX if self.type == "C" and i in (6, 7) or self.type == "R" and i == 5 else UINT32_MAX
+            hi = UINT64_MAX if (self.type == "C" and i in (6, 7) or self.type == "R" and i == 5
+                               or self.type == "X" and i in (3,4)) else UINT32_MAX
             if signed or self.type == "C" and i in (10, 12):
                 hi = 2**31-1
             _integer(value, -2**31 if signed else 0, hi, f"payload[{i}]")
@@ -135,14 +136,18 @@ class Frame:
         elif self.type == "O" and (not 1 <= p[0] <= 6 or p[1] not in (0, 1, 2)
                                    or p[1] == 2 and p[2] != 0 or p[0] == 6 and p[2] not in (0, 1)):
             raise ValueError("invalid observation fields")
-        elif self.type == "S" and (p[0] > 2 or p[1] > PPM):
+        elif self.type in ("S","U") and (p[0] > 2 or p[1] > PPM):
             raise ValueError("invalid STEP fields")
-        elif self.type == "Q" and (not 1 <= p[0] <= 10_000_000 or any(v > PPM for v in p[1:4]) or p[4] > 2 or p[5] > 6):
+        elif self.type == "Q" and (not 1 <= p[0] <= 10_000_000 or any(v > PPM for v in p[1:4]) or p[4] > 2 or p[5] > 7):
             raise ValueError("invalid command fields")
         elif self.type == "A" and p[1] > 1:
             raise ValueError("invalid ACK fields")
-        elif self.type == "R" and (p[1] > 2 or p[2] > 6 or p[3] > 63 or p[4] > 63 or p[6] > 2):
+        elif self.type == "R" and (p[1] > 2 or p[2] > 7 or p[3] > 63 or p[4] > 63 or p[6] > 2):
             raise ValueError("invalid reply fields")
+        elif self.type == "X" and (self.clock!="D" or not 1<=p[0]<=6 or not 1<=p[1]<=3 or p[2]>1 or p[5]>2):
+            raise ValueError("invalid channel-source diagnostic fields")
+        elif self.type == "N" and (self.clock!="D" or p[0] not in (1,2) or p[5]>1 or p[6]>1):
+            raise ValueError("invalid device diagnostic fields")
 
     def encode(self):
         body = "|".join(map(str, ("F", 1, self.type, self.epoch, self.sequence,

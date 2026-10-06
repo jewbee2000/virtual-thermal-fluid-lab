@@ -1,0 +1,2 @@
+text	   data	    bss	    dec	    hex	filename
+  45924	      0	  16772	  62696	   f4e8	C:\Users\Walt\Documents\Codex\fluid-lab-import\virtual-fluid-lab\artifacts\M4-integrated-pico\fluid_controller_pico_peripheral.elf

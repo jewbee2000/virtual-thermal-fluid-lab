@@ -1,0 +1,34 @@
+C:\Users\Walt\Documents\Codex\fluid-lab-import\virtual-fluid-lab\artifacts\M4-integrated-pico\fluid_controller_pico_peripheral.elf  :
+section                 size        addr
+.boot2                   256   268435456
+.text                  36072   268435712
+.rodata                 1572   268471784
+.binary_info              32   268473356
+.xip_ram                   0   352321536
+.ram_vector_table        192   536870912
+.uninitialized_data        0   536871104
+.data                   3896   536871104
+.tdata                     0   536875000
+.tbss                      0   536875000
+.tbss_space                0   536875000
+.bss                   16580   536875000
+.tls0                      0   536891580
+.tls1                      0   536891580
+.persistent_data           0   536891580
+.dummy_pre_heap            0   536891580
+.heap                   2048   536891580
+.scratch_x                 0   537133056
+.scratch_y                 0   537137152
+.stack_dummy            2048   537137152
+.debug_info           223301           0
+.debug_abbrev          36638           0
+.debug_loclists       140587           0
+.debug_aranges          6264           0
+.debug_rnglists        20053           0
+.debug_line           195383           0
+.debug_str             40404           0
+.comment                  69           0
+.ARM.attributes           42           0
+.debug_frame           13604           0
+.debug_line_str         1342           0
+Total                 740383

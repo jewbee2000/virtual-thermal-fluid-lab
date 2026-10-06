@@ -1,0 +1,22 @@
+-- Selecting Windows SDK version 10.0.26100.0 to target Windows 10.0.26300.
+-- Configuring done (0.0s)
+-- Generating done (0.2s)
+-- Build files have been written to: C:/Users/Walt/.codex/worktrees/thermal-lab-c-core/virtual-fluid-lab/artifacts/host-build
+MSBuild version 17.14.60+43b635718 for .NET Framework
+
+  fl_core.c
+  fl_protocol.c
+  Generating Code...
+  fl_core.vcxproj -> C:\Users\Walt\.codex\worktrees\thermal-lab-c-core\virtual-fluid-lab\artifacts\host-build\Release\fl_core.lib
+  test_core.c
+  fl_core_tests.vcxproj -> C:\Users\Walt\.codex\worktrees\thermal-lab-c-core\virtual-fluid-lab\artifacts\host-build\Release\fl_core_tests.exe
+  main.c
+  fluid_controller_host.vcxproj -> C:\Users\Walt\.codex\worktrees\thermal-lab-c-core\virtual-fluid-lab\artifacts\host-build\Release\fluid_controller_host.exe
+Test project C:/Users/Walt/.codex/worktrees/thermal-lab-c-core/virtual-fluid-lab/artifacts/host-build
+    Start 1: portable_core_codec
+1/1 Test #1: portable_core_codec ..............   Passed    0.04 sec
+
+100% tests passed out of 1
+
+Total Test time (real) =   0.06 sec
+C:\Users\Walt\.codex\worktrees\thermal-lab-c-core\virtual-fluid-lab\artifacts\host-build\Release\fluid_controller_host.exe

@@ -30,6 +30,38 @@ def raw(body):
 
 
 class ProtocolTests(unittest.TestCase):
+    def test_device_extension_literals_and_source_clock_separation(self):
+        literals=(b"F|1|U|1|4294967295|V|900000000000|1|0*EE1A\n",
+                  b"F|1|X|1|3|D|1000000|1|1|0|900000000000|999999|1*3752\n",
+                  b"F|1|N|1|3|D|1000000|1|3|2|4|5|1|0*DC53\n")
+        for literal in literals:
+            self.assertEqual(decode(literal).encode(),literal)
+            for split in range(len(literal)+1):
+                assembly=FrameAssembler()
+                a,ea=assembly.feed(literal[:split],0.)
+                b,eb=assembly.feed(literal[split:],.1)
+                self.assertEqual(a+b,[decode(literal)])
+                self.assertFalse(ea+eb)
+        x=decode(literals[1])
+        self.assertEqual((x.clock,x.time_us,x.payload[2:5]),("D",1_000_000,(0,900_000_000_000,999_999)))
+        self.assertEqual(decode(Frame("X",1,0,"D",0,(1,1,1,UINT64_MAX,UINT64_MAX,2)).encode()).payload[3],UINT64_MAX)
+
+    def test_device_extension_type_and_enum_bounds(self):
+        bad=("F|1|U|1|0|V|0|3|0","F|1|U|1|0|V|0|1|1000001",
+             "F|1|X|1|0|V|0|1|1|0|0|0|1","F|1|X|1|0|D|0|0|1|0|0|0|1",
+             "F|1|X|1|0|D|0|7|1|0|0|0|1","F|1|X|1|0|D|0|1|0|0|0|0|1",
+             "F|1|X|1|0|D|0|1|4|0|0|0|1","F|1|X|1|0|D|0|1|1|2|0|0|1",
+             "F|1|X|1|0|D|0|1|1|0|0|0|3","F|1|X|1|0|D|0|1|1|0|18446744073709551616|0|1",
+             "F|1|N|1|0|V|0|1|0|0|0|0|0|1","F|1|N|1|0|D|0|0|0|0|0|0|0|1",
+             "F|1|N|1|0|D|0|3|0|0|0|0|0|1","F|1|N|1|0|D|0|1|0|0|0|0|2|1",
+             "F|1|N|1|0|D|0|1|0|0|0|0|0|2","F|1|N|1|0|D|0|1|4294967296|0|0|0|0|1",
+             "F|1|Q|1|0|D|0|1|0|0|0|2|8","F|1|R|1|0|D|0|0|2|8|0|0|0|0")
+        for body in bad:
+            with self.subTest(body=body),self.assertRaises(ValueError):
+                decode(raw(body))
+        self.assertEqual(Frame("Q",1,0,"D",0,(1,0,0,0,2,7)).payload[-1],7)
+        self.assertEqual(Frame("R",1,0,"D",0,(0,2,7,0,0,0,0)).payload[2],7)
+
     def test_literal_crc_and_all_split_points(self):
         self.assertEqual(binascii.crc_hqx(b"123456789", 0), 0x31C3)
         for literal in GOLDENS:
@@ -196,6 +228,18 @@ class ChildFailureTests(unittest.TestCase):
 
 @unittest.skipUnless(HOST.is_file(), "build C host first or set FL_CONTROLLER_HOST")
 class HostIntegrationTests(unittest.TestCase):
+    def test_device_intent_cannot_advance_or_arm_host_virtual_schedule(self):
+        frames=[Frame("H",1,0,"V",0,(1,)),Frame("C",1,0,"V",0,Configuration().payload),
+                Frame("O",1,0,"V",0,(1,1,490000)),Frame("O",1,0,"V",0,(6,1,0)),
+                Frame("U",1,0,"D",123456789,(1,0)),Frame("S",1,0,"V",0,(0,0)),
+                Frame("S",1,1,"V",100001,(1,0)),Frame("S",1,1,"V",100000,(1,0))]
+        result=subprocess.run([str(HOST)],input=b"".join(f.encode() for f in frames),capture_output=True,timeout=2)
+        replies=[decode(line+b"\n") for line in result.stdout.splitlines()]
+        replies=[f for f in replies if f.type=="R"]
+        self.assertEqual(result.returncode,0)
+        self.assertEqual([(f.sequence,f.time_us,f.payload[1]) for f in replies],[(0,0,0),(1,100000,1)])
+        self.assertIn(b"rejected",result.stderr)
+
     def controller(self, directory, configuration=None, **kw):
         return CController(HOST, configuration or Configuration(), trace_dir=Path(directory)/"wire", **kw)
 

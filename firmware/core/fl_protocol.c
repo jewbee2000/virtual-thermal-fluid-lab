@@ -42,15 +42,16 @@ bool fl_frame_valid(const fl_frame *f) {
     if(f->clock!='V' && f->clock!='D') return false;
     switch(f->type) {
     case 'B': n=2u; break; case 'H': n=1u; break; case 'C': n=17u; break;
-    case 'O': n=3u; break; case 'S': n=2u; break; case 'Q': n=6u; break;
-    case 'A': n=2u; break; case 'R': n=7u; break; default:return false;
+    case 'O': n=3u; break; case 'S': case 'U': n=2u; break; case 'Q': n=6u; break;
+    case 'A': n=2u; break; case 'R': case 'N': n=7u; break; case 'X': n=6u; break; default:return false;
     }
     if(f->count!=n) return false;
     for(i=0u;i<n;i++) {
         bool sign=(f->type=='O' && i==2u) || (f->type=='C' && i==11u);
         uint64_t max=UINT32_MAX;
         if(sign || (f->type=='C' && (i==10u || i==12u))) max=INT32_MAX;
-        if((f->type=='C' && (i==6u || i==7u)) || (f->type=='R' && i==5u)) max=UINT64_MAX;
+        if((f->type=='C' && (i==6u || i==7u)) || (f->type=='R' && i==5u) ||
+           (f->type=='X' && (i==3u || i==4u))) max=UINT64_MAX;
         if(!bound(f,i,max,sign)) return false;
     }
     switch(f->type) {
@@ -60,13 +61,17 @@ bool fl_frame_valid(const fl_frame *f) {
     case 'O': return f->values[0].magnitude>=1u && f->values[0].magnitude<=6u &&
         f->values[1].magnitude<=2u && (f->values[1].magnitude!=2u || f->values[2].magnitude==0u) &&
         (f->values[0].magnitude!=6u || (!f->values[2].negative && f->values[2].magnitude<=1u));
-    case 'S': return f->values[0].magnitude<=2u && f->values[1].magnitude<=FL_PPM;
+    case 'S': case 'U': return f->values[0].magnitude<=2u && f->values[1].magnitude<=FL_PPM;
     case 'Q': return f->values[0].magnitude>=1u && f->values[0].magnitude<=10000000u &&
         f->values[1].magnitude<=FL_PPM && f->values[2].magnitude<=FL_PPM && f->values[3].magnitude<=FL_PPM &&
-        f->values[4].magnitude<=2u && f->values[5].magnitude<=6u;
+        f->values[4].magnitude<=2u && f->values[5].magnitude<=7u;
     case 'A': return f->values[1].magnitude<=1u;
-    case 'R': return f->values[1].magnitude<=2u && f->values[2].magnitude<=6u &&
+    case 'R': return f->values[1].magnitude<=2u && f->values[2].magnitude<=7u &&
         f->values[3].magnitude<=63u && f->values[4].magnitude<=63u && f->values[6].magnitude<=2u;
+    case 'X': return f->clock=='D' && f->values[0].magnitude>=1u && f->values[0].magnitude<=6u &&
+        f->values[1].magnitude>=1u && f->values[1].magnitude<=3u && f->values[2].magnitude<=1u && f->values[5].magnitude<=2u;
+    case 'N': return f->clock=='D' && f->values[0].magnitude>=1u && f->values[0].magnitude<=2u &&
+        f->values[5].magnitude<=1u && f->values[6].magnitude<=1u;
     default: return false;
     }
 }

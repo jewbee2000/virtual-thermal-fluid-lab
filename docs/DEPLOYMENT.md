@@ -25,3 +25,14 @@ article/assets into tracked docs, inspect desktop/mobile/equations/downloads,
 review diff/PR targeting gh-pages, then publish only after lab release gates and
 concrete preview pass. Verify actual Pages deployment and live URL. User already
 authorized this gated publication. Do not switch hosting providers or redesign.
+
+M7 preparation refreshed a separate clone at
+C:\Users\Walt\Documents\Codex\fluid-lab-site-release, same gh-pages revision.
+GitHub Pages API actually confirms legacy source gh-pages:/docs and built status;
+latest successful Pages run remains37248239701. Fresh working HTML is CRLF under
+the site's Git settings; hashing the immutable Git blob matches the actual live
+response at9b2948e2c6cc5dd33de64bc8e14ebb84a9a04180984072995f46a0b25e1cb2a5.
+Do not mistake working newline conversion for changed deployed content.
+Fresh `bundle check` and `bundle exec jekyll build --trace` actually passed,
+with Jekyll reporting4.129s. Original build log is in the lab's ignored
+artifacts/site-baseline-build.log. No new article has been published.
