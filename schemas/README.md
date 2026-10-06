@@ -38,3 +38,31 @@ since drain>=0 and modeled inflow<=Qmax. Report numerical error separately;
 no claim that this alone bounds floating point error. Dense extrema may replace
 this with reviewed checks. Thermal/wire contracts precede corresponding work.
 Coordinator alone changes shared schemas and acceptance definitions.
+
+Machine-readable tank scenario, telemetry, model, solver, summary and manifest
+version1 schema files document exact fields. Runtime execution uses strict
+dataclass normalization and an independent raw-evidence evaluator without adding
+a JSON-schema package. Telemetry snapshot record_type is terminal_boundary or
+solver_failure (not a controller tick); time_us is null for non-tick snapshots.
+measurement_age_s is the retained sample age. Summary diagnostics/provenance
+records remain explicit diagnostic maps; input configuration and telemetry fields
+are closed. Schema identity checks are part of the M1 contract tests.
+
+Compatibility: none allows nominal/characterize; sensor_dropout stale_trip/
+characterize; sensor_bias_ramp high_trip/characterize; blocked_outlet contained/
+characterize; pump_stuck_on observe_hazard/characterize; pump_failed_off and
+sensor_stuck characterize only. Default expected is nominal. An active fault
+must occur strictly before duration and align with ticks. An inactive none time
+may lie beyond the horizon and need not align with ticks; it is finite,
+nonnegative integer microseconds but schedules no event. This ensures default60
+and normalized configs remain idempotent for short no-fault calls at arbitrary
+valid ticks (e.g. dt=.07s). Active injection ordering is unchanged.
+Nominal horizons shorter than30s yield R01 UNASSESSABLE rather than claiming a
+full tracking window. With nondefault tank height require explicit high_switch_m
+and sensor_max_m. Target lies within sensor range; high switch <=sensor_max_m.
+Initial valve opening equals configured drain_command and is recorded.
+
+Hash inclusion for M1: src/**/*.py, scripts/**/*.py, schemas/*.json,
+pyproject.toml and uv.lock. Exclude artifacts, tests, docs and caches; listed paths
+and framing version appear in provenance. Python-baseline controller build hash
+identifies src/fluidlab/control.py bytes until actual C build evidence exists.

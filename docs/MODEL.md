@@ -1,5 +1,10 @@
 # Model contract and hand derivation
 
+The atmospheric tank equations below remain the preserved benchmark. Required
+thermal-loop derivation and domain policy are in THERMAL_MODEL.md. Both are
+assumed educational models; physical validation NOT_STARTED. Revised milestones
+and execution acceptance are REQUIREMENTS.md and Codex_Implementation_Plan.md.
+
 ## Physical layout
 
 A supply reservoir (treated as an unlimited external boundary) feeds an ideal controllable metering pump. The pump discharges into an open vertical tank. A variable outlet drains to a separate external reservoir at atmospheric pressure. A level transmitter feeds the PI controller; an independent high-level switch feeds the supervisor. This is a through-flow topology, not a closed loop. The code does not model either external reservoir's inventory.

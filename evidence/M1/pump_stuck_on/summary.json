@@ -1,0 +1,202 @@
+{
+  "version": 1,
+  "name": "pump_stuck_on",
+  "rule_results": {
+    "R02_volume_balance": {
+      "status": "PASS",
+      "rationale": "augmented ODE volume consistency residual < 1e-9 m3"
+    },
+    "R08_hazard_exposed": {
+      "status": "PASS",
+      "rationale": "high-switch trip followed by full-tank terminal event; containment failed"
+    },
+    "R10_latched_command_stop": {
+      "status": "PASS",
+      "rationale": "all records at/after trip retain reason and request zero pump"
+    }
+  },
+  "checks": {
+    "R02_volume_balance": true,
+    "R08_hazard_exposed": true,
+    "R10_latched_command_stop": true
+  },
+  "all_checks_pass": true,
+  "evidence_valid": true,
+  "complete_horizon": false,
+  "containment": "FAILED",
+  "peak_level_m": 0.9999999999999999,
+  "continuous_peak_bound_m": 1.0008000000000001,
+  "largest_sample_gap_s": 0.10000000000002274,
+  "final_level_m": 0.9999999999999999,
+  "max_volume_residual_m3": 5.898059818321144e-16,
+  "trip_reason": "high_high",
+  "trip_time_s": 117.9,
+  "boundary": "full",
+  "run_outcome": "domain_boundary_reached",
+  "run_failure": null,
+  "diagnostics": {
+    "interval_count": 1612,
+    "nfev": 32234,
+    "njev": 0,
+    "nlu": 0,
+    "last_interval": {
+      "start_time_s": 161.1,
+      "requested_end_time_s": 161.2,
+      "solver": {
+        "version": 1,
+        "method": "RK45",
+        "rtol": 1e-07,
+        "atol": [
+          1e-09,
+          1e-11,
+          1e-09,
+          1e-11,
+          1e-11
+        ],
+        "max_step_s": 0.05,
+        "requested_rtol": 1e-07,
+        "effective_max_step_s": 0.05
+      },
+      "success": true,
+      "status": 1,
+      "message": "A termination event occurred.",
+      "nfev": 14,
+      "njev": 0,
+      "nlu": 0,
+      "boundary_level_residual_m": -1.1102230246251565e-16,
+      "boundary_root_tolerance_m": 1.4210854715202004e-14,
+      "accepted_time_s": 161.18070912370803
+    },
+    "failure": null
+  },
+  "execution_config": {
+    "version": 1,
+    "scenario": {
+      "schema_version": 1,
+      "name": "pump_stuck_on",
+      "duration_s": 240.0,
+      "dt_s": 0.1,
+      "initial_level_m": 0.25,
+      "target_level_m": 0.5,
+      "fault": "pump_stuck_on",
+      "fault_at_s": 60.0,
+      "expected": "observe_hazard",
+      "seed": 42,
+      "sensor_noise_std_m": 0.0,
+      "bias_rate_m_s": -0.01,
+      "controller": {
+        "version": 1,
+        "kp_per_m": 3.0,
+        "ki_per_m_s": 0.06,
+        "bias": 0.3155,
+        "drain_command": 0.65,
+        "high_switch_m": 0.8,
+        "stale_after_s": 0.3,
+        "sensor_min_m": 0.0,
+        "sensor_max_m": 1.0
+      }
+    },
+    "model": {
+      "version": 1,
+      "topology": "atmospheric_tank",
+      "parameters": {
+        "area_m2": 0.05,
+        "tank_height_m": 1.0,
+        "outlet_area_m2": 0.0001,
+        "discharge_coefficient": 0.62,
+        "gravity_m_s2": 9.80665,
+        "pump_max_m3_s": 0.0004,
+        "pump_tau_s": 1.0,
+        "valve_tau_s": 0.5
+      },
+      "parameter_pedigree": "assumed",
+      "initial_pump_flow_m3_s": 0.0,
+      "initial_valve_opening": 0.65
+    },
+    "solver": {
+      "version": 1,
+      "method": "RK45",
+      "rtol": 1e-07,
+      "atol": [
+        1e-09,
+        1e-11,
+        1e-09,
+        1e-11,
+        1e-11
+      ],
+      "max_step_s": 0.05,
+      "requested_rtol": 1e-07,
+      "effective_max_step_s": 0.05
+    },
+    "provenance": {
+      "source_sha256": "6691819d7eaaae533d9e05acb15a32ad58cf865dc971a64a40b9ead1ac546713",
+      "source_files_sha256": {
+        "pyproject.toml": "9b48979f9c0168aca7994a9ab0c513099e31c7a9eb5853a710ef08bf29b723ca",
+        "schemas/tank-manifest-v1.schema.json": "482012546b3d4ce2786c28185e481b0aa571b8d0ad8e3c1202acce0dabdadeca",
+        "schemas/tank-model-v1.schema.json": "8db6727e02c9076c6539ea2674ef1ebe057b1bcc96f359998b65f9df8c76d21a",
+        "schemas/tank-scenario-v1.schema.json": "73bc16d99892a2ebb12b0f6f398196bc85454ea244ea227ee3ba2f9ec225b0e0",
+        "schemas/tank-solver-v1.schema.json": "f012c7765f8c86a6f36ddcdcc7c8843f6f25ffc66d672166978ef7ab97bc0dc6",
+        "schemas/tank-summary-v1.schema.json": "4d96d0fb4bbb89ed433a287a19573edb3a4b248093824cf1cff424fbdfb4aecb",
+        "schemas/tank-telemetry-v1.schema.json": "e6b5cecbc4642e53d3dc7a717573d47782a277baa2bf9ecccda8cc11eeecb51d",
+        "scripts/run_suite.py": "ab33d251121241d8a6aa20d2b8e6b89454e1513e84cc3d7e0ab57ebc9830355b",
+        "src/fluidlab/__init__.py": "f8d23a932ec8175c50d317cb3367c0f6e81bdff7a9b20737bbd07eb760d14377",
+        "src/fluidlab/cli.py": "6c67e549184fa4829c988ccbe554a1b86201bd38409eed34c32874069de46366",
+        "src/fluidlab/contracts.py": "ef9d5fda55b594d4ac4cded6ff7f9908a786d4902f19895dababc98f2e53a408",
+        "src/fluidlab/control.py": "45a80a9cb8eb95f71f2d2194bb256e26a161672cd9d03121f17ac5b20f84569a",
+        "src/fluidlab/evaluator.py": "542ec0950a761eef63497a027e767bff0229fd1a7df4e3b4d80e4d06870646b7",
+        "src/fluidlab/plant.py": "0463cddf9682ae6466fd510979a1b45842eb87ad6c7eeee5fa8bd1aeee3300ae",
+        "src/fluidlab/provenance.py": "556da1613e047ccb1414ee68b13ebb1225b05b3da66b3694a9f01977e21218bc",
+        "src/fluidlab/runner.py": "7947e732a50a3dd8f7963c89f986abe29fe2260126de52e020da2966799b50ac",
+        "uv.lock": "76472376ec629c6fb1da220501125f413dc2944f76e75139283ea2cb3ca7bcd0"
+      },
+      "source_inclusion": [
+        "src/**/*.py",
+        "scripts/**/*.py",
+        "schemas/*.json",
+        "pyproject.toml",
+        "uv.lock"
+      ],
+      "source_hash_framing": "POSIX UTF-8 path, NUL, uint64 BE raw-byte length, raw bytes",
+      "source_line_endings": "raw bytes; repository .gitattributes specifies LF",
+      "lock_sha256": "76472376ec629c6fb1da220501125f413dc2944f76e75139283ea2cb3ca7bcd0",
+      "controller_sha256": "45a80a9cb8eb95f71f2d2194bb256e26a161672cd9d03121f17ac5b20f84569a",
+      "controller_implementation": "python_tank_baseline",
+      "firmware_execution": "NOT_EXECUTED",
+      "python": "3.12.2",
+      "numpy": "2.3.5",
+      "scipy": "1.17.0",
+      "units": {
+        "time_s": "s",
+        "sample_time_s": "s",
+        "receipt_time_s": "s",
+        "measurement_age_s": "s",
+        "level_m": "m",
+        "measured_level_m": "m",
+        "target_m": "m",
+        "flow_m3_s": "m3/s",
+        "volume_residual_m3": "m3",
+        "pump_command": "1",
+        "requested_valve_command": "1",
+        "applied_pump_command": "1",
+        "applied_valve_command": "1",
+        "valve_opening": "1"
+      },
+      "git_revision": "378de6c94c371daa7a9796637432d96228d1d708",
+      "git_dirty": true,
+      "git_root_matches": true
+    }
+  },
+  "peak_bound_meaning": "sample max + Qmax/A * largest gap; excludes numerical error",
+  "result_meaning": "scenario expectations only; NOT physical safety validation",
+  "physical_validation": "NOT_STARTED",
+  "parameters": {
+    "area_m2": 0.05,
+    "tank_height_m": 1.0,
+    "outlet_area_m2": 0.0001,
+    "discharge_coefficient": 0.62,
+    "gravity_m_s2": 9.80665,
+    "pump_max_m3_s": 0.0004,
+    "pump_tau_s": 1.0,
+    "valve_tau_s": 0.5
+  }
+}

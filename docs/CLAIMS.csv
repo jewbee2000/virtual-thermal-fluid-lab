@@ -1,9 +1,13 @@
 claim_id,claim,basis,evidence,status,limitation
 C01,Volume conservation,derivation + analytic benchmarks,tests/test_science.py,VERIFIED_EDUCATIONAL_DOMAIN,Augmented conservation residual alone is not an independent physical oracle
-C02,Nominal tracking,chosen acceptance criteria,examples/verification-results.txt,SOFTWARE_CHECKED,Assumed parameters; not measured hardware
-C03,Bias fault high-switch containment,modeled scenario,examples/suite.json,SOFTWARE_CHECKED,Independent software channel does not establish hardware independence
-C04,Stop command guarantees containment,counterexample,examples/suite.json,REFUTED_IN_STUCK_PUMP_SCENARIO,Commanded and applied actuator states differ
+C02,Nominal tracking,chosen acceptance criteria,evidence/M0/unit-tests.txt,SOFTWARE_CHECKED_2026_10_06,Assumed parameters; not measured hardware
+C03,Bias fault high-switch containment,modeled scenario,evidence/M0/suite.json,SOFTWARE_CHECKED_2026_10_06,Independent software channel does not establish hardware independence
+C04,Stop command guarantees containment,counterexample,evidence/M0/suite.json,REFUTED_IN_STUCK_PUMP_SCENARIO,Commanded and applied actuator states differ
 C05,Physical predictive accuracy,requires measured holdout data,docs/VERIFICATION.md,NOT_STARTED,No physical dataset
 C06,Hard real-time HIL,requires physical DUT/I-O timing evidence,docs/RESEARCH_AND_PLAN.md S17,NOT_IMPLEMENTED,Virtual time SIL only
-C07,Custom agent config schema,official docs checked 2026-10-05,docs/RESEARCH_AND_PLAN.md S12,DOCUMENTATION_CHECKED,TOML syntax checked; actual local Codex runtime not available in authoring environment
+C07,Historical optional custom agent config,starter official docs checked 2026-10-05,docs/RESEARCH_AND_PLAN.md S12,HISTORICAL_DOCUMENTATION_CHECK,Desktop delegation executed; standalone role-file loading not separately tested
 C08,Endurance uses this software stack,no employer evidence,docs/RESEARCH_AND_PLAN.md S16,UNKNOWN,Do not assert employer tools
+C09,Native Windows starter baseline reproduced,actual 20 tests and seven scenarios,evidence/M0,SOFTWARE_CHECKED_2026_10_06,Inherited example logs are separate; stuck pump remains uncontained
+C10,Thermal pump and equilibrium hand calculation,independent equations and linear matrix solution,docs/THERMAL_MODEL.md,DERIVATION_REVIEWED,Assumed coefficients; no new plant implementation or physical dataset yet
+C11,Common C core executed on MCU,requires target build plus board capture,docs/tasks.json,NOT_EXECUTED,Cross-build alone cannot establish board execution
+C12,Website deployment source verified,matching source immutable artifact and live article,docs/DEPLOYMENT.md,WORKFLOW_IDENTIFIED,New thermal lab article not built or published

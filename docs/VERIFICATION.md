@@ -6,6 +6,16 @@ M0–M7. Original T02/T07 references below are historical. Native Windows M0 rer
 validation remains NOT_STARTED and board execution NOT_EXECUTED. M1 corrects
 R09 unconditional success and R10 vacuous passes without relaxing thresholds.
 
+M1 tank solver comparison uses per-state scales
+[1e-7m,1e-9m3/s,1e-7 opening,1e-9m3,1e-9m3] and max normalized error<=1
+against a tighter DOP853 run. This replaces the dimensional interpretation of a
+mixed-unit raw maximum; all original independent analytic oracles remain.
+Terminal root roundoff may leave an event snapshot up to64 floating point ulps
+outside an exact boundary: retain raw state, signed residual and tolerance in
+diagnostics and permanently latch termination. This tolerance addresses numerical
+root location only; it does not permit an interior trajectory to leave the domain
+or clamp away an inventory error. Relevant regression checks must execute.
+
 Use NASA-STD-7009B as a credibility checklist, not a certification claim [S1]. The project-specific thresholds below are authored here. Freeze them before examining new scenario outcomes; document any revision and its reason.
 
 ## Tests already implemented

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Executed tank solver version 1",
+  "type": "object", "additionalProperties": false,
+  "required": ["version", "method", "rtol", "requested_rtol", "atol", "max_step_s", "effective_max_step_s"],
+  "properties": {
+    "version": {"const": 1}, "method": {"enum": ["RK45", "DOP853", "Radau"]},
+    "rtol": {"type": "number", "exclusiveMinimum": 0},
+    "requested_rtol": {"type": "number", "exclusiveMinimum": 0},
+    "atol": {"type": "array", "minItems": 5, "maxItems": 5, "items": {"type": "number", "exclusiveMinimum": 0}},
+    "max_step_s": {"type": "number", "exclusiveMinimum": 0, "maximum": 0.05},
+    "effective_max_step_s": {"type": "number", "exclusiveMinimum": 0, "maximum": 0.05}
+  },
+  "$comment": "Runtime persists SciPy precision-floor effective rtol alongside requested value; actual interval cap min(dt_s,max_step_s)."
+}

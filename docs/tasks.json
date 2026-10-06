@@ -21,8 +21,8 @@
         "evidence/M0/"
       ],
       "acceptance": "ENV-01 GOV-01 BASE-01 RELEASE-01; details in docs/REQUIREMENTS.md and revised plan",
-      "status": "in_progress",
-      "commit": null,
+      "status": "complete",
+      "commit": "378de6c94c371daa7a9796637432d96228d1d708",
       "commands": [
         {
           "command": "uv sync --locked",
@@ -37,6 +37,24 @@
           "command": "uv run python scripts/run_suite.py",
           "exit_code": 0,
           "outcome": "7 expectations passed; pump_stuck_on high_high/full remains uncontained"
+        },
+        {
+          "command": "git init -b main; git commit -m \"M0: preserve verified tank starter and freeze revised requirements\"",
+          "exit_code": 0
+        },
+        {
+          "command": "gh api user --jq .login; gh api repos/jewbee2000/virtual-thermal-fluid-lab",
+          "exit_code": "0 / 404",
+          "outcome": "jewbee2000 authenticated; name not found before creation"
+        },
+        {
+          "command": "gh repo create jewbee2000/virtual-thermal-fluid-lab --private --source . --remote origin --push",
+          "exit_code": 0
+        },
+        {
+          "command": "gh repo view jewbee2000/virtual-thermal-fluid-lab --json nameWithOwner,isPrivate,url,defaultBranchRef",
+          "exit_code": 0,
+          "outcome": "requested repository private, main, origin verified"
         }
       ],
       "artifacts": [
@@ -45,9 +63,7 @@
         "evidence/M0/scenario-console.txt",
         "artifacts/M0-starter/"
       ],
-      "unresolved_limitations": [
-        "Private GitHub creation pending CLI browser sign-in; local initial commit pending reconciled docs."
-      ]
+      "unresolved_limitations": []
     },
     {
       "id": "M1",
@@ -63,14 +79,46 @@
         ".github/"
       ],
       "acceptance": "INPUT-01 TIME-01 PROV-01 DOMAIN-01 EVAL-01 TANK-01 PEAK-01 CTRL-01; details in docs/REQUIREMENTS.md and revised plan",
-      "status": "in_progress",
+      "status": "awaiting_ci",
       "commit": null,
-      "commands": [],
-      "artifacts": [],
+      "commands": [
+        {
+          "command": "uv run python -m unittest discover -s tests -v",
+          "exit_code": 0,
+          "outcome": "55 tests passed11.305s including original20"
+        },
+        {
+          "command": "uv run python scripts/run_suite.py --out artifacts/M1-work/accepted-suite",
+          "exit_code": 0,
+          "outcome": "7 expectations passed; stuck-pump containmentFAILED"
+        },
+        {
+          "command": "uv run fluidlab scenarios/nominal.json --out artifacts/M1-work/final-nominal --plot",
+          "exit_code": 0,
+          "outcome": "plot visually inspected; its accurate manifest precedes last missing-trip-time guard"
+        },
+        {
+          "command": ".venv\\Scripts\\python.exe -B - (read-only reviewer exact corruption probes)",
+          "exit_code": 0,
+          "outcome": "all previously false-pass cases rejected; truncated post-trip cannotpass"
+        },
+        {
+          "command": "..\\.venv\\Scripts\\python.exe -B -m unittest (five named domain/provenance/solver tests)",
+          "exit_code": 0,
+          "outcome": "5 passed0.592s"
+        }
+      ],
+      "artifacts": [
+        "evidence/M1/",
+        "artifacts/M1-work/accepted-suite/",
+        "artifacts/M1-work/final-nominal/"
+      ],
       "unresolved_limitations": [
-        "Sole implementation writer m1_writer owns src/tests/scripts; coordinator owns schemas/docs/CI.",
-        "Inherited tank reports are historical; corrected evidence not yet generated."
-      ]
+        "Windows/Linux revised CI not yet executed.",
+        "Python tank controller baseline; thermal/C/MCU/replay still unimplemented.",
+        "Continuous level bound excludes numerical error; physical validation NOT_STARTED."
+      ],
+      "issue": "https://github.com/jewbee2000/virtual-thermal-fluid-lab/issues/1"
     },
     {
       "id": "M2",

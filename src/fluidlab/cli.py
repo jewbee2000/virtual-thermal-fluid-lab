@@ -12,7 +12,7 @@ def main():
     args = parser.parse_args()
     cfg=load_scenario(args.scenario)
     rows,summary=run(cfg,method=args.solver)
-    write_run(args.out,cfg,rows,summary,args.solver)
+    args.out.mkdir(parents=True, exist_ok=True)
     if args.plot:
         import matplotlib
         matplotlib.use("Agg")
@@ -21,7 +21,7 @@ def main():
         t=[r["time_s"] for r in rows]
         axes[0].plot(t,[r["level_m"] for r in rows],label="True level")
         axes[0].plot(t,[r["measured_level_m"] for r in rows],label="Sensor",alpha=.7)
-        axes[0].axhline(.8,color="red",ls="--",label="Independent high switch")
+        axes[0].axhline(cfg.controller.high_switch_m,color="red",ls="--",label="Independent high switch")
         axes[0].set_ylabel("Level (m)");axes[0].legend()
         axes[1].plot(t,[r["pump_command"] for r in rows],label="Requested pump")
         axes[1].plot(t,[r["applied_pump_command"] for r in rows],label="Applied pump",ls="--")
@@ -30,6 +30,7 @@ def main():
         axes[2].set_ylabel("Inflow (L/min)");axes[2].set_xlabel("Virtual time (s)")
         fig.suptitle(cfg["name"]+" — educational model; physical validation pending")
         fig.tight_layout();fig.savefig(args.out/"plot.png",dpi=160);plt.close(fig)
+    write_run(args.out,cfg,rows,summary,extra_artifacts=("plot.png",) if args.plot else ())
     print(json.dumps(summary,indent=2))
     return 0 if summary["all_checks_pass"] else 1
 
